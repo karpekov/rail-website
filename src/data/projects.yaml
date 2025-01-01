@@ -26,7 +26,7 @@ current_projects:
 
   - title: "Rethinking Sim2Real: Lower Fidelity Simulation Leads to Higher Sim2Real Transfer in Navigation."
     short: Rethinking Sim2Real
-    publication: CoRL,22
+    publication: CoRL'22
     image: /images/projects/joanne_sim2real.jpg
     team: [Joanne Truong, Max Rudolph, Naoki Yokoyama, Sonia Chernova, Dhruv Batra, Akshara Rai]
     pdf: https://arxiv.org/abs/2207.10821
