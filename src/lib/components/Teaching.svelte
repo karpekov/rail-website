@@ -2,6 +2,8 @@
     import { teaching } from '$lib/utils/dataLoader';
     import { slide } from 'svelte/transition';
 
+    export let showMatrix = false;
+
     let showPastCourses = false;
 
     // Filter courses by status
@@ -15,7 +17,7 @@
 </script>
 
 <section id="teaching">
-    <h2 class="h2 mb-6">Teaching</h2>
+    <h2 class="h2 mb-6 font-orbitron">Teaching</h2>
 
     <!-- Current and Upcoming Courses Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
@@ -25,7 +27,7 @@
                 <h3 class="text-lg font-semibold mb-4">Current Courses</h3>
                 <div class="space-y-4">
                     {#each currentCourses as course}
-                        <div class="p-4 rounded-lg bg-surface-100-800-token border-l-4 border-primary-500">
+                        <div class="p-4 rounded-lg bg-surface-100-800-token border-l-4 border-primary-500" class:matrix-card={showMatrix}>
                             <div class="flex justify-between items-start">
                                 <div>
                                     <h4 class="font-bold">{course.name}</h4>
@@ -68,7 +70,7 @@
                 <h3 class="text-lg font-semibold mb-4">Upcoming Courses</h3>
                 <div class="space-y-4">
                     {#each upcomingCourses as course}
-                        <div class="p-4 rounded-lg bg-surface-100-800-token">
+                        <div class="p-4 rounded-lg bg-surface-100-800-token border-l-4 border-primary-500" class:matrix-card={showMatrix}>
                             <div class="flex justify-between items-start">
                                 <div>
                                     <h4 class="font-bold">{course.name}</h4>
@@ -128,7 +130,7 @@
             {#if showPastCourses}
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4" transition:slide>
                     {#each pastCourses as course}
-                        <div class="p-4 rounded-lg bg-surface-100-800-token">
+                        <div class="p-4 rounded-lg bg-surface-100-800-token border-l-4 border-primary-500" class:matrix-card={showMatrix}>
                             <div class="flex justify-between items-start">
                                 <div>
                                     <h4 class="font-bold">{course.name}</h4>
@@ -166,3 +168,17 @@
         </div>
     {/if}
 </section>
+
+<style>
+    /* Matrix theme card styles */
+    .matrix-card {
+        border-color: #0F0 !important;
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    .matrix-card:hover {
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+        border-color: #0F0 !important;
+    }
+</style>

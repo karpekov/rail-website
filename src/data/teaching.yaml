@@ -1,24 +1,18 @@
 courses:
-  - name: "CS 294-137: Robotic Manipulation and Interaction"
-    semester: "Spring 2024"
-    description: "Advanced topics in robotic manipulation, focusing on perception, planning, and control for interactive robotic systems."
-    status: "upcoming"
-    website: "https://example.com/cs294"
+  - name: "CS 3630: Introduction to Robotics and Perception"
+    semester: Spring 2025
+    description: "Course covering robot capabilities, kinematics, control architectures, sensor-based navigation, and Python-based robotics."
+    status: upcoming
+    website: https://www.roboticsbook.org/intro.html
 
-  - name: "CS 287: Advanced Robotics"
-    semester: "Fall 2023"
-    description: "Graduate course covering modern robotics techniques including dynamics, control, and learning."
-    status: "current"
-    website: "https://example.com/cs287"
+  - name: "CS 7633 Human-Robot Interaction"
+    semester: Fall 2024
+    description: "Graduate course covering human-robot interaction and social robot learning, focusing on physical embodiment, multi-modal interfaces, human-robot teamwork, social cognition, and ethical considerations, culminating in a final project."
+    status: current
+    website: "https://faculty.cc.gatech.edu/~chernova/CS7633/index.html"
 
-  - name: "CS 194: Special Topics in Robotics"
-    semester: "Spring 2023"
-    description: "Undergraduate course introducing key concepts in robotics and automation."
-    status: "past"
-    website: "https://example.com/cs194"
-
-  - name: "CS 288: Robot Learning"
-    semester: "Fall 2022"
-    description: "Advanced machine learning techniques applied to robotics problems."
-    status: "past"
-    website: "https://example.com/cs288"
+  - name: "CS/ECE/ME/AE/BME 7785 Introduction to Robotics Research."
+    # semester: "Spring 2023"
+    description: "Familiarizes students with the core of robotics: mechanics, control, perception, AI, and autonomy. Provides an introduction to the mathematical tools required in robotics research."
+    status: past
+    website: "https://oscar.gatech.edu/bprod/bwckctlg.p_disp_course_detail?cat_term_in=202002&subj_code_in=BMED&crse_numb_in=7785"

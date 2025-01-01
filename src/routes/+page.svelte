@@ -64,19 +64,19 @@
 			<div class="line-divider" />
 
 			<div class="section-container">
-				<Projects />
+				<Projects {showMatrix} />
 			</div>
 
 			<div class="line-divider" />
 
 			<div class="section-container">
-				<Members />
+				<Members {showMatrix} />
 			</div>
 
 			<div class="line-divider" />
 
 			<div class="section-container">
-				<Teaching />
+				<Teaching {showMatrix} />
 			</div>
 
 			<div class="line-divider" />
@@ -168,5 +168,16 @@
 	/* Mobile menu background */
 	:global(.matrix-theme #mobile-menu) {
 		background-color: rgba(0, 0, 0, 0.95) !important;
+	}
+
+	:global(.matrix-theme .h2) {
+		color: #0F0 !important;
+		text-shadow: 0 0 10px #0F0, 0 0 20px #0F0 !important;
+	}
+
+	/* For any h2 elements that don't use the h2 class */
+	:global(.matrix-theme h2) {
+		color: #0F0 !important;
+		text-shadow: 0 0 10px #0F0, 0 0 20px #0F0 !important;
 	}
 </style>

@@ -17,7 +17,7 @@
 </script>
 
 <section id="news">
-    <h2 class="h2">Recent News</h2>
+    <h2 class="h2 font-orbitron">News</h2>
     {#if allNews.length > 0}
         <div class="card p-4 space-y-4">
             {#each allNews.slice(0, visibleCount) as item}

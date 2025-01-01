@@ -66,7 +66,7 @@
             Connecting Robots to the Human World
         </p>
         <p class="text-md lg:text-xl pt-2 font-opensans" class:matrix-text={showMatrix}>
-            RAIL lab at <a href="https://www.gatech.edu/", target="_blank">Georgia Tech</a>
+            RAIL Lab at <a href="https://www.gatech.edu/", target="_blank">Georgia Tech</a>
             focuses on developing intelligent robotic and AI systems that can naturally
             interact with humans in various contexts, from healthcare to manufacturing.
             Through interdisciplinary research combining robotics, artificial intelligence,

@@ -181,6 +181,24 @@
 </div>
 
 <style>
+    /* Matrix theme button styles */
+    :global(.matrix-theme) .btn.variant-ghost {
+        color: #fff !important;
+    }
+
+    :global(.matrix-theme) .btn.variant-ghost:hover {
+        background-color: rgba(0, 255, 0, 0.1) !important;
+        color: #0F0 !important;
+        box-shadow: 0 0 10px #0F0;
+    }
+
+    /* Mobile menu items in matrix theme */
+    :global(.matrix-theme) #mobile-menu .btn.variant-ghost:hover {
+        background-color: rgba(0, 255, 0, 0.1) !important;
+        color: #0F0 !important;
+        box-shadow: 0 0 10px #0F0;
+    }
+
     .btn-icon {
         @apply inline-flex items-center justify-center rounded-token h-6 w-6 overflow-hidden;
     }

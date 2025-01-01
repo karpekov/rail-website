@@ -4,14 +4,14 @@
 </script>
 
 <section id="fun">
-    <h2 class="h2">Fun</h2>
+    <h2 class="h2 font-orbitron">Fun</h2>
 
     <!-- Horizontally Scrollable Cards -->
-    <div class="overflow-x-auto pb-4">
+    <div class="overflow-x-auto pb-4 pt-2">
         <div class="flex space-x-4 px-2">
             {#each activities as activity}
-                <div class="flex-none w-72">
-                    <div class="card p-4 h-full">
+                <div class="flex-none w-72 pt-2">
+                    <div class="card p-4 h-full fun-card hover:bg-surface-200-700-token">
                         <div class="aspect-video mb-4 rounded-lg overflow-hidden">
                             <img
                                 src={activity.image}
@@ -42,5 +42,33 @@
     }
     .overflow-x-auto::-webkit-scrollbar {
         display: none;
+    }
+
+    .fun-card {
+        transition: all 0.3s ease;
+    }
+
+    :global(:not(.matrix-theme)) .fun-card:hover {
+        box-shadow: 0 0 20px rgba(var(--color-primary-500), 0.3);
+        transform: translateY(-2px);
+    }
+
+    :global(.matrix-theme) .fun-card {
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+    }
+
+    :global(.matrix-theme) .fun-card:hover {
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+        transform: translateY(-2px);
+    }
+
+    :global(.matrix-theme) .chip.variant-filled-primary {
+        background-color: rgba(0, 255, 0, 0.2) !important;
+        color: #0F0 !important;
+    }
+
+    :global(.matrix-theme) .chip.variant-filled-primary:hover {
+        background-color: rgba(0, 255, 0, 0.3) !important;
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
     }
 </style>

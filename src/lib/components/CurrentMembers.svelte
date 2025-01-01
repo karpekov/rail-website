@@ -53,20 +53,46 @@
                         {#if getProfileLink(member)}
                             <a href={getProfileLink(member)} target="_blank" rel="noopener noreferrer" class="block">
                                 <div class="person-card-image">
-                                    <img
-                                        src={showMatrix ? "/images/people/robot.jpg" : member.photo}
-                                        alt={member.name}
-                                        class="w-full h-full object-cover"
-                                    />
+                                    <div class="flip-container">
+                                        <div class="flipper">
+                                            <div class="front">
+                                                <img
+                                                    src={showMatrix ? "/images/people/robot_white.jpg" : member.photo}
+                                                    alt={member.name}
+                                                    class="w-full h-full object-cover"
+                                                />
+                                            </div>
+                                            <div class="back">
+                                                <img
+                                                    src={member.photo}
+                                                    alt={member.name}
+                                                    class="w-full h-full object-cover"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </a>
                         {:else}
                             <div class="person-card-image">
-                                <img
-                                    src={showMatrix ? "/images/people/robot.jpg" : member.photo}
-                                    alt={member.name}
-                                    class="w-full h-full object-cover"
-                                />
+                                <div class="flip-container">
+                                    <div class="flipper">
+                                        <div class="front">
+                                            <img
+                                                src={showMatrix ? "/images/people/robot_white.jpg" : member.photo}
+                                                alt={member.name}
+                                                class="w-full h-full object-cover"
+                                            />
+                                        </div>
+                                        <div class="back">
+                                            <img
+                                                src={member.photo}
+                                                alt={member.name}
+                                                class="w-full h-full object-cover"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         {/if}
                         <p class="font-semibold text-center text-sm break-words">{member.alias}</p>
@@ -84,20 +110,46 @@
                         {#if getProfileLink(member)}
                             <a href={getProfileLink(member)} target="_blank" rel="noopener noreferrer" class="block">
                                 <div class="person-card-image">
-                                    <img
-                                        src={showMatrix ? "/images/people/robot.jpg" : member.photo}
-                                        alt={member.name}
-                                        class="w-full h-full object-cover"
-                                    />
+                                    <div class="flip-container">
+                                        <div class="flipper">
+                                            <div class="front">
+                                                <img
+                                                    src={showMatrix ? "/images/people/robot_white.jpg" : member.photo}
+                                                    alt={member.name}
+                                                    class="w-full h-full object-cover"
+                                                />
+                                            </div>
+                                            <div class="back">
+                                                <img
+                                                    src={member.photo}
+                                                    alt={member.name}
+                                                    class="w-full h-full object-cover"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </a>
                         {:else}
                             <div class="person-card-image">
-                                <img
-                                    src={showMatrix ? "/images/people/robot.jpg" : member.photo}
-                                    alt={member.name}
-                                    class="w-full h-full object-cover"
-                                />
+                                <div class="flip-container">
+                                    <div class="flipper">
+                                        <div class="front">
+                                            <img
+                                                src={showMatrix ? "/images/people/robot_white.jpg" : member.photo}
+                                                alt={member.name}
+                                                class="w-full h-full object-cover"
+                                            />
+                                        </div>
+                                        <div class="back">
+                                            <img
+                                                src={member.photo}
+                                                alt={member.name}
+                                                class="w-full h-full object-cover"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         {/if}
                         <p class="font-semibold text-center text-sm break-words">{member.name}</p>
@@ -116,6 +168,52 @@
     }
 
     .person-card-image {
-        @apply w-14 h-14 sm:w-20 sm:h-20 rounded-full ring-2 ring-primary-500 overflow-hidden hover:ring-4 hover:ring-primary-500 transition-all;
+        @apply w-14 h-14 sm:w-20 sm:h-20 rounded-full overflow-hidden transition-all;
+    }
+
+    /* Default ring style */
+    :global(:not(.matrix-theme)) .person-card-image {
+        @apply ring-2 ring-primary-500 hover:ring-4 hover:ring-primary-500;
+    }
+
+    /* Matrix theme ring style */
+    :global(.matrix-theme) .person-card-image {
+        @apply ring-2 hover:ring-4;
+        --ring-color: #0F0;
+        box-shadow: 0 0 0 2px #0F0;
+    }
+
+    :global(.matrix-theme) .person-card-image:hover {
+        box-shadow: 0 0 0 4px #0F0, 0 0 10px #0F0;
+    }
+
+    .flip-container {
+        @apply w-full h-full perspective-1000;
+    }
+
+    :global(.matrix-theme) .person-card-image:hover .flipper {
+        transform: rotateY(180deg);
+    }
+
+    .flipper {
+        @apply relative w-full h-full transition-transform duration-500;
+        transform-style: preserve-3d;
+    }
+
+    .front, .back {
+        @apply absolute w-full h-full backface-hidden rounded-full overflow-hidden;
+    }
+
+    .back {
+        transform: rotateY(180deg);
+    }
+
+    /* Add these Tailwind utilities */
+    .perspective-1000 {
+        perspective: 1000px;
+    }
+
+    .backface-hidden {
+        backface-visibility: hidden;
     }
 </style>
