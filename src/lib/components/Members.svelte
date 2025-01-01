@@ -107,9 +107,9 @@
         <h3 class="h3 mb-4">Current Members</h3>
         <div class="flex flex-wrap justify-evenly sm:justify-start gap-4 max-w-6xl mx-auto px-4 pt-2">
             {#each currentMembers as member}
-                <div class="flex-none w-[160px] flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card hover:bg-surface-200-700-token">
+                <div class="flex-none w-[140px] sm:w-[160px] flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card hover:bg-surface-200-700-token">
                     <div
-                        class="w-32 h-32 sm:w-36 sm:h-36 rounded-full bg-surface-300-600-token overflow-hidden ring-2"
+                        class="w-24 h-24 sm:w-36 sm:h-36 rounded-full bg-surface-300-600-token overflow-hidden ring-2"
                         class:ring-white={!showMatrix}
                         class:ring-black={showMatrix}
                     >
@@ -117,7 +117,7 @@
                     </div>
 
                     <!-- Social Links -->
-                    <div class="flex gap-2 mt-2">
+                    <div class="flex gap-1.5 sm:gap-2 mt-2">
                         {#if member.website}
                             <a
                                 href={member.website}
@@ -174,8 +174,8 @@
                     </div>
 
                     <div class="text-center space-y-1 w-full">
-                        <h4 class="font-medium text-sm sm:text-base break-words hyphens-auto member-name">{member.name}</h4>
-                        <p class="font-thin text-xs sm:text-sm break-words">{member.degree_detail}</p>
+                        <h4 class="font-medium text-xs sm:text-base break-words hyphens-auto member-name">{member.name}</h4>
+                        <p class="font-thin text-xs break-words">{member.degree_detail}</p>
                     </div>
                 </div>
             {/each}
@@ -212,9 +212,9 @@
                 transition:slide
             >
                 {#each alumni as member}
-                    <div class="flex-none w-[160px] flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card hover:bg-surface-200-700-token">
+                    <div class="flex-none w-[140px] sm:w-[160px] flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card hover:bg-surface-200-700-token">
                         <div
-                            class="w-32 h-32 sm:w-36 sm:h-36 rounded-full bg-surface-300-600-token overflow-hidden ring-2"
+                            class="w-24 h-24 sm:w-36 sm:h-36 rounded-full bg-surface-300-600-token overflow-hidden ring-2"
                             class:ring-white={!showMatrix}
                             class:ring-black={showMatrix}
                         >
@@ -222,7 +222,7 @@
                         </div>
 
                         <!-- Social Links -->
-                        <div class="flex gap-2 mt-2">
+                        <div class="flex gap-1.5 sm:gap-2 mt-2">
                             {#if member.website}
                                 <a
                                     href={member.website}
@@ -286,7 +286,7 @@
                         </div>
 
                         <div class="text-center space-y-1 w-full">
-                            <h4 class="font-normal text-sm sm:text-base break-words hyphens-auto member-name">{member.name}</h4>
+                            <h4 class="font-normal text-xs sm:text-base break-words hyphens-auto member-name">{member.name}</h4>
                             <p class="text-xs sm:text-sm break-words">{member.degree_detail}</p>
                             <div class="text-xs opacity-75">
                                 <p>Graduated in {member.graduation}</p>
