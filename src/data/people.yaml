@@ -1,0 +1,158 @@
+faculty:
+  - name: Sonia Chernova
+    alias: Sonia
+    status: current
+    degree: professor
+    degree_detail: Faculty
+    photo: /images/people/sonia.jpg
+    email: chernova@cc.gatech.edu
+    website: https://faculty.cc.gatech.edu/~chernova/
+    linkedin: https://www.linkedin.com/in/sonia-chernova-6b11781a/
+    scholar: https://scholar.google.com/citations?user=EYo_WkEAAAAJ&hl=en
+
+students:
+  - name: Maithili Patel
+    alias: Maithili
+    status: current
+    degree: phd
+    degree_detail: Robo PhD
+    photo: /images/people/maithili.jpg
+    year_joined: 2021
+    website: https://maithili.github.io/
+    linkedin: https://www.linkedin.com/in/Maithili/
+    github: https://github.com/Maithili
+    scholar: https://scholar.google.com/citations?user=dvqkwFYAAAAJ&hl=en
+
+  - name: Kartik Ramachandruni
+    alias: Kartik
+    status: current
+    degree: phd
+    degree_detail: Robo PhD
+    photo: /images/people/kartik.jpg
+    year_joined: 2020
+    website: https://kartikvrama.github.io/
+    scholar: https://scholar.google.com/citations?user=c6OhZroAAAAJ&hl=en&oi=ao
+
+  - name: Ethan Schneider
+    alias: Ethan
+    status: current
+    degree: phd
+    degree_detail: Robo PhD
+    photo: /images/people/ethan.jpg
+    year_joined: 2023
+    scholar: https://scholar.google.com/citations?user=0ubC95wAAAAJ&hl=en
+
+  - name: Niharika Mathur
+    alias: Niharika
+    status: current
+    degree: phd
+    degree_detail: HCC PhD
+    photo: /images/people/niharika.jpg
+    year_joined: 2021
+    website: https://www.niharikamathur.com/
+    scholar: https://scholar.google.com/citations?user=iP0Po4MAAAAJ&hl=en
+    linkedin: https://www.linkedin.com/in/niharika1011/
+    twitter: https://x.com/niharika1011
+
+  - name: Nadira Mahamane
+    alias: Nadira
+    status: current
+    degree: phd
+    degree_detail: Robo PhD
+    photo: /images/people/nadira.jpg
+    year_joined: 2024
+    website: https://www.nadira.me/
+    github: https://github.com/nadira30
+    linkedin: https://www.linkedin.com/in/nadira-m/
+    twitter: https://x.com/Nadira_mahamane
+
+
+  - name: Alexander Karpekov
+    alias: Alex
+    status: current
+    degree: phd
+    degree_detail: CS PhD
+    photo: /images/people/alex.jpg
+    year_joined: 2024
+    website: https://www.alexkarpekov.com/
+    github: https://github.com/karpekov
+    linkedin: https://www.linkedin.com/in/karpekov/
+    twitter: https://x.com/alexkarpekov
+    scholar: https://scholar.google.com/citations?user=r0RqCXQAAAAJ
+
+  - name: "Sarah Williams"
+    alias: Sarah
+    status: current
+    degree: ms
+    degree_detail: "CS MSc"
+    photo: "/images/people/placeholder.jpg"
+    email: "s.williams@university.edu"
+    year: "4th"
+    year_joined: 2023
+    website: "https://sarahw.io"
+    linkedin: "https://linkedin.com/in/sarahw"
+    github: "https://github.com/swilliams"
+    scholar: "https://scholar.google.com/citations?user=131415"
+
+  - name: "David Kim"
+    alias: David
+    status: current
+    degree: ms
+    degree_detail: "ME MSc"
+    photo: "/images/people/placeholder.jpg"
+    email: "d.kim@university.edu"
+    year: "2nd"
+    year_joined: 2019
+    linkedin: "https://linkedin.com/in/davidkim"
+    github: "https://github.com/dkim"
+
+  - name: "Andrew Yang"
+    alias: Andrew
+    status: current
+    degree: bs
+    degree_detail: "ME BSc"
+    photo: "/images/people/placeholder.jpg"
+    email: "d.kim@university.edu"
+    year: "2nd"
+    year_joined: 2018
+    linkedin: "https://linkedin.com/in/davidkim"
+    github: "https://github.com/dkim"
+
+
+  - name: "Emily Brown"
+    alias: Emily
+    status: alum
+    degree: phd
+    degree_detail: "Robo PhD"
+    photo: "/images/people/placeholder.jpg"
+    email: "e.brown@university.edu"
+    graduation: 2020
+    next_role: Research Scientist at Boston Dynamics
+    website: "https://emilybrown.me"
+    linkedin: "https://linkedin.com/in/ebrown"
+    github: "https://github.com/ebrown"
+    scholar: "https://scholar.google.com/citations?user=161718"
+
+  - name: "James Wilson"
+    alias: James
+    status: alum
+    degree: ms
+    degree_detail: "CE BSc"
+    photo: "/images/people/placeholder.jpg"
+    email: "j.wilson@university.edu"
+    graduation: 2021
+    next_role: SWE @ Apple
+    linkedin: "https://linkedin.com/in/jwilson"
+    github: "https://github.com/jwilson"
+
+  - name: Bob Wilson
+    alias: Bob
+    status: alum
+    degree: phd
+    degree_detail: CS PhD
+    photo: "/images/people/placeholder.jpg"
+    graduation: 2023
+    next_role: Assistant Professor at Tech University
+    website: "https://bobwilson.edu"
+    linkedin: "https://linkedin.com/in/bobwilson"
+    scholar: "https://scholar.google.com/citations?user=192021"

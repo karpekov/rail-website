@@ -1,0 +1,54 @@
+current_projects:
+  - title: Adaptive Robot Learning
+    description: Research on enabling robots to learn from human demonstrations
+    image: /images/projects/project1.jpg
+    publication: ICRA 2024
+    team: [Jane Smith, John Doe]
+    funding: NSF Grant \#12345
+
+  - title: Human-Robot Collaboration
+    description: Developing frameworks for effective human-robot teamwork
+    image: /images/projects/project2.jpg
+    publication: HRI 2024
+    team: [Jane Smith, Alice Johnson]
+    funding: Industry Partnership
+
+  - title: Robotic Manipulation
+    description: Novel approaches to dexterous manipulation with uncertainty
+    image: /images/projects/project3.jpg
+    publication: RSS 2024
+    team: [Jane Smith, Michael Chen]
+    funding: DOD Grant
+
+  - title: Social Navigation
+    description: Enabling robots to navigate in crowded human environments
+    image: /images/projects/project1.jpg
+    publication: IROS 2024
+    team: [Jane Smith, Sarah Williams]
+    funding: NSF CAREER Award
+
+  - title: Learning from Demonstration
+    description: Efficient methods for robot learning from human teachers
+    image: /images/projects/project2.jpg
+    publication: CoRL 2024
+    team: [Jane Smith, David Kim]
+    funding: Industry Partnership
+
+completed_projects:
+  - title: Robot Navigation
+    description: Novel approaches to social robot navigation
+    image: /images/projects/project3.jpg
+    publication: IROS 2023
+    team: [Jane Smith, Bob Wilson]
+
+  - title: Assistive Robotics
+    description: Developing robots for healthcare applications
+    image: /images/projects/project1.jpg
+    publication: HRI 2023
+    team: [Jane Smith, Emily Brown]
+
+  - title: Multi-Robot Systems
+    description: Coordination algorithms for robot teams
+    image: /images/projects/project2.jpg
+    publication: ICRA 2023
+    team: [Jane Smith, James Wilson]

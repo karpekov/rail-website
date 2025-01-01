@@ -1,0 +1,24 @@
+courses:
+  - name: "CS 294-137: Robotic Manipulation and Interaction"
+    semester: "Spring 2024"
+    description: "Advanced topics in robotic manipulation, focusing on perception, planning, and control for interactive robotic systems."
+    status: "upcoming"
+    website: "https://example.com/cs294"
+
+  - name: "CS 287: Advanced Robotics"
+    semester: "Fall 2023"
+    description: "Graduate course covering modern robotics techniques including dynamics, control, and learning."
+    status: "current"
+    website: "https://example.com/cs287"
+
+  - name: "CS 194: Special Topics in Robotics"
+    semester: "Spring 2023"
+    description: "Undergraduate course introducing key concepts in robotics and automation."
+    status: "past"
+    website: "https://example.com/cs194"
+
+  - name: "CS 288: Robot Learning"
+    semester: "Fall 2022"
+    description: "Advanced machine learning techniques applied to robotics problems."
+    status: "past"
+    website: "https://example.com/cs288"
