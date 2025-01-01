@@ -11,28 +11,26 @@
 	import CircuitBackground from '$lib/components/CircuitBackground.svelte';
 	import Matrix from '$lib/components/Matrix.svelte';
 	import { scrollIntoView } from '$lib/actions/scroll';
+	import JoinUs from '$lib/components/JoinUs.svelte';
 
 	let showNavLogo = false;
 	let showMatrix = false;
+	let showJoinUs = false;
 
 	function handleLogoIntersection(isHidden: boolean) {
 		showNavLogo = isHidden;
 	}
 
 	function scrollToSection(sectionId: string) {
-		const element = document.getElementById(sectionId);
-		if (element) {
-			element.scrollIntoView({
-				behavior: 'smooth',
-				block: 'start'
-			});
-
-			// Close mobile menu if open
-			const mobileMenu = document.querySelector('#mobile-menu');
-			if (mobileMenu) {
-				mobileMenu.classList.add('hidden');
-			}
+		if (sectionId === 'join') {
+			showJoinUs = true;
+		} else {
+			scrollIntoView(sectionId);
 		}
+	}
+
+	function closeJoinUs() {
+		showJoinUs = false;
 	}
 </script>
 
@@ -51,6 +49,9 @@
 			</div>
 			<div class="relative z-20 space-y-4 sm:space-y-6 md:space-y-8 py-6 sm:py-8 md:py-10">
 				<About onLogoIntersect={handleLogoIntersection} {showMatrix} />
+				{#if showJoinUs}
+					<JoinUs {showMatrix} onClose={closeJoinUs} />
+				{/if}
 				<CurrentMembers {showMatrix} />
 			</div>
 		</div>
@@ -84,6 +85,7 @@
 			<div class="section-container pb-0">
 				<Fun />
 			</div>
+
 		</div>
 	</main>
 

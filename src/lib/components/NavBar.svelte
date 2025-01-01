@@ -65,6 +65,16 @@
             <button class="btn btn-sm variant-ghost" on:click={() => scrollToSection('members')}>Members</button>
             <button class="btn btn-sm variant-ghost" on:click={() => scrollToSection('teaching')}>Teaching</button>
             <button class="btn btn-sm variant-ghost" on:click={() => scrollToSection('fun')}>Fun</button>
+            <button
+                class="btn btn-sm variant-filled-primary join-us-btn"
+                class:matrix-join-btn={showMatrix}
+                on:click={() => {
+                    scrollToSection('join');
+                    document.querySelector('#mobile-menu').classList.add('hidden');
+                }}
+            >
+                Join Us
+            </button>
             <div class="ml-4">
                 <button
                     class="btn btn-sm rounded-token hover:variant-soft-primary"
@@ -176,6 +186,16 @@
             >
                 Fun
             </button>
+            <button
+                class="btn w-full variant-filled-primary join-us-btn"
+                class:matrix-join-btn={showMatrix}
+                on:click={() => {
+                    scrollToSection('join');
+                    document.querySelector('#mobile-menu').classList.add('hidden');
+                }}
+            >
+                Join Us
+            </button>
         </div>
     </div>
 </div>
@@ -256,5 +276,38 @@
 
     .regular-logo-glow:hover {
         filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.7));
+    }
+
+    .join-us-btn {
+        @apply font-semibold shadow-lg;
+        animation: subtle-pulse 2s infinite;
+        transition: all 0.3s ease;
+    }
+
+    .join-us-btn:hover {
+        /* transform: translateY(-2px); */
+        filter: brightness(1.2);
+        box-shadow: 0 8px 16px -2px rgba(var(--color-primary-500), 0.3);
+    }
+
+    .matrix-join-btn {
+        background-color: #0F0 !important;
+        color: black !important;
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    }
+
+    .matrix-join-btn:hover {
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.7),
+                    0 8px 16px -2px rgba(0, 255, 0, 0.5);
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    }
+
+    @keyframes subtle-pulse {
+        0%, 100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.03);
+        }
     }
 </style>
