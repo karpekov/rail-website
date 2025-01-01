@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "framework": "sveltekit",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node@20"
+    }
+  ]
+}

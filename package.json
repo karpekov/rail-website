@@ -35,5 +35,8 @@
     "flowbite-svelte": "^0.47.4",
     "gsap": "^3.12.5",
     "jarallax": "^2.2.1"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }
