@@ -2,6 +2,11 @@
     import { people } from '$lib/utils/dataLoader';
     export let showMatrix = false;
 
+    function getRandomRobotAvatar() {
+        const robotIndex = Math.floor(Math.random() * 13); // 0 to 12
+        return `/images/robots/robot${robotIndex}_white.svg`;
+    }
+
     // Filter current members
     const currentMembers = [...(people?.faculty || []), ...(people?.students || [])]
         .filter(member => member.status === 'current');
@@ -57,8 +62,9 @@
                                         <div class="flipper">
                                             <div class="front">
                                                 <img
-                                                    src={showMatrix ? "/images/people/robot_white.jpg" : member.photo}
+                                                    src={showMatrix ? getRandomRobotAvatar() : member.photo}
                                                     alt={member.name}
+                                                    class:robot-avatar={showMatrix}
                                                     class="w-full h-full object-cover"
                                                 />
                                             </div>
@@ -79,8 +85,9 @@
                                     <div class="flipper">
                                         <div class="front">
                                             <img
-                                                src={showMatrix ? "/images/people/robot_white.jpg" : member.photo}
+                                                src={showMatrix ? getRandomRobotAvatar() : member.photo}
                                                 alt={member.name}
+                                                class:robot-avatar={showMatrix}
                                                 class="w-full h-full object-cover"
                                             />
                                         </div>
@@ -114,8 +121,9 @@
                                         <div class="flipper">
                                             <div class="front">
                                                 <img
-                                                    src={showMatrix ? "/images/people/robot_white.jpg" : member.photo}
+                                                    src={showMatrix ? getRandomRobotAvatar() : member.photo}
                                                     alt={member.name}
+                                                    class:robot-avatar={showMatrix}
                                                     class="w-full h-full object-cover"
                                                 />
                                             </div>
@@ -136,8 +144,9 @@
                                     <div class="flipper">
                                         <div class="front">
                                             <img
-                                                src={showMatrix ? "/images/people/robot_white.jpg" : member.photo}
+                                                src={showMatrix ? getRandomRobotAvatar() : member.photo}
                                                 alt={member.name}
+                                                class:robot-avatar={showMatrix}
                                                 class="w-full h-full object-cover"
                                             />
                                         </div>
@@ -215,5 +224,9 @@
 
     .backface-hidden {
         backface-visibility: hidden;
+    }
+
+    .robot-avatar {
+        transform: scale(0.85);
     }
 </style>
