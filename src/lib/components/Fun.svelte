@@ -4,7 +4,7 @@
 </script>
 
 <section id="fun">
-    <h2 class="h2 font-orbitron">Fun</h2>
+    <h2 class="h2 font-orbitron section-title">Fun</h2>
 
     <!-- Horizontally Scrollable Cards -->
     <div class="overflow-x-auto pb-8 pt-2">
@@ -71,4 +71,9 @@
         background-color: rgba(0, 255, 0, 0.3) !important;
         box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
     }
+
+	:global(:not(.matrix-theme)) .section-title {
+			text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+									0 0 20px rgba(255, 255, 255, 0.3);
+	}
 </style>

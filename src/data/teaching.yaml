@@ -5,14 +5,19 @@ courses:
     status: upcoming
     website: https://www.roboticsbook.org/intro.html
 
-  - name: "CS 7633 Human-Robot Interaction"
+  - name: "CS 7633: Human-Robot Interaction"
     semester: Fall 2024
     description: "Graduate course covering human-robot interaction and social robot learning, focusing on physical embodiment, multi-modal interfaces, human-robot teamwork, social cognition, and ethical considerations, culminating in a final project."
     status: current
     website: "https://faculty.cc.gatech.edu/~chernova/CS7633/index.html"
 
-  - name: "CS/ECE/ME/AE/BME 7785 Introduction to Robotics Research."
+  - name: "CS/ECE/ME/AE/BME 7785: Introduction to Robotics Research."
     # semester: "Spring 2023"
     description: "Familiarizes students with the core of robotics: mechanics, control, perception, AI, and autonomy. Provides an introduction to the mathematical tools required in robotics research."
     status: past
     website: "https://oscar.gatech.edu/bprod/bwckctlg.p_disp_course_detail?cat_term_in=202002&subj_code_in=BMED&crse_numb_in=7785"
+
+  - name: "CS 8803: Explainable AI"
+    semester: Fall 2023
+    description: "Graduate course covering interpretability in AI, focusing on leading XAI research, user-centered design principles, real-world deployment challenges, and ethical considerations, culminating in a project on explainable machine learning."
+    status: past

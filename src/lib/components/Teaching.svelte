@@ -17,21 +17,23 @@
 </script>
 
 <section id="teaching">
-    <h2 class="h2 mb-6 font-orbitron">Teaching</h2>
+    <h2 class="h2 mb-6 font-orbitron section-title">Teaching</h2>
 
     <!-- Current and Upcoming Courses Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
         <!-- Current Courses -->
         {#if currentCourses.length > 0}
             <div>
-                <h3 class="text-lg font-semibold mb-4">Current Courses</h3>
+                <h3 class="font-thin text-lg mb-4">Current Courses</h3>
                 <div class="space-y-4">
                     {#each currentCourses as course}
                         <div class="p-4 rounded-lg bg-surface-100-800-token border-l-4 border-primary-500" class:matrix-card={showMatrix}>
                             <div class="flex justify-between items-start">
                                 <div>
                                     <h4 class="font-bold">{course.name}</h4>
-                                    <p class="text-sm opacity-75">{course.semester}</p>
+                                    {#if course.semester}
+                                        <p class="text-sm opacity-75">{course.semester}</p>
+                                    {/if}
                                     <p class="mt-2">{course.description}</p>
                                 </div>
                                 {#if course.website}
@@ -67,14 +69,16 @@
         <!-- Upcoming Courses -->
         {#if upcomingCourses.length > 0}
             <div>
-                <h3 class="text-lg font-semibold mb-4">Upcoming Courses</h3>
+                <h3 class="text-lg font-thin mb-4">Upcoming Courses</h3>
                 <div class="space-y-4">
                     {#each upcomingCourses as course}
                         <div class="p-4 rounded-lg bg-surface-100-800-token border-l-4 border-primary-500" class:matrix-card={showMatrix}>
                             <div class="flex justify-between items-start">
                                 <div>
                                     <h4 class="font-bold">{course.name}</h4>
-                                    <p class="text-sm opacity-75">{course.semester}</p>
+                                    {#if course.semester}
+                                        <p class="text-sm opacity-75">{course.semester}</p>
+                                    {/if}
                                     <p class="mt-2">{course.description}</p>
                                 </div>
                                 {#if course.website}
@@ -112,7 +116,7 @@
     {#if pastCourses.length > 0}
         <div>
             <button
-                class="flex items-center gap-2 text-lg font-semibold mb-4"
+                class="flex items-center gap-2 text-lg font-thin mb-4"
                 class:hover:text-primary-500={!showMatrix}
                 class:hover:text-[#0F0]={showMatrix}
                 on:click={togglePastCourses}
@@ -136,7 +140,9 @@
                             <div class="flex justify-between items-start">
                                 <div>
                                     <h4 class="font-bold">{course.name}</h4>
-                                    <p class="text-sm opacity-75">{course.semester}</p>
+                                    {#if course.semester}
+                                        <p class="text-sm opacity-75">{course.semester}</p>
+                                    {/if}
                                     <p class="mt-2">{course.description}</p>
                                 </div>
                                 {#if course.website}
@@ -183,4 +189,9 @@
         box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
         border-color: #0F0 !important;
     }
+
+	:global(:not(.matrix-theme)) .section-title {
+			text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+									0 0 20px rgba(255, 255, 255, 0.3);
+	}
 </style>

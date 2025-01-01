@@ -17,7 +17,7 @@
 </script>
 
 <section id="news">
-    <h2 class="h2 font-orbitron">News</h2>
+    <h2 class="h2 font-orbitron section-title">News</h2>
     {#if allNews.length > 0}
         <div class="card p-4 space-y-4">
             {#each allNews.slice(0, visibleCount) as item}
@@ -52,4 +52,9 @@
         background-color: rgba(0, 255, 0, 0.1) !important;
         box-shadow: 0 0 10px #0F0;
     }
+
+	:global(:not(.matrix-theme)) .section-title {
+			text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+									0 0 20px rgba(255, 255, 255, 0.3);
+	}
 </style>

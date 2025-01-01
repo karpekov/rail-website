@@ -16,86 +16,8 @@
     }
 </script>
 
-<style>
-    /* Matrix theme card styles */
-    .project-card {
-        transition: all 0.3s ease;
-    }
-
-    :global(:not(.matrix-theme)) .project-card:hover {
-        box-shadow: 0 0 20px rgba(var(--color-primary-500), 0.3);
-        transform: translateY(-2px);
-    }
-
-    :global(.matrix-theme) .project-card {
-        box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
-    }
-
-    :global(.matrix-theme) .project-card:hover {
-        box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
-        transform: translateY(-2px);
-    }
-
-    .publication-chip {
-        @apply inline-flex px-2 py-0.5 text-xs rounded-full border transition-colors duration-200;
-    }
-
-    :global(:not(.matrix-theme)) .publication-chip {
-        @apply text-primary-500 border-primary-500;
-    }
-
-    :global(.matrix-theme) .publication-chip {
-        color: #0F0;
-        border-color: #0F0;
-    }
-
-    .external-link {
-        @apply absolute bottom-3 right-3 transition-all duration-200;
-    }
-
-    :global(:not(.matrix-theme)) .external-link {
-        @apply text-primary-500;
-    }
-
-    :global(:not(.matrix-theme)) .external-link:hover {
-        @apply text-primary-600 scale-110;
-    }
-
-    :global(.matrix-theme) .external-link {
-        color: #0F0;
-    }
-
-    :global(.matrix-theme) .external-link:hover {
-        text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-        transform: scale(1.1);
-    }
-
-    .project-links a {
-        @apply transition-colors duration-200;
-    }
-
-    :global(:not(.matrix-theme)) .project-links a:hover {
-        @apply text-primary-500;
-    }
-
-    :global(.matrix-theme) .project-links a:hover {
-        color: #0F0;
-        text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-    }
-
-    .matrix-button {
-        color: #0F0 !important;
-        border-color: #0F0 !important;
-    }
-
-    .matrix-button:hover {
-        background-color: rgba(0, 255, 0, 0.1) !important;
-        box-shadow: 0 0 10px #0F0;
-    }
-</style>
-
 <section id="projects">
-    <h2 class="h2 font-orbitron">Featured Projects</h2>
+    <h2 class="h2 font-orbitron section-title">Featured Projects</h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8">
         {#each featuredProjects.slice(0, visibleCount) as project}
@@ -180,3 +102,86 @@
         </div>
     {/if}
 </section>
+
+<style>
+    /* Matrix theme card styles */
+    .project-card {
+        transition: all 0.3s ease;
+    }
+
+    :global(:not(.matrix-theme)) .project-card:hover {
+        box-shadow: 0 0 20px rgba(var(--color-primary-500), 0.3);
+        transform: translateY(-2px);
+    }
+
+    :global(.matrix-theme) .project-card {
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+    }
+
+    :global(.matrix-theme) .project-card:hover {
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+        transform: translateY(-2px);
+    }
+
+    .publication-chip {
+        @apply inline-flex px-2 py-0.5 text-xs rounded-full border transition-colors duration-200;
+    }
+
+    :global(:not(.matrix-theme)) .publication-chip {
+        @apply text-primary-500 border-primary-500;
+    }
+
+    :global(.matrix-theme) .publication-chip {
+        color: #0F0;
+        border-color: #0F0;
+    }
+
+    .external-link {
+        @apply absolute bottom-3 right-3 transition-all duration-200;
+    }
+
+    :global(:not(.matrix-theme)) .external-link {
+        @apply text-primary-500;
+    }
+
+    :global(:not(.matrix-theme)) .external-link:hover {
+        @apply text-primary-600 scale-110;
+    }
+
+    :global(.matrix-theme) .external-link {
+        color: #0F0;
+    }
+
+    :global(.matrix-theme) .external-link:hover {
+        text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        transform: scale(1.1);
+    }
+
+    .project-links a {
+        @apply transition-colors duration-200;
+    }
+
+    :global(:not(.matrix-theme)) .project-links a:hover {
+        @apply text-primary-500;
+    }
+
+    :global(.matrix-theme) .project-links a:hover {
+        color: #0F0;
+        text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    }
+
+    .matrix-button {
+        color: #0F0 !important;
+        border-color: #0F0 !important;
+    }
+
+    .matrix-button:hover {
+        background-color: rgba(0, 255, 0, 0.1) !important;
+        box-shadow: 0 0 10px #0F0;
+    }
+
+	:global(:not(.matrix-theme)) .section-title {
+			text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+									0 0 20px rgba(255, 255, 255, 0.3);
+	}
+</style>

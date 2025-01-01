@@ -45,66 +45,12 @@
     }
 </script>
 
-<style>
-    /* Matrix theme card styles */
-    :global(.matrix-theme) .bg-surface-100-800-token {
-        box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-        transition: all 0.3s ease;
-    }
-
-    :global(.matrix-theme) .bg-surface-100-800-token:hover {
-        box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
-    }
-
-    /* Social media icon hover styles */
-    .social-icon {
-        @apply transition-colors duration-200;
-    }
-
-    /* Regular theme hover */
-    :global(:not(.matrix-theme)) .social-icon:hover {
-        @apply text-primary-500;
-    }
-
-    /* Matrix theme hover */
-    :global(.matrix-theme) .social-icon:hover {
-        color: #0F0;
-        text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-    }
-
-    .member-card {
-        transition: all 0.3s ease;
-    }
-
-    :global(:not(.matrix-theme)) .member-card:hover {
-        box-shadow: 0 0 20px rgba(var(--color-primary-500), 0.3);
-        transform: translateY(-2px);
-    }
-
-    :global(.matrix-theme) .member-card {
-        box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
-    }
-
-    :global(.matrix-theme) .member-card:hover {
-        box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
-        transform: translateY(-2px);
-    }
-
-    .member-name {
-        @apply transition-colors duration-200;
-    }
-
-    :global(.matrix-theme) .member-name {
-        color: #0F0;
-    }
-</style>
-
 <section id="members">
-    <h2 class="h2 font-orbitron">Lab Members</h2>
+    <h2 class="h2 font-orbitron section-title">Lab Members</h2>
 
     <!-- Current Members -->
     <div class="mb-8">
-        <h3 class="h3 mb-4">Current Members</h3>
+        <h3 class="h3 mb-4 font-thin">Current Members</h3>
         <div class="flex flex-wrap justify-evenly sm:justify-start gap-2 sm:gap-4 max-w-6xl mx-auto px-4 pt-2">
             {#each currentMembers as member}
                 <div class="flex-none w-[140px] sm:w-[160px] flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card hover:bg-surface-200-700-token">
@@ -174,8 +120,10 @@
                     </div>
 
                     <div class="text-center space-y-1 w-full">
-                        <h4 class="font-medium text-xs sm:text-base break-words hyphens-auto member-name">{member.name}</h4>
-                        <p class="font-thin text-xs break-words">{member.degree_detail}</p>
+                        <h4 class="font-medium text-sm sm:text-base whitespace-pre-line member-name">
+                            {member.name.split(' ').join('\n')}
+                        </h4>
+                        <p class="font-thin text-xs sm:text-sm break-words">{member.degree_detail}</p>
                     </div>
                 </div>
             {/each}
@@ -186,7 +134,7 @@
     {#if alumni.length > 0}
         <div>
             <button
-                class="flex items-center gap-2 text-lg font-semibold mb-4"
+                class="flex items-center gap-2 text-lg font-thin mb-4"
                 class:hover:text-primary-500={!showMatrix}
                 class:hover:text-[#0F0]={showMatrix}
                 on:click={toggleAlumni}
@@ -288,7 +236,9 @@
                         </div>
 
                         <div class="text-center space-y-1 w-full">
-                            <h4 class="font-normal text-xs sm:text-base break-words hyphens-auto member-name">{member.name}</h4>
+                            <h4 class="font-normal text-xs sm:text-base whitespace-pre-line member-name">
+                                {member.name.split(' ').join('\n')}
+                            </h4>
                             <p class="text-xs sm:text-sm break-words">{member.degree_detail}</p>
                             <div class="text-xs opacity-75">
                                 <p>Graduated in {member.graduation}</p>
@@ -304,3 +254,62 @@
         </div>
     {/if}
 </section>
+
+<style>
+    /* Matrix theme card styles */
+    :global(.matrix-theme) .bg-surface-100-800-token {
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        transition: all 0.3s ease;
+    }
+
+    :global(.matrix-theme) .bg-surface-100-800-token:hover {
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+    }
+
+    /* Social media icon hover styles */
+    .social-icon {
+        @apply transition-colors duration-200;
+    }
+
+    /* Regular theme hover */
+    :global(:not(.matrix-theme)) .social-icon:hover {
+        @apply text-primary-500;
+    }
+
+    /* Matrix theme hover */
+    :global(.matrix-theme) .social-icon:hover {
+        color: #0F0;
+        text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    }
+
+    .member-card {
+        transition: all 0.3s ease;
+    }
+
+    :global(:not(.matrix-theme)) .member-card:hover {
+        box-shadow: 0 0 20px rgba(var(--color-primary-500), 0.3);
+        transform: translateY(-2px);
+    }
+
+    :global(.matrix-theme) .member-card {
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+    }
+
+    :global(.matrix-theme) .member-card:hover {
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+        transform: translateY(-2px);
+    }
+
+    .member-name {
+        @apply transition-colors duration-200;
+    }
+
+    :global(.matrix-theme) .member-name {
+        color: #0F0;
+    }
+
+	:global(:not(.matrix-theme)) .section-title {
+			text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+									0 0 20px rgba(255, 255, 255, 0.3);
+	}
+</style>
