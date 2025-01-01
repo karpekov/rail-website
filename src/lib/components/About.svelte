@@ -4,7 +4,7 @@
 
     let displayText = "";
     let fullText = "Robot Autonomy and Interactive Learning";
-    let typingSpeed = 100; // milliseconds per character
+    let typingSpeed = 50; // milliseconds per character
     let logoElement: HTMLElement;
     export let onLogoIntersect: (isIntersecting: boolean) => void;
     export let showMatrix = false;

@@ -4,7 +4,7 @@
 
 </script>
 
-<div class="app h-full overflow-auto">
+<div class="app min-h-screen">
 	<slot />
 </div>
 
@@ -12,6 +12,5 @@
 	.app {
 		display: flex;
 		flex-direction: column;
-		min-height: 100vh;
 	}
 </style>

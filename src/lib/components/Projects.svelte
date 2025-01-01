@@ -2,8 +2,18 @@
     import { projects } from '$lib/utils/dataLoader';
     export let showMatrix = false;
 
-    const featuredProjects = [...(projects?.current_projects || []), ...(projects?.completed_projects || [])]
+    const INITIAL_SHOW = 8;
+    const SHOW_MORE_INCREMENT = 8;
+    let visibleCount = INITIAL_SHOW;
+
+    const featuredProjects = [...(projects?.project_list || [])]
         .filter(project => project.featured);
+
+    $: hasMore = visibleCount < featuredProjects.length;
+
+    function showMore() {
+        visibleCount = Math.min(visibleCount + SHOW_MORE_INCREMENT, featuredProjects.length);
+    }
 </script>
 
 <style>
@@ -72,13 +82,23 @@
         color: #0F0;
         text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
     }
+
+    .matrix-button {
+        color: #0F0 !important;
+        border-color: #0F0 !important;
+    }
+
+    .matrix-button:hover {
+        background-color: rgba(0, 255, 0, 0.1) !important;
+        box-shadow: 0 0 10px #0F0;
+    }
 </style>
 
 <section id="projects">
     <h2 class="h2 font-orbitron">Featured Projects</h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8">
-        {#each featuredProjects as project}
+        {#each featuredProjects.slice(0, visibleCount) as project}
             <div class="flex flex-col h-full bg-surface-100-800-token rounded-lg overflow-hidden project-card max-w-sm mx-auto w-full relative hover:bg-surface-200-700-token">
                 <!-- Image container with border -->
                 <div class="p-3 pb-0">
@@ -90,12 +110,12 @@
                 <div class="p-3 space-y-2 flex-grow">
                     <!-- Title and Publication -->
                     <div class="space-y-1">
-                        <h4 class="font-medium text-base">{project.short || project.title}</h4>
-                        <span class="publication-chip">{project.publication}</span>
+                        <h4 class="font-medium text-base">{project.short_title || project.full_title}</h4>
+                        <span class="publication-chip">{project.venue}</span>
                     </div>
 
                     <!-- Description -->
-                    <p class="text-sm opacity-80">{project.title}</p>
+                    <p class="text-sm opacity-80">{project.full_title}</p>
 
                     <!-- Team -->
                     <p class="text-xs">
@@ -121,9 +141,9 @@
                     </div>
                 </div>
 
-                {#if project.pdf}
+                {#if project.link}
                     <a
-                        href={project.pdf}
+                        href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
                         title="View Publication"
@@ -147,4 +167,16 @@
             </div>
         {/each}
     </div>
+
+    {#if hasMore}
+        <div class="flex justify-center mt-8">
+            <button
+                class="btn variant-ghost-primary"
+                class:matrix-button={showMatrix}
+                on:click={showMore}
+            >
+                Discover More Projects
+            </button>
+        </div>
+    {/if}
 </section>

@@ -1,65 +1,73 @@
-current_projects:
-  - title: A Survey of Semantic Reasoning Frameworks for Robotic Systems.
-    short: "Semantic Reasoning Frameworks: Survey"
-    publication: RAS'23
+project_list:
+
+  - full_title: 'Sonia Chernova presented "Algorithmic Design of Proactive and Interpretable Home Robots" at MIT Robotics in September 2024'
+    short_title: "MIT Robotics Seminar"
+    venue: MIT Robotics'24
+    link: https://www.youtube.com/watch?v=HK5wRFDx2no
+    image: /images/projects/sonia_mit.jpg
+    team: [Sonia Chernova]
+    featured: true
+
+  - full_title: A Survey of Semantic Reasoning Frameworks for Robotic Systems.
+    short_title: "Semantic Reasoning Frameworks: Survey"
+    venue: RAS'23
+    link: https://www.sciencedirect.com/science/article/pii/S092188902200183X
     image: /images/projects/LIU2023104294.jpg
     team: [Weiyu Liu, Angel Daruna, Maithili Patel, Kartik Ramachandruni, Sonia Chernova]
-    pdf: https://www.sciencedirect.com/science/article/pii/S092188902200183X
     featured: true
 
-  - title: Subgoal-Based Explanations for Unreliable Intelligent Decision Support Systems
-    short: Subgoal-Based Explanations
-    publication: IUI'23
+  - full_title: Subgoal-Based Explanations for Unreliable Intelligent Decision Support Systems
+    short_title: Subgoal-Based Explanations
+    venue: IUI'23
+    link: https://dl.acm.org/doi/10.1145/3581641.3584055
     image: /images/projects/devleena_subgoal.jpg
     team: [Devleena Das, Been Kim, Sonia Chernova]
-    pdf: https://dl.acm.org/doi/10.1145/3581641.3584055
     featured: true
 
-
-  - title: Proactive Robot Assistance via Spatio-Temporal Object Modeling
-    short: Proactive Robot Assistance
-    publication: CoRL'22
+  - full_title: Proactive Robot Assistance via Spatio-Temporal Object Modeling
+    short_title: Proactive Robot Assistance
+    venue: CoRL'22
+    link: https://arxiv.org/abs/2211.15501
     image: /images/projects/maithili_proactive.jpg
     team: [Maithili Patel, Sonia Chernova]
-    pdf: https://arxiv.org/abs/2211.15501
     featured: true
 
-  - title: "Rethinking Sim2Real: Lower Fidelity Simulation Leads to Higher Sim2Real Transfer in Navigation."
-    short: Rethinking Sim2Real
-    publication: CoRL'22
+  - full_title: "Rethinking Sim2Real: Lower Fidelity Simulation Leads to Higher Sim2Real Transfer in Navigation."
+    short_title: Rethinking Sim2Real
+    venue: CoRL'22
+    link: https://arxiv.org/abs/2207.10821
     image: /images/projects/joanne_sim2real.jpg
     team: [Joanne Truong, Max Rudolph, Naoki Yokoyama, Sonia Chernova, Dhruv Batra, Akshara Rai]
-    pdf: https://arxiv.org/abs/2207.10821
     featured: true
 
-  - title: "GRSTAPS: Graphically Recursive Simultaneous Task Allocation, Planning, and Scheduling."
-    short: GRSTAPS
-    publication: IJRR'22
+  - full_title: "GRSTAPS: Graphically Recursive Simultaneous Task Allocation, Planning, and Scheduling."
+    short_title: GRSTAPS
+    venue: IJRR'22
+    link: https://journals.sagepub.com/doi/full/10.1177/02783649211052066
     image: /images/projects/messing_grstaps.jpg
     team: [Andrew Messing, Glen Neville, Sonia Chernova, Seth Hutchinson, Harish Ravichandar]
-    pdf: https://journals.sagepub.com/doi/full/10.1177/02783649211052066
     featured: true
 
-  - title: "Leveraging Cognitive States in Human-Robot Teaming."
-    short: Cognitive States in HR Teaming
-    publication: RO-MAN'22
-    team: [Jack Kolb, Harish Ravichandar, Sonia Chernova]
-    pdf: https://ieeexplore.ieee.org/abstract/document/9900794
+  - full_title: "Leveraging Cognitive States in Human-Robot Teaming."
+    short_title: Cognitive States in HR Teaming
+    venue: RO-MAN'22
+    link: https://ieeexplore.ieee.org/abstract/document/9900794
     image: /images/projects/kolb_cog_states.jpg
+    team: [Jack Kolb, Harish Ravichandar, Sonia Chernova]
     featured: true
 
-  - title: Learning Instance-Level N-Ary Semantic Knowledge At Scale For Robots Operating in Everyday Environments.
-    short: Instance-Level N-Ary Semantic Knowledge
-    publication: RSS'21
+  - full_title: Learning Instance-Level N-Ary Semantic Knowledge At Scale For Robots Operating in Everyday Environments.
+    short_title: Instance-Level N-Ary Semantic Knowledge
+    venue: RSS'21
+    link: https://www.roboticsproceedings.org/rss17/p035.pdf
     image: /images/projects/liu_narray_2021.jpg
     team: [Weiyu Liu, Dhruva Bansal, Angel Andres Daruna, Sonia Chernova]
-    pdf: https://www.roboticsproceedings.org/rss17/p035.pdf
     featured: true
 
-  - title: Recent Advances in Robot Learning from Demonstration.
-    short: Robot Learning from Demonstration
-    publication: Annual Review of Control, Robotics, and Autonomous Systems '20
-    team: [Harish Ravichandar, Athanasios S. Polydoros, Sonia Chernova, Aude Billard]
-    pdf: https://www.annualreviews.org/content/journals/10.1146/annurev-control-100819-063206
+  - full_title: Recent Advances in Robot Learning from Demonstration.
+    short_title: Robot Learning from Demonstration
+    venue: Annual Review of Control, Robotics, and Autonomous Systems '20
+    link: https://www.annualreviews.org/content/journals/10.1146/annurev-control-100819-063206
     image: /images/projects/ravichandar_ar_2021.jpg
+    team: [Harish Ravichandar, Athanasios S. Polydoros, Sonia Chernova, Aude Billard]
     featured: true
