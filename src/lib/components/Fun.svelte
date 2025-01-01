@@ -7,7 +7,7 @@
     <h2 class="h2 font-orbitron">Fun</h2>
 
     <!-- Horizontally Scrollable Cards -->
-    <div class="overflow-x-auto pb-4 pt-2">
+    <div class="overflow-x-auto pb-8 pt-2">
         <div class="flex space-x-4 px-2">
             {#each activities as activity}
                 <div class="flex-none w-72 pt-2">

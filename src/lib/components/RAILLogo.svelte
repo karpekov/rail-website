@@ -1,5 +1,6 @@
 <script>
     import RAILLogo from '$lib/../../static/assets/RAIL.svg?raw';
+    export let showMatrix = false;
 
     function modifySvg(svgContent) {
         return svgContent
@@ -12,13 +13,21 @@
 
 <div class="flex items-center justify-center h-full">
     <div class="w-80 h-28 ml-8">
-        <div class="w-full h-full text-primary-500 flex items-center justify-center">
+        <div class="w-full h-full flex items-center justify-center" class:text-primary-500={!showMatrix} class:matrix-logo={showMatrix}>
             {@html modifiedRAILSvg}
         </div>
     </div>
 </div>
 
 <style>
+    .matrix-logo {
+        color: #0F0;
+    }
+
+    :global(.matrix-theme) .matrix-logo :global(.animated-svg) {
+        filter: drop-shadow(0 0 10px #0F0);
+    }
+
     :global(.animated-svg) {
         stroke-dasharray: 1000;
         stroke-dashoffset: 1000;

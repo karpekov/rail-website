@@ -105,7 +105,7 @@
     <!-- Current Members -->
     <div class="mb-8">
         <h3 class="h3 mb-4">Current Members</h3>
-        <div class="flex flex-wrap justify-evenly sm:justify-start gap-4 max-w-6xl mx-auto px-4 pt-2">
+        <div class="flex flex-wrap justify-evenly sm:justify-start gap-2 sm:gap-4 max-w-6xl mx-auto px-4 pt-2">
             {#each currentMembers as member}
                 <div class="flex-none w-[140px] sm:w-[160px] flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card hover:bg-surface-200-700-token">
                     <div
@@ -186,7 +186,9 @@
     {#if alumni.length > 0}
         <div>
             <button
-                class="flex items-center gap-2 text-lg font-semibold mb-4 hover:text-primary-500"
+                class="flex items-center gap-2 text-lg font-semibold mb-4"
+                class:hover:text-primary-500={!showMatrix}
+                class:hover:text-[#0F0]={showMatrix}
                 on:click={toggleAlumni}
             >
                 <svg
@@ -208,7 +210,7 @@
 
             {#if showAlumni}
             <div
-                class="flex flex-wrap justify-evenly sm:justify-start gap-4 max-w-6xl mx-auto px-4 pt-2"
+                class="flex flex-wrap justify-evenly sm:justify-start gap-2 sm:gap-4 max-w-6xl mx-auto px-4 pt-2"
                 transition:slide
             >
                 {#each alumni as member}

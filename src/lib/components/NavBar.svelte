@@ -17,17 +17,17 @@
         <!-- Logo container with transition -->
         {#if showLogo}
             {#if showMatrix}
-            <div class="h-12 md:h-12" in:fly={transitionParams} out:fly={{ ...transitionParams, y: 50 }}>
+            <div class="h-12 md:h-12 matrix-logo-glow" in:fly={transitionParams} out:fly={{ ...transitionParams, y: 50 }}>
                 <img
-                    src="/assets/rail-logo-new-green.png"
+                    src="/assets/rail-logo-new-green.svg"
                     alt="RAIL Lab Logo"
                     class="h-full w-auto object-contain"
                 />
             </div>
             {:else}
-            <div class="h-12 md:h-12" in:fly={transitionParams} out:fly={{ ...transitionParams, y: 50 }}>
+            <div class="h-12 md:h-12 regular-logo-glow" in:fly={transitionParams} out:fly={{ ...transitionParams, y: 50 }}>
                 <img
-                    src="/assets/rail-logo-new-white.png"
+                    src="/assets/rail-logo-new-white.svg"
                     alt="RAIL Lab Logo"
                     class="h-full w-auto object-contain"
                 />
@@ -192,6 +192,22 @@
         box-shadow: 0 0 10px #0F0;
     }
 
+    /* Regular theme button styles */
+    .btn.variant-ghost:hover {
+        background-color: rgba(var(--color-primary-500), 0.1) !important;
+        color: rgb(var(--color-primary-500)) !important;
+    }
+
+    /* Add specific border styles for the ghost variant buttons */
+    .btn.variant-ghost {
+        border: 1px solid transparent;
+        transition: border-color 0.2s ease;
+    }
+
+    .btn.variant-ghost:hover {
+        border-color: rgb(var(--color-primary-500));
+    }
+
     /* Mobile menu items in matrix theme */
     :global(.matrix-theme) #mobile-menu .btn.variant-ghost:hover {
         background-color: rgba(0, 255, 0, 0.1) !important;
@@ -222,5 +238,23 @@
         100% {
             box-shadow: none;
         }
+    }
+
+    .matrix-logo-glow {
+        filter: drop-shadow(0 0 10px rgba(0, 255, 0, 0.5));
+        transition: filter 0.3s ease;
+    }
+
+    .matrix-logo-glow:hover {
+        filter: drop-shadow(0 0 15px rgba(0, 255, 0, 0.7));
+    }
+
+    .regular-logo-glow {
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+        transition: filter 0.3s ease;
+    }
+
+    .regular-logo-glow:hover {
+        filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.7));
     }
 </style>

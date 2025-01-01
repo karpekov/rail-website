@@ -52,7 +52,7 @@
 <section id="about">
     <div class="container mx-auto max-w-6xl px-4 sm:px-6 md:px-8 pt-8 pb-2">
         <div bind:this={logoElement} class="flex flex-col lg:flex-row lg:items-center lg:gap-8 mb-6 min-h-[12rem]">
-            <RAILLogo />
+            <RAILLogo {showMatrix} />
             <h1
                 class="h1 font-orbitron text-primary-500 glow-text mt-4 lg:mt-0 text-center lg:text-left typing-cursor"
                 class:matrix-title={showMatrix}
@@ -65,7 +65,7 @@
         <p class="text-2xl font-bold pt-1 font-orbitron text-center" class:matrix-text={showMatrix}>
             Connecting Robots to the Human World
         </p>
-        <p class="text-md lg:text-xl pt-2 font-opensans" class:matrix-text={showMatrix}>
+        <p class="text-md lg:text-xl pt-2 font-opensans">
             RAIL Lab at <a href="https://www.gatech.edu/", target="_blank">Georgia Tech</a>
             focuses on developing intelligent robotic and AI systems that can naturally
             interact with humans in various contexts, from healthcare to manufacturing.

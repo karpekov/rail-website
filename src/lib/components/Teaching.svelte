@@ -112,7 +112,9 @@
     {#if pastCourses.length > 0}
         <div>
             <button
-                class="flex items-center gap-2 text-lg font-semibold mb-4 hover:text-primary-500"
+                class="flex items-center gap-2 text-lg font-semibold mb-4"
+                class:hover:text-primary-500={!showMatrix}
+                class:hover:text-[#0F0]={showMatrix}
                 on:click={togglePastCourses}
             >
                 <svg
