@@ -1,6 +1,7 @@
 <script>
     import { people } from '$lib/utils/dataLoader';
     import { slide } from 'svelte/transition';
+    import { scrollable } from '$lib/utils/scroll';
     export let showMatrix = false;
 
     // Combine faculty and students

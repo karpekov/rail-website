@@ -1,6 +1,6 @@
 <script lang="ts">
     import { news } from '$lib/utils/dataLoader';
-    import { scrollable } from '$lib/actions/scroll';
+    import { scrollable } from '$lib/utils/scroll';
     export let showMatrix = false;
 
     const INITIAL_SHOW = 5;

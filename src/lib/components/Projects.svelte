@@ -1,5 +1,6 @@
 <script lang="ts">
     import { projects } from '$lib/utils/dataLoader';
+    import { scrollable } from '$lib/utils/scroll';
     export let showMatrix = false;
 
     const INITIAL_SHOW = 8;

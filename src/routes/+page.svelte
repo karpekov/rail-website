@@ -10,7 +10,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import CircuitBackground from '$lib/components/CircuitBackground.svelte';
 	import Matrix from '$lib/components/Matrix.svelte';
-	import { scrollIntoView } from '$lib/actions/scroll';
+	import { scrollIntoView } from '$lib/utils/scroll';
 	import JoinUs from '$lib/components/JoinUs.svelte';
 
 	let showNavLogo = false;
