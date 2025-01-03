@@ -3,7 +3,7 @@
     export let showMatrix = false;
 
     function getRandomRobotAvatar() {
-        const robotIndex = Math.floor(Math.random() * 13); // 0 to 12
+        const robotIndex = Math.floor(Math.random() * 24); // 0 to 23
         return `/images/robots/robot${robotIndex}_white.svg`;
     }
 
