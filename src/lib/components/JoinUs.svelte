@@ -17,7 +17,7 @@
                 <Matrix />
             </div>
         {/if}
-        <section id="join" class="p-6 sm:p-10 relative z-20 overflow-y-auto max-h-[calc(90vh-4rem)]">
+        <section id="join" class="p-8 sm:p-10 relative z-20 overflow-y-auto max-h-[calc(90vh-4rem)]">
             <h2 class="h2 font-orbitron section-title mb-8">Join Us</h2>
 
             <div class="prose prose-lg dark:prose-invert">

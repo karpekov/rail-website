@@ -40,13 +40,15 @@
 	<main class="pt-0">
 		<!-- Hero section with circuit/matrix background -->
 		<div class="bg-surface-100-800-token relative" class:bg-black={showMatrix}>
-			<div class="absolute inset-0 z-10 opacity-[0.3]">
-				{#if showMatrix}
+			{#if showMatrix}
+				<div class="absolute inset-0 z-10 opacity-[0.3]">
 					<Matrix />
-				{:else}
+				</div>
+			{:else}
+				<div class="absolute inset-0 z-10 opacity-[0.2]">
 					<CircuitBackground />
-				{/if}
-			</div>
+				</div>
+			{/if}
 			<div class="relative z-20 space-y-4 sm:space-y-6 md:space-y-8 py-6 sm:py-8 md:py-10">
 				<About onLogoIntersect={handleLogoIntersection} {showMatrix} />
 				{#if showJoinUs}
@@ -106,7 +108,7 @@
 	}
 
 	:global(.section-container) {
-		@apply container mx-auto max-w-6xl px-4 sm:px-6 md:px-8 py-8 sm:py-12 md:py-16;
+		@apply container mx-auto max-w-6xl px-4 sm:px-6 md:px-8 py-8 sm:py-10;
 	}
 
 	:global(.section-container:last-child) {

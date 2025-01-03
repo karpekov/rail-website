@@ -5,10 +5,6 @@
     export let showLogo = false;
     export let showMatrix = false;
 
-    const transitionParams = {
-        duration: 400,
-        y: -50
-    };
 </script>
 
 <!-- Navigation Bar -->
@@ -17,19 +13,19 @@
         <!-- Logo container with transition -->
         {#if showLogo}
             {#if showMatrix}
-            <div class="h-12 md:h-12 matrix-logo-glow" in:fly={transitionParams} out:fly={{ ...transitionParams, y: 50 }}>
+            <div class="h-12 md:h-12 matrix-logo-glow flex items-center">
                 <img
                     src="/assets/rail-logo-new-green.svg"
                     alt="RAIL Lab Logo"
-                    class="h-full w-auto object-contain"
+                    class="h-10 w-auto object-contain"
                 />
             </div>
             {:else}
-            <div class="h-12 md:h-12 regular-logo-glow" in:fly={transitionParams} out:fly={{ ...transitionParams, y: 50 }}>
+            <div class="h-12 md:h-12 regular-logo-glow flex items-center">
                 <img
                     src="/assets/rail-logo-new-white.svg"
                     alt="RAIL Lab Logo"
-                    class="h-full w-auto object-contain"
+                    class="h-10 w-auto object-contain"
                 />
             </div>
             {/if}

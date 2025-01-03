@@ -22,7 +22,12 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8">
         {#each featuredProjects.slice(0, visibleCount) as project}
-            <div class="flex flex-col h-full bg-surface-100-800-token rounded-lg overflow-hidden project-card max-w-sm mx-auto w-full relative hover:bg-surface-200-700-token">
+            <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex flex-col h-full bg-surface-100-800-token rounded-lg overflow-hidden project-card max-w-sm mx-auto w-full relative hover:bg-surface-200-700-token group"
+            >
                 <!-- Image container with border -->
                 <div class="p-3 pb-0">
                     <div class="rounded-lg overflow-hidden border border-surface-300-600-token">
@@ -65,10 +70,7 @@
                 </div>
 
                 {#if project.link}
-                    <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <div
                         title="View Publication"
                         class="external-link"
                     >
@@ -85,9 +87,9 @@
                             <polyline points="15 3 21 3 21 9" />
                             <line x1="10" y1="14" x2="21" y2="3" />
                         </svg>
-                    </a>
+                    </div>
                 {/if}
-            </div>
+            </a>
         {/each}
     </div>
 
@@ -138,24 +140,21 @@
     }
 
     .external-link {
-        @apply absolute bottom-3 right-3 transition-all duration-200;
+        @apply absolute bottom-3 right-3 transition-all duration-200 pointer-events-none;
     }
 
-    :global(:not(.matrix-theme)) .external-link {
-        @apply text-primary-500;
+    :global(:not(.matrix-theme) .external-link) {
+        @apply text-primary-500 opacity-50 group-hover:opacity-100;
     }
 
-    :global(:not(.matrix-theme)) .external-link:hover {
-        @apply text-primary-600 scale-110;
-    }
-
-    :global(.matrix-theme) .external-link {
+    :global(.matrix-theme .external-link) {
         color: #0F0;
+        opacity: 0.5;
     }
 
-    :global(.matrix-theme) .external-link:hover {
+    :global(.matrix-theme .project-card:hover .external-link) {
+        opacity: 1;
         text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-        transform: scale(1.1);
     }
 
     .project-links a {

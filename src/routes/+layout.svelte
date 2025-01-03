@@ -4,6 +4,27 @@
 
 </script>
 
+<svelte:head>
+	<!-- Primary Meta Tags -->
+	<title>RAIL Lab @ Georgia Tech</title>
+	<meta name="title" content="RAIL Lab @ Georgia Tech">
+	<meta name="description" content="Robot Autonomy and Interactive Learning Lab at Georgia Institute of Technology">
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://rail.gatech.edu/">
+	<meta property="og:title" content="RAIL Lab @ Georgia Tech">
+	<meta property="og:description" content="Robot Autonomy and Interactive Learning Lab at Georgia Institute of Technology">
+	<meta property="og:image" content="https://rail.gatech.edu/assets/social_media_preview.png">
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://rail.gatech.edu/">
+	<meta property="twitter:title" content="RAIL Lab @ Georgia Tech">
+	<meta property="twitter:description" content="Robot Autonomy and Interactive Learning Lab at Georgia Institute of Technology">
+	<meta property="twitter:image" content="https://rail.gatech.edu/assets/social_media_preview.png">
+</svelte:head>
+
 <div class="app min-h-screen">
 	<slot />
 </div>
