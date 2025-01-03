@@ -35,7 +35,7 @@
 
                 <h3 class="h3 mt-6">Research Opportunities</h3>
                 <p>
-                    The best way to get involved with our lab is through on of the courses we offer.
+                    The best way to get involved with our lab is through one of the courses we offer.
                     These courses provide an excellent opportunity to work on research projects while earning
                     course credit. Interested students should:
                 </p>
@@ -66,6 +66,22 @@
         color: white;
         position: relative;
         z-index: 20;
+    }
+
+    :global(.prose ul) {
+        list-style-type: disc;
+        padding-left: 1.5em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+
+    :global(.prose li) {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+
+    :global(.matrix-theme) .prose ul {
+        color: #fff;
     }
 
     :global(.matrix-theme) .prose strong {
