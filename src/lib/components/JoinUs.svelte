@@ -62,6 +62,10 @@
                     0 0 20px rgba(255, 255, 255, 0.3);
     }
 
+    :global(:not(.matrix-theme)) .prose h3 {
+        color: rgb(var(--color-primary-500));
+    }
+
     :global(.matrix-theme) .prose {
         color: white;
         position: relative;

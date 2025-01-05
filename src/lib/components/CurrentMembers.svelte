@@ -51,8 +51,8 @@
         <h2 class="text-center mb-4 sm:mb-6 md:mb-8">Current RAIL Lab Members:</h2>
 
         <!-- Senior Members Row -->
-        <div class="mb-8">
-            <div class="flex flex-wrap justify-center gap-6">
+        <div class="mb-4">
+            <div class="flex flex-wrap justify-center gap-1 sm:gap-6">
                 {#each seniorMembers as member}
                     <div class="person-card">
                         {#if getProfileLink(member)}
@@ -102,8 +102,10 @@
                                 </div>
                             </div>
                         {/if}
-                        <p class="font-semibold text-center text-sm break-words">{member.alias}</p>
-                        <p class="text-xs text-center opacity-75 break-words">{member.degree_detail}</p>
+                        <div class="text-center space-y-0 sm:space-y-0.5 w-full">
+                            <p class="font-semibold text-center text-sm break-words leading-none">{member.alias}</p>
+                            <p class="text-[11px] sm:text-xs text-center opacity-75 break-words -mt-1 sm:mt-0">{member.degree_detail}</p>
+                        </div>
                     </div>
                 {/each}
             </div>
@@ -111,7 +113,7 @@
 
         <!-- Junior Members Row -->
         {#if juniorMembers.length > 0}
-            <div class="flex flex-wrap justify-center gap-6">
+            <div class="flex flex-wrap justify-center gap-1 sm:gap-6">
                 {#each juniorMembers as member}
                     <div class="person-card">
                         {#if getProfileLink(member)}
@@ -161,8 +163,10 @@
                                 </div>
                             </div>
                         {/if}
-                        <p class="font-semibold text-center text-sm break-words">{member.name}</p>
-                        <p class="text-xs text-center opacity-75 break-words">{member.degree_detail}</p>
+                        <div class="text-center space-y-0 sm:space-y-0.5 w-full">
+                            <p class="font-semibold text-center text-sm break-words leading-none">{member.alias}</p>
+                            <p class="text-[11px] sm:text-xs text-center opacity-75 break-words -mt-1 sm:mt-0">{member.degree_detail}</p>
+                        </div>
                     </div>
                 {/each}
             </div>
@@ -173,7 +177,7 @@
 <style>
     .person-card {
         transition: all 0.3s ease-in-out;
-        @apply flex flex-col items-center space-y-2 w-14 sm:w-20;
+        @apply flex flex-col items-center space-y-2 w-[calc(20%-4px)] sm:w-20;
     }
 
     .person-card-image {

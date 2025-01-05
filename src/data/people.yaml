@@ -119,6 +119,54 @@ students:
     github: "https://github.com/dkim"
 
 
+  - name: "Michael Zhang"
+    alias: Michael
+    status: current
+    degree: ms
+    degree_detail: "CS MSc"
+    photo: "/images/people/placeholder.jpg"
+    year_joined: 2023
+    linkedin: "https://linkedin.com/in/michaelzhang"
+    github: "https://github.com/mzhang"
+
+  - name: "Sophia Patel"
+    alias: Sophia
+    status: current
+    degree: ms
+    degree_detail: "Robo MSc"
+    photo: "/images/people/placeholder.jpg"
+    year_joined: 2023
+    linkedin: "https://linkedin.com/in/sophiapatel"
+
+  - name: "Lucas Rodriguez"
+    alias: Lucas
+    status: current
+    degree: bs
+    degree_detail: "CS BSc"
+    photo: "/images/people/placeholder.jpg"
+    year_joined: 2024
+    github: "https://github.com/lrodriguez"
+
+  - name: "Emma Chen"
+    alias: Emma
+    status: current
+    degree: bs
+    degree_detail: "ME BSc"
+    photo: "/images/people/placeholder.jpg"
+    year_joined: 2024
+    linkedin: "https://linkedin.com/in/emmachen"
+
+  - name: "Ryan Thompson"
+    alias: Ryan
+    status: current
+    degree: ms
+    degree_detail: "ECE MSc"
+    photo: "/images/people/placeholder.jpg"
+    year_joined: 2023
+    linkedin: "https://linkedin.com/in/ryanthompson"
+    github: "https://github.com/rthompson"
+
+
   - name: "Emily Brown"
     alias: Emily
     status: alum
