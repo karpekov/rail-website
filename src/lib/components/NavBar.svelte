@@ -58,19 +58,19 @@
         <!-- Logo container with transition -->
         {#if showLogo}
             {#if showMatrix}
-            <div class="h-12 md:h-12 matrix-logo-glow flex items-center">
+            <div class="h-14 lg:h-12 matrix-logo-glow flex items-center">
                 <img
                     src="/assets/rail-logo-new-green.svg"
                     alt="RAIL Lab Logo"
-                    class="h-10 w-auto object-contain"
+                    class="h-12 lg:h-10 w-auto object-contain"
                 />
             </div>
             {:else}
-            <div class="h-12 md:h-12 regular-logo-glow flex items-center">
+            <div class="h-14 lg:h-12 regular-logo-glow flex items-center">
                 <img
                     src="/assets/rail-logo-new-white.svg"
                     alt="RAIL Lab Logo"
-                    class="h-10 w-auto object-contain"
+                    class="h-12 lg:h-10 w-auto object-contain"
                 />
             </div>
             {/if}
@@ -83,7 +83,7 @@
         {/if}
 
         <!-- Desktop Navigation -->
-        <div class="hidden md:flex items-center space-x-4">
+        <div class="hidden lg:flex items-center space-x-4">
             <button
                 class="btn btn-sm variant-ghost"
                 on:click={() => {
@@ -144,7 +144,7 @@
         </div>
 
         <!-- Mobile Navigation -->
-        <div class="md:hidden flex items-center space-x-2">
+        <div class="lg:hidden flex items-center space-x-2">
             <button
                 class="btn btn-sm rounded-token hover:variant-soft-primary"
                 on:click={() => showMatrix = !showMatrix}
@@ -168,7 +168,7 @@
     </nav>
 
     <!-- Mobile Menu (Hidden by default) -->
-    <div id="mobile-menu" class="hidden md:hidden container mx-auto max-w-6xl px-4 sm:px-6 md:px-8">
+    <div id="mobile-menu" class="hidden lg:hidden container mx-auto max-w-6xl px-4 sm:px-6 md:px-8">
         <div class="flex flex-col space-y-1 py-3">
             <button
                 class="btn btn-sm variant-ghost text-left px-4 py-2"
