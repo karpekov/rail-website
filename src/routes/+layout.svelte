@@ -1,7 +1,9 @@
 <script lang="ts">
 	import '../app.postcss';
-	import { Modal, initializeStores } from '@skeletonlabs/skeleton';
+	import { Modal, initializeStores, storePopup } from '@skeletonlabs/skeleton';
 
+	// Initialize stores
+	initializeStores();
 </script>
 
 <svelte:head>
@@ -26,6 +28,9 @@
 	<meta property="twitter:description" content="Robot Autonomy and Interactive Learning Lab at Georgia Institute of Technology">
 	<meta property="twitter:image" content="%sveltekit.assets%/assets/social_media_preview.png">
 </svelte:head>
+
+<!-- Skeleton Modal -->
+<Modal />
 
 <div class="app min-h-screen">
 	<slot />

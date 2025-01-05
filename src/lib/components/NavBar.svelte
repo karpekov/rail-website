@@ -1,5 +1,22 @@
 <script lang="ts">
     import { fade, fly } from 'svelte/transition';
+    import { getModalStore } from '@skeletonlabs/skeleton';
+    import JoinUs from '$lib/components/JoinUs.svelte';
+
+    const modalStore = getModalStore();
+
+    function openJoinUsModal() {
+        modalStore.trigger({
+            type: 'component',
+            component: {
+                ref: JoinUs,
+                props: {
+                    showMatrix: showMatrix,
+                    onClose: () => modalStore.close()
+                }
+            }
+        });
+    }
 
     function scrollToSection(sectionId: string) {
         const section = document.getElementById(sectionId);
@@ -92,10 +109,7 @@
             <button
                 class="btn btn-sm variant-filled-primary join-us-btn"
                 class:matrix-join-btn={showMatrix}
-                on:click={() => {
-                    scrollToSection('join');
-                    document.querySelector('#mobile-menu').classList.add('hidden');
-                }}
+                on:click={openJoinUsModal}
             >
                 Join Us
             </button>
@@ -214,8 +228,8 @@
                 class="btn w-full variant-filled-primary join-us-btn"
                 class:matrix-join-btn={showMatrix}
                 on:click={() => {
-                    scrollToSection('join');
                     document.querySelector('#mobile-menu').classList.add('hidden');
+                    openJoinUsModal();
                 }}
             >
                 Join Us
