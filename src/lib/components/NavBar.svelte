@@ -1,7 +1,35 @@
 <script lang="ts">
     import { fade, fly } from 'svelte/transition';
 
-    export let scrollToSection: (sectionId: string) => void;
+    function scrollToSection(sectionId: string) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            const isMobile = window.innerWidth < 768; // md breakpoint
+
+            // Get actual navbar height
+            const navbar = document.querySelector('.sticky');
+            const navbarHeight = navbar ? navbar.getBoundingClientRect().height : 0;
+
+            // Add extra padding
+            const extraPadding = isMobile ? 16 : 24;
+            const offset = navbarHeight + extraPadding;
+
+            const elementPosition = section.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.scrollY - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+
+            // Close mobile menu if it's open
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+            }
+        }
+    }
+
     export let showLogo = false;
     export let showMatrix = false;
 
