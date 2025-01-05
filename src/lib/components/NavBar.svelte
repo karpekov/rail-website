@@ -250,7 +250,7 @@
         box-shadow: 0 0 10px #0F0;
     }
 
-    /* Regular theme button styles */
+    Regular theme button styles
     .btn.variant-ghost:hover {
         background-color: rgba(var(--color-primary-500), 0.1) !important;
         color: rgb(var(--color-primary-500)) !important;
@@ -283,18 +283,20 @@
     }
 
     .bg-surface-50-900-token {
-        animation: pulse 2s infinite;
+        animation: pulse 30s infinite;
     }
 
     @keyframes pulse {
         0% {
             box-shadow: none;
         }
-        50% {
+        10% {
             box-shadow: 0 0 10px rgba(0, 255, 0, 0.5), 0 0 20px rgba(0, 255, 0, 0.3);
+            background-color: #0F0;
         }
-        100% {
+        20% {
             box-shadow: none;
+            background-color: none;
         }
     }
 
