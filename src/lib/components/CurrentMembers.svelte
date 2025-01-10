@@ -2,6 +2,24 @@
     import { people } from '$lib/utils/dataLoader';
     export let showMatrix = false;
 
+    function scrollToMembers() {
+        const section = document.getElementById('members');
+        if (section) {
+            const navbar = document.querySelector('.sticky');
+            const navbarHeight = navbar ? navbar.getBoundingClientRect().height : 0;
+            const extraPadding = 24;
+            const offset = navbarHeight + extraPadding;
+
+            const elementPosition = section.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.scrollY - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    }
+
     function getRandomRobotAvatar() {
         const robotIndex = Math.floor(Math.random() * 24); // 0 to 23
         return `/images/robots/robot${robotIndex}_white.svg`;
@@ -48,7 +66,18 @@
 
 <section id="current-members">
     <div class="container mx-auto max-w-6xl px-4 sm:px-6 md:px-8">
-        <h2 class="text-center mb-4 sm:mb-6 md:mb-8">Current RAIL Lab Members:</h2>
+        <h2 class="text-center mb-4 sm:mb-6 md:mb-8 flex flex-col sm:flex-row justify-center items-center gap-1">
+            Current RAIL Lab Members.
+            <a
+                href="#members"
+                on:click|preventDefault={scrollToMembers}
+                class:text-primary-500={!showMatrix}
+                class:hover:text-primary-600={!showMatrix}
+                class:matrix-link={showMatrix}
+            >
+                More info and alums here.
+            </a>
+        </h2>
 
         <!-- Senior Members Row -->
         <div class="mb-4">
@@ -232,5 +261,15 @@
 
     .robot-avatar {
         transform: scale(0.85);
+    }
+
+    .matrix-link {
+        color: #0F0 !important;
+        transition: all 0.2s ease;
+    }
+
+    .matrix-link:hover {
+        color: #00FF00 !important;
+        text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
     }
 </style>

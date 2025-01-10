@@ -1,3 +1,13 @@
+# Notes:
+# Add your course under "courses"
+#
+# Fields:
+# - name:        Name of the course
+# - semester:    Latest semester when the course was taught
+# - description: Brief 1-sentencee dscription of the course
+# - status:      one of: [current, upcoming, past]
+# - website:     Link to the course website, if available
+
 courses:
   - name: "CS 3630: Introduction to Robotics and Perception"
     semester: Spring 2025

@@ -1,3 +1,15 @@
+# Notes:
+# Add your project under "project_list"
+#
+# Fields:
+# - full_title:  Full title of the paper  or project.
+# - short_title: Title of your card; something short and catchy.
+# - venue:       Conference or Journal name (ideally, abbreviated) + year. E.g.: [RAS'23, CoRL'22, IJRR'22]
+# - link:        Link to the paper or project.
+# - image:       Figure 1, or any other catchy image of you project.
+# - team:        Full author list, organized as a comma-separated list with first+last names.
+# - featured:    Leave "true" if you want to highlight this project on the home page.
+
 project_list:
 
   - full_title: 'Sonia Chernova presented "Algorithmic Design of Proactive and Interpretable Home Robots" at MIT Robotics in September 2024'

@@ -1,3 +1,12 @@
+# Notes:
+# Add your name under "students".
+#
+# Fields:
+# - alias:         Preferred or short name
+# - status:        one of: [current, alum]
+# - degree:        one of: [postdoc, phd, ms, bs]
+# - degree_detail: one of: [CS ..., Robo ..., HCI ..., ... ]
+
 faculty:
   - name: Sonia Chernova
     alias: Sonia
@@ -40,7 +49,10 @@ students:
     degree_detail: Robo PhD
     photo: /images/people/ethan.jpg
     year_joined: 2023
+    website: https://ethan-schneider.github.io/
     scholar: https://scholar.google.com/citations?user=0ubC95wAAAAJ&hl=en
+    linkedin: https://www.linkedin.com/in/ethanschneiders/
+    twitter: https://x.com/EthanSchneider_
 
   - name: Niharika Mathur
     alias: Niharika
