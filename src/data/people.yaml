@@ -105,6 +105,28 @@ students:
     twitter: https://x.com/alexkarpekov
     scholar: https://scholar.google.com/citations?user=r0RqCXQAAAAJ
 
+  - name: Sanjana Menon
+    alias: Sanjana
+    status: current
+    degree: MS
+    degree_detail: Robo MS
+    photo: /images/people/sanjana.jpg
+    year_joined: 2025
+    linkedin: http://linkedin.com/in/sanjana-chelat-menon
+
+  - name: Harsh Muriki
+    alias: Harsh
+    status: current
+    degree: masters
+    degree_detail: MS CS
+    photo: /images/people/harsh.jpg
+    year_joined: 2024
+    website: https://www.harshmuriki.com/
+    github: https://github.com/harshmuriki
+    linkedin: https://www.linkedin.com/in/venkata-harsh-muriki/
+    twitter: https://x.com/Harshmuriki24
+    scholar: https://scholar.google.com/citations?user=Q9a5nPkAAAAJ&hl=en
+
   - name: "Sarah Williams"
     alias: Sarah
     status: current
