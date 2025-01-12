@@ -118,7 +118,7 @@ students:
     alias: Harsh
     status: current
     degree: masters
-    degree_detail: MS CS
+    degree_detail: CS MS
     photo: /images/people/harsh.jpg
     year_joined: 2024
     website: https://www.harshmuriki.com/
@@ -126,6 +126,17 @@ students:
     linkedin: https://www.linkedin.com/in/venkata-harsh-muriki/
     twitter: https://x.com/Harshmuriki24
     scholar: https://scholar.google.com/citations?user=Q9a5nPkAAAAJ&hl=en
+
+  - name: Hannah Hsiao
+    alias: Hannah
+    status: current
+    degree: bs
+    degree_detail: CS BS
+    photo: /images/people/hannah.jpg
+    year_joined: 2024
+    website: https://hhsiao24.github.io/hannah-portfolio/
+    github: https://github.com/hhsiao24
+    linkedin: https://www.linkedin.com/in/hannah-hsiao-784845132/
 
   - name: "Sarah Williams"
     alias: Sarah
@@ -149,7 +160,7 @@ students:
     photo: "/images/people/placeholder.jpg"
     email: "d.kim@university.edu"
     year: "2nd"
-    year_joined: 2019
+    year_joined: 2025
     linkedin: "https://linkedin.com/in/davidkim"
     github: "https://github.com/dkim"
 
@@ -161,7 +172,7 @@ students:
     photo: "/images/people/placeholder.jpg"
     email: "d.kim@university.edu"
     year: "2nd"
-    year_joined: 2018
+    year_joined: 2025
     linkedin: "https://linkedin.com/in/davidkim"
     github: "https://github.com/dkim"
 
@@ -172,7 +183,7 @@ students:
     degree: ms
     degree_detail: "CS MSc"
     photo: "/images/people/placeholder.jpg"
-    year_joined: 2023
+    year_joined: 2025
     linkedin: "https://linkedin.com/in/michaelzhang"
     github: "https://github.com/mzhang"
 
@@ -182,7 +193,7 @@ students:
     degree: ms
     degree_detail: "Robo MSc"
     photo: "/images/people/placeholder.jpg"
-    year_joined: 2023
+    year_joined: 2025
     linkedin: "https://linkedin.com/in/sophiapatel"
 
   - name: "Lucas Rodriguez"
@@ -191,7 +202,7 @@ students:
     degree: bs
     degree_detail: "CS BSc"
     photo: "/images/people/placeholder.jpg"
-    year_joined: 2024
+    year_joined: 2025
     github: "https://github.com/lrodriguez"
 
   - name: "Emma Chen"
@@ -200,7 +211,7 @@ students:
     degree: bs
     degree_detail: "ME BSc"
     photo: "/images/people/placeholder.jpg"
-    year_joined: 2024
+    year_joined: 2025
     linkedin: "https://linkedin.com/in/emmachen"
 
   - name: "Ryan Thompson"
@@ -209,7 +220,7 @@ students:
     degree: ms
     degree_detail: "ECE MSc"
     photo: "/images/people/placeholder.jpg"
-    year_joined: 2023
+    year_joined: 2025
     linkedin: "https://linkedin.com/in/ryanthompson"
     github: "https://github.com/rthompson"
 
