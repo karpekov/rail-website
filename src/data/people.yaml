@@ -51,9 +51,11 @@ students:
     degree: phd
     degree_detail: Robo PhD
     photo: /images/people/kartik.jpg
-    year_joined: 2020
-    website: https://kartikvrama.github.io/
-    scholar: https://scholar.google.com/citations?user=c6OhZroAAAAJ&hl=en&oi=ao
+    year_joined: 2021
+    website: https://kartikvrama.github.io
+    github: https://github.com/kartikvrama
+    linkedin: https://www.linkedin.com/in/kartik-ramachandruni/
+    scholar: https://scholar.google.com/citations?user=c6OhZroAAAAJ&hl=en
 
   - name: Ethan Schneider
     alias: Ethan

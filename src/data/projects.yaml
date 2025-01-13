@@ -20,6 +20,14 @@ project_list:
     team: [Sonia Chernova]
     featured: true
 
+  - full_title: "ConSOR: A Context-Aware Semantic Object Rearrangement Framework for Partially Arranged Scenes"
+    short_title: "ConSOR: Context-Guided Personalized Object Rearrangement"
+    venue: IROS'23
+    link: https://arxiv.org/abs/2310.00371
+    image: /images/projects/kartik_consor.png
+    team: [Kartik Ramachandruni, Max Zuo, Sonia Chernova]
+    featured: true
+
   - full_title: A Survey of Semantic Reasoning Frameworks for Robotic Systems.
     short_title: "Semantic Reasoning Frameworks: Survey"
     venue: RAS'23
