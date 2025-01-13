@@ -143,7 +143,7 @@ students:
   - name: Twisha Shah
     alias: Twisha
     status: current
-    degree: MS
+    degree: ms
     degree_detail: ECE MS
     photo: /images/people/twisha.jpg
     year_joined: 2024
@@ -153,25 +153,25 @@ students:
     twitter: https://x.com/you_know_me99
     scholar:
 
-  - name: "Sarah Williams"
-    alias: Sarah
+  - name: "Geoffrey Hinton"
+    alias: Geoffrey
     status: current
     degree: ms
-    degree_detail: "CS MSc"
+    degree_detail: "CS MS"
     photo: "/images/people/placeholder.jpg"
     email: "s.williams@university.edu"
     year: "4th"
-    year_joined: 2023
+    year_joined: 2025
     website: "https://sarahw.io"
     linkedin: "https://linkedin.com/in/sarahw"
     github: "https://github.com/swilliams"
     scholar: "https://scholar.google.com/citations?user=131415"
 
-  - name: "David Kim"
-    alias: David
+  - name: "Demis Hassabis"
+    alias: Demis
     status: current
     degree: ms
-    degree_detail: "ME MSc"
+    degree_detail: "ME MS"
     photo: "/images/people/placeholder.jpg"
     email: "d.kim@university.edu"
     year: "2nd"
@@ -179,11 +179,11 @@ students:
     linkedin: "https://linkedin.com/in/davidkim"
     github: "https://github.com/dkim"
 
-  - name: "Andrew Yang"
-    alias: Andrew
+  - name: "Yann LeCun"
+    alias: Yann
     status: current
     degree: bs
-    degree_detail: "ME BSc"
+    degree_detail: "ME BS"
     photo: "/images/people/placeholder.jpg"
     email: "d.kim@university.edu"
     year: "2nd"
@@ -192,53 +192,42 @@ students:
     github: "https://github.com/dkim"
 
 
-  - name: "Michael Zhang"
-    alias: Michael
+  - name: "Yoshua Bengio"
+    alias: Yoshua
     status: current
-    degree: ms
-    degree_detail: "CS MSc"
+    degree: bs
+    degree_detail: "CS MS"
     photo: "/images/people/placeholder.jpg"
     year_joined: 2025
     linkedin: "https://linkedin.com/in/michaelzhang"
     github: "https://github.com/mzhang"
 
-  - name: "Sophia Patel"
-    alias: Sophia
+  - name: "Fei-Fei Li"
+    alias: Fei-Fei
     status: current
-    degree: ms
-    degree_detail: "Robo MSc"
+    degree: bs
+    degree_detail: "Robo BS"
     photo: "/images/people/placeholder.jpg"
     year_joined: 2025
     linkedin: "https://linkedin.com/in/sophiapatel"
 
-  - name: "Lucas Rodriguez"
-    alias: Lucas
+  - name: "Andrej Karpathy"
+    alias: Andrej
     status: current
     degree: bs
-    degree_detail: "CS BSc"
+    degree_detail: "CS BS"
     photo: "/images/people/placeholder.jpg"
     year_joined: 2025
     github: "https://github.com/lrodriguez"
 
-  - name: "Emma Chen"
+  - name: "Andrew Ng"
     alias: Emma
     status: current
     degree: bs
-    degree_detail: "ME BSc"
+    degree_detail: "ME BS"
     photo: "/images/people/placeholder.jpg"
     year_joined: 2025
     linkedin: "https://linkedin.com/in/emmachen"
-
-  - name: "Ryan Thompson"
-    alias: Ryan
-    status: current
-    degree: ms
-    degree_detail: "ECE MSc"
-    photo: "/images/people/placeholder.jpg"
-    year_joined: 2025
-    linkedin: "https://linkedin.com/in/ryanthompson"
-    github: "https://github.com/rthompson"
-
 
   - name: "Emily Brown"
     alias: Emily
@@ -258,7 +247,7 @@ students:
     alias: James
     status: alum
     degree: ms
-    degree_detail: "CE BSc"
+    degree_detail: "CE BS"
     photo: "/images/people/placeholder.jpg"
     email: "j.wilson@university.edu"
     graduation: 2021
