@@ -1,17 +1,16 @@
 activities:
-  - title: Atlanta School Outreach
+  - title: Bridge Up
     shortDescription: Teaching teens coding and ML basics
-    fullDescription: A 2-month long program teaching teenagers the basics of coding and machine learning. Our lab members visit local Atlanta schools weekly to introduce students to programming concepts, basic machine learning, and robotics through hands-on projects.
-    image: /images/fun/school-outreach-stock.webp
-    date: Fall 2023
-    participants: [Jane Smith, John Doe, Alice Johnson]
+    fullDescription: Bridge Up, co-organized by Georgia Tech’s RAIL Lab, is an eight-week program empowering young women to explore coding, robotics, and machine learning. Participants are tutored and mentored by RAIL Lab students, with a focus on machine learning concepts and hands-on group projects in convolutional neural networks.
+    image: /images/fun/bridgeup.jpg
+    date: Annual in Spring
     tags: [education, outreach, coding]
 
   - title: Robo-Halloween
     shortDescription: Robots in costumes giving out candy
-    fullDescription: Annual Halloween event where we dress up our robots in spooky costumes and program them to interact with kids and give out candy. The robots tell Halloween jokes, play themed music, and create a fun, interactive experience for children in the community.
+    fullDescription: Annual Halloween event where we dress up our robots in spooky costumes and program them to interact with kids and give out candy. Traditionally, RAIL Lab members all dress up and go around a local neighborhood in Atlanta to give out candy.
     image: /images/fun/robo-halloween.jpg
-    date: October 2023
+    date: Every October
     participants: [Michael Chen, Sarah Williams, David Kim]
     tags: [community, robots, holiday]
 
@@ -19,11 +18,11 @@ activities:
     shortDescription: Lab rock climbing adventures
     fullDescription: Monthly rock climbing sessions where lab members bond over conquering walls and boulders. We discuss research ideas, solve problems, and build team spirit while getting some exercise. Sometimes we even bring our small robots to attempt some climbs!
     image: /images/fun/robo-climbing.jpg
-    date: Monthly
+    date: Weekly
     participants: [Emily Brown, James Wilson, Alice Johnson]
     tags: [team-building, sports, outdoors]
 
-  - title: Robot Demo Day
+  - title: "[TBD] Robot Demo Day"
     shortDescription: Interactive robot demonstrations for the public
     fullDescription: Quarterly open house events where we showcase our latest robot projects to the public. Visitors can interact with various robots, learn about their capabilities, and even try programming simple behaviors. This event helps bridge the gap between robotics research and the general public, making advanced technology more approachable and understandable.
     image: /images/fun/robot-demo.jpg
@@ -31,7 +30,7 @@ activities:
     participants: [Jane Smith, Michael Chen, David Kim, Emily Brown]
     tags: [outreach, robots, education, community]
 
-  - title: Summer BBQ & Robotics
+  - title: "[TBD] Summer BBQ & Robotics"
     shortDescription: Annual lab BBQ with robot competitions
     fullDescription: Our annual summer gathering combines delicious BBQ with friendly robotics competitions. Lab members bring their personal projects or lab robots to compete in fun challenges like robot races, precision tasks, or creative demonstrations. The event strengthens team bonds and often sparks new research ideas through casual discussions and collaborative problem-solving.
     image: /images/fun/summer-bbq.jpg
