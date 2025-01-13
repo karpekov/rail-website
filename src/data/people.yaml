@@ -138,6 +138,19 @@ students:
     github: https://github.com/hhsiao24
     linkedin: https://www.linkedin.com/in/hannah-hsiao-784845132/
 
+  - name: Twisha Shah
+    alias: Twisha
+    status: current
+    degree: MS
+    degree_detail: ECE MS
+    photo: /images/people/twisha.jpg
+    year_joined: 2024
+    website:
+    github: https://github.com/twisha-shah99
+    linkedin: https://www.linkedin.com/in/shahtwisha/
+    twitter: https://x.com/you_know_me99
+    scholar:
+
   - name: "Sarah Williams"
     alias: Sarah
     status: current
