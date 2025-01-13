@@ -158,7 +158,7 @@ students:
     status: current
     degree: ms
     degree_detail: "CS MS"
-    photo: "/images/people/placeholder.jpg"
+    photo: "/images/people/geoffrey.jpg"
     email: "s.williams@university.edu"
     year: "4th"
     year_joined: 2025
@@ -172,7 +172,7 @@ students:
     status: current
     degree: ms
     degree_detail: "ME MS"
-    photo: "/images/people/placeholder.jpg"
+    photo: "/images/people/demis.jpg"
     email: "d.kim@university.edu"
     year: "2nd"
     year_joined: 2025
@@ -184,7 +184,7 @@ students:
     status: current
     degree: bs
     degree_detail: "ME BS"
-    photo: "/images/people/placeholder.jpg"
+    photo: "/images/people/yann.jpg"
     email: "d.kim@university.edu"
     year: "2nd"
     year_joined: 2025
@@ -197,7 +197,7 @@ students:
     status: current
     degree: bs
     degree_detail: "CS MS"
-    photo: "/images/people/placeholder.jpg"
+    photo: "/images/people/yoshua.jpg"
     year_joined: 2025
     linkedin: "https://linkedin.com/in/michaelzhang"
     github: "https://github.com/mzhang"
@@ -207,7 +207,7 @@ students:
     status: current
     degree: bs
     degree_detail: "Robo BS"
-    photo: "/images/people/placeholder.jpg"
+    photo: "/images/people/feifei.jpg"
     year_joined: 2025
     linkedin: "https://linkedin.com/in/sophiapatel"
 
@@ -216,18 +216,9 @@ students:
     status: current
     degree: bs
     degree_detail: "CS BS"
-    photo: "/images/people/placeholder.jpg"
+    photo: "/images/people/andrej.jpg"
     year_joined: 2025
     github: "https://github.com/lrodriguez"
-
-  - name: "Andrew Ng"
-    alias: Emma
-    status: current
-    degree: bs
-    degree_detail: "ME BS"
-    photo: "/images/people/placeholder.jpg"
-    year_joined: 2025
-    linkedin: "https://linkedin.com/in/emmachen"
 
   - name: "Emily Brown"
     alias: Emily
