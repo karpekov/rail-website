@@ -153,9 +153,20 @@ students:
     twitter: https://x.com/you_know_me99
     scholar:
 
+  - name: Abivishaq Balasubramanian
+    alias: Abivishaq
+    status: current
+    degree: ms
+    degree_detail: Robo MS
+    photo: /images/people/abivishaq.jpg
+    year_joined: 2023
+    github: https://github.com/Abivishaq
+    linkedin: https://www.linkedin.com/in/abivishaq/
+    scholar: https://scholar.google.com/citations?user=71XmDvYAAAAJ&hl=en&oi=ao
+
   - name: "Geoffrey Hinton"
     alias: Geoffrey
-    status: current
+    status: alum
     degree: ms
     degree_detail: "CS MS"
     photo: "/images/people/geoffrey.jpg"
@@ -169,7 +180,7 @@ students:
 
   - name: "Demis Hassabis"
     alias: Demis
-    status: current
+    status: alum
     degree: ms
     degree_detail: "ME MS"
     photo: "/images/people/demis.jpg"
@@ -181,7 +192,7 @@ students:
 
   - name: "Yann LeCun"
     alias: Yann
-    status: current
+    status: alum
     degree: bs
     degree_detail: "ME BS"
     photo: "/images/people/yann.jpg"
@@ -194,7 +205,7 @@ students:
 
   - name: "Yoshua Bengio"
     alias: Yoshua
-    status: current
+    status: alum
     degree: bs
     degree_detail: "CS MS"
     photo: "/images/people/yoshua.jpg"
@@ -204,7 +215,7 @@ students:
 
   - name: "Fei-Fei Li"
     alias: Fei-Fei
-    status: current
+    status: alum
     degree: bs
     degree_detail: "Robo BS"
     photo: "/images/people/feifei.jpg"
@@ -213,47 +224,9 @@ students:
 
   - name: "Andrej Karpathy"
     alias: Andrej
-    status: current
+    status: alum
     degree: bs
     degree_detail: "CS BS"
     photo: "/images/people/andrej.jpg"
     year_joined: 2025
     github: "https://github.com/lrodriguez"
-
-  - name: "Emily Brown"
-    alias: Emily
-    status: alum
-    degree: phd
-    degree_detail: "Robo PhD"
-    photo: "/images/people/placeholder.jpg"
-    email: "e.brown@university.edu"
-    graduation: 2020
-    next_role: Research Scientist at Boston Dynamics
-    website: "https://emilybrown.me"
-    linkedin: "https://linkedin.com/in/ebrown"
-    github: "https://github.com/ebrown"
-    scholar: "https://scholar.google.com/citations?user=161718"
-
-  - name: "James Wilson"
-    alias: James
-    status: alum
-    degree: ms
-    degree_detail: "CE BS"
-    photo: "/images/people/placeholder.jpg"
-    email: "j.wilson@university.edu"
-    graduation: 2021
-    next_role: SWE @ Apple
-    linkedin: "https://linkedin.com/in/jwilson"
-    github: "https://github.com/jwilson"
-
-  - name: Bob Wilson
-    alias: Bob
-    status: alum
-    degree: phd
-    degree_detail: CS PhD
-    photo: "/images/people/placeholder.jpg"
-    graduation: 2023
-    next_role: Assistant Professor at Tech University
-    website: "https://bobwilson.edu"
-    linkedin: "https://linkedin.com/in/bobwilson"
-    scholar: "https://scholar.google.com/citations?user=192021"
