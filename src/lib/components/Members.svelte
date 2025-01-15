@@ -131,37 +131,11 @@
         </div>
     </div>
 
-    <!-- Alumni Section -->
+    <!-- Lab Alumni -->
     {#if alumni.length > 0}
-        <div>
-            <button
-                class="flex items-center gap-2 text-lg font-thin mb-4"
-                class:hover:text-primary-500={!showMatrix}
-                class:hover:text-[#0F0]={showMatrix}
-                on:click={toggleAlumni}
-            >
-                <svg
-                    class="w-4 h-4 transition-transform"
-                    class:rotate-90={showAlumni}
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                >
-                    <path
-                        d="M9 18l6-6-6-6"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    />
-                </svg>
-                Lab Alumni
-            </button>
-
-            {#if showAlumni}
-            <div
-                class="flex flex-wrap justify-evenly sm:justify-start gap-2 sm:gap-4 max-w-6xl mx-auto px-4 pt-2"
-                transition:slide
-            >
+        <div class="mt-12">
+            <h3 class="h3 mb-4 font-thin">Lab Alumni</h3>
+            <div class="flex flex-wrap justify-evenly sm:justify-start gap-2 sm:gap-4 max-w-6xl mx-auto px-4 pt-2">
                 {#each alumni as member}
                     <div class="flex-none w-[140px] sm:w-[160px] flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card hover:bg-surface-200-700-token">
                         <div
@@ -251,7 +225,6 @@
                     </div>
                 {/each}
             </div>
-            {/if}
         </div>
     {/if}
 </section>
