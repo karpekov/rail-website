@@ -6,6 +6,10 @@
 # - status:        one of: [current, alum]
 # - degree:        one of: [postdoc, phd, ms, bs]
 # - degree_detail: one of: [CS ..., Robo ..., HCI ..., ... ]
+#
+# For alumni, add the following extra fields:
+# - graduation:    year of graduation
+# - next_role:     next role after graduation
 
 faculty:
   - name: Sonia Chernova
@@ -173,6 +177,8 @@ students:
     email: "s.williams@university.edu"
     year: "4th"
     year_joined: 2025
+    graduation: 2014
+    next_role: "Professor Emeritus at the University of Toronto"
     website: "https://sarahw.io"
     linkedin: "https://linkedin.com/in/sarahw"
     github: "https://github.com/swilliams"
@@ -187,6 +193,8 @@ students:
     email: "d.kim@university.edu"
     year: "2nd"
     year_joined: 2025
+    graduation: 2022
+    next_role: "CEO of DeepMind"
     linkedin: "https://linkedin.com/in/davidkim"
     github: "https://github.com/dkim"
 
@@ -199,6 +207,8 @@ students:
     email: "d.kim@university.edu"
     year: "2nd"
     year_joined: 2025
+    graduation: 2022
+    next_role: "Chief AI Scientist at Meta"
     linkedin: "https://linkedin.com/in/davidkim"
     github: "https://github.com/dkim"
 
@@ -210,6 +220,8 @@ students:
     degree_detail: "CS MS"
     photo: "/images/people/yoshua.jpg"
     year_joined: 2025
+    graduation: 2021
+    next_role: "Professor at the Université de Montréal"
     linkedin: "https://linkedin.com/in/michaelzhang"
     github: "https://github.com/mzhang"
 
@@ -220,6 +232,8 @@ students:
     degree_detail: "Robo BS"
     photo: "/images/people/feifei.jpg"
     year_joined: 2025
+    graduation: 2020
+    next_role: "Professor at Stanford University"
     linkedin: "https://linkedin.com/in/sophiapatel"
 
   - name: "Andrej Karpathy"
@@ -229,4 +243,6 @@ students:
     degree_detail: "CS BS"
     photo: "/images/people/andrej.jpg"
     year_joined: 2025
+    graduation: 2019
+    next_role: "Head of Vision AI at Tesla"
     github: "https://github.com/lrodriguez"
