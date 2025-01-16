@@ -181,6 +181,18 @@ students:
     linkedin: https://www.linkedin.com/in/nhi-nguyen-b3042a1a8/
     scholar: https://scholar.google.com/citations?user=YDhbRU4AAAAJ&hl=en
 
+  - name: Rahul Rustagi
+    alias: Rahul
+    status: current
+    degree: ms
+    degree_detail: ECE MS
+    photo: /images/people/rahul.jpg
+    year_joined: 2025
+    website: https://rrustagi20.github.io/
+    github: https://github.com/rrustagi20
+    linkedin: https://www.linkedin.com/in/rahul-rustagi-34254321b/
+    scholar: https://scholar.google.com/citations?user=5KYg7IgAAAAJ&hl=en
+
 
 ############### ALUMNI ###############
 
