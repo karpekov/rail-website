@@ -25,6 +25,8 @@ faculty:
 
 students:
 
+############### CURRENT STUDENTS ###############
+
   - name: Jack Kolb
     alias: Jack
     status: current
@@ -168,11 +170,28 @@ students:
     linkedin: https://www.linkedin.com/in/abivishaq/
     scholar: https://scholar.google.com/citations?user=71XmDvYAAAAJ&hl=en&oi=ao
 
+  - name: Nhi Nguyen Ngoc Yen
+    alias: Leona
+    status: current
+    degree: ms
+    degree_detail: Robo MS
+    photo: /images/people/leona.jpg
+    year_joined: 2024
+    github: https://github.com/NhiNguyencmt8
+    linkedin: https://www.linkedin.com/in/nhi-nguyen-b3042a1a8/
+    scholar: https://scholar.google.com/citations?user=YDhbRU4AAAAJ&hl=en
+
+
+############### ALUMNI ###############
+
+############### PLACEHOLDER ##########
+
+
   - name: "Geoffrey Hinton"
     alias: Geoffrey
     status: alum
-    degree: ms
-    degree_detail: "CS MS"
+    degree: phd
+    degree_detail: "CS PhD"
     photo: "/images/people/geoffrey.jpg"
     email: "s.williams@university.edu"
     year: "4th"
@@ -187,8 +206,8 @@ students:
   - name: "Demis Hassabis"
     alias: Demis
     status: alum
-    degree: ms
-    degree_detail: "ME MS"
+    degree: phd
+    degree_detail: "ME PhD"
     photo: "/images/people/demis.jpg"
     email: "d.kim@university.edu"
     year: "2nd"
@@ -201,8 +220,8 @@ students:
   - name: "Yann LeCun"
     alias: Yann
     status: alum
-    degree: bs
-    degree_detail: "ME BS"
+    degree: phd
+    degree_detail: "CSE PhD"
     photo: "/images/people/yann.jpg"
     email: "d.kim@university.edu"
     year: "2nd"
@@ -216,8 +235,8 @@ students:
   - name: "Yoshua Bengio"
     alias: Yoshua
     status: alum
-    degree: bs
-    degree_detail: "CS MS"
+    degree: phd
+    degree_detail: "CS PhD"
     photo: "/images/people/yoshua.jpg"
     year_joined: 2025
     graduation: 2021
@@ -228,8 +247,8 @@ students:
   - name: "Fei-Fei Li"
     alias: Fei-Fei
     status: alum
-    degree: bs
-    degree_detail: "Robo BS"
+    degree: phd
+    degree_detail: "Robo PhD"
     photo: "/images/people/feifei.jpg"
     year_joined: 2025
     graduation: 2020
@@ -239,8 +258,8 @@ students:
   - name: "Andrej Karpathy"
     alias: Andrej
     status: alum
-    degree: bs
-    degree_detail: "CS BS"
+    degree: phd
+    degree_detail: "CS PhD"
     photo: "/images/people/andrej.jpg"
     year_joined: 2025
     graduation: 2019
