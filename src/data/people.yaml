@@ -193,6 +193,17 @@ students:
     linkedin: https://www.linkedin.com/in/rahul-rustagi-34254321b/
     scholar: https://scholar.google.com/citations?user=5KYg7IgAAAAJ&hl=en
 
+  - name: Aesha Shah
+    alias: Aesha
+    status: current
+    degree: bs
+    degree_detail: CS BS
+    photo: /images/people/aesha.jpg
+    year_joined: 2023
+    website: https://aeshashah726.github.io/
+    github: https://github.com/aeshashah726
+    linkedin: https://www.linkedin.com/in/aeshashah7/
+
 
 ############### ALUMNI ###############
 
