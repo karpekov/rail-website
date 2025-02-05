@@ -27,18 +27,6 @@ students:
 
 ############### CURRENT STUDENTS ###############
 
-  - name: Jack Kolb
-    alias: Jack
-    status: current
-    degree: phd
-    degree_detail: Robo PhD
-    photo: /images/people/jack.jpg
-    year_joined: 2020
-    website: https://jackkolb.com/
-    linkedin: https://www.linkedin.com/in/jack-kolb-786134b8/
-    github: https://github.com/jackkolb
-    scholar: https://scholar.google.com/citations?user=kKoPyvIAAAAJ
-
   - name: Maithili Patel
     alias: Maithili
     status: current
@@ -206,6 +194,19 @@ students:
 
 
 ############### ALUMNI ###############
+
+  - name: Jack Kolb
+    alias: Jack
+    status: alum
+    degree: phd
+    degree_detail: Robo PhD
+    photo: /images/people/jack.jpg
+    year_joined: 2020
+    graduation: 2022
+    website: https://jackkolb.com/
+    linkedin: https://www.linkedin.com/in/jack-kolb-786134b8/
+    github: https://github.com/jackkolb
+    scholar: https://scholar.google.com/citations?user=kKoPyvIAAAAJ
 
 ############### PLACEHOLDER ##########
 
