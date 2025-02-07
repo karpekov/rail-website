@@ -49,9 +49,12 @@
         <button
             class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 filter-chip cursor-pointer"
             class:active={activeFilter === 'all'}
-            style="background-color: {showMatrix ? 'transparent' : activeFilter === 'all' ? tagColors.all : 'transparent'};
-                   color: {showMatrix ? '#0F0' : activeFilter === 'all' ? 'white' : tagColors.all};
-                   border: 1px solid {showMatrix ? '#0F0' : tagColors.all}"
+            style="background-color: {showMatrix ?
+                   activeFilter === 'all' ? 'rgba(0, 255, 0, 0.2)' : 'transparent' :
+                   activeFilter === 'all' ? 'rgba(255, 255, 255, 0.15)' : 'transparent'};
+                   color: {showMatrix ? '#0F0' : 'rgba(255, 255, 255, 0.9)'};
+                   border: {showMatrix ? '1px solid #0F0' : '1px solid rgba(255, 255, 255, 0.3)'};
+                   box-shadow: {showMatrix && activeFilter === 'all' ? '0 0 15px rgba(0, 255, 0, 0.5)' : 'none'}"
             on:click={() => setFilter('all')}
         >
             All
@@ -60,9 +63,12 @@
             <button
                 class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 filter-chip cursor-pointer"
                 class:active={activeFilter === tag}
-                style="background-color: {showMatrix ? 'transparent' : activeFilter === tag ? tagColors[tag] : 'transparent'};
-                       color: {showMatrix ? '#0F0' : activeFilter === tag ? 'white' : tagColors[tag]};
-                       border: 1px solid {showMatrix ? '#0F0' : tagColors[tag]}"
+                style="background-color: {showMatrix ?
+                       activeFilter === tag ? 'rgba(0, 255, 0, 0.2)' : 'transparent' :
+                       activeFilter === tag ? 'rgba(255, 255, 255, 0.15)' : 'transparent'};
+                       color: {showMatrix ? '#0F0' : 'rgba(255, 255, 255, 0.9)'};
+                       border: {showMatrix ? '1px solid #0F0' : '1px solid rgba(255, 255, 255, 0.3)'};
+                       box-shadow: {showMatrix && activeFilter === tag ? '0 0 15px rgba(0, 255, 0, 0.5)' : 'none'}"
                 on:click={() => setFilter(tag)}
             >
                 {label}
@@ -92,8 +98,10 @@
                                 {#each project.tags as tag}
                                     <span
                                         class="px-2 py-0.5 rounded-full text-xs font-medium"
-                                        style="background-color: {showMatrix ? 'transparent' : tagColors[tag]};
-                                               color: {showMatrix ? '#0F0' : 'white'};
+                                        style="background-color: {showMatrix ? 'transparent' :
+                                               tag === activeFilter ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 0.15)'};
+                                               color: {showMatrix ? '#0F0' :
+                                               tag === activeFilter ? 'rgba(0, 0, 0, 0.8)' : 'rgba(255, 255, 255, 0.9)'};
                                                border: {showMatrix ? '1px solid #0F0' : 'none'}"
                                         title={tagLabels[tag]}
                                     >

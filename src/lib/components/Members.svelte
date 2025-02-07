@@ -38,12 +38,6 @@
     function getProfileLink(member) {
         return member.website || member.linkedin || null;
     }
-
-    let showAlumni = false;
-
-    function toggleAlumni() {
-        showAlumni = !showAlumni;
-    }
 </script>
 
 <section id="members">
