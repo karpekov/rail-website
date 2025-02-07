@@ -1,9 +1,11 @@
 recent_news:
   - date: November 2024
     content: Dr. Kantwon Rogers successfully defended his dissertation
+    link: https://www.kantwon.com/
 
   - date: March 2024
     content: Our paper on 'Adaptive Robot Learning' accepted to ICRA 2024!
+    link: https://arxiv.org/abs/example
 
   - date: February 2024
     content: Welcome to new Ph.D. student Alice Johnson

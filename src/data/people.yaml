@@ -195,6 +195,17 @@ students:
 
 ############### ALUMNI ###############
 
+  - name: Kantwon Rogers
+    status: alum
+    degree: phd
+    degree_detail: CS PhD
+    photo: /images/people/kantwon.jpg
+    graduation: 2024
+    next_role: Postdoc at MIT Media Lab
+    website: https://www.kantwon.com/
+    twitter: https://x.com/WoWz3rz
+    scholar: https://scholar.google.com/citations?hl=en&user=wA29UpQAAAAJ
+
   - name: Jack Kolb
     alias: Jack
     status: alum
@@ -208,84 +219,3 @@ students:
     github: https://github.com/jackkolb
     scholar: https://scholar.google.com/citations?user=kKoPyvIAAAAJ
 
-############### PLACEHOLDER ##########
-
-
-  - name: "Geoffrey Hinton"
-    alias: Geoffrey
-    status: alum
-    degree: phd
-    degree_detail: "CS PhD"
-    photo: "/images/people/geoffrey.jpg"
-    email: "s.williams@university.edu"
-    year: "4th"
-    year_joined: 2025
-    graduation: 2014
-    next_role: "Professor Emeritus at the University of Toronto"
-    website: "https://sarahw.io"
-    linkedin: "https://linkedin.com/in/sarahw"
-    github: "https://github.com/swilliams"
-    scholar: "https://scholar.google.com/citations?user=131415"
-
-  - name: "Demis Hassabis"
-    alias: Demis
-    status: alum
-    degree: phd
-    degree_detail: "ME PhD"
-    photo: "/images/people/demis.jpg"
-    email: "d.kim@university.edu"
-    year: "2nd"
-    year_joined: 2025
-    graduation: 2022
-    next_role: "CEO of DeepMind"
-    linkedin: "https://linkedin.com/in/davidkim"
-    github: "https://github.com/dkim"
-
-  - name: "Yann LeCun"
-    alias: Yann
-    status: alum
-    degree: phd
-    degree_detail: "CSE PhD"
-    photo: "/images/people/yann.jpg"
-    email: "d.kim@university.edu"
-    year: "2nd"
-    year_joined: 2025
-    graduation: 2022
-    next_role: "Chief AI Scientist at Meta"
-    linkedin: "https://linkedin.com/in/davidkim"
-    github: "https://github.com/dkim"
-
-
-  - name: "Yoshua Bengio"
-    alias: Yoshua
-    status: alum
-    degree: phd
-    degree_detail: "CS PhD"
-    photo: "/images/people/yoshua.jpg"
-    year_joined: 2025
-    graduation: 2021
-    next_role: "Professor at the Université de Montréal"
-    linkedin: "https://linkedin.com/in/michaelzhang"
-    github: "https://github.com/mzhang"
-
-  - name: "Fei-Fei Li"
-    alias: Fei-Fei
-    status: alum
-    degree: phd
-    degree_detail: "Robo PhD"
-    photo: "/images/people/feifei.jpg"
-    year_joined: 2025
-    graduation: 2020
-    next_role: "Professor at Stanford University"
-    linkedin: "https://linkedin.com/in/sophiapatel"
-
-  - name: "Andrej Karpathy"
-    alias: Andrej
-    status: alum
-    degree: phd
-    degree_detail: "CS PhD"
-    photo: "/images/people/andrej.jpg"
-    year_joined: 2025
-    graduation: 2019
-    next_role: "Head of Vision AI at Tesla"
-    github: "https://github.com/lrodriguez"

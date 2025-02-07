@@ -63,15 +63,16 @@
         </div>
 
         <p class="text-2xl font-bold pt-1 font-orbitron text-center" class:matrix-text={showMatrix}>
-            Connecting Robots to the Human World
+            Advancing AI & Robotics for the Human World
+            <!-- Advancing Human Centered AI & Robotics -->
         </p>
         <p class="text-md lg:text-xl pt-2 font-opensans">
             RAIL Lab at <a href="https://www.gatech.edu/", target="_blank">Georgia Tech</a>
-            focuses on developing intelligent robotic and AI systems that can naturally
-            interact with humans in various contexts, from healthcare to manufacturing.
-            Through interdisciplinary research combining robotics, artificial intelligence,
-            and human factors, we aim to create more intuitive and effective human-robot
-            partnerships.
+            focuses on developing human-centered robotic and AI systems that can
+            better assist and interact with humans in various contexts, from in-home to healthcare.
+            Through interdisciplinary research combining robotics, AI,
+            and human factors, we aim to create effective and transparent
+            technologies that seamlessly integrate into everyday lives.
         </p>
     </div>
 </section>

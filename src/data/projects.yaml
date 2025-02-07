@@ -2,92 +2,122 @@
 # Add your project under "project_list"
 #
 # Fields:
-# - full_title:  Full title of the paper  or project.
-# - short_title: Title of your card; something short and catchy.
-# - venue:       Conference or Journal name (ideally, abbreviated) + year. E.g.: [RAS'23, CoRL'22, IJRR'22]
-# - link:        Link to the paper or project.
-# - image:       Figure 1, or any other catchy image of you project.
-# - team:        Full author list, organized as a comma-separated list with first+last names.
-# - featured:    Leave "true" if you want to highlight this project on the home page.
+# - full_title:  REQUIRED - Full title of the paper  or project.
+# - short_title: REQUIRED - Title of your card; something short and catchy.
+# - venue:       REQUIRED - Conference or Journal name (ideally, abbreviated) + year. E.g.: [RAS'23, CoRL'22, IJRR'22]
+# - image:       REQUIRED - Figure 1, or any other catchy image of you project.
+# - team:        REQUIRED - Full author list, organized as a comma-separated list with first+last names.
+# - tags:        REQUIRED - List of project tags; select one or multiple from this list:
+#                           - hcai: Human-Centered AI
+#                           - robo: Robotics
+#                           - multi: Multi-Agent Systems
+#                           - xai: Explainable AI
+# - website:     OPTIONAL - Link to the project website.
+# - pdf:         OPTIONAL - Link to the paper or project.
+# - github:      OPTIONAL - Link to the github repository.
+# - video:       OPTIONAL - Link to the video of the project.
+# - featured:    OPTIONAL - Leave "true" if you want to highlight this project on the home page.
 
 project_list:
 
   - full_title: 'Sonia Chernova presented "Algorithmic Design of Proactive and Interpretable Home Robots" at MIT Robotics in September 2024'
     short_title: "MIT Robotics Seminar"
     venue: MIT Robotics'24
-    link: https://www.youtube.com/watch?v=HK5wRFDx2no
+    video: https://www.youtube.com/watch?v=HK5wRFDx2no
+    website: https://google.com
+    pdf: https://google.com
+    github: https://google.com
     image: /images/projects/sonia_mit.jpg
     team: [Sonia Chernova]
+    tags: [hcai, robo]
+    featured: true
+
+  - full_title: "CE-MRS: Contrastive Explanations for Multi-Robot Systems"
+    short_title: "Contrastive Explanations for Multi-Robot Systems"
+    venue: IROS'24
+    pdf: https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10697262
+    image: /images/projects/ethan24_contrastive.jpg
+    team: [Ethan Schneider, Daniel Wu, Devleena Das, Sonia Chernova]
+    tags: [multi, robo, xai]
     featured: true
 
   - full_title: "ConSOR: A Context-Aware Semantic Object Rearrangement Framework for Partially Arranged Scenes"
     short_title: "ConSOR: Context-Guided Personalized Object Rearrangement"
     venue: IROS'23
-    link: https://arxiv.org/abs/2310.00371
+    video: https://youtube.com/watch?v=example
     image: /images/projects/kartik_consor.png
     team: [Kartik Ramachandruni, Max Zuo, Sonia Chernova]
+    tags: [hcai, robo]
     featured: true
 
   - full_title: A Survey of Semantic Reasoning Frameworks for Robotic Systems.
     short_title: "Semantic Reasoning Frameworks: Survey"
     venue: RAS'23
-    link: https://www.sciencedirect.com/science/article/pii/S092188902200183X
+    pdf: https://www.sciencedirect.com/science/article/pii/S092188902200183X
     image: /images/projects/LIU2023104294.jpg
     team: [Weiyu Liu, Angel Daruna, Maithili Patel, Kartik Ramachandruni, Sonia Chernova]
+    tags: [hcai, robo]
     featured: true
 
   - full_title: Subgoal-Based Explanations for Unreliable Intelligent Decision Support Systems
     short_title: Subgoal-Based Explanations
     venue: IUI'23
-    link: https://dl.acm.org/doi/10.1145/3581641.3584055
+    pdf: https://dl.acm.org/doi/10.1145/3581641.3584055
     image: /images/projects/devleena_subgoal.jpg
     team: [Devleena Das, Been Kim, Sonia Chernova]
+    tags: [hcai, xai]
     featured: true
 
   - full_title: Proactive Robot Assistance via Spatio-Temporal Object Modeling
     short_title: Proactive Robot Assistance
     venue: CoRL'22
-    link: https://arxiv.org/abs/2211.15501
+    pdf: https://arxiv.org/abs/2211.15501
     image: /images/projects/maithili_proactive.jpg
     team: [Maithili Patel, Sonia Chernova]
+    tags: [robo]
     featured: true
 
   - full_title: "Rethinking Sim2Real: Lower Fidelity Simulation Leads to Higher Sim2Real Transfer in Navigation."
     short_title: Rethinking Sim2Real
     venue: CoRL'22
-    link: https://arxiv.org/abs/2207.10821
+    pdf: https://arxiv.org/abs/2207.10821
     image: /images/projects/joanne_sim2real.jpg
     team: [Joanne Truong, Max Rudolph, Naoki Yokoyama, Sonia Chernova, Dhruv Batra, Akshara Rai]
+    tags: [robo]
     featured: true
 
   - full_title: "GRSTAPS: Graphically Recursive Simultaneous Task Allocation, Planning, and Scheduling."
     short_title: GRSTAPS
     venue: IJRR'22
-    link: https://journals.sagepub.com/doi/full/10.1177/02783649211052066
+    pdf: https://journals.sagepub.com/doi/full/10.1177/02783649211052066
     image: /images/projects/messing_grstaps.jpg
     team: [Andrew Messing, Glen Neville, Sonia Chernova, Seth Hutchinson, Harish Ravichandar]
+    tags: [robo]
     featured: true
 
   - full_title: "Leveraging Cognitive States in Human-Robot Teaming."
     short_title: Cognitive States in HR Teaming
     venue: RO-MAN'22
-    link: https://ieeexplore.ieee.org/abstract/document/9900794
+    pdf: https://ieeexplore.ieee.org/abstract/document/9900794
     image: /images/projects/kolb_cog_states.jpg
     team: [Jack Kolb, Harish Ravichandar, Sonia Chernova]
+    tags: [hcai, robo]
     featured: true
 
   - full_title: Learning Instance-Level N-Ary Semantic Knowledge At Scale For Robots Operating in Everyday Environments.
     short_title: Instance-Level N-Ary Semantic Knowledge
     venue: RSS'21
-    link: https://www.roboticsproceedings.org/rss17/p035.pdf
+    pdf: https://www.roboticsproceedings.org/rss17/p035.pdf
     image: /images/projects/liu_narray_2021.jpg
     team: [Weiyu Liu, Dhruva Bansal, Angel Andres Daruna, Sonia Chernova]
+    tags: [hcai, robo]
     featured: true
 
   - full_title: Recent Advances in Robot Learning from Demonstration.
     short_title: Robot Learning from Demonstration
     venue: Annual Review of Control, Robotics, and Autonomous Systems '20
-    link: https://www.annualreviews.org/content/journals/10.1146/annurev-control-100819-063206
+    pdf: https://www.annualreviews.org/content/journals/10.1146/annurev-control-100819-063206
     image: /images/projects/ravichandar_ar_2021.jpg
     team: [Harish Ravichandar, Athanasios S. Polydoros, Sonia Chernova, Aude Billard]
+    tags: [hcai, robo]
     featured: true

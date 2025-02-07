@@ -22,8 +22,36 @@
         <div class="card p-4 space-y-4">
             {#each allNews.slice(0, visibleCount) as item}
                 <div class="border-b border-surface-300-600-token last:border-0 pb-4">
-                    <span class="font-bold">{item.date}</span>
-                    <p>{item.content}</p>
+                    <div class="flex justify-between items-start gap-4">
+                        <div>
+                            <span class="font-bold">{item.date}</span>
+                            <p>{item.content}</p>
+                        </div>
+                        {#if item.link}
+                            <a
+                                href={item.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-primary-500 hover:text-primary-600 transition-colors flex-shrink-0 mt-1"
+                                class:matrix-link={showMatrix}
+                                title="Read more"
+                            >
+                                <svg
+                                    class="w-5 h-5"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                    <polyline points="15 3 21 3 21 9" />
+                                    <line x1="10" y1="14" x2="21" y2="3" />
+                                </svg>
+                            </a>
+                        {/if}
+                    </div>
                 </div>
             {/each}
 
@@ -51,6 +79,15 @@
     .matrix-button:hover {
         background-color: rgba(0, 255, 0, 0.1) !important;
         box-shadow: 0 0 10px #0F0;
+    }
+
+    .matrix-link {
+        color: #0F0 !important;
+    }
+
+    .matrix-link:hover {
+        color: #00FF00 !important;
+        text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
     }
 
 	:global(:not(.matrix-theme)) .section-title {

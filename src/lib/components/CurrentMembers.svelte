@@ -132,7 +132,7 @@
                             </div>
                         {/if}
                         <div class="text-center space-y-0 sm:space-y-0.5 w-full">
-                            <p class="font-semibold text-center text-sm break-words leading-none">{member.alias}</p>
+                            <p class="font-semibold text-center text-sm break-words leading-none">{member.name}</p>
                             <p class="text-[11px] sm:text-xs text-center opacity-75 break-words -mt-1 sm:mt-0">{member.degree_detail}</p>
                         </div>
                     </div>
@@ -193,7 +193,7 @@
                             </div>
                         {/if}
                         <div class="text-center space-y-0 sm:space-y-0.5 w-full">
-                            <p class="font-semibold text-center text-sm break-words leading-none">{member.alias}</p>
+                            <p class="font-semibold text-center text-sm break-words leading-none">{member.name}</p>
                             <p class="text-[11px] sm:text-xs text-center opacity-75 break-words -mt-1 sm:mt-0">{member.degree_detail}</p>
                         </div>
                     </div>
