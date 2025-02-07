@@ -4,6 +4,8 @@
     import { scrollable } from '$lib/utils/scroll';
     export let showMatrix = false;
 
+    let showCollaborators = false;
+
     // Combine faculty and students
     const allMembers = [...(people?.faculty || []), ...(people?.students || [])];
 
@@ -130,7 +132,7 @@
         <div class="mt-12">
             <h3 class="h3 mb-4 font-thin">Lab Alumni</h3>
             <div class="flex flex-wrap justify-evenly sm:justify-start gap-2 sm:gap-4 max-w-6xl mx-auto px-4 pt-2">
-                {#each alumni as member}
+                {#each alumni.filter(m => m.degree === 'phd' || m.degree === 'postdoc') as member}
                     <div class="flex-none w-[140px] sm:w-[160px] flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card hover:bg-surface-200-700-token">
                         <div
                             class="w-24 h-24 sm:w-36 sm:h-36 rounded-full bg-surface-300-600-token overflow-hidden ring-2"
@@ -221,6 +223,45 @@
             </div>
         </div>
     {/if}
+
+    <!-- Other Alumni -->
+    {#if alumni.filter(m => !['phd', 'postdoc'].includes(m.degree)).length > 0}
+        <div class="mt-12">
+            <button
+                class="w-full flex items-center gap-3 h3 mb-4 font-thin hover:opacity-80 transition-opacity"
+                on:click={() => showCollaborators = !showCollaborators}
+            >
+                <svg
+                    class="w-6 h-6 transform transition-transform duration-200 flex-none"
+                    class:rotate-90={showCollaborators}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                >
+                    <path d="M9 5l7 7-7 7" />
+                </svg>
+                <span>Previous Collaborators</span>
+            </button>
+            {#if showCollaborators}
+            <div transition:slide={{duration: 300}}>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto px-4">
+                    {#each alumni
+                        .filter(m => !['phd', 'postdoc'].includes(m.degree))
+                        .sort((a, b) => b.graduation - a.graduation) as member}
+                        <div class="flex justify-between items-center py-2 px-4 rounded-lg bg-surface-100-800-token">
+                            <div>
+                                <span class="font-medium">{member.name}</span>
+                                <span class="text-sm opacity-75 ml-2">{member.degree_detail}</span>
+                            </div>
+                            <span class="text-sm opacity-60">{member.graduation}</span>
+                        </div>
+                    {/each}
+                </div>
+            </div>
+            {/if}
+        </div>
+    {/if}
 </section>
 
 <style>
@@ -280,4 +321,9 @@
 			text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
 									0 0 20px rgba(255, 255, 255, 0.3);
 	}
+
+    button {
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+    }
 </style>

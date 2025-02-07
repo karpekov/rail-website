@@ -219,3 +219,171 @@ students:
     github: https://github.com/jackkolb
     scholar: https://scholar.google.com/citations?user=kKoPyvIAAAAJ
 
+  - name: Test Test
+    status: alum
+    degree: ms
+    degree_detail: Robo MS
+    graduation: 2022
+
+  - name: Max Zuo
+    status: alum
+    degree: ms
+    degree_detail: CS MS
+    graduation: 2024
+
+  - name: Max Rudolph
+    status: alum
+    degree: ms
+    degree_detail: CS MS
+    graduation: 2023
+
+  - name: Daniel Wu
+    status: alum
+    degree: ms
+    degree_detail: CS MS
+    graduation: 2023
+
+  - name: Akshay Krishnan
+    status: alum
+    degree: ms
+    degree_detail: CS MS
+    graduation: 2023
+
+  - name: Mayank Kishore
+    status: alum
+    degree: ms
+    degree_detail: CS MS
+    graduation: 2023
+
+  - name: Dhruva Bansal
+    status: alum
+    degree: ms
+    degree_detail: CS MS
+    graduation: 2022
+
+  - name: Yoonwoo Kim
+    status: alum
+    degree: ms
+    degree_detail: CS MS
+    graduation: 2022
+
+  - name: Hritik Sapra
+    status: alum
+    degree: ms
+    degree_detail: CS MS
+    graduation: 2022
+
+  - name: Atharv Marathe
+    status: alum
+    degree: ms
+    degree_detail: CS MS
+    graduation: 2022
+
+  - name: Amirtha Virshini
+    status: alum
+    degree: ms
+    degree_detail: CS MS
+    graduation: 2021
+
+  - name: Christopher Lindbeck
+    status: alum
+    degree: ms
+    degree_detail: CS MS
+    graduation: 2021
+
+  - name: Aswin Prakash
+    status: alum
+    degree: ms
+    degree_detail: CS MS
+    graduation: 2021
+
+  - name: Srivatsa P
+    status: alum
+    degree: ms
+    degree_detail: CS MS
+    graduation: 2020
+
+  - name: Yi Qin
+    status: alum
+    degree: ms
+    degree_detail: CS MS
+    graduation: 2020
+
+  - name: Pankhuri Singh
+    status: alum
+    degree: ms
+    degree_detail: CS MS
+    graduation: 2020
+
+  - name: Tofunmi Sodimu
+    status: alum
+    degree: ms
+    degree_detail: CS MS
+    graduation: 2020
+
+  - name: Juan Antonio Robledo
+    status: alum
+    degree: ms
+    degree_detail: CS MS
+    graduation: 2019
+
+  - name: Khalid Shaikh
+    status: alum
+    degree: ms
+    degree_detail: CS MS
+    graduation: 2019
+
+  - name: Andrew Silva
+    status: alum
+    degree: ms
+    degree_detail: CS MS
+    graduation: 2019
+
+  - name: Carl Saldanha
+    status: alum
+    degree: ms
+    degree_detail: CS MS
+    graduation: 2019
+
+  - name: Chaitya Shah
+    status: alum
+    degree: ms
+    degree_detail: CS MS
+    graduation: 2018
+
+  - name: Nithin Shrivatsav
+    status: alum
+    degree: ms
+    degree_detail: CS MS
+    graduation: 2018
+
+  - name: Abhinav Jain
+    status: alum
+    degree: ms
+    degree_detail: CS MS
+    graduation: 2018
+
+  - name: John Yi
+    status: alum
+    degree: ms
+    degree_detail: CS MS
+    graduation: 2018
+
+  - name: Anusha Srikanthan
+    status: alum
+    degree: ms
+    degree_detail: CS MS
+    graduation: 2018
+
+  - name: Anahita Mohseni Kabir
+    status: alum
+    degree: ms
+    degree_detail: CS MS
+    graduation: 2017
+
+  - name: Jayanta Bhowmick
+    status: alum
+    degree: ms
+    degree_detail: CS MS
+    graduation: 2017
+
