@@ -90,11 +90,12 @@
 
                 <div class="p-3 space-y-2 flex-grow">
                     <!-- Title and Publication -->
-                    <div class="space-y-1">
+                    <div class="space-y-2">
                         <h4 class="font-medium text-base">{project.short_title || project.full_title}</h4>
                         <!-- Tags -->
                         {#if project.tags && project.tags.length > 0}
                             <div class="flex flex-wrap gap-1.5 mt-1 mb-2">
+
                                 {#each project.tags as tag}
                                     <span
                                         class="px-2 py-0.5 rounded-full text-xs font-medium"
@@ -105,7 +106,7 @@
                                                border: {showMatrix ? '1px solid #0F0' : 'none'}"
                                         title={tagLabels[tag]}
                                     >
-                                        {tag}
+                                        {tag.toUpperCase()}
                                     </span>
                                 {/each}
                             </div>

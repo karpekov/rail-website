@@ -2,23 +2,28 @@
 # Add your name under "students".
 #
 # Fields:
-# - alias:         Preferred or short name
-# - status:        one of: [current, alum]
-# - degree:        one of: [postdoc, phd, ms, bs]
-# - degree_detail: one of: [CS ..., Robo ..., HCI ..., ... ]
-#
+# - name:          REQUIRED - Full name
+# - status:        REQUIRED - one of: [current, alum]
+# - degree:        REQUIRED - one of: [postdoc, phd, ms, bs]
+# - degree_detail: REQUIRED - one of: [CS PhD, CS MS, CS BS, Robo PhD, Robo MS, Robo BS, HCI PhD, HCI MS, HCI BS, ... ]
+# - photo:         REQUIRED - photo of the person (in /images/people/)
+# - year_joined:   OPTIONAL - year joined the lab
+# - website:       OPTIONAL - persinal website
+# - linkedin:      OPTIONAL - linkedin profile
+# - scholar:       OPTIONAL - scholar profile
+# - github:        OPTIONAL - github profile
+# - twitter:       OPTIONAL - twitter (X) profile
+
 # For alumni, add the following extra fields:
-# - graduation:    year of graduation
-# - next_role:     next role after graduation
+# - graduation:    REQUIRED - year of graduation
+# - next_role:     OPTIONAL - next role after graduation
 
 faculty:
   - name: Sonia Chernova
-    alias: Sonia
     status: current
     degree: professor
     degree_detail: Faculty
     photo: /images/people/sonia.jpg
-    email: chernova@cc.gatech.edu
     website: https://faculty.cc.gatech.edu/~chernova/
     linkedin: https://www.linkedin.com/in/sonia-chernova-6b11781a/
     scholar: https://scholar.google.com/citations?user=EYo_WkEAAAAJ&hl=en
@@ -28,7 +33,6 @@ students:
 ############### CURRENT STUDENTS ###############
 
   - name: Maithili Patel
-    alias: Maithili
     status: current
     degree: phd
     degree_detail: Robo PhD
@@ -40,7 +44,6 @@ students:
     scholar: https://scholar.google.com/citations?user=dvqkwFYAAAAJ&hl=en
 
   - name: Kartik Ramachandruni
-    alias: Kartik
     status: current
     degree: phd
     degree_detail: Robo PhD
@@ -52,7 +55,6 @@ students:
     scholar: https://scholar.google.com/citations?user=c6OhZroAAAAJ&hl=en
 
   - name: Ethan Schneider
-    alias: Ethan
     status: current
     degree: phd
     degree_detail: Robo PhD
@@ -64,7 +66,6 @@ students:
     twitter: https://x.com/EthanSchneider_
 
   - name: Niharika Mathur
-    alias: Niharika
     status: current
     degree: phd
     degree_detail: HCC PhD
@@ -76,7 +77,6 @@ students:
     twitter: https://x.com/niharika1011
 
   - name: Nadira Mahamane
-    alias: Nadira
     status: current
     degree: phd
     degree_detail: Robo PhD
@@ -89,7 +89,6 @@ students:
 
 
   - name: Alexander Karpekov
-    alias: Alex
     status: current
     degree: phd
     degree_detail: CS PhD
@@ -102,7 +101,6 @@ students:
     scholar: https://scholar.google.com/citations?user=r0RqCXQAAAAJ
 
   - name: Sanjana Menon
-    alias: Sanjana
     status: current
     degree: MS
     degree_detail: Robo MS
@@ -111,7 +109,6 @@ students:
     linkedin: http://linkedin.com/in/sanjana-chelat-menon
 
   - name: Harsh Muriki
-    alias: Harsh
     status: current
     degree: masters
     degree_detail: CS MS
@@ -124,7 +121,6 @@ students:
     scholar: https://scholar.google.com/citations?user=Q9a5nPkAAAAJ&hl=en
 
   - name: Hannah Hsiao
-    alias: Hannah
     status: current
     degree: bs
     degree_detail: CS BS
@@ -135,7 +131,6 @@ students:
     linkedin: https://www.linkedin.com/in/hannah-hsiao-784845132/
 
   - name: Twisha Shah
-    alias: Twisha
     status: current
     degree: ms
     degree_detail: ECE MS
@@ -148,7 +143,6 @@ students:
     scholar:
 
   - name: Abivishaq Balasubramanian
-    alias: Abivishaq
     status: current
     degree: ms
     degree_detail: Robo MS
@@ -159,7 +153,6 @@ students:
     scholar: https://scholar.google.com/citations?user=71XmDvYAAAAJ&hl=en&oi=ao
 
   - name: Nhi Nguyen Ngoc Yen
-    alias: Leona
     status: current
     degree: ms
     degree_detail: Robo MS
@@ -170,7 +163,6 @@ students:
     scholar: https://scholar.google.com/citations?user=YDhbRU4AAAAJ&hl=en
 
   - name: Rahul Rustagi
-    alias: Rahul
     status: current
     degree: ms
     degree_detail: ECE MS
@@ -182,7 +174,6 @@ students:
     scholar: https://scholar.google.com/citations?user=5KYg7IgAAAAJ&hl=en
 
   - name: Aesha Shah
-    alias: Aesha
     status: current
     degree: bs
     degree_detail: CS BS
@@ -193,7 +184,7 @@ students:
     linkedin: https://www.linkedin.com/in/aeshashah7/
 
 
-############### ALUMNI ###############
+############### PostDoc & PhD ALUMNI ###############
 
   - name: Kantwon Rogers
     status: alum
@@ -206,8 +197,18 @@ students:
     twitter: https://x.com/WoWz3rz
     scholar: https://scholar.google.com/citations?hl=en&user=wA29UpQAAAAJ
 
+  - name: Devleena Das
+    status: alum
+    degree: phd
+    degree_detail: Robo PhD
+    photo: /images/people/devleena.jpg
+    graduation: 2023
+    next_role: "AI @ AMD"
+    website: https://ddevleena.com/
+    linkedin: https://www.linkedin.com/in/ddevleena/
+    scholar: https://scholar.google.com/citations?user=xzt3VP0AAAAJ&hl=en
+
   - name: Jack Kolb
-    alias: Jack
     status: alum
     degree: phd
     degree_detail: Robo PhD
@@ -219,11 +220,7 @@ students:
     github: https://github.com/jackkolb
     scholar: https://scholar.google.com/citations?user=kKoPyvIAAAAJ
 
-  - name: Test Test
-    status: alum
-    degree: ms
-    degree_detail: Robo MS
-    graduation: 2022
+############### MS and BS ALUMNI ###############
 
   - name: Max Zuo
     status: alum
