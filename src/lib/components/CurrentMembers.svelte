@@ -132,7 +132,7 @@
                             </div>
                         {/if}
                         <div class="text-center space-y-0 sm:space-y-0.5 w-full">
-                            <p class="font-semibold text-center text-sm break-words leading-none">{member.name}</p>
+                            <p class="font-semibold text-center text-[12px] sm:text-[14px] break-words leading-none">{member.name}</p>
                             <p class="text-[11px] sm:text-xs text-center opacity-75 break-words -mt-1 sm:mt-0">{member.degree_detail}</p>
                         </div>
                     </div>
@@ -193,7 +193,7 @@
                             </div>
                         {/if}
                         <div class="text-center space-y-0 sm:space-y-0.5 w-full">
-                            <p class="font-semibold text-center text-sm break-words leading-none">{member.name}</p>
+                            <p class="font-semibold text-center text-[12px] sm:text-[14px] break-words leading-none">{member.name}</p>
                             <p class="text-[11px] sm:text-xs text-center opacity-75 break-words -mt-1 sm:mt-0">{member.degree_detail}</p>
                         </div>
                     </div>
@@ -206,11 +206,11 @@
 <style>
     .person-card {
         transition: all 0.3s ease-in-out;
-        @apply flex flex-col items-center space-y-2 w-[calc(20%-4px)] sm:w-20;
+        @apply flex flex-col items-center space-y-2 w-20 sm:w-28;
     }
 
     .person-card-image {
-        @apply w-14 h-14 sm:w-20 sm:h-20 rounded-full overflow-hidden transition-all;
+        @apply w-16 h-16 sm:w-28 sm:h-28 rounded-full overflow-hidden transition-all;
     }
 
     /* Default ring style */
