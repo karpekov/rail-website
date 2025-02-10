@@ -1,3 +1,11 @@
 {
-  "framework": "sveltekit"
+  "framework": "sveltekit",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "devCommand": "npm run dev",
+  "outputDirectory": ".svelte-kit",
+  "regions": ["iad1"],
+  "nodejs": {
+    "version": "20.x"
+  }
 }
