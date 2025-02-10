@@ -192,10 +192,23 @@ students:
     degree_detail: CS PhD
     photo: /images/people/kantwon.jpg
     graduation: 2024
-    next_role: Postdoc at MIT Media Lab
+    next_role: Postdoc @ MIT Media Lab
     website: https://www.kantwon.com/
     twitter: https://x.com/WoWz3rz
     scholar: https://scholar.google.com/citations?hl=en&user=wA29UpQAAAAJ
+
+  - name: Joanne Truong
+    status: alum
+    degree: phd
+    degree_detail: Robo PhD
+    photo: /images/people/joanne.jpg
+    graduation: 2024
+    next_role: "Research Scientist @ FAIR LAB"
+    website: https://www.joannetruong.com/
+    linkedin: https://www.linkedin.com/in/joanne-truong-49b263108/
+    scholar: https://scholar.google.com/citations?hl=en&user=tlbCMqsAAAAJ
+    github: https://github.com/joannetruong
+    twitter: https://x.com/joannetruong
 
   - name: Devleena Das
     status: alum
