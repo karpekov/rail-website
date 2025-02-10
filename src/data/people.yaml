@@ -233,6 +233,18 @@ students:
     github: https://github.com/jackkolb
     scholar: https://scholar.google.com/citations?user=kKoPyvIAAAAJ
 
+  - name: Harish Ravichandar
+    status: alum
+    degree: postdoc
+    degree_detail: Robo Postdoc
+    photo: /images/people/harish.jpg
+    graduation: 2019
+    next_role: "Professor @ Georgia Tech"
+    website: https://harishravichandar.com/
+    scholar: https://scholar.google.com/citations?user=d2HP6SMAAAAJ&hl=en
+    linkedin: https://www.linkedin.com/in/harish-ravichandar/
+    twitter: https://x.com/h_ravichandar
+
 ############### MS and BS ALUMNI ###############
 
   - name: Max Zuo
