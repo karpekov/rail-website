@@ -31,12 +31,13 @@
   "type": "module",
   "dependencies": {
     "@tailwindcss/forms": "^0.5.9",
+    "@vercel/analytics": "^1.5.0",
     "flowbite": "^2.5.2",
     "flowbite-svelte": "^0.47.4",
     "gsap": "^3.12.5",
     "jarallax": "^2.2.1"
   },
   "engines": {
-    "node": "20.x"
+    "node": ">=20.x"
   }
 }

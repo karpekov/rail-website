@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { injectAnalytics } from '@vercel/analytics/sveltekit';
 	import NavBar from '$lib/components/NavBar.svelte';
 	import About from '$lib/components/About.svelte';
 	import News from '$lib/components/News.svelte';
@@ -32,6 +33,8 @@
 	function closeJoinUs() {
 		showJoinUs = false;
 	}
+
+	injectAnalytics();
 </script>
 
 <div class:matrix-theme={showMatrix}>
