@@ -21,19 +21,3 @@ activities:
     date: Weekly
     participants: [Emily Brown, James Wilson, Alice Johnson]
     tags: [team-building, sports, outdoors]
-
-  - title: "[TBD] Robot Demo Day"
-    shortDescription: Interactive robot demonstrations for the public
-    fullDescription: Quarterly open house events where we showcase our latest robot projects to the public. Visitors can interact with various robots, learn about their capabilities, and even try programming simple behaviors. This event helps bridge the gap between robotics research and the general public, making advanced technology more approachable and understandable.
-    image: /images/fun/robot-demo.jpg
-    date: Quarterly
-    participants: [Jane Smith, Michael Chen, David Kim, Emily Brown]
-    tags: [outreach, robots, education, community]
-
-  - title: "[TBD] Summer BBQ & Robotics"
-    shortDescription: Annual lab BBQ with robot competitions
-    fullDescription: Our annual summer gathering combines delicious BBQ with friendly robotics competitions. Lab members bring their personal projects or lab robots to compete in fun challenges like robot races, precision tasks, or creative demonstrations. The event strengthens team bonds and often sparks new research ideas through casual discussions and collaborative problem-solving.
-    image: /images/fun/summer-bbq.jpg
-    date: Summer 2023
-    participants: [John Doe, Sarah Williams, James Wilson, Alice Johnson]
-    tags: [social, competition, team-building, food]
