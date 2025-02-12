@@ -1,23 +1,23 @@
+# List of fun activities that RAIL Lab members participate in.
+#
+# Fields:
+# - title:         REQUIRED - title of the activity
+# - description:   REQUIRED - description of the activity
+# - image:         REQUIRED - image of the activity
+# - frequency:     REQUIRED - frequency of the activity
+
 activities:
   - title: Bridge Up
-    shortDescription: Teaching teens coding and ML basics
-    fullDescription: Bridge Up, co-organized by Georgia Tech’s RAIL Lab, is an eight-week program empowering young women to explore coding, robotics, and machine learning. Participants are tutored and mentored by RAIL Lab students, with a focus on machine learning concepts and hands-on group projects in convolutional neural networks.
+    description: Bridge Up, co-organized by Georgia Tech’s RAIL Lab, is an eight-week program empowering young women to explore coding, robotics, and machine learning. Participants are tutored and mentored by RAIL Lab students, with a focus on machine learning concepts and hands-on group projects in convolutional neural networks.
     image: /images/fun/bridgeup.jpg
-    date: Annual in Spring
-    tags: [education, outreach, coding]
+    frequency: Annual in Spring
 
   - title: Robo-Halloween
-    shortDescription: Robots in costumes giving out candy
-    fullDescription: Annual Halloween event where we dress up our robots in spooky costumes and program them to interact with kids and give out candy. Traditionally, RAIL Lab members all dress up and go around a local neighborhood in Atlanta to give out candy.
+    description: Annual Halloween event where we dress up our robots in spooky costumes and program them to interact with kids and give out candy. Traditionally, RAIL Lab members all dress up and go around a local neighborhood in Atlanta to give out candy.
     image: /images/fun/robo-halloween.jpg
-    date: Every October
-    participants: [Michael Chen, Sarah Williams, David Kim]
-    tags: [community, robots, holiday]
+    frequency: Every October
 
   - title: Robo-Climbing
-    shortDescription: Lab rock climbing adventures
-    fullDescription: Monthly rock climbing sessions where lab members bond over conquering walls and boulders. We discuss research ideas, solve problems, and build team spirit while getting some exercise. Sometimes we even bring our small robots to attempt some climbs!
+    description: Monthly rock climbing sessions where lab members bond over conquering walls and boulders. We discuss research ideas, solve problems, and build team spirit while getting some exercise. Sometimes we even bring our small robots to attempt some climbs!
     image: /images/fun/robo-climbing.jpg
-    date: Weekly
-    participants: [Emily Brown, James Wilson, Alice Johnson]
-    tags: [team-building, sports, outdoors]
+    frequency: Weekly

@@ -1,12 +1,11 @@
-# Notes:
-# Add your course under "courses"
+# List of past, current, and upcoming courses taught by RAIL Lab members.
 #
 # Fields:
-# - name:        Name of the course
-# - semester:    Latest semester when the course was taught
-# - description: Brief 1-sentencee dscription of the course
-# - status:      one of: [current, upcoming, past]
-# - website:     Link to the course website, if available
+# - name:         REQUIRED - Name of the course
+# - semester:     REQUIRED - Latest semester when the course was taught
+# - description:  REQUIRED - Brief 1-sentencee dscription of the course
+# - status:       REQUIRED - one of: [current, upcoming, past]
+# - website:      OPTIONAL - Link to the course website, if available
 
 courses:
   - name: "CS 3630: Introduction to Robotics and Perception"
@@ -27,7 +26,6 @@ courses:
     status: past
 
   - name: "CS/ECE/ME/AE/BME 7785: Introduction to Robotics Research."
-    # semester: "Spring 2023"
     description: "Familiarizes students with the core of robotics: mechanics, control, perception, AI, and autonomy. Provides an introduction to the mathematical tools required in robotics research."
     status: past
     website: "https://oscar.gatech.edu/bprod/bwckctlg.p_disp_course_detail?cat_term_in=202002&subj_code_in=BMED&crse_numb_in=7785"

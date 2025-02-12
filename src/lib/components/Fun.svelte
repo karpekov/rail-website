@@ -27,13 +27,8 @@
                             />
                         </div>
                         <h3 class="h3 mb-2">{activity.title}</h3>
-                        <p class="text-xs text-surface-600-300-token mb-3">{activity.date}</p>
-                        <p class="text-sm mb-4">{activity.fullDescription}</p>
-                        <div class="flex flex-wrap gap-2">
-                            {#each activity.tags as tag}
-                                <span class="chip variant-filled-primary text-xs">{tag}</span>
-                            {/each}
-                        </div>
+                        <p class="text-xs text-surface-600-300-token mb-3">{activity.frequency}</p>
+                        <p class="text-sm mb-4">{activity.description}</p>
                     </div>
                 </div>
             {/each}

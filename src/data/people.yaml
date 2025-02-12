@@ -1,4 +1,4 @@
-# Notes:
+# List of current and previous lab members.
 # Add your name under "students".
 #
 # Fields:
@@ -8,7 +8,7 @@
 # - degree_detail: REQUIRED - one of: [CS PhD, CS MS, CS BS, Robo PhD, Robo MS, Robo BS, HCI PhD, HCI MS, HCI BS, ... ]
 # - photo:         REQUIRED - photo of the person (in /images/people/)
 # - year_joined:   OPTIONAL - year joined the lab
-# - website:       OPTIONAL - persinal website
+# - website:       OPTIONAL - personal website
 # - linkedin:      OPTIONAL - linkedin profile
 # - scholar:       OPTIONAL - scholar profile
 # - github:        OPTIONAL - github profile
@@ -28,9 +28,9 @@ faculty:
     linkedin: https://www.linkedin.com/in/sonia-chernova-6b11781a/
     scholar: https://scholar.google.com/citations?user=EYo_WkEAAAAJ&hl=en
 
-students:
-
 ############### CURRENT STUDENTS ###############
+
+students:
 
   - name: Maithili Patel
     status: current
@@ -250,162 +250,107 @@ students:
   - name: Max Zuo
     status: alum
     degree: ms
-    degree_detail: CS MS
-    graduation: 2024
 
   - name: Max Rudolph
     status: alum
     degree: ms
-    degree_detail: CS MS
-    graduation: 2023
 
   - name: Daniel Wu
     status: alum
     degree: ms
-    degree_detail: CS MS
-    graduation: 2023
 
   - name: Akshay Krishnan
     status: alum
     degree: ms
-    degree_detail: CS MS
-    graduation: 2023
 
   - name: Mayank Kishore
     status: alum
     degree: ms
-    degree_detail: CS MS
-    graduation: 2023
 
   - name: Dhruva Bansal
     status: alum
     degree: ms
-    degree_detail: CS MS
-    graduation: 2022
 
   - name: Yoonwoo Kim
     status: alum
     degree: ms
-    degree_detail: CS MS
-    graduation: 2022
 
   - name: Hritik Sapra
     status: alum
     degree: ms
-    degree_detail: CS MS
-    graduation: 2022
 
   - name: Atharv Marathe
     status: alum
     degree: ms
-    degree_detail: CS MS
-    graduation: 2022
 
   - name: Amirtha Virshini
     status: alum
     degree: ms
-    degree_detail: CS MS
-    graduation: 2021
 
   - name: Christopher Lindbeck
     status: alum
     degree: ms
-    degree_detail: CS MS
-    graduation: 2021
 
   - name: Aswin Prakash
     status: alum
     degree: ms
-    degree_detail: CS MS
-    graduation: 2021
 
   - name: Srivatsa P
     status: alum
     degree: ms
-    degree_detail: CS MS
-    graduation: 2020
 
   - name: Yi Qin
     status: alum
     degree: ms
-    degree_detail: CS MS
-    graduation: 2020
 
   - name: Pankhuri Singh
     status: alum
     degree: ms
-    degree_detail: CS MS
-    graduation: 2020
 
   - name: Tofunmi Sodimu
     status: alum
     degree: ms
-    degree_detail: CS MS
-    graduation: 2020
 
   - name: Juan Antonio Robledo
     status: alum
     degree: ms
-    degree_detail: CS MS
-    graduation: 2019
 
   - name: Khalid Shaikh
     status: alum
     degree: ms
-    degree_detail: CS MS
-    graduation: 2019
 
   - name: Andrew Silva
     status: alum
     degree: ms
-    degree_detail: CS MS
-    graduation: 2019
 
   - name: Carl Saldanha
     status: alum
     degree: ms
-    degree_detail: CS MS
-    graduation: 2019
 
   - name: Chaitya Shah
     status: alum
     degree: ms
-    degree_detail: CS MS
-    graduation: 2018
 
   - name: Nithin Shrivatsav
     status: alum
     degree: ms
-    degree_detail: CS MS
-    graduation: 2018
 
   - name: Abhinav Jain
     status: alum
     degree: ms
-    degree_detail: CS MS
-    graduation: 2018
 
   - name: John Yi
     status: alum
     degree: ms
-    degree_detail: CS MS
-    graduation: 2018
 
   - name: Anusha Srikanthan
     status: alum
     degree: ms
-    degree_detail: CS MS
-    graduation: 2018
 
   - name: Anahita Mohseni Kabir
     status: alum
     degree: ms
-    degree_detail: CS MS
-    graduation: 2017
 
   - name: Jayanta Bhowmick
     status: alum
     degree: ms
-    degree_detail: CS MS
-    graduation: 2017
-

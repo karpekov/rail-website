@@ -244,16 +244,12 @@
             </button>
             {#if showCollaborators}
             <div transition:slide={{duration: 300}}>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto px-4">
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 max-w-6xl mx-auto px-4">
                     {#each alumni
                         .filter(m => !['phd', 'postdoc'].includes(m.degree))
-                        .sort((a, b) => b.graduation - a.graduation) as member}
-                        <div class="flex justify-between items-center py-2 px-4 rounded-lg bg-surface-100-800-token">
-                            <div>
-                                <span class="font-medium">{member.name}</span>
-                                <span class="text-sm opacity-75 ml-2">{member.degree_detail}</span>
-                            </div>
-                            <span class="text-sm opacity-60">{member.graduation}</span>
+                        .sort((a, b) => a.name.localeCompare(b.name)) as member}
+                        <div class="flex justify-between items-center py-1.5 px-3 rounded-lg bg-surface-100-800-token text-sm">
+                            <span class="font-medium">{member.name}</span>
                         </div>
                     {/each}
                 </div>
