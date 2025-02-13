@@ -118,7 +118,9 @@
 
                     <div class="text-center space-y-1 w-full">
                         <h4 class="font-medium text-sm sm:text-base whitespace-pre-line member-name">
-                            {member.name.split(' ').join('\n')}
+                            {member.name.split(' ').length > 2 ?
+                                member.name :
+                                member.name.split(' ').join('\n')}
                         </h4>
                         <p class="font-thin text-xs sm:text-sm break-words">{member.degree_detail}</p>
                     </div>
@@ -208,7 +210,9 @@
 
                         <div class="text-center space-y-1 w-full">
                             <h4 class="font-normal text-xs sm:text-base whitespace-pre-line member-name">
-                                {member.name.split(' ').join('\n')}
+                                {member.name.split(' ').length > 2 ?
+                                    member.name :
+                                    member.name.split(' ').join('\n')}
                             </h4>
                             <p class="font-thin text-xs sm:text-sm break-words">{member.degree_detail}, {member.graduation}</p>
                             <div class="text-xs opacity-75">
@@ -249,7 +253,11 @@
                         .filter(m => !['phd', 'postdoc'].includes(m.degree))
                         .sort((a, b) => a.name.localeCompare(b.name)) as member}
                         <div class="flex justify-between items-center py-1.5 px-3 rounded-lg bg-surface-100-800-token text-sm">
-                            <span class="font-medium">{member.name}</span>
+                            <span class="font-medium">
+                                {member.name.split(' ').length > 2 ?
+                                    member.name :
+                                    member.name.split(' ').join('\n')}
+                            </span>
                         </div>
                     {/each}
                 </div>

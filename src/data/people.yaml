@@ -189,7 +189,7 @@ students:
   - name: Kantwon Rogers
     status: alum
     degree: phd
-    degree_detail: CS PhD
+    degree_detail: PhD
     photo: /images/people/kantwon.jpg
     graduation: 2024
     next_role: Postdoc @ MIT Media Lab
@@ -200,7 +200,7 @@ students:
   - name: Joanne Truong
     status: alum
     degree: phd
-    degree_detail: Robo PhD
+    degree_detail: PhD
     photo: /images/people/joanne.jpg
     graduation: 2024
     next_role: "Research Scientist @ FAIR LAB"
@@ -213,7 +213,7 @@ students:
   - name: Devleena Das
     status: alum
     degree: phd
-    degree_detail: Robo PhD
+    degree_detail: PhD
     photo: /images/people/devleena.jpg
     graduation: 2023
     next_role: "AI @ AMD"
@@ -224,7 +224,7 @@ students:
   - name: Jack Kolb
     status: alum
     degree: phd
-    degree_detail: Robo PhD
+    degree_detail: PhD
     photo: /images/people/jack.jpg
     year_joined: 2020
     graduation: 2022
@@ -236,7 +236,7 @@ students:
   - name: Harish Ravichandar
     status: alum
     degree: postdoc
-    degree_detail: Robo Postdoc
+    degree_detail: Postdoc
     photo: /images/people/harish.jpg
     graduation: 2019
     next_role: "Professor @ Georgia Tech"
@@ -246,14 +246,141 @@ students:
     twitter: https://x.com/h_ravichandar
 
   - name: "Jennifer Molnar"
+    photo: /images/people/jennifer.jpg
     status: alum
     degree: phd
-    degree_detail: "Robo PhD"
-    email: "TODO"
+    degree_detail: "PhD"
     graduation: 2024
-    next_role: "Consultant at Exponent"
+    next_role: "Consultant @ Exponent"
     linkedin: "https://www.linkedin.com/in/jennifer-molnar"
     scholar: "https://scholar.google.com/citations?user=403nNzMAAAAJ&hl=en&oi=ao"
+
+  - name: "Weiyu Liu"
+    photo: /images/people/weiyu.jpg
+    status: alum
+    degree: phd
+    degree_detail: "PhD"
+    graduation: 2022
+    next_role: "Postdoc @ Stanford"
+    website: "https://www.weiyuliu.com/"
+    scholar: "https://scholar.google.com/citations?user=PHi0YEQAAAAJ&hl=en&oi=ao"
+
+  - name: "Angel Daruna"
+    photo: /images/people/angel.jpg
+    status: alum
+    degree: phd
+    degree_detail: "PhD"
+    graduation: 2022
+    next_role: "Researcher @ SRI International"
+    website: "https://adaruna3.github.io/adaruna3/"
+    scholar: "https://scholar.google.com/citations?user=DrIDiIUAAAAJ&hl=en&oi=ao"
+    linkedin: https://www.linkedin.com/in/angel-andres-daruna/
+    github: https://github.com/adaruna3
+
+  - name: "Lakshmi Nair"
+    photo: /images/people/lakshmi.jpg
+    status: alum
+    degree: phd
+    degree_detail: "PhD"
+    graduation: 2020
+    next_role: "ML Scientist @ Lightmatter"
+    linkedin: "https://www.linkedin.com/in/lakshmi-v-nair"
+    scholar: "https://scholar.google.com/citations?user=eTGOo_cAAAAJ&hl=en&oi=ao"
+
+  - name: "Asif Rana"
+    photo: /images/people/asif.jpg
+    status: alum
+    degree: phd
+    degree_detail: "PhD"
+    graduation: 2020
+    next_role: "Applied Scientist @ Amazon"
+    linkedin: "https://www.linkedin.com/in/masifrana/"
+    scholar: "https://scholar.google.com/citations?user=0dQzZH8AAAAJ&hl=en&oi=ao"
+
+  - name: "Cassandra Kent"
+    photo: /images/people/cassandra.jpg
+    status: alum
+    degree: phd
+    degree_detail: "PhD"
+    graduation: 2020
+    next_role: "Postdoc @ UPen"
+    website: "https://dekent.github.io/"
+    scholar: "https://scholar.google.com/citations?user=DJHyEHoAAAAJ&hl=en&oi=ao"
+
+  - name: "Siddhartha Banerjee"
+    photo: /images/people/siddhartha.jpg
+    status: alum
+    degree: phd
+    degree_detail: "PhD"
+    graduation: 2021
+    next_role: "Lead Engineer @ Diligent Robotics"
+    website: "https://banerjs.github.io/"
+    scholar: "https://scholar.google.com/citations?user=OoqdqrYAAAAJ&hl=en"
+    linkedin: https://www.linkedin.com/in/banerjs/
+    github: https://github.com/banerjs
+
+  - name: "Vivian Chu"
+    photo: /images/people/vivian.jpg
+    status: alum
+    degree: phd
+    degree_detail: "PhD"
+    graduation: 2017
+    next_role: "Diligent Robotics Co-Founder"
+    website: https://www.vivianchu.org/
+    scholar: https://scholar.google.com/citations?user=_DNzXTcAAAAJ&hl=en
+    linkedin: https://www.linkedin.com/in/vivianchu/
+
+  - name: "Kalesha Bullard"
+    photo: /images/people/kalesha.jpg
+    status: alum
+    degree: phd
+    degree_detail: "PhD"
+    graduation: 2019
+    next_role: "Research Scientist @ DeepMind"
+    website: https://www.kaleshabullard.com/
+    scholar: https://scholar.google.com/citations?user=QehMdGIAAAAJ&hl=en
+    linkedin: https://www.linkedin.com/in/kalesha-bullard/?originalSubdomain=uk
+
+  - name: "Russell Toris"
+    photo: /images/people/russell.jpg
+    status: alum
+    degree: phd
+    degree_detail: "PhD"
+    graduation: 2016
+    next_role:  Director of Robotics @ Fetch Robotics
+    linkedin: https://www.linkedin.com/in/russelltoris
+    github: https://github.com/rctoris/
+    scholar: https://scholar.google.com/citations?user=Wmz1aEIAAAAJ&hl=en
+
+  - name: "Adrian Boteanu"
+    photo: /images/people/adrian.jpg
+    status: alum
+    degree: phd
+    degree_detail: "PhD"
+    graduation: 2015
+    next_role:  Applied Scientist @ Amazon
+    linkedin: https://www.linkedin.com/in/adrian-boteanu-4a3364135
+    scholar: https://scholar.google.com/citations?user=c4_H63oAAAAJ&hl=en
+
+  - name: "Halit Bener Suay"
+    photo: /images/people/halit.jpg
+    status: alum
+    degree: phd
+    degree_detail: "PhD"
+    graduation: 2016
+    next_role:  Robotics engineer @ National Robotics Engineer Center
+    linkedin: https://www.linkedin.com/in/benersuay
+
+  - name: "Zhi Tan"
+    photo: /images/people/zhi.jpg
+    status: alum
+    degree: postdoc
+    degree_detail: "Postdoc"
+    graduation: 2023
+    next_role: Professor @ Northeastern University
+    website: https://zhi.fyi/
+    scholar: https://scholar.google.com/citations?user=vReuqbIAAAAJ&hl=en
+    github: https://github.com/xiangzhi
 
 ############### MS and BS ALUMNI ###############
 
