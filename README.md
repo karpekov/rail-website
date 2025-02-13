@@ -15,25 +15,6 @@ git clone https://github.com/karpekov/rail-website.git
 cd rail-website
 ```
 
-## Setting Up Development Environment
-
-You need to have Node.js installed on your machine. If you don't have it, you can install it using nvm (Node Version Manager).
-
-0. If you don't have it, install nvm from: https://github.com/nvm-sh/nvm#installing-and-updating
-1. Install Node.js 20.x (LTS version):
-   - Using nvm (recommended):
-     ```bash
-     nvm install 20
-     nvm use 20
-     ```
-   - Or download directly from: https://nodejs.org/
-
-2. Install dependencies from within the project directory:
-   ```bash
-   npm install
-   ```
-   This will install all required packages specified in package.json.
-
 ## Editing Content in .yaml files
 
 Most of the website content is stored in YAML files in the `src/data` and `static/images` folders. See below how to add or edit content in the corresponding YAML files:
@@ -70,6 +51,29 @@ Contains information about lab activities and outreach. Include high-quality ima
 If you want to edit fields such as the website header or "About Us" section, you can do so by editing the corresponding Svelte components in the `src/components` folder.
 
 ## Testing Locally
+
+We highly recommend testing your changes locally before pushing them to the main branch.
+
+### Setting Up Development Environment
+
+You need to have Node.js installed on your machine. If you don't have it, you can install it using nvm (Node Version Manager).
+
+0. If you don't have it, install nvm from: https://github.com/nvm-sh/nvm#installing-and-updating
+1. Install Node.js 20.x (LTS version):
+   - Using nvm (recommended):
+     ```bash
+     nvm install 20
+     nvm use 20
+     ```
+   - Or download directly from: https://nodejs.org/
+
+2. Install dependencies from within the project directory:
+   ```bash
+   npm install
+   ```
+   This will install all required packages specified in package.json.
+
+### Running the Development Server
 
 1. Start the development server:
    ```bash

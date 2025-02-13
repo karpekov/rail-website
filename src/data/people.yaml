@@ -245,6 +245,16 @@ students:
     linkedin: https://www.linkedin.com/in/harish-ravichandar/
     twitter: https://x.com/h_ravichandar
 
+  - name: "Jennifer Molnar"
+    status: alum
+    degree: phd
+    degree_detail: "Robo PhD"
+    email: "TODO"
+    graduation: 2024
+    next_role: "Consultant at Exponent"
+    linkedin: "https://www.linkedin.com/in/jennifer-molnar"
+    scholar: "https://scholar.google.com/citations?user=403nNzMAAAAJ&hl=en&oi=ao"
+
 ############### MS and BS ALUMNI ###############
 
   - name: Max Zuo

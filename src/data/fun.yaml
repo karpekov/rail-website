@@ -12,12 +12,22 @@ activities:
     image: /images/fun/bridgeup.jpg
     frequency: Annual in Spring
 
+  - title: Atlanta Science Festival
+    description: As a part of the Atlanta Science Festival, we introduce kids to robotics. We showcase our robots, organize interactive demos and talk about the cool research we do.
+    image: /images/fun/atl-science-festival.jpg
+    frequency: Annual in Spring
+
   - title: Robo-Halloween
     description: Annual Halloween event where we dress up our robots in spooky costumes and program them to interact with kids and give out candy. Traditionally, RAIL Lab members all dress up and go around a local neighborhood in Atlanta to give out candy.
     image: /images/fun/robo-halloween.jpg
     frequency: Every October
 
-  - title: Robo-Climbing
+  - title: Climbing
     description: Monthly rock climbing sessions where lab members bond over conquering walls and boulders. We discuss research ideas, solve problems, and build team spirit while getting some exercise. Sometimes we even bring our small robots to attempt some climbs!
     image: /images/fun/robo-climbing.jpg
     frequency: Weekly
+
+  - title: Hiking
+    description: When the weather decides to get better, we find time for a hike. We take a break from normal lives and enjoy the beautiful outdoors around Atlanta.
+    image: /images/fun/hiking.jpg
+    frequency: Every couple months, weather permitting
