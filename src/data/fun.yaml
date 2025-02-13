@@ -8,7 +8,7 @@
 
 activities:
   - title: Bridge Up
-    description: Bridge Up, co-organized by Georgia Tech’s RAIL Lab, is an eight-week program empowering young women to explore coding, robotics, and machine learning. Participants are tutored and mentored by RAIL Lab students, with a focus on machine learning concepts and hands-on group projects in convolutional neural networks.
+    description: "Bridge Up, co-organized by Georgia Tech’s RAIL Lab, is an eight-week program empowering young women to explore coding, robotics, and machine learning. Participants are tutored and mentored by RAIL Lab students, with a focus on machine learning concepts and hands-on group projects in convolutional neural networks."
     image: /images/fun/bridgeup.jpg
     frequency: Annual in Spring
 
