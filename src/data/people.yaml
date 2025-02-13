@@ -192,7 +192,7 @@ students:
     degree_detail: PhD
     photo: /images/people/kantwon.jpg
     graduation: 2024
-    next_role: Postdoc @ MIT Media Lab
+    next_role: "Postdoc @ MIT Media Lab"
     website: https://www.kantwon.com/
     twitter: https://x.com/WoWz3rz
     scholar: https://scholar.google.com/citations?hl=en&user=wA29UpQAAAAJ
@@ -303,7 +303,7 @@ students:
     degree: phd
     degree_detail: "PhD"
     graduation: 2020
-    next_role: "Postdoc @ UPen"
+    next_role: "Postdoc @ University of Pennsylvania"
     website: "https://dekent.github.io/"
     scholar: "https://scholar.google.com/citations?user=DJHyEHoAAAAJ&hl=en&oi=ao"
 
