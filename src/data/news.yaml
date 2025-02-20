@@ -1,7 +1,19 @@
 recent_news:
+  - date: February 2025
+    content: The workshop, Technology Mediated Caregiving For Older Adults Aging in Place, will be held at CHI 2025, chaired by Niharika Mathur!
+    link: https://scholar.google.com/scholar?hl=en&as_sdt=0%2C11&q=Technology+Mediated+Caregiving+For+Older+Adults+Aging+in+Place&btnG=
+
+  - date: January 2025
+    content: Niharika Mathur presented at ACM GROUP 2025 conference and won best poster award!
+    link: https://dl.acm.org/doi/abs/10.1145/3688828.3699640
+
   - date: November 2024
     content: Dr. Kantwon Rogers successfully defended his dissertation
     link: https://www.kantwon.com/
+
+  - date: September 2024
+    content: Ethan Schneider had his paper, 'CE-MRS Contrastive Explanations for Multi-Robot Systems' accepted to RA-L!
+    link: https://ieeexplore.ieee.org/abstract/document/10697262
 
   - date: March 2024
     content: Our paper on 'Adaptive Robot Learning' accepted to ICRA 2024!
