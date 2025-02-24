@@ -24,9 +24,6 @@ project_list:
     short_title: "MIT Robotics Seminar"
     venue: MIT Robotics'24
     video: https://www.youtube.com/watch?v=HK5wRFDx2no
-    website: https://google.com
-    pdf: https://google.com
-    github: https://google.com
     image: /images/projects/sonia_mit.jpg
     team: [Sonia Chernova]
     tags: [hcai, robo]

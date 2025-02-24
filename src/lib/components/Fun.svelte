@@ -4,7 +4,7 @@
 </script>
 
 <section id="fun">
-    <h2 class="h2 font-orbitron section-title">Fun</h2>
+    <h2 class="h2 font-orbitron section-title">Fun & Outreach</h2>
 
     <p class="text-sm sm:text-base mb-8 font-opensans">
         Beyond cutting-edge research, RAIL Lab actively engages with our local community. From showcasing
