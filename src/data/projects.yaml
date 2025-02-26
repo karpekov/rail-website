@@ -71,7 +71,7 @@ project_list:
     pdf: https://arxiv.org/abs/2211.15501
     image: /images/projects/maithili_proactive.jpg
     team: [Maithili Patel, Sonia Chernova]
-    tags: [robo]
+    tags: [robo, hcai]
     featured: true
 
   - full_title: "Rethinking Sim2Real: Lower Fidelity Simulation Leads to Higher Sim2Real Transfer in Navigation."
@@ -117,4 +117,58 @@ project_list:
     image: /images/projects/ravichandar_ar_2021.jpg
     team: [Harish Ravichandar, Athanasios S. Polydoros, Sonia Chernova, Aude Billard]
     tags: [hcai, robo]
+    featured: true
+
+  - full_title: "CAGE: Context-aware grasping engine."
+    short_title: Context-aware grasping engine
+    venue: ICRA'20
+    pdf: https://arxiv.org/abs/1909.11142
+    image: /images/projects/weiyu-cage.png
+    team: [Weiyu Liu, Angel Daruna, Sonia Chernova]
+    tags: [robo]
+    featured: true
+
+  - full_title: Anticipatory Human-Robot Collaboration via Multi-Objective Trajectory Optimization
+    short_title: Human Motion Anticipation for Anticipatory HRC
+    venue: IROS'20
+    pdf: https://arxiv.org/abs/2006.03614
+    image: /images/projects/jain-comoto.png
+    team: [Abhinav Jain, Daphne Chen, Dhruva Bansal, Sam Scheele, Mayank Kishore, Hritik Sapra, David Kent, Harish Ravichandar, Sonia Chernova]
+    tags: [robo]
+    featured: true
+
+  - full_title: "Semantic-Based Explainable AI: Leveraging Semantic Scene Graphs and Pairwise Ranking to Explain Robot Failures"
+    short_title: Semantic-Based XAI for Robot Failure Explanation
+    venue: IROS'21
+    pdf: https://arxiv.org/abs/2108.03554
+    image: /images/projects/das-semantic-xai.png
+    team: [Devleena Das and Sonia Chernova]
+    tags: [robo, xai]
+    featured: true
+
+  - full_title: "StructDiffusion: Language-Guided Creation of Physically-Valid Structures using Unseen Objects"
+    short_title: "StructDiffusion: Semantic 6D Rearrangement from Language Specification" 
+    venue: RSS'23
+    pdf: https://arxiv.org/abs/2211.04604
+    image: images/projects/weiyu-structdiffusion.png
+    team: [Weiyu Liu, Yilun Du, Tucker Hermans, Sonia Chernova, Chris Paxton]
+    tags: [robo, xai]
+    featured: true
+
+  - full_title: "Predicting Routine Object Usage for Proactive Robot Assistance"
+    short_title: Routine Object Usage Predictions for Proactive Robot Assistance 
+    venue: CoRL'23
+    pdf: https://arxiv.org/pdf/2309.06252
+    image: images/projects/maithili-slatepro.png
+    team: [Maithili Patel, Aswin Prakash, Sonia Chernova]
+    tags: [robo, hcai]
+    featured: true
+
+  - full_title: 'UHTP: A User-Aware Hierarchical Task Planning Framework for Communication-Free, Mutually-Adaptive Human-Robot Collaboration'
+    short_title: 'UHTP: Communication-Free Mutually-Adaptive Human-Robot Collaboration'
+    venue: ACM Transactions on Human-Robot Interaction 2024
+    pdf: https://dl.acm.org/doi/pdf/10.1145/3623387
+    image: images/projects/kartik-uhtp.png
+    team: [Kartik Ramachandruni, Cassandra Kent, Sonia Chernova]
+    tags: [robo, hcai]
     featured: true
