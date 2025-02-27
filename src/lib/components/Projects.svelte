@@ -27,6 +27,7 @@
 
     $: filteredProjects = [...(projects?.project_list || [])]
         .filter(project => project.featured)
+        .sort((a, b) => b.year - a.year)
         .filter(project => activeFilter === 'all' || project.tags.includes(activeFilter));
 
     $: hasMore = visibleCount < filteredProjects.length;
@@ -92,6 +93,10 @@
                     <!-- Title and Publication -->
                     <div class="space-y-2">
                         <h4 class="font-medium text-base">{project.short_title || project.full_title}</h4>
+                        <!-- Venue chip -->
+                        <div class="publication-chip">
+                            {project.venue} '{(project.year % 100).toString().padStart(2, '0')}
+                        </div>
                         <!-- Tags -->
                         {#if project.tags && project.tags.length > 0}
                             <div class="flex flex-wrap gap-1.5 mt-1 mb-2">
@@ -111,7 +116,6 @@
                                 {/each}
                             </div>
                         {/if}
-                        <span class="publication-chip">{project.venue}</span>
                     </div>
 
                     <!-- Description -->
