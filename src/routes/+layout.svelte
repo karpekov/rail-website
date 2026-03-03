@@ -1,12 +1,16 @@
 <script lang="ts">
 	import '../app.postcss';
-	import { Modal, initializeStores, storePopup } from '@skeletonlabs/skeleton';
+	import { Modal, initializeStores } from '@skeletonlabs/skeleton';
 
-	// Initialize stores
 	initializeStores();
 </script>
 
 <svelte:head>
+	<!-- Google Fonts — loaded once here for the whole app -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
 	<!-- Primary Meta Tags -->
 	<title>RAIL Lab @ Georgia Tech</title>
 	<meta name="title" content="RAIL Lab @ Georgia Tech">

@@ -1,19 +1,19 @@
 <script lang="ts">
     import Matrix from '$lib/components/Matrix.svelte';
-    export let showMatrix = false;
+    import { showMatrix } from '$lib/stores/theme';
     export let onClose: () => void;
 </script>
 
 <!-- Outer container with backdrop -->
 <div class="fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4"
-     class:matrix-backdrop={showMatrix}
+     class:matrix-backdrop={$showMatrix}
      on:click|self={onClose}
      role="dialog"
      aria-modal="true">
     <!-- Modal content -->
     <div class="relative w-full max-w-4xl bg-surface-100-800-token rounded-lg shadow-xl overflow-hidden max-h-[90vh] mt-16 md:mt-0"
-         class:matrix-card={showMatrix}>
-        {#if showMatrix}
+         class:matrix-card={$showMatrix}>
+        {#if $showMatrix}
             <div class="absolute inset-0 opacity-20">
                 <Matrix />
             </div>
@@ -27,14 +27,14 @@
                     who are interested in robotics and human-robot interaction research.
                 </p>
 
-                <h3 class="h3 mt-8" class:matrix-h3={showMatrix}>PhD Positions</h3>
+                <h3 class="h3 mt-8" class:matrix-h3={$showMatrix}>PhD Positions</h3>
                 <p>
                     PhD admissions are handled through Georgia Tech's College of Computing. Prospective students
                     should apply through the official admission process. We encourage interested candidates to
                     highlight their relevant experience and research interests in their application materials.
                 </p>
 
-                <h3 class="h3 mt-6" class:matrix-h3={showMatrix}>Research Opportunities</h3>
+                <h3 class="h3 mt-6" class:matrix-h3={$showMatrix}>Research Opportunities</h3>
                 <p>
                     The best way to get involved with our lab is through one of the courses we offer.
                     These courses provide an excellent opportunity to work on research projects while earning
@@ -58,13 +58,6 @@
 </div>
 
 <style>
-    .matrix-theme {
-        background: rgba(0, 0, 0, 0.95) !important;
-        border: 1px solid #0F0;
-        box-shadow: 0 0 20px rgba(0, 255, 0, 0.3),
-                    inset 0 0 30px rgba(0, 255, 0, 0.2);
-    }
-
     :global(:not(.matrix-theme)) .section-title {
         text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
                     0 0 20px rgba(255, 255, 255, 0.3);
@@ -92,26 +85,21 @@
         margin-bottom: 0.5em;
     }
 
-    :global(.matrix-theme) .prose ul {
-        color: #fff;
-    }
-
-    :global(.matrix-theme) .prose strong {
-        color: #fff;
-    }
+    :global(.matrix-theme) .prose ul { color: #fff; }
+    :global(.matrix-theme) .prose strong { color: #fff; }
 
     :global(.matrix-theme) .prose h3 {
-        color: #0F0 !important;
-        text-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+        color: var(--mx-accent) !important;
+        text-shadow: 0 0 10px var(--mx-accent-mid);
     }
 
     :global(.matrix-theme) .alert {
-        border-color: #0F0;
-        box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+        border-color: var(--mx-accent);
+        box-shadow: 0 0 10px var(--mx-accent-mid);
     }
 
     :global(.matrix-theme) .bg-surface-100-800-token {
-        border: 1px solid #0F0;
+        border: 1px solid var(--mx-accent);
     }
 
     :global(:not(.matrix-theme)) .bg-surface-100-800-token {
@@ -119,20 +107,18 @@
         box-shadow: 0 0 20px rgb(99 154 255 / 0.1);
     }
 
-    /* Matrix theme backdrop */
     .matrix-backdrop {
         background-color: rgba(0, 0, 0, 0.7) !important;
     }
 
-    /* Matrix theme modal styling */
     .matrix-card {
-        background-color: black !important;
-        border-color: #0F0 !important;
-        box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+        background-color: var(--mx-bg-hero) !important;
+        border-color: var(--mx-accent) !important;
+        box-shadow: 0 0 20px var(--mx-accent-mid);
     }
 
     .matrix-h3 {
-        color: #0F0 !important;
-        text-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+        color: var(--mx-accent) !important;
+        text-shadow: 0 0 10px var(--mx-accent-mid);
     }
 </style>

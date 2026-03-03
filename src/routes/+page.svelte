@@ -13,9 +13,9 @@
 	import Matrix from '$lib/components/Matrix.svelte';
 	import { scrollIntoView } from '$lib/utils/scroll';
 	import JoinUs from '$lib/components/JoinUs.svelte';
+	import { showMatrix } from '$lib/stores/theme';
 
 	let showNavLogo = false;
-	let showMatrix = false;
 	let showJoinUs = false;
 
 	function handleLogoIntersection(isHidden: boolean) {
@@ -37,13 +37,13 @@
 	injectAnalytics();
 </script>
 
-<div class:matrix-theme={showMatrix}>
-	<NavBar {scrollToSection} showLogo={showNavLogo} bind:showMatrix />
+<div class:matrix-theme={$showMatrix}>
+	<NavBar {scrollToSection} showLogo={showNavLogo} />
 
 	<main class="pt-0">
 		<!-- Hero section with circuit/matrix background -->
-		<div class="bg-surface-100-800-token relative" class:bg-black={showMatrix}>
-			{#if showMatrix}
+		<div class="bg-surface-100-800-token relative" class:bg-black={$showMatrix}>
+			{#if $showMatrix}
 				<div class="absolute inset-0 z-10 opacity-[0.3]">
 					<Matrix />
 				</div>
@@ -53,36 +53,36 @@
 				</div>
 			{/if}
 			<div class="relative z-20 space-y-4 sm:space-y-6 md:space-y-8 py-6 sm:py-8 md:py-10">
-				<About onLogoIntersect={handleLogoIntersection} {showMatrix} />
+				<About onLogoIntersect={handleLogoIntersection} />
 				{#if showJoinUs}
-					<JoinUs {showMatrix} onClose={closeJoinUs} />
+					<JoinUs onClose={closeJoinUs} />
 				{/if}
-				<CurrentMembers {showMatrix} />
+				<CurrentMembers />
 			</div>
 		</div>
 
 		<!-- Rest of the content -->
-		<div class="bg-surface-50-900-token" class:bg-[#111]={showMatrix}>
+		<div class="bg-surface-50-900-token" class:bg-[#111]={$showMatrix}>
 			<div class="section-container">
-				<News {showMatrix} />
+				<News />
 			</div>
 
 			<div class="line-divider" />
 
 			<div class="section-container">
-				<Projects {showMatrix} />
+				<Projects />
 			</div>
 
 			<div class="line-divider" />
 
 			<div class="section-container">
-				<Members {showMatrix} />
+				<Members />
 			</div>
 
 			<div class="line-divider" />
 
 			<div class="section-container">
-				<Teaching {showMatrix} />
+				<Teaching />
 			</div>
 
 			<div class="line-divider" />
@@ -94,16 +94,16 @@
 		</div>
 	</main>
 
-	<Footer {showMatrix} />
+	<Footer />
 </div>
 
 <style lang="postcss">
 	:global(html) {
-		scroll-padding-top: 80px; /* Match navbar height */
+		scroll-padding-top: var(--navbar-height);
 	}
 
 	:global(section) {
-		scroll-margin-top: 80px;
+		scroll-margin-top: var(--navbar-height);
 	}
 
 	:global(section > h1, section > h2) {
@@ -123,68 +123,53 @@
 	}
 
 	:global(.matrix-theme) {
-		/* Override surface token colors for matrix theme with darker shades */
-		--color-surface-50: 0 0 0;        /* #000000 - Pure black */
-		--color-surface-100: 5 5 5;       /* #050505 - Nearly black */
-		--color-surface-200: 45 45 45;    /* #0A0A0A - Very dark black */
-		--color-surface-300: 45 45 45;    /* #0F0F0F */
-		--color-surface-400: 20 20 20;    /* #141414 */
-		--color-surface-500: 25 25 25;    /* #191919 */
-		--color-surface-600: 30 30 30;    /* #1E1E1E */
-		--color-surface-700: 35 35 35;    /* #232323 */
-		--color-surface-800: 40 40 40;    /* #282828 */
-		--color-surface-900: 45 45 45;    /* #2D2D2D */
+		/* Override Skeleton surface tokens for matrix dark mode */
+		--color-surface-50:  0 0 0;
+		--color-surface-100: 5 5 5;
+		--color-surface-200: 45 45 45;
+		--color-surface-300: 45 45 45;
+		--color-surface-400: 20 20 20;
+		--color-surface-500: 25 25 25;
+		--color-surface-600: 30 30 30;
+		--color-surface-700: 35 35 35;
+		--color-surface-800: 40 40 40;
+		--color-surface-900: 45 45 45;
+		color-scheme: dark;
 	}
 
-	/* Background colors for main sections */
 	:global(.matrix-theme .bg-surface-100-800-token) {
-		background-color: black !important;
+		background-color: var(--mx-bg-hero) !important;
 	}
 
 	:global(.matrix-theme .bg-surface-50-900-token) {
-		background-color: #050505 !important;
+		background-color: var(--mx-bg-content) !important;
 	}
 
-	/* Navbar and Footer specific styles */
 	:global(.matrix-theme .sticky) {
-		background-color: rgba(0, 0, 0, 0.95) !important;
+		background-color: var(--mx-overlay) !important;
 	}
 
-	/* Card styles for better visibility */
 	:global(.matrix-theme .card) {
-		background-color: #0D0D0D !important;
-		border: 1px solid #0D0D0D;
+		background-color: var(--mx-card-bg) !important;
+		border: 1px solid var(--mx-card-bg);
 	}
 
-	/* Project cards and other content cards */
 	:global(.matrix-theme .variant-filled-surface) {
-		background-color: #19F819 !important;
-		border: 1px solid #19F819;
+		background-color: var(--mx-accent-bright) !important;
+		border: 1px solid var(--mx-accent-bright);
 	}
 
-	/* Divider lines */
 	:global(.matrix-theme .border-surface-300-600-token) {
 		border-color: #FFFFFF !important;
 	}
 
-	/* General theme settings */
-	:global(.matrix-theme) {
-		color-scheme: dark;
-	}
-
-	/* Mobile menu background */
 	:global(.matrix-theme #mobile-menu) {
-		background-color: rgba(0, 0, 0, 0.95) !important;
+		background-color: var(--mx-overlay) !important;
 	}
 
-	:global(.matrix-theme .h2) {
-		color: #0F0 !important;
-		text-shadow: 0 0 10px #0F0, 0 0 20px #0F0 !important;
-	}
-
-	/* For any h2 elements that don't use the h2 class */
+	:global(.matrix-theme .h2),
 	:global(.matrix-theme h2) {
-		color: #0F0 !important;
-		text-shadow: 0 0 10px #0F0, 0 0 20px #0F0 !important;
+		color: var(--mx-accent) !important;
+		text-shadow: var(--mx-glow-md) !important;
 	}
 </style>

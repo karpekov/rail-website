@@ -9,14 +9,12 @@ export function scrollable(node: HTMLElement) {
 export function scrollIntoView(id: string) {
     const element = document.getElementById(id);
     if (element) {
-        const navbarHeight = 80;
-        const headerOffset = navbarHeight;
+        // Read navbar height from the CSS variable so it stays in sync with the stylesheet
+        const navHeight = parseInt(
+            getComputedStyle(document.documentElement).getPropertyValue('--navbar-height')
+        ) || 80;
         const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-        window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth"
-        });
+        const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     }
 }

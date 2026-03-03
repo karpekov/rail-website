@@ -24,6 +24,8 @@
                                 src={activity.image}
                                 alt={activity.title}
                                 class="w-full h-full object-cover"
+                                loading="lazy"
+                                width="288" height="162"
                             />
                         </div>
                         <h3 class="h3 mb-2">{activity.title}</h3>
@@ -37,7 +39,6 @@
 </section>
 
 <style>
-    /* Hide scrollbar but keep functionality */
     .overflow-x-auto {
         -ms-overflow-style: none;
         scrollbar-width: none;
@@ -56,26 +57,16 @@
     }
 
     :global(.matrix-theme) .fun-card {
-        box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+        box-shadow: 0 0 10px var(--mx-accent-mid);
     }
 
     :global(.matrix-theme) .fun-card:hover {
-        box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+        box-shadow: 0 0 20px var(--mx-accent-half);
         transform: translateY(-2px);
     }
 
-    :global(.matrix-theme) .chip.variant-filled-primary {
-        background-color: rgba(0, 255, 0, 0.2) !important;
-        color: #0F0 !important;
+    :global(:not(.matrix-theme)) .section-title {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+                    0 0 20px rgba(255, 255, 255, 0.3);
     }
-
-    :global(.matrix-theme) .chip.variant-filled-primary:hover {
-        background-color: rgba(0, 255, 0, 0.3) !important;
-        box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
-    }
-
-	:global(:not(.matrix-theme)) .section-title {
-			text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
-									0 0 20px rgba(255, 255, 255, 0.3);
-	}
 </style>

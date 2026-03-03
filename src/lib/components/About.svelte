@@ -1,13 +1,13 @@
 <script lang="ts">
     import RAILLogo from './RAILLogo.svelte';
     import { onMount } from 'svelte';
+    import { showMatrix } from '$lib/stores/theme';
 
     let displayText = "";
-    let fullText = "Robot Autonomy and Interactive Learning";
-    let typingSpeed = 50; // milliseconds per character
+    const fullText = "Robot Autonomy and Interactive Learning";
+    const typingSpeed = 50;
     let logoElement: HTMLElement;
     export let onLogoIntersect: (isIntersecting: boolean) => void;
-    export let showMatrix = false;
 
     onMount(() => {
         let currentChar = 0;
@@ -20,54 +20,44 @@
             }
         }, typingSpeed);
 
+        const navHeight = parseInt(
+            getComputedStyle(document.documentElement).getPropertyValue('--navbar-height')
+        ) || 80;
+
         const observer = new IntersectionObserver(
             (entries) => {
-                entries.forEach(entry => {
-                    onLogoIntersect(!entry.isIntersecting);
-                });
+                entries.forEach(entry => onLogoIntersect(!entry.isIntersecting));
             },
-            {
-                threshold: 0,
-                rootMargin: '-64px 0px 0px 0px' // Adjust based on your navbar height
-            }
+            { threshold: 0, rootMargin: `-${navHeight}px 0px 0px 0px` }
         );
 
-        if (logoElement) {
-            observer.observe(logoElement);
-        }
+        if (logoElement) observer.observe(logoElement);
 
         return () => {
             clearInterval(typingInterval);
-            if (logoElement) {
-                observer.unobserve(logoElement);
-            }
+            if (logoElement) observer.unobserve(logoElement);
         };
     });
 </script>
 
-<svelte:head>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-</svelte:head>
-
 <section id="about">
     <div class="container mx-auto max-w-6xl px-4 sm:px-6 md:px-8 pt-8 pb-2">
         <div bind:this={logoElement} class="flex flex-col lg:flex-row lg:items-center lg:gap-8 mb-6 min-h-[12rem]">
-            <RAILLogo {showMatrix} />
+            <RAILLogo />
             <h1
                 class="h1 font-orbitron text-primary-500 glow-text mt-4 lg:mt-0 text-center lg:text-left typing-cursor"
-                class:matrix-title={showMatrix}
+                class:matrix-title={$showMatrix}
                 id="myText"
             >
                 {displayText}
             </h1>
         </div>
 
-        <p class="text-2xl font-bold pt-1 font-orbitron text-center" class:matrix-text={showMatrix}>
+        <p class="text-2xl font-bold pt-1 font-orbitron text-center" class:matrix-text={$showMatrix}>
             Advancing AI & Robotics for the Human World
-            <!-- Advancing Human Centered AI & Robotics -->
         </p>
         <p class="text-md lg:text-xl pt-2 font-opensans">
-            RAIL Lab at <a href="https://www.gatech.edu/", target="_blank">Georgia Tech</a>
+            RAIL Lab at <a href="https://www.gatech.edu/" target="_blank">Georgia Tech</a>
             focuses on developing human-centered robotic and AI systems that can
             better assist and interact with humans in various contexts, from in-home to healthcare.
             Through interdisciplinary research combining robotics, AI,
@@ -102,17 +92,7 @@
     }
 
     .matrix-text {
-        color: #0F0 !important;
-    }
-
-    .matrix-text :global(a) {
-        color: #0F0 !important;
-        text-decoration: underline;
-    }
-
-    .matrix-text :global(a:hover) {
-        color: #00FF00 !important;
-        text-shadow: 0 0 5px #0F0;
+        color: var(--mx-accent) !important;
     }
 
     .matrix-title {

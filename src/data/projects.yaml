@@ -56,7 +56,7 @@ project_list:
     venue: RSS
     year: 2023
     pdf: https://arxiv.org/abs/2211.04604
-    image: images/projects/weiyu-structdiffusion.png
+    image: images/projects/weiyu-structdiffusion.jpg
     team: [Weiyu Liu, Yilun Du, Tucker Hermans, Sonia Chernova, Chris Paxton]
     tags: [robo, xai]
     featured: true

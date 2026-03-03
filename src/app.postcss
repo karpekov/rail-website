@@ -8,6 +8,42 @@ body {
 	@apply h-full;
 }
 
-:global(body) {
+body {
 	@apply overflow-y-auto overflow-x-hidden;
+}
+
+/* ─── Shared layout tokens ──────────────────────────────────────────────────── */
+:root {
+	--navbar-height: 80px;
+}
+
+/* ─── Matrix theme tokens ────────────────────────────────────────────────────
+   All matrix-mode colors live here. To retheme the matrix mode, only change
+   values in this block — nothing else needs to touch a hex color ever again.
+
+   NOTE: This is a plain PostCSS/CSS file (not a Svelte component), so plain
+   CSS selectors are used here — no :global() wrapper needed or valid.
+   ─────────────────────────────────────────────────────────────────────────── */
+.matrix-theme {
+	/* Core accent color and opacity variants */
+	--mx-accent:        #0F0;
+	--mx-accent-bright: #19F819;
+	--mx-accent-dim:    rgba(0, 255, 0, 0.1);
+	--mx-accent-mid:    rgba(0, 255, 0, 0.3);
+	--mx-accent-half:   rgba(0, 255, 0, 0.5);
+	--mx-accent-strong: rgba(0, 255, 0, 0.7);
+
+	/* Glow box-shadow presets */
+	--mx-glow-sm:  0 0 10px #0F0;
+	--mx-glow-md:  0 0 10px #0F0, 0 0 20px #0F0;
+
+	/* Background colors */
+	--mx-bg-hero:    #000;
+	--mx-bg-content: #050505;
+	--mx-card-bg:    #0D0D0D;
+	--mx-divider:    #1E1E1E;
+	--mx-overlay:    rgba(0, 0, 0, 0.95);
+
+	/* Cover Skeleton's preset body background-image gradient */
+	background-color: #000;
 }
