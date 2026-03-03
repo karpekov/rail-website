@@ -17,6 +17,52 @@ body {
 	--navbar-height: 80px;
 }
 
+/* ─── Light amber theme — overrides Skeleton's skeleton preset ───────────────
+   Skeleton emits its theme as  :root [data-theme=skeleton]  (specificity 0-0-2-0).
+   We must match that selector exactly so our later position in the cascade wins.
+   Using only [data-theme="skeleton"] (0-0-1-0) is not enough — Skeleton's
+   higher-specificity rule would still win.
+   ─────────────────────────────────────────────────────────────────────────── */
+:root [data-theme="skeleton"] {
+	/* ── Kill Skeleton's built-in purple radial-gradient body background ─────
+	   The skeleton preset adds  background-image: radial-gradient(secondary…)
+	   on [data-theme=skeleton] (the <body>). We override it to none so the
+	   page background is a flat cream instead of purple-tinted.
+	   ───────────────────────────────────────────────────────────────────────── */
+	background-image: none;
+	background-color: rgb(var(--color-surface-50));
+
+	/* ── Primary: industrial amber-gold (#E8A800) ───────────────────────────
+	   Space-separated R G B values as required by the Skeleton token system.
+	   ──────────────────────────────────────────────────────────────────────── */
+	--color-primary-50:  255 251 235;   /* #FFFBEB */
+	--color-primary-100: 254 243 199;   /* #FEF3C7 */
+	--color-primary-200: 253 230 138;   /* #FDE68A */
+	--color-primary-300: 252 211 77;    /* #FCD34D */
+	--color-primary-400: 251 191 36;    /* #FBBF24 */
+	--color-primary-500: 232 168 0;     /* #E8A800 — main amber-gold accent */
+	--color-primary-600: 194 136 0;     /* #C28800 */
+	--color-primary-700: 154 108 0;     /* #9A6C00 */
+	--color-primary-800: 112  80  0;    /* #705000 */
+	--color-primary-900:  74  53  0;    /* #4A3500 */
+	--color-primary-950:  45  32  0;    /* #2D2000 */
+
+	/* ── Surface: warm cream / linen ─────────────────────────────────────────
+	   50 = near-white cream (hero bg), 100 = warm linen (content sections).
+	   ───────────────────────────────────────────────────────────────────────── */
+	--color-surface-50:  250 250 245;   /* #FAFAF5 — near-white cream */
+	--color-surface-100: 245 242 232;   /* #F5F2E8 — warm linen */
+	--color-surface-200: 237 232 213;   /* #EDE8D5 */
+	--color-surface-300: 224 216 188;   /* #E0D8BC */
+	--color-surface-400: 205 191 160;   /* #CDBFA0 */
+	--color-surface-500: 184 164 128;   /* #B8A480 */
+	--color-surface-600: 154 135  96;   /* #9A8760 */
+	--color-surface-700: 122 104  64;   /* #7A6840 */
+	--color-surface-800:  90  76  42;   /* #5A4C2A */
+	--color-surface-900:  58  48  24;   /* #3A3018 */
+	--color-surface-950:  30  24   0;   /* #1E1800 */
+}
+
 /* ─── Matrix theme tokens ────────────────────────────────────────────────────
    All matrix-mode colors live here. To retheme the matrix mode, only change
    values in this block — nothing else needs to touch a hex color ever again.

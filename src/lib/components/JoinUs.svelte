@@ -59,8 +59,9 @@
 
 <style>
     :global(:not(.matrix-theme)) .section-title {
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
-                    0 0 20px rgba(255, 255, 255, 0.3);
+        color: rgb(var(--color-primary-600));
+        text-shadow: 0 0 16px rgba(var(--color-primary-500), 0.35),
+                     0 0 32px rgba(var(--color-primary-500), 0.18);
     }
 
     :global(:not(.matrix-theme)) .prose h3 {

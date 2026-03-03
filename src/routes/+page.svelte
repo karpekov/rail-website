@@ -9,7 +9,7 @@
 	import Teaching from '$lib/components/Teaching.svelte';
 	import Fun from '$lib/components/Fun.svelte';
 	import Footer from '$lib/components/Footer.svelte';
-	import CircuitBackground from '$lib/components/CircuitBackground.svelte';
+	import HexBackground from '$lib/components/HexBackground.svelte';
 	import Matrix from '$lib/components/Matrix.svelte';
 	import { scrollIntoView } from '$lib/utils/scroll';
 	import JoinUs from '$lib/components/JoinUs.svelte';
@@ -47,11 +47,11 @@
 				<div class="absolute inset-0 z-10 opacity-[0.3]">
 					<Matrix />
 				</div>
-			{:else}
-				<div class="absolute inset-0 z-10 opacity-[0.2]">
-					<CircuitBackground />
-				</div>
-			{/if}
+		{:else}
+			<div class="absolute inset-0 z-10">
+				<HexBackground />
+			</div>
+		{/if}
 			<div class="relative z-20 space-y-4 sm:space-y-6 md:space-y-8 py-6 sm:py-8 md:py-10">
 				<About onLogoIntersect={handleLogoIntersection} />
 				{#if showJoinUs}
@@ -135,6 +135,9 @@
 		--color-surface-800: 40 40 40;
 		--color-surface-900: 45 45 45;
 		color-scheme: dark;
+		/* Skeleton reads --theme-font-color-base from the body-level token and
+		   won't flip it to white just from color-scheme on this div. Force it. */
+		color: white;
 	}
 
 	:global(.matrix-theme .bg-surface-100-800-token) {

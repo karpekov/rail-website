@@ -2,6 +2,15 @@
     import { getModalStore } from '@skeletonlabs/skeleton';
     import JoinUs from '$lib/components/JoinUs.svelte';
     import { showMatrix } from '$lib/stores/theme';
+    import RailSvgRaw from '$lib/../../static/assets/RAIL.svg?raw';
+
+    function inlineNavLogo(svg: string): string {
+        return svg
+            .replace('<svg', '<svg class="nav-rail-logo h-full w-auto"')
+            .replace(/stroke="[^"]*"/g, 'stroke="currentColor"');
+    }
+
+    const navLogoHtml = inlineNavLogo(RailSvgRaw);
 
     const modalStore = getModalStore();
 
@@ -45,23 +54,16 @@
     <nav class="container mx-auto max-w-6xl px-4 sm:px-6 md:px-8 flex justify-between items-center">
         <!-- Logo container with transition -->
         {#if showLogo}
-            {#if $showMatrix}
-            <div class="h-14 lg:h-12 matrix-logo-glow flex items-center">
-                <img
-                    src="/assets/rail-logo-new-green.svg"
-                    alt="RAIL Lab Logo"
-                    class="h-12 lg:h-10 w-auto object-contain"
-                />
+            <div
+                class="h-14 lg:h-12 flex items-center"
+                class:matrix-logo-glow={$showMatrix}
+                class:regular-logo-glow={!$showMatrix}
+                class:text-primary-500={!$showMatrix}
+                style={$showMatrix ? 'color: var(--mx-accent)' : ''}
+                aria-label="RAIL Lab Logo"
+            >
+                {@html navLogoHtml}
             </div>
-            {:else}
-            <div class="h-14 lg:h-12 regular-logo-glow flex items-center">
-                <img
-                    src="/assets/rail-logo-new-white.svg"
-                    alt="RAIL Lab Logo"
-                    class="h-12 lg:h-10 w-auto object-contain"
-                />
-            </div>
-            {/if}
         {:else}
             <div class="h-12 md:h-12 invisible">
                 <div class="h-full w-[120px]"></div>
@@ -203,12 +205,17 @@
     }
 
     .regular-logo-glow {
-        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+        filter: drop-shadow(0 0 8px rgba(232, 168, 0, 0.5));
         transition: filter 0.3s ease;
     }
 
     .regular-logo-glow:hover {
-        filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.7));
+        filter: drop-shadow(0 0 14px rgba(232, 168, 0, 0.75));
+    }
+
+    :global(.nav-rail-logo) {
+        height: 2.75rem;
+        width: auto;
     }
 
     .join-us-btn {

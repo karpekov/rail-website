@@ -53,7 +53,7 @@
                 <div class="flex-none w-[140px] sm:w-[160px] flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card hover:bg-surface-200-700-token">
                     <div
                         class="w-24 h-24 sm:w-36 sm:h-36 rounded-full bg-surface-300-600-token overflow-hidden ring-2"
-                            class:ring-white={!$showMatrix}
+                            class:ring-amber={!$showMatrix}
                             class:ring-black={$showMatrix}
                         >
                             <img src={member.photo} alt={member.name} class="w-full h-full object-cover" width="144" height="144" loading="lazy" />
@@ -123,7 +123,7 @@
                     <div class="flex-none w-[140px] sm:w-[160px] flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card hover:bg-surface-200-700-token">
                         <div
                             class="w-24 h-24 sm:w-36 sm:h-36 rounded-full bg-surface-300-600-token overflow-hidden ring-2"
-                            class:ring-white={!$showMatrix}
+                            class:ring-amber={!$showMatrix}
                             class:ring-black={$showMatrix}
                         >
                             <img src={member.photo} alt={member.name} class="w-full h-full object-cover" width="144" height="144" loading="lazy" />
@@ -220,7 +220,7 @@
                     <div class="flex-none w-[140px] sm:w-[160px] flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card hover:bg-surface-200-700-token">
                         <div
                             class="w-24 h-24 sm:w-36 sm:h-36 rounded-full bg-surface-300-600-token overflow-hidden ring-2"
-                            class:ring-white={!$showMatrix}
+                            class:ring-amber={!$showMatrix}
                             class:ring-black={$showMatrix}
                         >
                             <img src={member.photo} alt={member.name} class="w-full h-full object-cover" width="144" height="144" loading="lazy" />
@@ -400,8 +400,15 @@
     }
 
     :global(:not(.matrix-theme)) .section-title {
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
-                    0 0 20px rgba(255, 255, 255, 0.3);
+        color: rgb(var(--color-primary-600));
+        text-shadow: 0 0 16px rgba(var(--color-primary-500), 0.35),
+                     0 0 32px rgba(var(--color-primary-500), 0.18);
+    }
+
+    /* Amber avatar ring for light theme */
+    .ring-amber {
+        --tw-ring-color: rgb(var(--color-primary-400));
+        box-shadow: 0 0 0 2px var(--tw-ring-color);
     }
 
     button {

@@ -177,19 +177,23 @@
 
     /* Filter chips */
     .filter-chip {
-        color: rgba(255, 255, 255, 0.9);
-        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: rgb(var(--color-surface-700));
+        border: 1px solid rgb(var(--color-surface-400));
         background-color: transparent;
         transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .filter-chip.active {
-        background-color: rgba(255, 255, 255, 0.15);
+        color: rgb(var(--color-primary-700));
+        border-color: rgb(var(--color-primary-500));
+        background-color: rgba(var(--color-primary-500), 0.1);
     }
 
     :global(:not(.matrix-theme)) .filter-chip:hover {
-        background-color: rgba(0, 0, 0, 0.03);
-        box-shadow: 0 0 12px rgb(99 154 255 / 0.3);
+        color: rgb(var(--color-primary-700));
+        border-color: rgb(var(--color-primary-500));
+        background-color: rgba(var(--color-primary-500), 0.07);
+        box-shadow: 0 0 12px rgba(var(--color-primary-500), 0.25);
     }
 
     :global(.matrix-theme) .filter-chip {
@@ -209,13 +213,13 @@
 
     /* Tag chips */
     .tag-chip {
-        background-color: rgba(255, 255, 255, 0.15);
-        color: rgba(255, 255, 255, 0.9);
+        background-color: rgba(var(--color-primary-500), 0.1);
+        color: rgb(var(--color-primary-700));
     }
 
     .tag-chip.tag-active {
-        background-color: rgba(255, 255, 255, 1);
-        color: rgba(0, 0, 0, 0.8);
+        background-color: rgb(var(--color-primary-500));
+        color: #fff;
     }
 
     :global(.matrix-theme) .tag-chip {
@@ -274,7 +278,8 @@
     }
 
     :global(:not(.matrix-theme)) .section-title {
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
-                    0 0 20px rgba(255, 255, 255, 0.3);
+        color: rgb(var(--color-primary-600));
+        text-shadow: 0 0 16px rgba(var(--color-primary-500), 0.35),
+                     0 0 32px rgba(var(--color-primary-500), 0.18);
     }
 </style>
