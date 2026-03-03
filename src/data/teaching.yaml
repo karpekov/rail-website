@@ -9,13 +9,13 @@
 
 courses:
   - name: "CS 3630: Introduction to Robotics and Perception"
-    semester: Spring 2025
+    semester: Spring 2026
     description: "Course covering robot capabilities, kinematics, control architectures, sensor-based navigation, and Python-based robotics."
     status: current
     website: https://www.roboticsbook.org/intro.html
 
   - name: "CS 7633: Human-Robot Interaction"
-    semester: Fall 2025
+    semester: Fall 2026
     description: "Graduate course covering human-robot interaction and social robot learning, focusing on physical embodiment, multi-modal interfaces, human-robot teamwork, social cognition, and ethical considerations, culminating in a final project."
     status: upcoming
     website: "https://faculty.cc.gatech.edu/~chernova/CS7633/index.html"

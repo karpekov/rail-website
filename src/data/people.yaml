@@ -28,7 +28,11 @@ faculty:
     linkedin: https://www.linkedin.com/in/sonia-chernova-6b11781a/
     scholar: https://scholar.google.com/citations?user=EYo_WkEAAAAJ&hl=en
 
+################################################
 ############### CURRENT STUDENTS ###############
+
+################################################
+##############     PostDocs/PhDs     ###########
 
 students:
 
@@ -100,13 +104,8 @@ students:
     twitter: https://x.com/alexkarpekov
     scholar: https://scholar.google.com/citations?user=r0RqCXQAAAAJ
 
-  - name: Sanjana Menon
-    status: current
-    degree: MS
-    degree_detail: Robo MS
-    photo: /images/people/sanjana.jpg
-    year_joined: 2025
-    linkedin: http://linkedin.com/in/sanjana-chelat-menon
+################################################
+##############         MS/BS         ###########
 
   - name: Harsh Muriki
     status: current
@@ -120,38 +119,6 @@ students:
     twitter: https://x.com/Harshmuriki24
     scholar: https://scholar.google.com/citations?user=Q9a5nPkAAAAJ&hl=en
 
-  - name: Hannah Hsiao
-    status: current
-    degree: bs
-    degree_detail: CS BS
-    photo: /images/people/hannah.jpg
-    year_joined: 2024
-    website: https://hhsiao24.github.io/hannah-portfolio/
-    github: https://github.com/hhsiao24
-    linkedin: https://www.linkedin.com/in/hannah-hsiao-784845132/
-
-  - name: Twisha Shah
-    status: current
-    degree: ms
-    degree_detail: ECE MS
-    photo: /images/people/twisha.jpg
-    year_joined: 2024
-    website:
-    github: https://github.com/twisha-shah99
-    linkedin: https://www.linkedin.com/in/shahtwisha/
-    twitter: https://x.com/you_know_me99
-    scholar:
-
-  - name: Abivishaq Balasubramanian
-    status: current
-    degree: ms
-    degree_detail: Robo MS
-    photo: /images/people/abivishaq.jpg
-    year_joined: 2023
-    github: https://github.com/Abivishaq
-    linkedin: https://www.linkedin.com/in/abivishaq/
-    scholar: https://scholar.google.com/citations?user=71XmDvYAAAAJ&hl=en&oi=ao
-
   - name: Nhi Nguyen Ngoc Yen
     status: current
     degree: ms
@@ -162,34 +129,15 @@ students:
     linkedin: https://www.linkedin.com/in/nhi-nguyen-b3042a1a8/
     scholar: https://scholar.google.com/citations?user=YDhbRU4AAAAJ&hl=en
 
-  - name: Rahul Rustagi
-    status: current
-    degree: ms
-    degree_detail: ECE MS
-    photo: /images/people/rahul.jpg
-    year_joined: 2025
-    website: https://rrustagi20.github.io/
-    github: https://github.com/rrustagi20
-    linkedin: https://www.linkedin.com/in/rahul-rustagi-34254321b/
-    scholar: https://scholar.google.com/citations?user=5KYg7IgAAAAJ&hl=en
-
-  - name: Aesha Shah
+  - name: Gayathri Aravindan
     status: current
     degree: bs
     degree_detail: CS BS
-    photo: /images/people/aesha.jpg
-    year_joined: 2023
-    website: https://aeshashah726.github.io/
-    github: https://github.com/aeshashah726
-    linkedin: https://www.linkedin.com/in/aeshashah7/
-
-  - name: Muskan Bawa
-    status: current
-    degree: ms
-    degree_detail: Robo MS
-    photo: /images/people/muskan.jpg
+    photo: /images/people/gayathri.jpg
     year_joined: 2024
-    linkedin: https://www.linkedin.com/in/muskan-bawa/
+    github: https://github.com/gayathriaravindan
+    linkedin: https://www.linkedin.com/in/gayathri-aravindan/
+    twitter: https://x.com/gayathriara
 
 
 ############### PostDoc & PhD ALUMNI ###############
@@ -235,7 +183,8 @@ students:
     degree_detail: PhD
     photo: /images/people/jack.jpg
     year_joined: 2020
-    graduation: 2022
+    graduation: 2025
+    next_role: "Research Scientist @ Apple"
     website: https://jackkolb.com/
     linkedin: https://www.linkedin.com/in/jack-kolb-786134b8/
     github: https://github.com/jackkolb
@@ -499,3 +448,72 @@ students:
   - name: Jayanta Bhowmick
     status: alum
     degree: ms
+
+  - name: Sanjana Menon
+    status: alum
+    degree: ms
+    degree_detail: Robo MS
+    photo: /images/people/sanjana.jpg
+    year_joined: 2025
+    linkedin: http://linkedin.com/in/sanjana-chelat-menon
+
+  - name: Hannah Hsiao
+    status: alum
+    degree: bs
+    degree_detail: CS BS
+    photo: /images/people/hannah.jpg
+    year_joined: 2024
+    website: https://hhsiao24.github.io/hannah-portfolio/
+    github: https://github.com/hhsiao24
+    linkedin: https://www.linkedin.com/in/hannah-hsiao-784845132/
+
+  - name: Twisha Shah
+    status: alum
+    degree: ms
+    degree_detail: ECE MS
+    photo: /images/people/twisha.jpg
+    year_joined: 2024
+    website:
+    github: https://github.com/twisha-shah99
+    linkedin: https://www.linkedin.com/in/shahtwisha/
+    twitter: https://x.com/you_know_me99
+    scholar:
+
+  - name: Abivishaq Balasubramanian
+    status: alum
+    degree: ms
+    degree_detail: Robo MS
+    photo: /images/people/abivishaq.jpg
+    year_joined: 2023
+    github: https://github.com/Abivishaq
+    linkedin: https://www.linkedin.com/in/abivishaq/
+    scholar: https://scholar.google.com/citations?user=71XmDvYAAAAJ&hl=en&oi=ao
+
+  - name: Rahul Rustagi
+    status: alum
+    degree: ms
+    degree_detail: ECE MS
+    photo: /images/people/rahul.jpg
+    year_joined: 2025
+    website: https://rrustagi20.github.io/
+    github: https://github.com/rrustagi20
+    linkedin: https://www.linkedin.com/in/rahul-rustagi-34254321b/
+    scholar: https://scholar.google.com/citations?user=5KYg7IgAAAAJ&hl=en
+
+  - name: Aesha Shah
+    status: alum
+    degree: bs
+    degree_detail: CS BS
+    photo: /images/people/aesha.jpg
+    year_joined: 2023
+    website: https://aeshashah726.github.io/
+    github: https://github.com/aeshashah726
+    linkedin: https://www.linkedin.com/in/aeshashah7/
+
+  - name: Muskan Bawa
+    status: alum
+    degree: ms
+    degree_detail: Robo MS
+    photo: /images/people/muskan.jpg
+    year_joined: 2024
+    linkedin: https://www.linkedin.com/in/muskan-bawa/
