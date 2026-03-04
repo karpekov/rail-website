@@ -249,22 +249,22 @@
     :global(:not(.matrix-theme)) .person-card-image {
         /* outline renders in its own layer — not clipped by overflow:hidden
            or scaled away by transform — stays visible at all times */
-        outline: 2px solid rgb(var(--color-primary-400));
-        outline-offset: 1px;
+        outline: 3px solid rgb(var(--color-primary-400));
+        outline-offset: 0px;
         transition: outline-color 0.25s ease, outline-width 0.25s ease,
                     box-shadow 0.25s ease, transform 0.25s ease;
     }
 
     :global(:not(.matrix-theme)) .person-card-image:hover {
-        outline: 3px solid rgb(var(--color-primary-500));
-        outline-offset: 1px;
+        outline: 3px solid rgb(var(--color-primary-400));
+        outline-offset: 0px;
         box-shadow: 0 0 14px rgba(var(--color-primary-500), 0.35);
         transform: scale(1.07);
     }
 
     :global(.matrix-theme) .person-card-image {
-        outline: 2px solid var(--mx-accent);
-        outline-offset: 1px;
+        outline: 3px solid var(--mx-accent);
+        outline-offset: 0px;
         transition: outline-color 0.25s ease, outline-width 0.25s ease,
                     box-shadow 0.25s ease, transform 0.25s ease;
     }
