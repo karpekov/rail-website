@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { onDestroy } from 'svelte';
     import { people } from '$lib/utils/dataLoader';
     import { showMatrix } from '$lib/stores/theme';
     import { trackEvent } from '$lib/utils/analytics';
@@ -41,6 +42,41 @@
     function getProfileLink(member) {
         return member.website || member.linkedin || null;
     }
+
+    // Pre-assign a robot avatar to each member so it stays stable across re-renders
+    const allOrderedMembers = [...seniorMembers, ...juniorMembers];
+    const robotAvatarMap = new Map(
+        allOrderedMembers.map(member => [member.name, getRandomRobotAvatar()])
+    );
+
+    // Track which members have been flipped to robot
+    let flippedMembers = new Set<string>();
+    let flipTimeouts: ReturnType<typeof setTimeout>[] = [];
+
+    function clearFlipTimeouts() {
+        flipTimeouts.forEach(t => clearTimeout(t));
+        flipTimeouts = [];
+    }
+
+    function startSequentialFlip() {
+        clearFlipTimeouts();
+        flippedMembers = new Set();
+        allOrderedMembers.forEach((member, i) => {
+            const t = setTimeout(() => {
+                flippedMembers = new Set([...flippedMembers, member.name]);
+            }, i * 150);
+            flipTimeouts.push(t);
+        });
+    }
+
+    $: if ($showMatrix) {
+        startSequentialFlip();
+    } else {
+        clearFlipTimeouts();
+        flippedMembers = new Set();
+    }
+
+    onDestroy(() => clearFlipTimeouts());
 </script>
 
 <section id="current-members">
@@ -68,12 +104,11 @@
                                 on:click={() => trackEvent('member_card_click', { member_name: member.name, section: 'hero' })}>
                                 <div class="person-card-image">
                                     <div class="flip-container">
-                                        <div class="flipper">
+                                        <div class="flipper" class:flipped={flippedMembers.has(member.name)}>
                                             <div class="front">
                                                 <img
-                                                    src={$showMatrix ? getRandomRobotAvatar() : member.photo}
+                                                    src={member.photo}
                                                     alt={member.name}
-                                                    class:robot-avatar={$showMatrix}
                                                     class="w-full h-full object-cover"
                                                     width="112" height="112"
                                                     loading="eager"
@@ -81,9 +116,9 @@
                                             </div>
                                             <div class="back">
                                                 <img
-                                                    src={member.photo}
+                                                    src={robotAvatarMap.get(member.name)}
                                                     alt={member.name}
-                                                    class="w-full h-full object-cover"
+                                                    class="robot-avatar w-full h-full object-cover"
                                                     width="112" height="112"
                                                     loading="lazy"
                                                 />
@@ -95,12 +130,11 @@
                         {:else}
                             <div class="person-card-image">
                                 <div class="flip-container">
-                                    <div class="flipper">
+                                    <div class="flipper" class:flipped={flippedMembers.has(member.name)}>
                                         <div class="front">
                                             <img
-                                                src={$showMatrix ? getRandomRobotAvatar() : member.photo}
+                                                src={member.photo}
                                                 alt={member.name}
-                                                class:robot-avatar={$showMatrix}
                                                 class="w-full h-full object-cover"
                                                 width="112" height="112"
                                                 loading="eager"
@@ -108,9 +142,9 @@
                                         </div>
                                         <div class="back">
                                             <img
-                                                src={member.photo}
+                                                src={robotAvatarMap.get(member.name)}
                                                 alt={member.name}
-                                                class="w-full h-full object-cover"
+                                                class="robot-avatar w-full h-full object-cover"
                                                 width="112" height="112"
                                                 loading="lazy"
                                             />
@@ -140,12 +174,11 @@
                                 on:click={() => trackEvent('member_card_click', { member_name: member.name, section: 'hero' })}>
                                 <div class="person-card-image">
                                     <div class="flip-container">
-                                        <div class="flipper">
+                                        <div class="flipper" class:flipped={flippedMembers.has(member.name)}>
                                             <div class="front">
                                                 <img
-                                                    src={$showMatrix ? getRandomRobotAvatar() : member.photo}
+                                                    src={member.photo}
                                                     alt={member.name}
-                                                    class:robot-avatar={$showMatrix}
                                                     class="w-full h-full object-cover"
                                                     width="64" height="64"
                                                     loading="lazy"
@@ -153,9 +186,9 @@
                                             </div>
                                             <div class="back">
                                                 <img
-                                                    src={member.photo}
+                                                    src={robotAvatarMap.get(member.name)}
                                                     alt={member.name}
-                                                    class="w-full h-full object-cover"
+                                                    class="robot-avatar w-full h-full object-cover"
                                                     width="64" height="64"
                                                     loading="lazy"
                                                 />
@@ -167,12 +200,11 @@
                         {:else}
                             <div class="person-card-image">
                                 <div class="flip-container">
-                                    <div class="flipper">
+                                    <div class="flipper" class:flipped={flippedMembers.has(member.name)}>
                                         <div class="front">
                                             <img
-                                                src={$showMatrix ? getRandomRobotAvatar() : member.photo}
+                                                src={member.photo}
                                                 alt={member.name}
-                                                class:robot-avatar={$showMatrix}
                                                 class="w-full h-full object-cover"
                                                 width="64" height="64"
                                                 loading="lazy"
@@ -180,9 +212,9 @@
                                         </div>
                                         <div class="back">
                                             <img
-                                                src={member.photo}
+                                                src={robotAvatarMap.get(member.name)}
                                                 alt={member.name}
-                                                class="w-full h-full object-cover"
+                                                class="robot-avatar w-full h-full object-cover"
                                                 width="64" height="64"
                                                 loading="lazy"
                                             />
@@ -248,14 +280,19 @@
         perspective: 1000px;
     }
 
-    /* Flip on hover: matrix mode only */
-    :global(.matrix-theme) .person-card-image:hover .flipper {
+    .flipper {
+        @apply relative w-full h-full;
+        transform-style: preserve-3d;
+        transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+    }
+
+    .flipper.flipped {
         transform: rotateY(180deg);
     }
 
-    .flipper {
-        @apply relative w-full h-full transition-transform duration-500;
-        transform-style: preserve-3d;
+    /* Hovering a converted card peeks back at the photo */
+    :global(.matrix-theme) .person-card-image:hover .flipper.flipped {
+        transform: rotateY(0deg);
     }
 
     .front, .back {
