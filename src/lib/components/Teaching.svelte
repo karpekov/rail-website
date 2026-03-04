@@ -23,28 +23,28 @@
                 <h3 class="font-thin text-lg mb-4">Current Courses</h3>
                 <div class="space-y-4">
                     {#each currentCourses as course}
-                        <div class="p-4 rounded-lg bg-surface-100-800-token border-l-4 border-primary-500 course-card" class:matrix-card={$showMatrix}>
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <h4 class="font-bold">{course.name}</h4>
-                                    {#if course.semester}
-                                        <p class="text-sm opacity-75">{course.semester}</p>
-                                    {/if}
-                                    <p class="mt-2">{course.description}</p>
-                                </div>
-                                {#if course.website}
-                                    <a href={course.website} target="_blank" rel="noopener noreferrer"
-                                       class="text-primary-500 hover:text-primary-600 transition-colors course-link"
-                                       title="Course Website">
-                                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                                            <polyline points="15 3 21 3 21 9" />
-                                            <line x1="10" y1="14" x2="21" y2="3" />
-                                        </svg>
-                                    </a>
-                                {/if}
-                            </div>
-                        </div>
+                        <svelte:element
+                            this={course.website ? 'a' : 'div'}
+                            href={course.website || undefined}
+                            target={course.website ? '_blank' : undefined}
+                            rel={course.website ? 'noopener noreferrer' : undefined}
+                            class="relative block p-4 rounded-lg bg-surface-100-800-token border-l-4 border-primary-500 course-card"
+                            class:matrix-card={$showMatrix}
+                            class:has-link={!!course.website}
+                        >
+                            {#if course.website}
+                                <svg class="course-link-icon absolute top-3 right-3 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                    <polyline points="15 3 21 3 21 9" />
+                                    <line x1="10" y1="14" x2="21" y2="3" />
+                                </svg>
+                            {/if}
+                            <h4 class="font-bold pr-6">{course.name}</h4>
+                            {#if course.semester}
+                                <p class="text-sm opacity-75">{course.semester}</p>
+                            {/if}
+                            <p class="mt-2">{course.description}</p>
+                        </svelte:element>
                     {/each}
                 </div>
             </div>
@@ -55,28 +55,28 @@
                 <h3 class="text-lg font-thin mb-4">Upcoming Courses</h3>
                 <div class="space-y-4">
                     {#each upcomingCourses as course}
-                        <div class="p-4 rounded-lg bg-surface-100-800-token border-l-4 border-primary-500 course-card" class:matrix-card={$showMatrix}>
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <h4 class="font-bold">{course.name}</h4>
-                                    {#if course.semester}
-                                        <p class="text-sm opacity-75">{course.semester}</p>
-                                    {/if}
-                                    <p class="mt-2">{course.description}</p>
-                                </div>
-                                {#if course.website}
-                                    <a href={course.website} target="_blank" rel="noopener noreferrer"
-                                       class="text-primary-500 hover:text-primary-600 transition-colors course-link"
-                                       title="Course Website">
-                                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                                            <polyline points="15 3 21 3 21 9" />
-                                            <line x1="10" y1="14" x2="21" y2="3" />
-                                        </svg>
-                                    </a>
-                                {/if}
-                            </div>
-                        </div>
+                        <svelte:element
+                            this={course.website ? 'a' : 'div'}
+                            href={course.website || undefined}
+                            target={course.website ? '_blank' : undefined}
+                            rel={course.website ? 'noopener noreferrer' : undefined}
+                            class="relative block p-4 rounded-lg bg-surface-100-800-token border-l-4 border-primary-500 course-card"
+                            class:matrix-card={$showMatrix}
+                            class:has-link={!!course.website}
+                        >
+                            {#if course.website}
+                                <svg class="course-link-icon absolute top-3 right-3 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                    <polyline points="15 3 21 3 21 9" />
+                                    <line x1="10" y1="14" x2="21" y2="3" />
+                                </svg>
+                            {/if}
+                            <h4 class="font-bold pr-6">{course.name}</h4>
+                            {#if course.semester}
+                                <p class="text-sm opacity-75">{course.semester}</p>
+                            {/if}
+                            <p class="mt-2">{course.description}</p>
+                        </svelte:element>
                     {/each}
                 </div>
             </div>
@@ -102,28 +102,28 @@
             {#if showPastCourses}
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4" transition:slide>
                     {#each pastCourses as course}
-                        <div class="p-4 rounded-lg bg-surface-100-800-token border-l-4 border-primary-500 course-card" class:matrix-card={$showMatrix}>
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <h4 class="font-bold">{course.name}</h4>
-                                    {#if course.semester}
-                                        <p class="text-sm opacity-75">{course.semester}</p>
-                                    {/if}
-                                    <p class="mt-2">{course.description}</p>
-                                </div>
-                                {#if course.website}
-                                    <a href={course.website} target="_blank" rel="noopener noreferrer"
-                                       class="text-primary-500 hover:text-primary-600 transition-colors course-link"
-                                       title="Course Website">
-                                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                                            <polyline points="15 3 21 3 21 9" />
-                                            <line x1="10" y1="14" x2="21" y2="3" />
-                                        </svg>
-                                    </a>
-                                {/if}
-                            </div>
-                        </div>
+                        <svelte:element
+                            this={course.website ? 'a' : 'div'}
+                            href={course.website || undefined}
+                            target={course.website ? '_blank' : undefined}
+                            rel={course.website ? 'noopener noreferrer' : undefined}
+                            class="relative block p-4 rounded-lg bg-surface-100-800-token border-l-4 border-primary-500 course-card"
+                            class:matrix-card={$showMatrix}
+                            class:has-link={!!course.website}
+                        >
+                            {#if course.website}
+                                <svg class="course-link-icon absolute top-3 right-3 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                    <polyline points="15 3 21 3 21 9" />
+                                    <line x1="10" y1="14" x2="21" y2="3" />
+                                </svg>
+                            {/if}
+                            <h4 class="font-bold pr-6">{course.name}</h4>
+                            {#if course.semester}
+                                <p class="text-sm opacity-75">{course.semester}</p>
+                            {/if}
+                            <p class="mt-2">{course.description}</p>
+                        </svelte:element>
                     {/each}
                 </div>
             {/if}
@@ -132,14 +132,50 @@
 </section>
 
 <style>
+    .course-card {
+        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    box-shadow 0.4s ease,
+                    background-color 0.2s ease;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+
+    .course-card.has-link {
+        cursor: pointer;
+    }
+
+    /* Link icon: faint by default, amber + full opacity on hover */
+    .course-link-icon {
+        opacity: 0.2;
+        color: rgb(var(--color-surface-600));
+        transition: opacity 0.2s ease, color 0.2s ease;
+    }
+
+    :global(:not(.matrix-theme)) .course-card.has-link:hover {
+        background-color: rgb(var(--color-surface-200));
+        box-shadow: 0 4px 18px rgba(var(--color-primary-500), 0.15);
+        transform: translateX(4px);
+    }
+
+    :global(:not(.matrix-theme)) .course-card.has-link:hover .course-link-icon {
+        opacity: 1;
+        color: rgb(var(--color-primary-500));
+    }
+
     .matrix-card {
         border-color: var(--mx-accent) !important;
         box-shadow: 0 0 10px var(--mx-accent-mid);
-        transition: all 0.3s ease;
     }
 
-    .matrix-card:hover {
+    .matrix-card.has-link:hover {
         box-shadow: 0 0 20px var(--mx-accent-half);
+        transform: translateX(4px);
+    }
+
+    .matrix-card.has-link:hover .course-link-icon {
+        opacity: 1;
+        color: var(--mx-accent);
     }
 
     :global(.matrix-theme) .course-link {

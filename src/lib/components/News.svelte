@@ -19,32 +19,31 @@
 <section id="news">
     <h2 class="h2 font-orbitron section-title">News</h2>
     {#if allNews.length > 0}
-        <div class="card p-4 space-y-4">
+        <div class="card p-4 space-y-1">
             {#each allNews.slice(0, visibleCount) as item}
-                <div class="border-b border-surface-300-600-token last:border-0 pb-4">
-                    <div class="flex justify-between items-start gap-4">
+                <svelte:element
+                    this={item.link ? 'a' : 'div'}
+                    href={item.link || undefined}
+                    target={item.link ? '_blank' : undefined}
+                    rel={item.link ? 'noopener noreferrer' : undefined}
+                    class="news-row border-b border-surface-300-600-token last:border-0 pb-4 pt-3 px-2 rounded-md -mx-2"
+                    class:has-link={!!item.link}
+                    class:matrix-row={$showMatrix}
+                >
+                    <div class="flex items-start justify-between gap-3">
                         <div>
                             <span class="font-bold">{item.date}</span>
-                            <p>{item.content}</p>
+                            <p class="mt-0.5">{item.content}</p>
                         </div>
                         {#if item.link}
-                            <a
-                                href={item.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="text-primary-500 hover:text-primary-600 transition-colors flex-shrink-0 mt-1"
-                                class:matrix-link={$showMatrix}
-                                title="Read more"
-                            >
-                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                                    <polyline points="15 3 21 3 21 9" />
-                                    <line x1="10" y1="14" x2="21" y2="3" />
-                                </svg>
-                            </a>
+                            <svg class="link-icon flex-shrink-0 mt-1 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                <polyline points="15 3 21 3 21 9" />
+                                <line x1="10" y1="14" x2="21" y2="3" />
+                            </svg>
                         {/if}
                     </div>
-                </div>
+                </svelte:element>
             {/each}
 
             {#if hasMore}
@@ -59,6 +58,45 @@
 </section>
 
 <style>
+    .news-row {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        transition: background-color 0.2s ease, padding-left 0.2s ease;
+    }
+
+    .news-row.has-link {
+        cursor: pointer;
+    }
+
+    /* Link icon: faint by default, amber + visible on hover */
+    .link-icon {
+        opacity: 0.25;
+        color: rgb(var(--color-surface-600));
+        transition: opacity 0.2s ease, color 0.2s ease;
+        flex-shrink: 0;
+    }
+
+    :global(:not(.matrix-theme)) .news-row.has-link:hover {
+        background-color: rgba(var(--color-primary-500), 0.09);
+        padding-left: 0.75rem;
+    }
+
+    :global(:not(.matrix-theme)) .news-row.has-link:hover .link-icon {
+        opacity: 1;
+        color: rgb(var(--color-primary-500));
+    }
+
+    .matrix-row.has-link:hover {
+        background-color: var(--mx-accent-dim);
+        padding-left: 0.75rem;
+    }
+
+    .matrix-row.has-link:hover .link-icon {
+        opacity: 1;
+        color: var(--mx-accent);
+    }
+
     :global(.matrix-theme) .matrix-button {
         color: var(--mx-accent) !important;
         border-color: var(--mx-accent) !important;

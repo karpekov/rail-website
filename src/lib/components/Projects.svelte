@@ -2,6 +2,8 @@
     import { projects } from '$lib/utils/dataLoader';
     import { scrollable } from '$lib/utils/scroll';
     import { showMatrix } from '$lib/stores/theme';
+    import { fly, fade } from 'svelte/transition';
+    import { cubicOut } from 'svelte/easing';
 
     const tagLabels = {
         all: 'All Projects',
@@ -12,9 +14,12 @@
     };
 
     let activeFilter = 'all';
+    let prevFilter = 'all';
     const INITIAL_SHOW = 9;
     const SHOW_MORE_INCREMENT = 8;
     let visibleCount = INITIAL_SHOW;
+    // Incremented each time filter changes to force {#key} re-render
+    let filterKey = 0;
 
     $: filteredProjects = [...(projects?.project_list || [])]
         .filter(project => project.featured)
@@ -28,8 +33,11 @@
     }
 
     function setFilter(tag: string) {
+        if (tag === activeFilter) return;
+        prevFilter = activeFilter;
         activeFilter = tag;
         visibleCount = INITIAL_SHOW;
+        filterKey++;
     }
 </script>
 
@@ -56,9 +64,13 @@
         {/each}
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
-        {#each filteredProjects.slice(0, visibleCount) as project}
-            <div class="flex flex-col h-full bg-surface-100-800-token rounded-lg overflow-hidden project-card max-w-sm mx-auto w-full relative hover:bg-surface-200-700-token group">
+    {#key filterKey}
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8" out:fade={{ duration: 120 }}>
+        {#each filteredProjects.slice(0, visibleCount) as project, i}
+            <div
+                class="flex flex-col h-full bg-surface-100-800-token rounded-lg overflow-hidden project-card max-w-sm mx-auto w-full relative group"
+                in:fly={{ y: 28, duration: 320, delay: i * 45, easing: cubicOut }}
+            >
                 <div class="p-3 pb-0">
                     <div class="rounded-lg overflow-hidden border border-surface-300-600-token">
                         <img
@@ -146,6 +158,7 @@
             </div>
         {/each}
     </div>
+    {/key}
 
     {#if hasMore}
         <div class="flex justify-center mt-8">
@@ -158,20 +171,55 @@
 
 <style>
     .project-card {
-        transition: all 0.3s ease;
+        transition: transform 0.2s ease-out,
+                    box-shadow 0.2s ease;
+        overflow: hidden;
     }
 
     :global(:not(.matrix-theme)) .project-card:hover {
-        box-shadow: 0 0 20px rgba(var(--color-primary-500), 0.3);
+        /* 4% black tint — just perceptible without the heavy shift of surface-200 */
+        background-image: linear-gradient(rgba(0,0,0,0.02), rgba(0,0,0,0.02));
+    }
+
+    /* Shimmer pseudo-element */
+    .project-card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: -80%;
+        width: 60%; height: 100%;
+        background: linear-gradient(
+            105deg,
+            transparent 40%,
+            rgba(var(--color-primary-400), 0.12) 50%,
+            transparent 60%
+        );
+        transform: skewX(-15deg);
+        transition: left 0.55s ease;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .project-card:hover::before {
+        left: 140%;
+    }
+
+    :global(:not(.matrix-theme)) .project-card:hover {
+        box-shadow: 0 6px 24px rgba(var(--color-primary-500), 0.18),
+                    0 2px 8px rgba(var(--color-primary-500), 0.08);
         transform: translateY(-2px);
     }
 
-    :global(.matrix-theme) .project-card {
-        box-shadow: 0 0 10px var(--mx-accent-mid);
+    :global(.matrix-theme) .project-card::before {
+        background: linear-gradient(
+            105deg,
+            transparent 40%,
+            rgba(0, 255, 0, 0.08) 50%,
+            transparent 60%
+        );
     }
 
     :global(.matrix-theme) .project-card:hover {
-        box-shadow: 0 0 20px var(--mx-accent-half);
+        box-shadow: 0 0 20px var(--mx-accent-half), 0 0 8px var(--mx-accent-mid);
         transform: translateY(-2px);
     }
 
@@ -184,16 +232,16 @@
     }
 
     .filter-chip.active {
-        color: rgb(var(--color-primary-700));
-        border-color: rgb(var(--color-primary-500));
-        background-color: rgba(var(--color-primary-500), 0.1);
+        background-color: rgb(var(--color-primary-400));
+        border-color: rgb(var(--color-primary-400));
+        color: #1a1000;
+        box-shadow: 0 2px 8px rgb(var(--color-primary-300) / 0.5);
     }
 
-    :global(:not(.matrix-theme)) .filter-chip:hover {
-        color: rgb(var(--color-primary-700));
-        border-color: rgb(var(--color-primary-500));
-        background-color: rgba(var(--color-primary-500), 0.07);
-        box-shadow: 0 0 12px rgba(var(--color-primary-500), 0.25);
+    :global(:not(.matrix-theme)) .filter-chip:not(.active):hover {
+        color: rgb(var(--color-primary-800));
+        border-color: rgb(var(--color-primary-300));
+        background-color: rgb(var(--color-primary-50));
     }
 
     :global(.matrix-theme) .filter-chip {
@@ -206,20 +254,23 @@
         box-shadow: 0 0 15px var(--mx-accent-half);
     }
 
-    :global(.matrix-theme) .filter-chip:hover {
+    :global(.matrix-theme) .filter-chip:not(.active):hover {
         background-color: var(--mx-accent-dim);
         box-shadow: 0 0 12px var(--mx-accent-half);
     }
 
     /* Tag chips */
     .tag-chip {
-        background-color: rgba(var(--color-primary-500), 0.1);
-        color: rgb(var(--color-primary-700));
+        background-color: rgb(var(--color-primary-50));   /* #FFFBEB very faint yellow */
+        color: rgb(var(--color-primary-800));              /* #705000 dark amber */
+        border: 1.5px solid rgb(var(--color-primary-200)); /* #FDE68A soft yellow border */
+        transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
     }
 
     .tag-chip.tag-active {
-        background-color: rgb(var(--color-primary-500));
-        color: #fff;
+        background-color: rgb(var(--color-primary-400));  /* #FBBF24 solid amber */
+        border-color: rgb(var(--color-primary-400));
+        color: #1a1000;
     }
 
     :global(.matrix-theme) .tag-chip {
@@ -246,7 +297,12 @@
     }
 
     :global(:not(.matrix-theme)) .project-links a:hover {
-        @apply text-primary-500;
+        /* variant-filled-primary background = amber; force dark text so it stays readable */
+        color: rgb(30, 20, 0) !important;
+    }
+
+    :global(:not(.matrix-theme)) .project-links a:hover svg {
+        color: rgb(30, 20, 0) !important;
     }
 
     :global(.matrix-theme) .project-links a:hover {

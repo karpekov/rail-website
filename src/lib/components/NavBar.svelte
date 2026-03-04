@@ -2,6 +2,7 @@
     import { getModalStore } from '@skeletonlabs/skeleton';
     import JoinUs from '$lib/components/JoinUs.svelte';
     import { showMatrix } from '$lib/stores/theme';
+    import ThemeToggle from '$lib/components/ThemeToggle.svelte';
     import RailSvgRaw from '$lib/../../static/assets/RAIL.svg?raw';
 
     function inlineNavLogo(svg: string): string {
@@ -86,41 +87,13 @@
                 Join Us
             </button>
             <div class="ml-4">
-                <button
-                    class="btn btn-sm rounded-token hover:variant-soft-primary"
-                    on:click={() => $showMatrix = !$showMatrix}
-                    title="Toggle Theme"
-                >
-                    <span class="hidden md:inline-block">
-                        <div class="w-12 h-6 flex items-center bg-surface-600-300-token rounded-full px-0.5">
-                            <div
-                                class="w-5 h-5 rounded-full transition-all duration-[200ms]"
-                                class:translate-x-6={!$showMatrix}
-                                class:matrix-glow={$showMatrix}
-                                class:bg-surface-50-900-token={!$showMatrix}
-                            />
-                        </div>
-                    </span>
-                </button>
+                <ThemeToggle />
             </div>
         </div>
 
         <!-- Mobile Navigation -->
         <div class="lg:hidden flex items-center space-x-2">
-            <button
-                class="btn btn-sm rounded-token hover:variant-soft-primary"
-                on:click={() => $showMatrix = !$showMatrix}
-                title="Toggle Theme"
-            >
-                <div class="w-12 h-6 flex items-center bg-surface-600-300-token rounded-full px-0.5">
-                    <div
-                        class="w-5 h-5 rounded-full transition-all duration-[200ms]"
-                        class:translate-x-6={!$showMatrix}
-                        class:matrix-glow={$showMatrix}
-                        class:bg-surface-50-900-token={!$showMatrix}
-                    />
-                </div>
-            </button>
+            <ThemeToggle />
             <button class="btn btn-sm variant-ghost p-2" on:click={() => document.querySelector('#mobile-menu').classList.toggle('hidden')}>
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -179,21 +152,6 @@
         border-color: rgb(var(--color-primary-500));
     }
 
-    .matrix-glow {
-        background-color: var(--mx-accent);
-        box-shadow: var(--mx-glow-md);
-    }
-
-    /* Subtle Easter egg: toggle knob occasionally hints at matrix mode */
-    .bg-surface-50-900-token {
-        animation: pulse 30s infinite;
-    }
-
-    @keyframes pulse {
-        0%   { box-shadow: none; }
-        10%  { box-shadow: 0 0 10px var(--mx-accent-half, rgba(0,255,0,0.5)), 0 0 20px var(--mx-accent-mid, rgba(0,255,0,0.3)); background-color: var(--mx-accent, #0F0); }
-        20%  { box-shadow: none; background-color: transparent; }
-    }
 
     .matrix-logo-glow {
         filter: drop-shadow(0 0 10px var(--mx-accent-half, rgba(0,255,0,0.5)));

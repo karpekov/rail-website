@@ -212,16 +212,31 @@
     }
 
     :global(:not(.matrix-theme)) .person-card-image {
-        @apply ring-2 ring-primary-500 hover:ring-4 hover:ring-primary-500;
+        /* outline renders in its own layer — not clipped by overflow:hidden
+           or scaled away by transform — stays visible at all times */
+        outline: 2px solid rgb(var(--color-primary-400));
+        outline-offset: 1px;
+        transition: outline-color 0.25s ease, outline-width 0.25s ease,
+                    box-shadow 0.25s ease, transform 0.25s ease;
+    }
+
+    :global(:not(.matrix-theme)) .person-card-image:hover {
+        outline: 3px solid rgb(var(--color-primary-500));
+        outline-offset: 1px;
+        box-shadow: 0 0 14px rgba(var(--color-primary-500), 0.35);
+        transform: scale(1.07);
     }
 
     :global(.matrix-theme) .person-card-image {
-        @apply ring-2 hover:ring-4;
-        box-shadow: 0 0 0 2px var(--mx-accent);
+        outline: 2px solid var(--mx-accent);
+        outline-offset: 1px;
+        transition: outline-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
     }
 
     :global(.matrix-theme) .person-card-image:hover {
-        box-shadow: 0 0 0 4px var(--mx-accent), var(--mx-glow-sm);
+        outline: 3px solid var(--mx-accent);
+        box-shadow: var(--mx-glow-sm);
+        transform: scale(1.07);
     }
 
     .flip-container {
@@ -229,6 +244,7 @@
         perspective: 1000px;
     }
 
+    /* Flip on hover: matrix mode only */
     :global(.matrix-theme) .person-card-image:hover .flipper {
         transform: rotateY(180deg);
     }

@@ -104,6 +104,13 @@ students:
     twitter: https://x.com/alexkarpekov
     scholar: https://scholar.google.com/citations?user=r0RqCXQAAAAJ
 
+  - name: Shalini Sushri
+    status: current
+    degree: phd
+    degree_detail: PhD
+    photo: /images/people/placeholder.jpg
+    year_joined: 2026
+
 ################################################
 ##############         MS/BS         ###########
 

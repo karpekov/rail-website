@@ -44,13 +44,27 @@
     <div class="container mx-auto max-w-6xl px-4 sm:px-6 md:px-8 pt-8 pb-2">
         <div bind:this={logoElement} class="flex flex-col lg:flex-row lg:items-center lg:gap-8 mb-6 min-h-[12rem]">
             <RAILLogo />
-            <h1
-                class="h1 font-orbitron text-primary-500 glow-text mt-4 lg:mt-0 text-center lg:text-left typing-cursor"
-                class:matrix-title={$showMatrix}
-                id="myText"
-            >
-                {displayText}
-            </h1>
+
+            <!--
+                Wrapper holds the space of the full text at all times so typing
+                never causes a layout shift when lines wrap.
+                Ghost h1 is invisible but in-flow → its height = final text height.
+                Typing h1 is absolutely positioned on top of the ghost.
+            -->
+            <div class="typing-wrapper mt-4 lg:mt-0">
+                <!-- Ghost: in-flow, invisible, reserves the final text height -->
+                <h1
+                    class="h1 font-orbitron glow-text text-center lg:text-left ghost-title"
+                    aria-hidden="true"
+                >{fullText}</h1>
+
+                <!-- Visible typing h1 overlaid on top -->
+                <h1
+                    class="h1 font-orbitron text-primary-500 glow-text text-center lg:text-left typing-cursor typing-title"
+                    class:matrix-title={$showMatrix}
+                    id="myText"
+                >{displayText}</h1>
+            </div>
         </div>
 
         <p class="text-2xl font-bold pt-1 font-orbitron text-center" class:matrix-text={$showMatrix}>
@@ -101,4 +115,25 @@
                      0 0 20px rgba(255, 255, 255, 0.3) !important;
     }
 
+    /* Wrapper: position:relative so the typing-title can overlay the ghost */
+    .typing-wrapper {
+        position: relative;
+        flex: 1;
+    }
+
+    /* Ghost: invisible but IN FLOW — its height = final wrapped text height.
+       This locks the wrapper height before typing starts → no layout shift. */
+    .ghost-title {
+        visibility: hidden;
+        user-select: none;
+        pointer-events: none;
+    }
+
+    /* Typing h1: absolute so it overlays the ghost at position (0,0) */
+    .typing-title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
 </style>

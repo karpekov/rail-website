@@ -50,7 +50,7 @@
         <h3 class="h3 mb-4 font-thin">Current Members</h3>
         <div class="flex flex-wrap justify-evenly sm:justify-start gap-2 sm:gap-4 max-w-6xl mx-auto px-4 pt-2">
             {#each currentMembers as member}
-                <div class="flex-none w-[140px] sm:w-[160px] flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card hover:bg-surface-200-700-token">
+                <div class="flex-none w-[140px] sm:w-[160px] flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card">
                     <div
                         class="w-24 h-24 sm:w-36 sm:h-36 rounded-full bg-surface-300-600-token overflow-hidden ring-2"
                             class:ring-amber={!$showMatrix}
@@ -120,7 +120,7 @@
                     {#each alumni
                         .filter(m => m.degree === 'postdoc')
                         .sort((a, b) => b.graduation - a.graduation) as member}
-                    <div class="flex-none w-[140px] sm:w-[160px] flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card hover:bg-surface-200-700-token">
+                    <div class="flex-none w-[140px] sm:w-[160px] flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card">
                         <div
                             class="w-24 h-24 sm:w-36 sm:h-36 rounded-full bg-surface-300-600-token overflow-hidden ring-2"
                             class:ring-amber={!$showMatrix}
@@ -217,7 +217,7 @@
                     {#each alumni
                         .filter(m => m.degree === 'phd')
                         .sort((a, b) => b.graduation - a.graduation) as member}
-                    <div class="flex-none w-[140px] sm:w-[160px] flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card hover:bg-surface-200-700-token">
+                    <div class="flex-none w-[140px] sm:w-[160px] flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card">
                         <div
                             class="w-24 h-24 sm:w-36 sm:h-36 rounded-full bg-surface-300-600-token overflow-hidden ring-2"
                             class:ring-amber={!$showMatrix}
@@ -374,20 +374,19 @@
     }
 
     .member-card {
-        transition: all 0.3s ease;
+        transition: transform 0.2s ease-out,
+                    box-shadow 0.2s ease;
     }
 
     :global(:not(.matrix-theme)) .member-card:hover {
-        box-shadow: 0 0 20px rgba(var(--color-primary-500), 0.3);
+        box-shadow: 0 4px 18px rgba(var(--color-primary-500), 0.18),
+                    0 1px 6px rgba(var(--color-primary-500), 0.08);
+        background-image: linear-gradient(rgba(0,0,0,0.04), rgba(0,0,0,0.04));
         transform: translateY(-2px);
     }
 
-    :global(.matrix-theme) .member-card {
-        box-shadow: 0 0 10px var(--mx-accent-mid);
-    }
-
     :global(.matrix-theme) .member-card:hover {
-        box-shadow: 0 0 20px var(--mx-accent-half);
+        box-shadow: 0 0 18px var(--mx-accent-half);
         transform: translateY(-2px);
     }
 

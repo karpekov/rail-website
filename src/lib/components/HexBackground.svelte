@@ -1,117 +1,181 @@
 <script lang="ts">
     import { onMount } from 'svelte';
 
-    // Flat-top hexagon circumradius (px)
-    const R = 46;
-    // Derived geometry
-    const COL_W  = R * Math.sqrt(3);      // horizontal distance between hex centers in same row
-    const ROW_H  = R * 1.5;              // vertical distance between hex centers in adjacent rows
+    // Circumradius (px). Smaller = denser technical look.
+    const R = 30;
+    const COL_W = R * Math.sqrt(3);  // horizontal centre-to-centre (same row)
+    const ROW_H = R * 1.5;           // vertical centre-to-centre (adjacent rows)
+    const TICK_MS     = 180;  // ms between walk steps
+    const DECAY       = 0.05; // opacity lost per tick
+    const NUM_WALKERS = 5;
+    const MIN_STEPS   = 5;    // shortest random walk (steps)
+    const MAX_STEPS   = 40;   // longest random walk (steps)
 
-    let mounted = false;
+    let canvas: HTMLCanvasElement;
+    let ctx: CanvasRenderingContext2D;
     let vw = 0;
     let vh = 0;
+    let cols = 0;
+    let rows = 0;
 
-    // Set of hex ids (col-row) currently in the "pulse" state
-    let pulsing: Set<string> = new Set();
+    // Glow map — plain Map (no Svelte reactivity), keyed by "c-r"
+    const glowMap = new Map<string, number>();
 
-    $: cols = mounted ? Math.ceil(vw / COL_W) + 3 : 0;
-    $: rows = mounted ? Math.ceil(vh / ROW_H) + 3 : 0;
+    interface Walker { c: number; r: number; steps: number; max: number }
+    let walkers: Walker[] = [];
 
-    /** Pixel centre of a flat-top hex at grid position (c, r) */
-    function hexCenter(c: number, r: number): { x: number; y: number } {
-        // Even rows offset by half a column width
-        const x = c * COL_W + (r % 2 === 0 ? 0 : COL_W / 2);
-        const y = r * ROW_H;
-        return { x, y };
+    // ── Geometry ────────────────────────────────────────────────────────────
+    function hexCenter(c: number, r: number) {
+        return {
+            x: c * COL_W + (r % 2 === 0 ? 0 : COL_W / 2),
+            y: r * ROW_H,
+        };
     }
 
-    /** SVG points string for a pointy-top hex centred at (cx, cy).
-     *  Vertex angles start at 30° so the geometry matches the row-based
-     *  offset layout (COL_W = R√3, ROW_H = 1.5R). */
-    function hexPoints(cx: number, cy: number): string {
-        return Array.from({ length: 6 }, (_, i) => {
-            const θ = (Math.PI / 6) + (Math.PI / 3) * i;  // 30°, 90°, 150°…
-            return `${cx + R * Math.cos(θ)},${cy + R * Math.sin(θ)}`;
-        }).join(' ');
+    function drawHexPath(cx: number, cy: number) {
+        ctx.beginPath();
+        for (let i = 0; i < 6; i++) {
+            const θ = Math.PI / 6 + (Math.PI / 3) * i;
+            const x = cx + R * Math.cos(θ);
+            const y = cy + R * Math.sin(θ);
+            i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        }
+        ctx.closePath();
     }
 
-    function refreshPulsing() {
-        const ids: string[] = [];
+    function neighbours(c: number, r: number): Array<{c: number; r: number}> {
+        const even = r % 2 === 0;
+        const dc = even ? -1 : 0;
+        return [
+            { c: c - 1, r },
+            { c: c + 1, r },
+            { c: c + dc,     r: r - 1 },
+            { c: c + dc + 1, r: r - 1 },
+            { c: c + dc,     r: r + 1 },
+            { c: c + dc + 1, r: r + 1 },
+        ].filter(n => n.c >= 0 && n.c < cols && n.r >= 0 && n.r < rows);
+    }
+
+    function spawnWalker() {
+        walkers.push({
+            c: Math.floor(Math.random() * cols),
+            r: Math.floor(Math.random() * rows),
+            steps: 0,
+            max: MIN_STEPS + Math.floor(Math.random() * (MAX_STEPS - MIN_STEPS + 1)),
+        });
+    }
+
+    // ── Animation loop ───────────────────────────────────────────────────────
+    let lastTick = 0;
+    let rafId: number;
+
+    function render(now: number) {
+        rafId = requestAnimationFrame(render);
+        if (!ctx) return;
+
+        // ── Logic tick (throttled) ──────────────────────────────────────────
+        if (now - lastTick >= TICK_MS) {
+            lastTick = now;
+
+            // Decay glow map
+            for (const [key, op] of glowMap) {
+                const next = op - DECAY;
+                next > 0 ? glowMap.set(key, next) : glowMap.delete(key);
+            }
+
+            // Advance walkers
+            const next: Walker[] = [];
+            for (const w of walkers) {
+                if (w.steps >= w.max) continue;
+                const nb = neighbours(w.c, w.r);
+                if (!nb.length) continue;
+                const pick = nb[Math.floor(Math.random() * nb.length)];
+                glowMap.set(`${pick.c}-${pick.r}`, 1.0);
+                next.push({ ...w, c: pick.c, r: pick.r, steps: w.steps + 1 });
+            }
+            walkers = next;
+            while (walkers.length < NUM_WALKERS) spawnWalker();
+        }
+
+        // ── Draw ────────────────────────────────────────────────────────────
+        ctx.clearRect(0, 0, vw, vh);
+
+        // Soft amber radial glow (logo area)
+        const g = ctx.createRadialGradient(vw * 0.28, vh * 0.48, 0, vw * 0.28, vh * 0.48, vw * 0.45);
+        g.addColorStop(0,   'rgba(232,168,0,0.07)');
+        g.addColorStop(0.6, 'rgba(232,168,0,0.02)');
+        g.addColorStop(1,   'rgba(232,168,0,0)');
+        ctx.fillStyle = g;
+        ctx.fillRect(0, 0, vw, vh);
+
+        // Hex grid
+        ctx.lineWidth = 0.6;
+
         for (let r = 0; r < rows; r++) {
             for (let c = 0; c < cols; c++) {
-                ids.push(`${c}-${r}`);
+                const { x, y } = hexCenter(c, r);
+                const op = glowMap.get(`${c}-${r}`) ?? 0;
+
+                drawHexPath(x, y);
+
+                if (op > 0) {
+                    ctx.fillStyle   = `rgba(232,168,0,${+(op * 0.12).toFixed(3)})`;
+                    ctx.fill();
+                    ctx.strokeStyle = `rgba(232,168,0,${+Math.min(0.38, op * 0.3 + 0.1).toFixed(3)})`;
+                } else {
+                    ctx.strokeStyle = 'rgba(232,168,0,0.11)';
+                }
+                ctx.stroke();
+
+                // Centre dot
+                ctx.beginPath();
+                ctx.arc(x, y, op > 0 ? 2.0 : 1.0, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(232,168,0,${+(op > 0 ? op * 0.55 : 0.12).toFixed(3)})`;
+                ctx.fill();
             }
         }
-        // ~6 % of hexes pulse at any moment
-        const n = Math.max(1, Math.floor(ids.length * 0.06));
-        const shuffled = ids.slice().sort(() => Math.random() - 0.5).slice(0, n);
-        pulsing = new Set(shuffled);
+    }
+
+    // ── Sizing ───────────────────────────────────────────────────────────────
+    function resize() {
+        if (!canvas) return;
+        vw    = canvas.offsetWidth;
+        vh    = canvas.offsetHeight;
+        // Match physical pixels for crisp lines on HiDPI
+        const dpr = window.devicePixelRatio || 1;
+        canvas.width  = vw * dpr;
+        canvas.height = vh * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        cols = Math.ceil(vw / COL_W) + 3;
+        rows = Math.ceil(vh / ROW_H) + 3;
     }
 
     onMount(() => {
-        mounted = true;
-        vw = window.innerWidth;
-        vh = window.innerHeight;
-        refreshPulsing();
+        ctx = canvas.getContext('2d')!;
+        resize();
+        for (let i = 0; i < NUM_WALKERS; i++) spawnWalker();
+        rafId = requestAnimationFrame(render);
 
-        const interval = setInterval(refreshPulsing, 3200);
-        const onResize = () => { vw = window.innerWidth; vh = window.innerHeight; };
-        window.addEventListener('resize', onResize);
+        const ro = new ResizeObserver(resize);
+        ro.observe(canvas);
+
         return () => {
-            clearInterval(interval);
-            window.removeEventListener('resize', onResize);
+            cancelAnimationFrame(rafId);
+            ro.disconnect();
         };
     });
 </script>
 
-<!-- aria-hidden: pure decoration, invisible to screen readers -->
-<div class="hex-wrap" aria-hidden="true">
-    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-            <!-- Soft amber radial glow centred on the left-third of the hero (logo area) -->
-            <radialGradient id="heroAmberGlow" cx="28%" cy="48%" r="45%" gradientUnits="objectBoundingBox">
-                <stop offset="0%"   stop-color="#E8A800" stop-opacity="0.10" />
-                <stop offset="60%"  stop-color="#E8A800" stop-opacity="0.03" />
-                <stop offset="100%" stop-color="#E8A800" stop-opacity="0"    />
-            </radialGradient>
-        </defs>
-
-        <!-- Warm glow layer behind the logo -->
-        <rect width="100%" height="100%" fill="url(#heroAmberGlow)" />
-
-        {#if mounted}
-            {#each Array(rows) as _, r}
-                {#each Array(cols) as _, c}
-                    {@const { x, y } = hexCenter(c - 1, r - 1)}
-                    {@const id = `${c}-${r}`}
-                    {@const active = pulsing.has(id)}
-
-                    <!-- Hex cell -->
-                    {#if active}
-                        <polygon points={hexPoints(x, y)} stroke="#E8A800" stroke-width="0.8" fill="#E8A800" fill-opacity="0.04">
-                            <animate attributeName="fill-opacity"   values="0.04;0.14;0.04" dur="3.2s" repeatCount="indefinite" />
-                            <animate attributeName="stroke-opacity" values="0.22;0.55;0.22" dur="3.2s" repeatCount="indefinite" />
-                        </polygon>
-                        <!-- Bright node dot -->
-                        <circle cx={x} cy={y} r="2.5" fill="#E8A800" opacity="0.45">
-                            <animate attributeName="r"       values="2.5;5;2.5"     dur="3.2s" repeatCount="indefinite" />
-                            <animate attributeName="opacity" values="0.45;0.9;0.45" dur="3.2s" repeatCount="indefinite" />
-                        </circle>
-                    {:else}
-                        <polygon points={hexPoints(x, y)} fill="none" stroke="#E8A800" stroke-width="0.8" stroke-opacity="0.18" />
-                        <circle cx={x} cy={y} r="1.8" fill="#E8A800" opacity="0.20" />
-                    {/if}
-                {/each}
-            {/each}
-        {/if}
-    </svg>
-</div>
+<!-- aria-hidden: pure decoration -->
+<canvas bind:this={canvas} class="hex-canvas" aria-hidden="true"></canvas>
 
 <style>
-    .hex-wrap {
+    .hex-canvas {
         position: absolute;
         inset: 0;
-        overflow: hidden;
+        width: 100%;
+        height: 100%;
         pointer-events: none;
+        display: block;
     }
 </style>
