@@ -53,18 +53,13 @@
                        class="text-primary-500 hover:underline" class:matrix-link={$showMatrix}>
                         Alexander Karpekov
                     </a>
-                    with ♥️
                 </p>
                 <p>
+                    with <span class="heart" class:heart-matrix={$showMatrix}>♥</span>
                     using
                     <a href="https://svelte.dev/" target="_blank" rel="noopener noreferrer"
                        class="text-primary-500 hover:underline" class:matrix-link={$showMatrix}>
                         SvelteKit
-                    </a>
-                    and
-                    <a href="https://skeleton.dev/" target="_blank" rel="noopener noreferrer"
-                       class="text-primary-500 hover:underline" class:matrix-link={$showMatrix}>
-                        Skeleton
                     </a>
                 </p>
             </div>
@@ -134,5 +129,13 @@
     .matrix-link:hover {
         color: var(--mx-accent) !important;
         text-shadow: 0 0 5px var(--mx-accent);
+    }
+
+    .heart {
+        color: #e00;
+    }
+
+    .heart-matrix {
+        color: #fff !important;
     }
 </style>

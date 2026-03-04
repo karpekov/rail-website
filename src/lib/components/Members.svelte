@@ -385,7 +385,13 @@
         transform: translateY(-2px);
     }
 
+    :global(.matrix-theme) .member-card {
+        border: 1px solid var(--mx-accent-mid);
+        box-shadow: none;
+    }
+
     :global(.matrix-theme) .member-card:hover {
+        border-color: var(--mx-accent);
         box-shadow: 0 0 18px var(--mx-accent-half);
         transform: translateY(-2px);
     }

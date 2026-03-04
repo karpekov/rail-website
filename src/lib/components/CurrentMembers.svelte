@@ -230,11 +230,12 @@
     :global(.matrix-theme) .person-card-image {
         outline: 2px solid var(--mx-accent);
         outline-offset: 1px;
-        transition: outline-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+        transition: outline-color 0.25s ease, outline-width 0.25s ease,
+                    box-shadow 0.25s ease, transform 0.25s ease;
     }
 
     :global(.matrix-theme) .person-card-image:hover {
-        outline: 3px solid var(--mx-accent);
+        outline: 2px solid var(--mx-accent);
         box-shadow: var(--mx-glow-sm);
         transform: scale(1.07);
     }

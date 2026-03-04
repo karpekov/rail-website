@@ -146,6 +146,16 @@ students:
     linkedin: https://www.linkedin.com/in/gayathri-aravindan/
     twitter: https://x.com/gayathriara
 
+  - name: Hannah Hsiao
+    status: current
+    degree: bs
+    degree_detail: CS BS
+    photo: /images/people/hannah.jpg
+    year_joined: 2024
+    website: https://hhsiao24.github.io/hannah-portfolio/
+    github: https://github.com/hhsiao24
+    linkedin: https://www.linkedin.com/in/hannah-hsiao-784845132/
+
 
 ############### PostDoc & PhD ALUMNI ###############
 
@@ -463,16 +473,6 @@ students:
     photo: /images/people/sanjana.jpg
     year_joined: 2025
     linkedin: http://linkedin.com/in/sanjana-chelat-menon
-
-  - name: Hannah Hsiao
-    status: alum
-    degree: bs
-    degree_detail: CS BS
-    photo: /images/people/hannah.jpg
-    year_joined: 2024
-    website: https://hhsiao24.github.io/hannah-portfolio/
-    github: https://github.com/hhsiao24
-    linkedin: https://www.linkedin.com/in/hannah-hsiao-784845132/
 
   - name: Twisha Shah
     status: alum

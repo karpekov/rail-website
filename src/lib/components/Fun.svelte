@@ -98,15 +98,13 @@
     /* ── Scroll container ─────────────────────────────────────────────────── */
     .scroll-outer {
         position: relative;
-        display: flex;
-        align-items: center;
     }
 
     .scroll-strip {
         overflow-x: auto;
         padding-bottom: 1.5rem;
         padding-top: 0.5rem;
-        flex: 1;
+        width: 100%;
         -ms-overflow-style: none;
         scrollbar-width: none;
     }
@@ -117,7 +115,9 @@
 
     /* ── Scroll buttons ───────────────────────────────────────────────────── */
     .scroll-btn {
-        flex-shrink: 0;
+        position: absolute;
+        top: calc(50% - 0.75rem); /* offset for strip's padding-bottom */
+        transform: translateY(-50%);
         width: 2.25rem;
         height: 2.25rem;
         border-radius: 9999px;
@@ -130,7 +130,7 @@
         cursor: pointer;
         opacity: 0;
         pointer-events: none;
-        transition: opacity 0.25s ease, transform 0.2s ease,
+        transition: opacity 0.25s ease, transform 0.25s ease,
                     box-shadow 0.2s ease, background 0.2s ease;
         z-index: 2;
     }
@@ -148,12 +148,12 @@
     .scroll-btn:hover {
         background: rgb(var(--color-primary-500));
         color: #fff;
-        box-shadow: 0 0 12px rgba(var(--color-primary-500), 0.45);
-        transform: scale(1.1);
+        box-shadow: 0 0 12px rgb(var(--color-primary-500) / 0.45);
+        transform: translateY(-50%) scale(1.1);
     }
 
-    .scroll-btn-left  { margin-right: 0.5rem; }
-    .scroll-btn-right { margin-left:  0.5rem; }
+    .scroll-btn-left  { left:  0.5rem; }
+    .scroll-btn-right { right: 0.5rem; }
 
     /* Matrix variant */
     .scroll-btn.matrix-btn {
@@ -180,9 +180,15 @@
         transform: translateY(-2px);
     }
 
+    :global(.matrix-theme) .fun-card {
+        border: 1px solid var(--mx-accent-mid);
+    }
+
     :global(.matrix-theme) .fun-card:hover {
+        border-color: var(--mx-accent);
         box-shadow: 0 0 18px var(--mx-accent-half);
         transform: translateY(-2px);
+        background-color: transparent !important;
     }
 
     /* ── Section title ────────────────────────────────────────────────────── */

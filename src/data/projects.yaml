@@ -21,6 +21,16 @@
 
 project_list:
 
+  - full_title: "DISCOVER: Identifying Patterns of Daily Living in Human Activities from Smart Home Data"
+    short_title: "DISCOVER-ing Human Activities in Smart Homes"
+    venue: arXiv
+    year: 2026
+    pdf: https://arxiv.org/abs/2503.01733
+    image: /images/projects/discover_hero.png
+    team: [Alexander Karpekov, Archith Iyer, Sourish Gunesh Dhekane, Sonia Chernova, Thomas Plötz]
+    tags: [hcai, xai]
+    featured: true
+
   - full_title: "ADAPT: Actively Discovering and Adapting to Preferences for any Task"
     short_title: Actively Discovering and Adapting to Preferences for any Task
     venue: COLM
@@ -63,7 +73,7 @@ project_list:
 
   - full_title: 'UHTP: A User-Aware Hierarchical Task Planning Framework for Communication-Free, Mutually-Adaptive Human-Robot Collaboration'
     short_title: 'UHTP: Communication-Free Mutually-Adaptive Human-Robot Collaboration'
-    venue: ACM Transactions on Human-Robot Interaction
+    venue: ACM Transactions on HRI
     year: 2024
     pdf: https://dl.acm.org/doi/pdf/10.1145/3623387
     image: images/projects/kartik-uhtp.png

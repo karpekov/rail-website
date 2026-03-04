@@ -58,7 +58,6 @@
             <div
                 class="h-14 lg:h-12 flex items-center"
                 class:matrix-logo-glow={$showMatrix}
-                class:regular-logo-glow={!$showMatrix}
                 class:text-primary-500={!$showMatrix}
                 style={$showMatrix ? 'color: var(--mx-accent)' : ''}
                 aria-label="RAIL Lab Logo"
@@ -123,33 +122,31 @@
 </div>
 
 <style>
-    /* Matrix theme button hover */
-    :global(.matrix-theme) .btn.variant-ghost {
-        color: #fff !important;
-    }
-
-    :global(.matrix-theme) .btn.variant-ghost:hover {
-        background-color: var(--mx-accent-dim) !important;
-        color: var(--mx-accent) !important;
-        box-shadow: var(--mx-glow-sm);
-    }
-
-    :global(.matrix-theme) #mobile-menu .btn.variant-ghost:hover {
-        background-color: var(--mx-accent-dim) !important;
-        color: var(--mx-accent) !important;
-        box-shadow: var(--mx-glow-sm);
-    }
-
-    /* Default theme button hover */
+    /* Default theme button */
     .btn.variant-ghost {
         border: 1px solid transparent;
-        transition: border-color 0.2s ease;
+        transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
     }
 
-    .btn.variant-ghost:hover {
-        background-color: rgba(var(--color-primary-500), 0.1) !important;
-        color: rgb(var(--color-primary-500)) !important;
+    :global(:not(.matrix-theme)) .btn.variant-ghost:hover {
+        background-color: rgba(var(--color-primary-500), 0.1);
+        color: rgb(var(--color-primary-500));
         border-color: rgb(var(--color-primary-500));
+    }
+
+    /* Matrix theme nav buttons — fully global to beat scoped light-theme rules */
+    :global(.matrix-theme .btn.variant-ghost) {
+        color: #fff !important;
+        border: 1px solid var(--mx-accent-mid) !important;
+        background-color: transparent !important;
+    }
+
+    :global(.matrix-theme .btn.variant-ghost:hover),
+    :global(.matrix-theme #mobile-menu .btn.variant-ghost:hover) {
+        background-color: var(--mx-accent-dim) !important;
+        color: var(--mx-accent) !important;
+        border-color: var(--mx-accent) !important;
+        box-shadow: var(--mx-glow-sm) !important;
     }
 
 
@@ -160,15 +157,6 @@
 
     .matrix-logo-glow:hover {
         filter: drop-shadow(0 0 15px var(--mx-accent-strong, rgba(0,255,0,0.7)));
-    }
-
-    .regular-logo-glow {
-        filter: drop-shadow(0 0 8px rgba(232, 168, 0, 0.5));
-        transition: filter 0.3s ease;
-    }
-
-    .regular-logo-glow:hover {
-        filter: drop-shadow(0 0 14px rgba(232, 168, 0, 0.75));
     }
 
     :global(.nav-rail-logo) {

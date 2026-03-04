@@ -111,7 +111,7 @@
                     <div class="flex flex-wrap gap-2 pt-2 items-center project-links">
                         {#if project.website}
                             <a href={project.website} target="_blank" rel="noopener noreferrer"
-                               class="chip variant-soft-primary hover:variant-filled-primary transition-all flex-none matrix-chip"
+                               class="chip variant-soft-primary transition-all flex-none matrix-chip {!$showMatrix ? 'hover:variant-filled-primary' : ''}"
                                title="Project Website">
                                 <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
@@ -121,7 +121,7 @@
                         {/if}
                         {#if project.pdf}
                             <a href={project.pdf} target="_blank" rel="noopener noreferrer"
-                               class="chip variant-soft-primary hover:variant-filled-primary transition-all matrix-chip"
+                               class="chip variant-soft-primary transition-all matrix-chip {!$showMatrix ? 'hover:variant-filled-primary' : ''}"
                                title="View Paper">
                                 <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -135,7 +135,7 @@
                         {/if}
                         {#if project.github}
                             <a href={project.github} target="_blank" rel="noopener noreferrer"
-                               class="chip variant-soft-primary hover:variant-filled-primary transition-all matrix-chip"
+                               class="chip variant-soft-primary transition-all matrix-chip {!$showMatrix ? 'hover:variant-filled-primary' : ''}"
                                title="View Code">
                                 <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
@@ -145,7 +145,7 @@
                         {/if}
                         {#if project.video}
                             <a href={project.video} target="_blank" rel="noopener noreferrer"
-                               class="chip variant-soft-primary hover:variant-filled-primary transition-all matrix-chip"
+                               class="chip variant-soft-primary transition-all matrix-chip {!$showMatrix ? 'hover:variant-filled-primary' : ''}"
                                title="Watch Demo">
                                 <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
@@ -218,7 +218,12 @@
         );
     }
 
+    :global(.matrix-theme) .project-card {
+        border: 1px solid var(--mx-accent-mid);
+    }
+
     :global(.matrix-theme) .project-card:hover {
+        border-color: var(--mx-accent);
         box-shadow: 0 0 20px var(--mx-accent-half), 0 0 8px var(--mx-accent-mid);
         transform: translateY(-2px);
     }
@@ -250,13 +255,17 @@
     }
 
     :global(.matrix-theme) .filter-chip.active {
-        background-color: var(--mx-accent-dim);
-        box-shadow: 0 0 15px var(--mx-accent-half);
+        background-color: var(--mx-accent) !important;
+        color: #000 !important;
+        border-color: var(--mx-accent) !important;
+        box-shadow: 0 0 12px var(--mx-accent-half), 0 0 4px var(--mx-accent);
     }
 
-    :global(.matrix-theme) .filter-chip:not(.active):hover {
-        background-color: var(--mx-accent-dim);
-        box-shadow: 0 0 12px var(--mx-accent-half);
+    :global(.matrix-theme .filter-chip:not(.active):hover) {
+        background-color: var(--mx-accent-dim) !important;
+        color: var(--mx-accent) !important;
+        border-color: var(--mx-accent) !important;
+        box-shadow: 0 0 12px var(--mx-accent-half) !important;
     }
 
     /* Tag chips */
@@ -277,6 +286,13 @@
         background-color: transparent;
         color: var(--mx-accent);
         border: 1px solid var(--mx-accent);
+    }
+
+    :global(.matrix-theme .tag-chip.tag-active) {
+        background-color: var(--mx-accent) !important;
+        color: #000 !important;
+        border-color: var(--mx-accent) !important;
+        box-shadow: 0 0 8px var(--mx-accent-half);
     }
 
     .publication-chip {
@@ -310,27 +326,33 @@
         text-shadow: 0 0 10px var(--mx-accent-half);
     }
 
-    /* matrix-chip only applies in matrix context via CSS cascade */
-    :global(.matrix-theme) .matrix-chip {
+    /* Both rules fully global so hover (later) cleanly wins over base */
+    :global(.matrix-theme .matrix-chip) {
         background-color: var(--mx-accent-dim) !important;
         color: var(--mx-accent) !important;
         border: 1px solid var(--mx-accent) !important;
     }
 
-    :global(.matrix-theme) .matrix-chip:hover {
-        background-color: var(--mx-accent-dim) !important;
-        box-shadow: 0 0 10px var(--mx-accent-half);
+    :global(.matrix-theme .matrix-chip:hover) {
+        background-color: #0f0 !important;
+        color: #000 !important;
+        border-color: #0f0 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
     }
 
     /* "Discover more" / generic ghost button in matrix */
-    :global(.matrix-theme) .matrix-button {
+    :global(.matrix-theme .matrix-button) {
         color: var(--mx-accent) !important;
-        border-color: var(--mx-accent) !important;
+        border: 1px solid var(--mx-accent) !important;
+        outline: none !important;
+        background-color: transparent !important;
+        box-shadow: none !important;
     }
 
-    :global(.matrix-theme) .matrix-button:hover {
+    :global(.matrix-theme .matrix-button:hover) {
         background-color: var(--mx-accent-dim) !important;
-        box-shadow: var(--mx-glow-sm);
+        box-shadow: 0 0 10px var(--mx-accent-half) !important;
     }
 
     :global(:not(.matrix-theme)) .section-title {

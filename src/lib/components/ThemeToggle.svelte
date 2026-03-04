@@ -1,33 +1,54 @@
 <script lang="ts">
     import { showMatrix } from '$lib/stores/theme';
+    import { onMount } from 'svelte';
 
     function toggle() {
         $showMatrix = !$showMatrix;
     }
+
+    let showGlow = false;
+    let isHovered = false;
+
+    const GLOW_DURATION_MS  =  4000;   // how long one glow lasts
+    const INITIAL_DELAY_MS  = 30000;   // first glow 30 s after load
+    const REPEAT_DELAY_MS   = 180000;  // then every 3 minutes
+
+    onMount(() => {
+        let glowOffTimer: ReturnType<typeof setTimeout>;
+        let repeatInterval: ReturnType<typeof setInterval>;
+
+        function triggerGlow() {
+            showGlow = true;
+            clearTimeout(glowOffTimer);
+            glowOffTimer = setTimeout(() => { showGlow = false; }, GLOW_DURATION_MS);
+        }
+
+        const initialTimer = setTimeout(() => {
+            triggerGlow();
+            repeatInterval = setInterval(triggerGlow, REPEAT_DELAY_MS);
+        }, INITIAL_DELAY_MS);
+
+        return () => {
+            clearTimeout(initialTimer);
+            clearTimeout(glowOffTimer);
+            clearInterval(repeatInterval);
+        };
+    });
 </script>
 
-<!--
-    Light-mode visual cycle (8 s, CSS-only, no JS timers):
-      0–28%:   normal gray/white
-      28–45%:  ease-in-out transition → black/green
-      45–65%:  black/green (static)
-      65–80%:  ease-in-out transition → gray/white
-      80–100%: gray/white (static) — loops
-
-    Fuse layers are three rotating conic-gradient divs; plus a CSS
-    Motion-Path dot that orbits the pill border.
--->
 <button
     class="toggle-btn"
     on:click={toggle}
+    on:mouseenter={() => isHovered = true}
+    on:mouseleave={() => isHovered = false}
     title={$showMatrix ? 'Switch to Light Mode' : 'Switch to Matrix Mode'}
     aria-label="Toggle theme"
 >
-    <div class="pill-wrap" class:matrix={$showMatrix}>
-        {#if !$showMatrix}
-            <div class="fuse-bloom" aria-hidden="true"></div>
-            <div class="fuse-glow"  aria-hidden="true"></div>
-            <div class="fuse-dot"   aria-hidden="true"></div>
+    <div class="pill-wrap" class:matrix={$showMatrix} class:glowing={showGlow && !$showMatrix}>
+        {#if !$showMatrix && (showGlow || isHovered)}
+            <div class="fuse-bloom" class:hover-mode={isHovered && !showGlow} aria-hidden="true"></div>
+            <div class="fuse-glow"  class:hover-mode={isHovered && !showGlow} aria-hidden="true"></div>
+            <div class="fuse-dot"   class:hover-mode={isHovered && !showGlow} aria-hidden="true"></div>
         {/if}
         <div class="pill">
             <div class="knob" class:at-end={$showMatrix}></div>
@@ -50,10 +71,26 @@
     }
     .toggle-btn:hover { background: rgba(0,255,0,.07); }
 
-    /* Speed up orbit on hover (keep 8 s cycle unchanged) */
-    .toggle-btn:hover .fuse-bloom { animation-duration: 1.3s, 8s; }
-    .toggle-btn:hover .fuse-glow  { animation-duration: 1.3s, 8s; }
-    .toggle-btn:hover .fuse-dot   { animation-duration: 1.3s, 8s, 1.8s; }
+    /* hover-mode: fully visible, orbit only (no fade in/out animation) */
+    .fuse-bloom.hover-mode,
+    .fuse-glow.hover-mode {
+        opacity: 1;
+        animation: fuse-spin 2.4s linear infinite;
+    }
+    .fuse-dot.hover-mode {
+        opacity: 1;
+        animation: dot-orbit 2.4s linear infinite, dot-glow-pulse 1.8s ease-in-out infinite;
+    }
+
+    /* Speed up the orbit on hover */
+    .toggle-btn:hover .fuse-bloom.hover-mode,
+    .toggle-btn:hover .fuse-glow.hover-mode { animation-duration: 1.3s; }
+    .toggle-btn:hover .fuse-dot.hover-mode   { animation-duration: 1.3s, 1.8s; }
+
+    /* Speed up orbit during timed glow on hover; keep glow-appear duration */
+    .toggle-btn:hover .fuse-bloom:not(.hover-mode) { animation-duration: 1.3s, 4s; }
+    .toggle-btn:hover .fuse-glow:not(.hover-mode)  { animation-duration: 1.3s, 4s; }
+    .toggle-btn:hover .fuse-dot:not(.hover-mode)   { animation-duration: 1.3s, 4s, 1.8s; }
 
     /* ── Pill wrapper ─────────────────────────────────────────────────────── */
     .pill-wrap {
@@ -62,68 +99,66 @@
         height: 28px;
     }
 
-    /* ════════════════════════════════════════════════════════════════════════
-       CYCLE KEYFRAMES  (period = 8 s)
-       ──────────────────────────────────────────────────────────────────────
-       Same values at 0 % and 28 %  → browser holds them static (no interp).
-       Same values at 45 % and 65 % → holds static.
-       CSS interpolates naturally between 28→45 % and 65→80 %.
-    ════════════════════════════════════════════════════════════════════════ */
+    /* ── One-shot glow keyframes (4 s) ───────────────────────────────────── */
 
-    @keyframes pill-cycle {
-        0%, 28%  {
+    /* Opacity envelope shared by all three fuse layers */
+    @keyframes glow-appear {
+        0%         { opacity: 0; }
+        10%        { opacity: 1; }   /* 0.4 s ramp-up  */
+        85%        { opacity: 1; }   /* hold until 3.4 s */
+        100%       { opacity: 0; }   /* 0.6 s fade-out */
+    }
+
+    /* Pill flashes green then returns to gray */
+    @keyframes pill-once {
+        0%, 12% {
             background:   rgb(203,213,225);
             border-color: rgb(148,163,184);
-            box-shadow:   0 1px 2px rgba(0,0,0,.14), inset 0 0 0px rgba(0,0,0,0);
+            box-shadow:   0 1px 2px rgba(0,0,0,.14);
         }
-        45%, 65% {
+        35%, 65% {
             background:   #000;
             border-color: rgba(0,255,0,.75);
             box-shadow:   0 0 0 1px rgba(0,255,0,.3), inset 0 0 20px rgba(0,255,0,.25);
         }
-        80%, 100% {
+        88%, 100% {
             background:   rgb(203,213,225);
             border-color: rgb(148,163,184);
-            box-shadow:   0 1px 2px rgba(0,0,0,.14), inset 0 0 0px rgba(0,0,0,0);
+            box-shadow:   0 1px 2px rgba(0,0,0,.14);
         }
     }
 
-    @keyframes knob-cycle {
-        0%, 28%  {
+    /* Knob flashes green then returns to white */
+    @keyframes knob-once {
+        0%, 12% {
             background: #fff;
             box-shadow: 0 1px 4px rgba(0,0,0,.3),
-                        0 0 0px rgba(0,0,0,0),
-                        0 0 0px rgba(0,0,0,0),
-                        0 0 0px rgba(0,0,0,0);
+                        0 0 0px transparent,
+                        0 0 0px transparent,
+                        0 0 0px transparent;
         }
-        45%, 65% {
+        35%, 65% {
             background: #00ff00;
             box-shadow: 0 0 4px #fff,
                         0 0 12px #0f0,
                         0 0 28px rgba(0,255,0,.85),
                         0 0 52px rgba(0,255,0,.45);
         }
-        80%, 100% {
+        88%, 100% {
             background: #fff;
             box-shadow: 0 1px 4px rgba(0,0,0,.3),
-                        0 0 0px rgba(0,0,0,0),
-                        0 0 0px rgba(0,0,0,0),
-                        0 0 0px rgba(0,0,0,0);
+                        0 0 0px transparent,
+                        0 0 0px transparent,
+                        0 0 0px transparent;
         }
     }
 
-    /* Shared opacity cycle for all fuse layers */
-    @keyframes fuse-opacity-cycle {
-        0%, 28%  { opacity: 0; }
-        43%, 65% { opacity: 1; }
-        80%, 100% { opacity: 0; }
-    }
+    /* ── Fuse layers (only rendered during glow) ─────────────────────────── */
 
-    /* ── Bloom layer (wide, heavy blur, long comet tail) ─────────────────── */
     .fuse-bloom {
         position: absolute;
         inset: -10px;
-        border-radius: 24px;      /* 14 + 10 */
+        border-radius: 24px;
         pointer-events: none;
         background: conic-gradient(
             from 0deg,
@@ -138,15 +173,14 @@
             transparent        360deg
         );
         filter: blur(10px);
-        animation: fuse-spin 2.4s linear infinite, fuse-opacity-cycle 8s ease-in-out infinite;
+        animation: fuse-spin 2.4s linear infinite, glow-appear 4s ease-in-out 1 forwards;
         z-index: 0;
     }
 
-    /* ── Glow layer (medium blur, sharper tail) ──────────────────────────── */
     .fuse-glow {
         position: absolute;
         inset: -5px;
-        border-radius: 19px;      /* 14 + 5 */
+        border-radius: 19px;
         pointer-events: none;
         background: conic-gradient(
             from 0deg,
@@ -155,12 +189,12 @@
             rgba(0,255,0,.12)  290deg,
             rgba(0,255,0,.50)  318deg,
             rgba(0,255,0,.95)  344deg,
-            #aaffaa            351deg,  /* near-white hot core */
+            #aaffaa            351deg,
             rgba(0,255,0,.88)  357deg,
             transparent        360deg
         );
         filter: blur(3px);
-        animation: fuse-spin 2.4s linear infinite, fuse-opacity-cycle 8s ease-in-out infinite;
+        animation: fuse-spin 2.4s linear infinite, glow-appear 4s ease-in-out 1 forwards;
         z-index: 1;
     }
 
@@ -169,11 +203,6 @@
         to   { transform: rotate(360deg); }
     }
 
-    /* ── Moving dot: CSS Motion Path along the pill border ───────────────────
-       Path traces the outer outline of the 52×28 pill (border-radius 14).
-       offset-anchor defaults to 50 % 50 %, so the dot's center follows the path.
-       The dot is sized 6×6 px; its center travels right on the pill edge.
-    ─────────────────────────────────────────────────────────────────────────── */
     .fuse-dot {
         position: absolute;
         top: 0;
@@ -189,17 +218,13 @@
             0 0 14px rgba(0,255,0,.9),
             0 0 26px rgba(0,255,0,.55),
             0 0 40px rgba(0,255,0,.25);
-        /* M 14,0 → top of left-end semicircle; L 38,0 → top straight edge;
-           A 14,14 0 0 1 38,28 → right semicircle (clockwise);
-           L 14,28 → bottom straight edge;
-           A 14,14 0 0 1 14,0  → left semicircle (clockwise); Z */
         offset-path: path('M 14,0 L 38,0 A 14,14 0 0 1 38,28 L 14,28 A 14,14 0 0 1 14,0 Z');
         offset-distance: 0%;
         animation:
-            dot-orbit          2.4s linear      infinite,
-            fuse-opacity-cycle 8s   ease-in-out infinite,
-            dot-glow-pulse     1.8s ease-in-out infinite;
-        z-index: 5;  /* above pill (z3) and knob (z4 inside pill) */
+            dot-orbit      2.4s linear      infinite,
+            glow-appear    4s   ease-in-out 1 forwards,
+            dot-glow-pulse 1.8s ease-in-out infinite;
+        z-index: 5;
     }
 
     @keyframes dot-orbit {
@@ -207,7 +232,6 @@
         to   { offset-distance: 100%; }
     }
 
-    /* Dot grows brighter at the peak of each glow pulse */
     @keyframes dot-glow-pulse {
         0%, 100% {
             box-shadow:
@@ -232,13 +256,26 @@
         position: absolute;
         inset: 0;
         border-radius: 14px;
-        border: 1.5px solid rgb(148,163,184);   /* fallback / matrix override anchor */
-        background: rgb(203,213,225);            /* fallback */
+        border: 1.5px solid rgb(148,163,184);
+        background: rgb(203,213,225);
         z-index: 3;
-        animation: pill-cycle 8s ease-in-out infinite;
+        transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
-    /* Matrix mode: override the cycling animation */
+    /* One-shot flash when glow is triggered (light mode only) */
+    .glowing .pill {
+        animation: pill-once 4s ease-in-out 1 forwards;
+    }
+
+    /* Hover preview (light mode only) */
+    .toggle-btn:hover .pill-wrap:not(.matrix) .pill {
+        background:   #000;
+        border-color: rgba(0,255,0,.75);
+        box-shadow:   0 0 0 1px rgba(0,255,0,.3), inset 0 0 20px rgba(0,255,0,.25);
+        transition:   background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    /* Matrix mode */
     .pill-wrap.matrix .pill {
         background:   #0a0a0a;
         border-color: #0f0;
@@ -260,9 +297,26 @@
         height: 20px;
         border-radius: 50%;
         z-index: 4;
-        background: #fff;    /* fallback */
-        transition: left 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-        animation: knob-cycle 8s ease-in-out infinite;
+        background: #fff;
+        box-shadow: 0 1px 4px rgba(0,0,0,.3);
+        transition: left 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+                    background 0.2s ease,
+                    box-shadow 0.2s ease;
+    }
+
+    /* One-shot flash when glow is triggered (light mode only) */
+    .glowing .knob:not(.at-end) {
+        animation: knob-once 4s ease-in-out 1 forwards;
+    }
+
+    /* Hover preview (light mode only) */
+    .toggle-btn:hover .pill-wrap:not(.matrix) .knob:not(.at-end) {
+        background: #00ff00;
+        box-shadow: 0 0 4px #fff,
+                    0 0 12px #0f0,
+                    0 0 28px rgba(0,255,0,.85),
+                    0 0 52px rgba(0,255,0,.45);
+        transition: background 0.2s ease, box-shadow 0.2s ease;
     }
 
     /* Matrix mode: knob slides right */

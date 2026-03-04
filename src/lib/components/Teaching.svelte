@@ -178,6 +178,12 @@
         color: var(--mx-accent);
     }
 
+    /* Fully-global override to beat the higher-specificity :not(.matrix-theme) rule */
+    :global(.matrix-theme .course-card.has-link:hover .course-link-icon) {
+        opacity: 1 !important;
+        color: var(--mx-accent) !important;
+    }
+
     :global(.matrix-theme) .course-link {
         color: var(--mx-accent) !important;
     }

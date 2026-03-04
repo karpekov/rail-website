@@ -4,6 +4,7 @@
     import { showMatrix } from '$lib/stores/theme';
 
     let displayText = "";
+    let typingDone = false;
     const fullText = "Robot Autonomy and Interactive Learning";
     const typingSpeed = 50;
     let logoElement: HTMLElement;
@@ -17,6 +18,7 @@
                 currentChar++;
             } else {
                 clearInterval(typingInterval);
+                typingDone = true;
             }
         }, typingSpeed);
 
@@ -54,13 +56,16 @@
             <div class="typing-wrapper mt-4 lg:mt-0">
                 <!-- Ghost: in-flow, invisible, reserves the final text height -->
                 <h1
-                    class="h1 font-orbitron glow-text text-center lg:text-left ghost-title"
+                    class="h1 font-orbitron text-center lg:text-left ghost-title"
+                    class:glow-text={$showMatrix}
                     aria-hidden="true"
                 >{fullText}</h1>
 
                 <!-- Visible typing h1 overlaid on top -->
                 <h1
-                    class="h1 font-orbitron text-primary-500 glow-text text-center lg:text-left typing-cursor typing-title"
+                    class="h1 font-orbitron text-primary-500 text-center lg:text-left typing-title"
+                    class:typing-cursor={!typingDone}
+                    class:glow-text={$showMatrix}
                     class:matrix-title={$showMatrix}
                     id="myText"
                 >{displayText}</h1>
@@ -135,5 +140,24 @@
         top: 0;
         left: 0;
         right: 0;
+    }
+
+    /* Inline links in the about paragraph */
+    p :global(a) {
+        color: rgb(var(--color-primary-600));
+        text-decoration: underline;
+        text-decoration-color: rgb(var(--color-primary-500) / 0.4);
+        text-underline-offset: 2px;
+        transition: color 0.15s ease, text-decoration-color 0.15s ease;
+    }
+
+    p :global(a:hover) {
+        color: rgb(var(--color-primary-400));
+        text-decoration-color: rgb(var(--color-primary-400) / 0.8);
+    }
+
+    :global(.matrix-theme) p :global(a) {
+        color: var(--mx-accent);
+        text-decoration-color: var(--mx-accent-half);
     }
 </style>

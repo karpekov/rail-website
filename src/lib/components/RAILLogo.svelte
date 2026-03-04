@@ -31,19 +31,25 @@
     :global(.animated-svg) {
         stroke-dasharray: 1000;
         stroke-dashoffset: 1000;
-        animation: fuse 28s linear infinite;
+        animation: fuse 8s linear 1 forwards;
     }
 
     @keyframes fuse {
-        0% {
+        to {
+            stroke-dashoffset: 0;
+        }
+    }
+
+    :global(.matrix-theme) :global(.animated-svg) {
+        animation: fuse-matrix 8s linear 1 forwards;
+    }
+
+    @keyframes fuse-matrix {
+        from {
             stroke-dashoffset: 1000;
             filter: drop-shadow(0 0 2px currentColor);
         }
-        28.57% {
-            stroke-dashoffset: 0;
-            filter: drop-shadow(0 0 10px currentColor);
-        }
-        100% {
+        to {
             stroke-dashoffset: 0;
             filter: drop-shadow(0 0 10px currentColor);
         }
