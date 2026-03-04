@@ -21,6 +21,26 @@
 
 project_list:
 
+  - full_title: "ADAPT: Actively Discovering and Adapting to Preferences for any Task"
+    short_title: Actively Discovering and Adapting to Preferences for any Task
+    venue: COLM
+    year: 2025
+    pdf: https://openreview.net/pdf?id=Z8vtD1egtI
+    image: images/projects/maithili-adapt.png
+    team: [Maithili Patel, Xavier Puig, Ruta Desai, Roozbeh Mottaghi, Sonia Chernova, Joanne Truong, Akshara Rai]
+    tags: [robo, hcai]
+    featured: true
+
+  - full_title: "Robot Behavior Personalization From Sparse User Feedback"
+    short_title: Robot Behavior Personalization From Sparse User Feedback
+    venue: IEEE-RAL
+    year: 2025
+    pdf: https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10924711
+    image: images/projects/maithili-taaco.png
+    team: [Maithili Patel, Sonia Chernova]
+    tags: [robo, hcai]
+    featured: true
+
   - full_title: 'Sonia Chernova presented "Algorithmic Design of Proactive and Interpretable Home Robots" at MIT Robotics in September 2024'
     short_title: "MIT Robotics Seminar"
     venue: MIT Robotics
