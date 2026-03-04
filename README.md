@@ -27,7 +27,11 @@ Contains information about current and past lab members.
      - Use a square photo with your face centered (like a passport photo)
   2. Add your entry to `src/data/people.yaml` under the appropriate section
   3. Required fields: name, status, degree, degree_detail, photo
-  4. Optional fields: website, linkedin, scholar, github, twitter
+  4. Optional fields: year_joined, website, linkedin, scholar, github, twitter
+
+For alumni, also include:
+  - Required: graduation (year)
+  - Optional: next_role
 
 ### projects.yaml
 Contains past research projects.
@@ -37,18 +41,22 @@ Contains past research projects.
      - Could be Figure 1 from your paper or a key result
      - Recommended aspect ratio: 16:9
   2. Add your project entry to `src/data/projects.yaml`
-  3. Required fields: full_title, short_title, venue, image, team, tags
-  4. Optional fields: website, pdf, github, video
+  3. Required fields: title, project_description, venue, year, image, team, tags
+  4. Optional fields: website, pdf, github, video, featured
 
 ### news.yaml
-Contains lab news and announcements.Add entries in reverse chronological order.
+Contains lab news and announcements. Add entries in reverse chronological order.
+
+Required fields: date, content
 
 ### fun.yaml
 Contains information about lab activities and outreach. Include high-quality images in `static/images/fun/`.
 
+Required fields: title, description, image, frequency
+
 ## Editing Content Directly on the Website
 
-If you want to edit fields such as the website header or "About Us" section, you can do so by editing the corresponding Svelte components in the `src/components` folder.
+If you want to edit fields such as the website header or "About Us" section, you can do so by editing the corresponding Svelte components in the `src/lib/components` folder.
 
 ## Testing Locally
 

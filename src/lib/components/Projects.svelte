@@ -86,7 +86,7 @@
 
                 <div class="p-3 space-y-2 flex-grow">
                     <div class="space-y-2">
-                        <h4 class="font-medium text-base">{project.short_title || project.full_title}</h4>
+                        <h4 class="font-medium text-base">{project.title}</h4>
                         <div class="publication-chip">
                             {project.venue} '{(project.year % 100).toString().padStart(2, '0')}
                         </div>
@@ -105,7 +105,7 @@
                         {/if}
                     </div>
 
-                    <p class="text-sm opacity-80">{project.full_title}</p>
+                    <p class="text-sm opacity-80">{project.project_description}</p>
                     <p class="text-xs">
                         <span class="opacity-60">Team:</span> {project.team.join(', ')}
                     </p>

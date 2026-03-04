@@ -2,27 +2,27 @@
 # Add your project under "project_list"
 #
 # Fields:
-# - full_title:  REQUIRED - Full title of the paper  or project.
-# - short_title: REQUIRED - Title of your card; something short and catchy.
-# - venue:       REQUIRED - Conference or Journal name (ideally, abbreviated) + year. E.g.: [RAS'23, CoRL'22, IJRR'22]
-# - year:        REQUIRED - Year of publication (e.g., 2024)
-# - image:       REQUIRED - Figure 1, or any other catchy image of you project.
-# - team:        REQUIRED - Full author list, organized as a comma-separated list with first+last names.
-# - tags:        REQUIRED - List of project tags; select one or multiple from this list:
-#                           - hcai: Human-Centered AI
-#                           - robo: Robotics
-#                           - multi: Multi-Agent Systems
-#                           - xai: Explainable AI
-# - website:     OPTIONAL - Link to the project website.
-# - pdf:         OPTIONAL - Link to the paper or project.
-# - github:      OPTIONAL - Link to the github repository.
-# - video:       OPTIONAL - Link to the video of the project.
-# - featured:    OPTIONAL - Leave "true" if you want to highlight this project on the home page.
+# - title:               REQUIRED - Title of your card; something short and catchy.
+# - project_description: REQUIRED - Full title of the paper or project.
+# - venue:               REQUIRED - Conference or Journal name (ideally, abbreviated) + year. E.g.: [RAS'23, CoRL'22, IJRR'22]
+# - year:                REQUIRED - Year of publication (e.g., 2024)
+# - image:               REQUIRED - Figure 1, or any other catchy image of your project.
+# - team:                REQUIRED - Full author list, organized as a comma-separated list with first+last names.
+# - tags:                REQUIRED - List of project tags; select one or multiple from this list:
+#                                   - hcai: Human-Centered AI
+#                                   - robo: Robotics
+#                                   - multi: Multi-Agent Systems
+#                                   - xai: Explainable AI
+# - website:             OPTIONAL - Link to the project website.
+# - pdf:                 OPTIONAL - Link to the paper or project.
+# - github:              OPTIONAL - Link to the github repository.
+# - video:               OPTIONAL - Link to the video of the project.
+# - featured:            OPTIONAL - Leave "true" if you want to highlight this project on the home page.
 
 project_list:
 
-  - full_title: "DISCOVER: Identifying Patterns of Daily Living in Human Activities from Smart Home Data"
-    short_title: "DISCOVER-ing Human Activities in Smart Homes"
+  - title: "DISCOVER-ing Human Activities in Smart Homes"
+    project_description: "DISCOVER: Identifying Patterns of Daily Living in Human Activities from Smart Home Data"
     venue: arXiv
     year: 2026
     pdf: https://arxiv.org/abs/2503.01733
@@ -31,8 +31,8 @@ project_list:
     tags: [hcai, xai]
     featured: true
 
-  - full_title: "ADAPT: Actively Discovering and Adapting to Preferences for any Task"
-    short_title: Actively Discovering and Adapting to Preferences for any Task
+  - title: Actively Discovering and Adapting to Preferences for any Task
+    project_description: "ADAPT: Actively Discovering and Adapting to Preferences for any Task"
     venue: COLM
     year: 2025
     pdf: https://openreview.net/pdf?id=Z8vtD1egtI
@@ -41,8 +41,8 @@ project_list:
     tags: [robo, hcai]
     featured: true
 
-  - full_title: "Robot Behavior Personalization From Sparse User Feedback"
-    short_title: Robot Behavior Personalization From Sparse User Feedback
+  - title: Robot Behavior Personalization From Sparse User Feedback
+    project_description: "Robot Behavior Personalization From Sparse User Feedback"
     venue: IEEE-RAL
     year: 2025
     pdf: https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10924711
@@ -51,8 +51,8 @@ project_list:
     tags: [robo, hcai]
     featured: true
 
-  - full_title: 'Sonia Chernova presented "Algorithmic Design of Proactive and Interpretable Home Robots" at MIT Robotics in September 2024'
-    short_title: "MIT Robotics Seminar"
+  - title: "MIT Robotics Seminar"
+    project_description: 'Sonia Chernova presented "Algorithmic Design of Proactive and Interpretable Home Robots" at MIT Robotics in September 2024'
     venue: MIT Robotics
     year: 2024
     video: https://www.youtube.com/watch?v=HK5wRFDx2no
@@ -61,8 +61,8 @@ project_list:
     tags: [hcai, robo]
     featured: true
 
-  - full_title: "CE-MRS: Contrastive Explanations for Multi-Robot Systems"
-    short_title: "Contrastive Explanations for Multi-Robot Systems"
+  - title: "Contrastive Explanations for Multi-Robot Systems"
+    project_description: "CE-MRS: Contrastive Explanations for Multi-Robot Systems"
     venue: IROS
     year: 2024
     pdf: https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10697262
@@ -71,8 +71,8 @@ project_list:
     tags: [multi, robo, xai]
     featured: true
 
-  - full_title: 'UHTP: A User-Aware Hierarchical Task Planning Framework for Communication-Free, Mutually-Adaptive Human-Robot Collaboration'
-    short_title: 'UHTP: Communication-Free Mutually-Adaptive Human-Robot Collaboration'
+  - title: 'UHTP: Communication-Free Mutually-Adaptive Human-Robot Collaboration'
+    project_description: 'UHTP: A User-Aware Hierarchical Task Planning Framework for Communication-Free, Mutually-Adaptive Human-Robot Collaboration'
     venue: ACM Transactions on HRI
     year: 2024
     pdf: https://dl.acm.org/doi/pdf/10.1145/3623387
@@ -81,8 +81,8 @@ project_list:
     tags: [robo, hcai]
     featured: true
 
-  - full_title: "StructDiffusion: Language-Guided Creation of Physically-Valid Structures using Unseen Objects"
-    short_title: "StructDiffusion: Semantic 6D Rearrangement from Language Specification"
+  - title: "StructDiffusion: Semantic 6D Rearrangement from Language Specification"
+    project_description: "StructDiffusion: Language-Guided Creation of Physically-Valid Structures using Unseen Objects"
     venue: RSS
     year: 2023
     pdf: https://arxiv.org/abs/2211.04604
@@ -91,8 +91,8 @@ project_list:
     tags: [robo, xai]
     featured: true
 
-  - full_title: "Predicting Routine Object Usage for Proactive Robot Assistance"
-    short_title: Routine Object Usage Predictions for Proactive Robot Assistance
+  - title: Routine Object Usage Predictions for Proactive Robot Assistance
+    project_description: "Predicting Routine Object Usage for Proactive Robot Assistance"
     venue: CoRL
     year: 2023
     pdf: https://arxiv.org/pdf/2309.06252
@@ -101,8 +101,8 @@ project_list:
     tags: [robo, hcai]
     featured: true
 
-  - full_title: "ConSOR: A Context-Aware Semantic Object Rearrangement Framework for Partially Arranged Scenes"
-    short_title: "ConSOR: Context-Guided Personalized Object Rearrangement"
+  - title: "ConSOR: Context-Guided Personalized Object Rearrangement"
+    project_description: "ConSOR: A Context-Aware Semantic Object Rearrangement Framework for Partially Arranged Scenes"
     venue: IROS
     year: 2023
     video: https://youtube.com/watch?v=example
@@ -111,8 +111,8 @@ project_list:
     tags: [hcai, robo]
     featured: true
 
-  - full_title: A Survey of Semantic Reasoning Frameworks for Robotic Systems.
-    short_title: "Semantic Reasoning Frameworks: Survey"
+  - title: "Semantic Reasoning Frameworks: Survey"
+    project_description: A Survey of Semantic Reasoning Frameworks for Robotic Systems.
     venue: RAS
     year: 2023
     pdf: https://www.sciencedirect.com/science/article/pii/S092188902200183X
@@ -121,8 +121,8 @@ project_list:
     tags: [hcai, robo]
     featured: true
 
-  - full_title: Subgoal-Based Explanations for Unreliable Intelligent Decision Support Systems
-    short_title: Subgoal-Based Explanations
+  - title: Subgoal-Based Explanations
+    project_description: Subgoal-Based Explanations for Unreliable Intelligent Decision Support Systems
     venue: IUI
     year: 2023
     pdf: https://dl.acm.org/doi/10.1145/3581641.3584055
@@ -131,8 +131,8 @@ project_list:
     tags: [hcai, xai]
     featured: true
 
-  - full_title: Proactive Robot Assistance via Spatio-Temporal Object Modeling
-    short_title: Proactive Robot Assistance
+  - title: Proactive Robot Assistance
+    project_description: Proactive Robot Assistance via Spatio-Temporal Object Modeling
     venue: CoRL
     year: 2022
     pdf: https://arxiv.org/abs/2211.15501
@@ -141,8 +141,8 @@ project_list:
     tags: [robo, hcai]
     featured: true
 
-  - full_title: "Rethinking Sim2Real: Lower Fidelity Simulation Leads to Higher Sim2Real Transfer in Navigation."
-    short_title: Rethinking Sim2Real
+  - title: Rethinking Sim2Real
+    project_description: "Rethinking Sim2Real: Lower Fidelity Simulation Leads to Higher Sim2Real Transfer in Navigation."
     venue: CoRL
     year: 2022
     pdf: https://arxiv.org/abs/2207.10821
@@ -151,8 +151,8 @@ project_list:
     tags: [robo]
     featured: true
 
-  - full_title: "GRSTAPS: Graphically Recursive Simultaneous Task Allocation, Planning, and Scheduling."
-    short_title: GRSTAPS
+  - title: GRSTAPS
+    project_description: "GRSTAPS: Graphically Recursive Simultaneous Task Allocation, Planning, and Scheduling."
     venue: IJRR
     year: 2022
     pdf: https://journals.sagepub.com/doi/full/10.1177/02783649211052066
@@ -161,8 +161,8 @@ project_list:
     tags: [robo]
     featured: true
 
-  - full_title: "Leveraging Cognitive States in Human-Robot Teaming."
-    short_title: Cognitive States in HR Teaming
+  - title: Cognitive States in HR Teaming
+    project_description: "Leveraging Cognitive States in Human-Robot Teaming."
     venue: RO-MAN
     year: 2022
     pdf: https://ieeexplore.ieee.org/abstract/document/9900794
@@ -171,8 +171,8 @@ project_list:
     tags: [hcai, robo]
     featured: true
 
-  - full_title: "Semantic-Based Explainable AI: Leveraging Semantic Scene Graphs and Pairwise Ranking to Explain Robot Failures"
-    short_title: Semantic-Based XAI for Robot Failure Explanation
+  - title: Semantic-Based XAI for Robot Failure Explanation
+    project_description: "Semantic-Based Explainable AI: Leveraging Semantic Scene Graphs and Pairwise Ranking to Explain Robot Failures"
     venue: IROS
     year: 2021
     pdf: https://arxiv.org/abs/2108.03554
@@ -181,8 +181,8 @@ project_list:
     tags: [robo, xai]
     featured: true
 
-  - full_title: Learning Instance-Level N-Ary Semantic Knowledge At Scale For Robots Operating in Everyday Environments.
-    short_title: Instance-Level N-Ary Semantic Knowledge
+  - title: Instance-Level N-Ary Semantic Knowledge
+    project_description: Learning Instance-Level N-Ary Semantic Knowledge At Scale For Robots Operating in Everyday Environments.
     venue: RSS
     year: 2021
     pdf: https://www.roboticsproceedings.org/rss17/p035.pdf
@@ -191,8 +191,8 @@ project_list:
     tags: [hcai, robo]
     featured: true
 
-  - full_title: Recent Advances in Robot Learning from Demonstration.
-    short_title: Robot Learning from Demonstration
+  - title: Robot Learning from Demonstration
+    project_description: Recent Advances in Robot Learning from Demonstration.
     venue: Annual Review of Control, Robotics, and Autonomous Systems
     year: 2020
     pdf: https://www.annualreviews.org/content/journals/10.1146/annurev-control-100819-063206
@@ -201,8 +201,8 @@ project_list:
     tags: [hcai, robo]
     featured: true
 
-  - full_title: "CAGE: Context-aware grasping engine."
-    short_title: Context-aware grasping engine
+  - title: Context-aware grasping engine
+    project_description: "CAGE: Context-aware grasping engine."
     venue: ICRA
     year: 2020
     pdf: https://arxiv.org/abs/1909.11142
@@ -211,8 +211,8 @@ project_list:
     tags: [robo]
     featured: true
 
-  - full_title: Anticipatory Human-Robot Collaboration via Multi-Objective Trajectory Optimization
-    short_title: Human Motion Anticipation for Anticipatory HRC
+  - title: Human Motion Anticipation for Anticipatory HRC
+    project_description: Anticipatory Human-Robot Collaboration via Multi-Objective Trajectory Optimization
     venue: IROS
     year: 2020
     pdf: https://arxiv.org/abs/2006.03614
