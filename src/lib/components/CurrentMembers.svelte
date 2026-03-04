@@ -1,6 +1,7 @@
 <script lang="ts">
     import { people } from '$lib/utils/dataLoader';
     import { showMatrix } from '$lib/stores/theme';
+    import { trackEvent } from '$lib/utils/analytics';
 
     function scrollToMembers() {
         const section = document.getElementById('members');
@@ -63,7 +64,8 @@
                 {#each seniorMembers as member}
                     <div class="person-card">
                         {#if getProfileLink(member)}
-                            <a href={getProfileLink(member)} target="_blank" rel="noopener noreferrer" class="block">
+                            <a href={getProfileLink(member)} target="_blank" rel="noopener noreferrer" class="block"
+                                on:click={() => trackEvent('member_card_click', { member_name: member.name, section: 'hero' })}>
                                 <div class="person-card-image">
                                     <div class="flip-container">
                                         <div class="flipper">
@@ -134,7 +136,8 @@
                 {#each juniorMembers as member}
                     <div class="person-card">
                         {#if getProfileLink(member)}
-                            <a href={getProfileLink(member)} target="_blank" rel="noopener noreferrer" class="block">
+                            <a href={getProfileLink(member)} target="_blank" rel="noopener noreferrer" class="block"
+                                on:click={() => trackEvent('member_card_click', { member_name: member.name, section: 'hero' })}>
                                 <div class="person-card-image">
                                     <div class="flip-container">
                                         <div class="flipper">

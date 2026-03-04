@@ -4,6 +4,7 @@
     import { showMatrix } from '$lib/stores/theme';
     import ThemeToggle from '$lib/components/ThemeToggle.svelte';
     import RailSvgRaw from '$lib/../../static/assets/RAIL.svg?raw';
+    import { trackEvent } from '$lib/utils/analytics';
 
     function inlineNavLogo(svg: string): string {
         return svg
@@ -15,7 +16,8 @@
 
     const modalStore = getModalStore();
 
-    function openJoinUsModal() {
+    function openJoinUsModal(location: 'desktop' | 'mobile' = 'desktop') {
+        trackEvent('join_us_click', { location });
         modalStore.trigger({
             type: 'component',
             component: {
@@ -81,7 +83,7 @@
             <button
                 class="btn btn-sm variant-filled-primary join-us-btn"
                 class:matrix-join-btn={$showMatrix}
-                on:click={openJoinUsModal}
+                on:click={() => openJoinUsModal('desktop')}
             >
                 Join Us
             </button>
@@ -113,7 +115,7 @@
             <button
                 class="btn w-full variant-filled-primary join-us-btn"
                 class:matrix-join-btn={$showMatrix}
-                on:click={openJoinUsModal}
+                on:click={() => openJoinUsModal('mobile')}
             >
                 Join Us
             </button>

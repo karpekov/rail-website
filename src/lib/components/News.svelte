@@ -2,6 +2,7 @@
     import { news } from '$lib/utils/dataLoader';
     import { showMatrix } from '$lib/stores/theme';
     import { fly } from 'svelte/transition';
+    import { trackEvent } from '$lib/utils/analytics';
 
     const INITIAL_SHOW = 5;
     const SHOW_MORE = 10;
@@ -21,6 +22,7 @@
     function showMore() {
         prevCount = visibleCount;
         visibleCount = Math.min(visibleCount + SHOW_MORE, allNews.length);
+        trackEvent('news_expand', { visible_count: visibleCount });
     }
 
     function parseDate(dateStr: string): { year: string; month: string } {

@@ -3,6 +3,14 @@
     import { slide } from 'svelte/transition';
     import { scrollable } from '$lib/utils/scroll';
     import { showMatrix } from '$lib/stores/theme';
+    import { trackEvent } from '$lib/utils/analytics';
+
+    function handleMemberLinkClick(event, memberName) {
+        const anchor = event.target.closest('a');
+        if (!anchor) return;
+        const linkType = anchor.title || 'link';
+        trackEvent('member_card_click', { member_name: memberName, link_type: linkType, section: 'members' });
+    }
 
     let showCollaborators = false;
 
@@ -50,7 +58,8 @@
         <h3 class="h3 mb-4 font-thin">Current Members</h3>
         <div class="flex flex-wrap justify-evenly sm:justify-start gap-2 sm:gap-4 max-w-6xl mx-auto px-4 pt-2">
             {#each currentMembers as member}
-                <div class="flex-none w-[140px] sm:w-[160px] flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card">
+                <div class="flex-none w-[140px] sm:w-[160px] flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card"
+                    on:click={(e) => handleMemberLinkClick(e, member.name)}>
                     <div
                         class="w-24 h-24 sm:w-36 sm:h-36 rounded-full bg-surface-300-600-token overflow-hidden ring-2"
                             class:ring-amber={!$showMatrix}
@@ -120,7 +129,8 @@
                     {#each alumni
                         .filter(m => m.degree === 'postdoc')
                         .sort((a, b) => b.graduation - a.graduation) as member}
-                    <div class="flex-none w-[140px] sm:w-[160px] flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card">
+                    <div class="flex-none w-[140px] sm:w-[160px] flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card"
+                        on:click={(e) => handleMemberLinkClick(e, member.name)}>
                         <div
                             class="w-24 h-24 sm:w-36 sm:h-36 rounded-full bg-surface-300-600-token overflow-hidden ring-2"
                             class:ring-amber={!$showMatrix}
@@ -217,7 +227,8 @@
                     {#each alumni
                         .filter(m => m.degree === 'phd')
                         .sort((a, b) => b.graduation - a.graduation) as member}
-                    <div class="flex-none w-[140px] sm:w-[160px] flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card">
+                    <div class="flex-none w-[140px] sm:w-[160px] flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card"
+                        on:click={(e) => handleMemberLinkClick(e, member.name)}>
                         <div
                             class="w-24 h-24 sm:w-36 sm:h-36 rounded-full bg-surface-300-600-token overflow-hidden ring-2"
                             class:ring-amber={!$showMatrix}

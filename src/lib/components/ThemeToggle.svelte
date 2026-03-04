@@ -1,9 +1,12 @@
 <script lang="ts">
     import { showMatrix } from '$lib/stores/theme';
     import { onMount } from 'svelte';
+    import { trackEvent } from '$lib/utils/analytics';
 
     function toggle() {
-        $showMatrix = !$showMatrix;
+        const next = !$showMatrix;
+        trackEvent('theme_toggle', { mode: next ? 'matrix' : 'light' });
+        $showMatrix = next;
     }
 
     let showGlow = false;

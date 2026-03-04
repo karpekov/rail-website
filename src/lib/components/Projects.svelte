@@ -4,6 +4,7 @@
     import { showMatrix } from '$lib/stores/theme';
     import { fly, fade } from 'svelte/transition';
     import { cubicOut } from 'svelte/easing';
+    import { trackEvent } from '$lib/utils/analytics';
 
     const tagLabels = {
         all: 'All Projects',
@@ -38,6 +39,7 @@
         activeFilter = tag;
         visibleCount = INITIAL_SHOW;
         filterKey++;
+        trackEvent('project_filter', { filter: tag });
     }
 </script>
 
