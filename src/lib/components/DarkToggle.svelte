@@ -89,6 +89,11 @@
         border-color: #606880;
     }
 
+    .toggle-btn:not(:disabled):hover .pill-wrap.dark .pill {
+        background: rgb(250, 250, 245);
+        border-color: rgb(224, 216, 188);
+    }
+
     /* ── Knob ─────────────────────────────────────────────────────────────── */
     .knob {
         position: absolute;
@@ -113,7 +118,7 @@
     .knob.at-end {
         left: calc(100% - 23px);
         background: #30333D;
-        color: #9098BC;
+        color: #C8D4F0;
         box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
     }
 
