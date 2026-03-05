@@ -58,50 +58,53 @@
 <style>
     /* ── Desktop easter egg button ───────────────────────────────────────── */
     .egg-btn {
-        background: none;
+        background: transparent;
         border: none;
         cursor: pointer;
-        padding: 4px;
-        border-radius: 6px;
+        padding: 1px;
+        border-radius: 3px;
         display: flex;
         align-items: center;
         justify-content: center;
         opacity: 0.15;
-        transition: opacity 0.3s ease, filter 0.3s ease;
+        transition: opacity 0.3s ease, background 0.3s ease;
         color: currentColor;
     }
 
     .egg-btn:hover {
+        background: rgba(10, 12, 10, 0.7);
         color: #0f0;
         animation: hover-pulse 1.2s ease-in-out infinite;
     }
 
     @keyframes hover-pulse {
-        0%, 100% {
-            opacity: 0.55;
-            filter: drop-shadow(0 0 4px rgba(0, 255, 0, 0.5));
-        }
-        50% {
-            opacity: 0.9;
-            filter: drop-shadow(0 0 10px rgba(0, 255, 0, 0.95)) drop-shadow(0 0 20px rgba(0, 255, 0, 0.4));
-        }
+        0%, 100% { opacity: 0.6; }
+        50%       { opacity: 1; }
     }
 
     .egg-btn.engaged {
         opacity: 0.7;
         color: #0f0;
-        filter: drop-shadow(0 0 6px rgba(0, 255, 0, 0.6));
         animation: robot-pulse 2s ease-in-out infinite;
     }
 
     @keyframes robot-pulse {
-        0%, 100% { opacity: 0.7; filter: drop-shadow(0 0 4px rgba(0,255,0,0.5)); }
-        50%       { opacity: 0.9; filter: drop-shadow(0 0 10px rgba(0,255,0,0.9)); }
+        0%, 100% { opacity: 0.7; }
+        50%       { opacity: 0.9; }
     }
 
     .icon {
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
+        transition: filter 0.3s ease;
+    }
+
+    .egg-btn:hover .icon {
+        filter: drop-shadow(0 0 4px rgba(0, 255, 0, 0.85));
+    }
+
+    .egg-btn.engaged .icon {
+        filter: drop-shadow(0 0 6px rgba(0, 255, 0, 0.9));
     }
 
     /* ── Mobile menu version ─────────────────────────────────────────────── */
