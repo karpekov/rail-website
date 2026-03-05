@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onDestroy } from 'svelte';
     import { people } from '$lib/utils/dataLoader';
-    import { showMatrix } from '$lib/stores/theme';
+    import { showMatrix, showDark } from '$lib/stores/theme';
     import { trackEvent } from '$lib/utils/analytics';
 
     function scrollToMembers() {
@@ -86,9 +86,10 @@
             <a
                 href="#members"
                 on:click|preventDefault={scrollToMembers}
-                class:text-primary-500={!$showMatrix}
-                class:hover:text-primary-600={!$showMatrix}
+                class:text-primary-500={!$showMatrix && !$showDark}
+                class:hover:text-primary-600={!$showMatrix && !$showDark}
                 class:matrix-link={$showMatrix}
+                class:dark-link={$showDark && !$showMatrix}
             >
                 More info and alums here.
             </a>
@@ -316,5 +317,18 @@
     .matrix-link:hover {
         color: var(--mx-accent) !important;
         text-shadow: 0 0 10px var(--mx-accent-half);
+    }
+
+    .dark-link {
+        color: rgb(var(--color-primary-400));
+        text-decoration: underline;
+        text-decoration-color: rgba(232, 168, 0, 0.5);
+        text-underline-offset: 3px;
+        transition: color 0.2s ease, text-decoration-color 0.2s ease;
+    }
+
+    .dark-link:hover {
+        color: var(--dk-text);
+        text-decoration-color: rgba(237, 229, 204, 0.6);
     }
 </style>

@@ -63,6 +63,41 @@ body {
 	--color-surface-950:  30  24   0;   /* #1E1800 */
 }
 
+/* ─── Root-level theme classes (applied to <html>) ──────────────────────────
+   Sets html + body background so overscroll / rubber-band areas in
+   Chrome/Safari match the page header and footer exactly.
+   ─────────────────────────────────────────────────────────────────────────── */
+html.theme-dark,
+html.theme-dark body {
+	background-color: #1C1A16 !important;
+}
+
+html.theme-matrix,
+html.theme-matrix body {
+	background-color: #000 !important;
+}
+
+/* ─── Dark (warm charcoal) theme tokens ─────────────────────────────────────
+   Option A: same amber-gold accent, surfaces flipped to dark warm charcoal.
+   --dk-* variables mirror the --mx-* naming convention so components can
+   add :global(.dark-theme …) overrides in exactly the same pattern.
+   ─────────────────────────────────────────────────────────────────────────── */
+.dark-theme {
+	/* Background layers */
+	--dk-bg-hero:    #141518;
+	--dk-bg-content: #1C1E24;
+	--dk-card-bg:    #232630;
+	--dk-divider:    #30333D;
+	--dk-overlay:    rgba(20, 21, 24, 0.97);
+
+	/* Text */
+	--dk-text:       #E8E4D8;
+	--dk-text-muted: #9098BC;
+
+	/* Cover Skeleton's preset body background-image gradient */
+	background-color: #141518;
+}
+
 /* ─── Matrix theme tokens ────────────────────────────────────────────────────
    All matrix-mode colors live here. To retheme the matrix mode, only change
    values in this block — nothing else needs to touch a hex color ever again.

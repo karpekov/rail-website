@@ -2,7 +2,8 @@
     import { getModalStore } from '@skeletonlabs/skeleton';
     import JoinUs from '$lib/components/JoinUs.svelte';
     import { showMatrix } from '$lib/stores/theme';
-    import ThemeToggle from '$lib/components/ThemeToggle.svelte';
+    import DarkToggle from '$lib/components/DarkToggle.svelte';
+    import MatrixEasterEgg from '$lib/components/MatrixEasterEgg.svelte';
     import RailSvgRaw from '$lib/../../static/assets/RAIL.svg?raw';
     import { trackEvent } from '$lib/utils/analytics';
 
@@ -30,6 +31,7 @@
     }
 
     function scrollToSection(sectionId: string) {
+        closeMenu();
         const section = document.getElementById(sectionId);
         if (section) {
             const isMobile = window.innerWidth < 768;
@@ -39,17 +41,16 @@
             const offset = navbarHeight + extraPadding;
             const elementPosition = section.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.scrollY - offset;
-
             window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-
-            const mobileMenu = document.getElementById('mobile-menu');
-            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.add('hidden');
-            }
         }
     }
 
     export let showLogo = false;
+
+    let menuOpen = false;
+
+    function toggleMenu() { menuOpen = !menuOpen; }
+    function closeMenu()  { menuOpen = false; }
 </script>
 
 <!-- Navigation Bar -->
@@ -87,15 +88,17 @@
             >
                 Join Us
             </button>
-            <div class="ml-4">
-                <ThemeToggle />
+            <div class="ml-4 flex items-center gap-2">
+                <DarkToggle />
+                <MatrixEasterEgg />
             </div>
         </div>
 
         <!-- Mobile Navigation -->
         <div class="lg:hidden flex items-center space-x-2">
-            <ThemeToggle />
-            <button class="btn btn-sm variant-ghost p-2" on:click={() => document.querySelector('#mobile-menu').classList.toggle('hidden')}>
+            <MatrixEasterEgg />
+            <DarkToggle />
+            <button class="btn btn-sm variant-ghost p-2" on:click={toggleMenu}>
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
@@ -104,24 +107,38 @@
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden lg:hidden container mx-auto max-w-6xl px-4 sm:px-6 md:px-8">
-        <div class="flex flex-col space-y-1 py-3">
-            <button class="btn btn-sm variant-ghost text-left px-4 py-2" on:click={() => scrollToSection('about')}>About</button>
-            <button class="btn btn-sm variant-ghost text-left px-4 py-2" on:click={() => scrollToSection('news')}>News</button>
-            <button class="btn btn-sm variant-ghost text-left px-4 py-2" on:click={() => scrollToSection('projects')}>Projects</button>
-            <button class="btn btn-sm variant-ghost text-left px-4 py-2" on:click={() => scrollToSection('members')}>Members</button>
-            <button class="btn btn-sm variant-ghost text-left px-4 py-2" on:click={() => scrollToSection('teaching')}>Teaching</button>
-            <button class="btn btn-sm variant-ghost text-left px-4 py-2" on:click={() => scrollToSection('fun')}>Fun</button>
-            <button
-                class="btn w-full variant-filled-primary join-us-btn"
-                class:matrix-join-btn={$showMatrix}
-                on:click={() => openJoinUsModal('mobile')}
-            >
-                Join Us
-            </button>
+    {#if menuOpen}
+        <div id="mobile-menu" class="lg:hidden container mx-auto max-w-6xl px-4 sm:px-6 md:px-8">
+            <div class="flex flex-col space-y-1 py-3">
+                <button class="btn btn-sm variant-ghost text-left px-4 py-2" on:click={() => scrollToSection('about')}>About</button>
+                <button class="btn btn-sm variant-ghost text-left px-4 py-2" on:click={() => scrollToSection('news')}>News</button>
+                <button class="btn btn-sm variant-ghost text-left px-4 py-2" on:click={() => scrollToSection('projects')}>Projects</button>
+                <button class="btn btn-sm variant-ghost text-left px-4 py-2" on:click={() => scrollToSection('members')}>Members</button>
+                <button class="btn btn-sm variant-ghost text-left px-4 py-2" on:click={() => scrollToSection('teaching')}>Teaching</button>
+                <button class="btn btn-sm variant-ghost text-left px-4 py-2" on:click={() => scrollToSection('fun')}>Fun</button>
+                <button
+                    class="btn w-full variant-filled-primary join-us-btn"
+                    class:matrix-join-btn={$showMatrix}
+                    on:click={() => { closeMenu(); openJoinUsModal('mobile'); }}
+                >
+                    Join Us
+                </button>
+            </div>
         </div>
-    </div>
+    {/if}
 </div>
+
+<!-- Transparent backdrop — closes menu when tapping outside -->
+{#if menuOpen}
+    <div
+        class="fixed inset-0 z-40 lg:hidden"
+        on:click={closeMenu}
+        on:keydown={(e) => e.key === 'Escape' && closeMenu()}
+        role="button"
+        tabindex="-1"
+        aria-label="Close menu"
+    ></div>
+{/if}
 
 <style>
     /* Default theme button */

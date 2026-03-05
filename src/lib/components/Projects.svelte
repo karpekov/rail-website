@@ -251,6 +251,21 @@
         background-color: rgb(var(--color-primary-50));
     }
 
+    :global(.dark-theme) .filter-chip {
+        color: var(--dk-text) !important;
+        border-color: rgba(237, 229, 204, 0.3) !important;
+    }
+
+    :global(.dark-theme) .filter-chip.active {
+        box-shadow: none !important;
+    }
+
+    :global(.dark-theme) .filter-chip:not(.active):hover {
+        color: rgb(var(--color-primary-400)) !important;
+        border-color: rgb(var(--color-primary-400)) !important;
+        background-color: transparent !important;
+    }
+
     :global(.matrix-theme) .filter-chip {
         color: var(--mx-accent);
         border: 1px solid var(--mx-accent);
@@ -320,6 +335,29 @@
     }
 
     :global(:not(.matrix-theme)) .project-links a:hover svg {
+        color: rgb(30, 20, 0) !important;
+    }
+
+    /* Dark mode: faint border on cards */
+    :global(.dark-theme) .project-card {
+        border: 1px solid var(--dk-divider);
+    }
+
+    /* Dark mode: outlined amber chips, filled on hover */
+    :global(.dark-theme) .project-links a {
+        background: transparent !important;
+        border: 1px solid rgb(var(--color-primary-400)) !important;
+        color: rgb(var(--color-primary-400)) !important;
+        box-shadow: none !important;
+    }
+
+    :global(.dark-theme) .project-links a:hover {
+        background: rgb(var(--color-primary-400)) !important;
+        border-color: rgb(var(--color-primary-400)) !important;
+        color: rgb(30, 20, 0) !important;
+    }
+
+    :global(.dark-theme) .project-links a:hover svg {
         color: rgb(30, 20, 0) !important;
     }
 

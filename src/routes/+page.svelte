@@ -13,7 +13,17 @@
 	import Matrix from '$lib/components/Matrix.svelte';
 	import { scrollIntoView } from '$lib/utils/scroll';
 	import JoinUs from '$lib/components/JoinUs.svelte';
-	import { showMatrix } from '$lib/stores/theme';
+	import { showMatrix, showDark } from '$lib/stores/theme';
+	import { browser } from '$app/environment';
+
+	// Mirror the active theme onto <html> so overscroll / rubber-band areas
+	// match the page chrome. We use a class on <html> rather than inline
+	// styles so the same CSS vars that drive the components drive the edges too.
+	$: if (browser) {
+		const html = document.documentElement;
+		html.classList.toggle('theme-dark',   $showDark && !$showMatrix);
+		html.classList.toggle('theme-matrix', $showMatrix);
+	}
 
 	let showNavLogo = false;
 	let showJoinUs = false;
@@ -37,12 +47,12 @@
 	injectAnalytics();
 </script>
 
-<div class:matrix-theme={$showMatrix}>
+<div class:matrix-theme={$showMatrix} class:dark-theme={$showDark && !$showMatrix}>
 	<NavBar {scrollToSection} showLogo={showNavLogo} />
 
 	<main class="pt-0">
 		<!-- Hero section with circuit/matrix background -->
-		<div class="bg-surface-100-800-token relative" class:bg-black={$showMatrix}>
+		<div class="bg-surface-100-800-token relative" class:bg-black={$showMatrix} class:bg-[#141518]={$showDark && !$showMatrix}>
 			{#if $showMatrix}
 				<div class="absolute inset-0 z-10 opacity-[0.3]">
 					<Matrix />
@@ -62,7 +72,7 @@
 		</div>
 
 		<!-- Rest of the content -->
-		<div class="bg-surface-50-900-token" class:bg-[#111]={$showMatrix}>
+		<div class="bg-surface-50-900-token" class:bg-[#111]={$showMatrix} class:bg-[#1C1E24]={$showDark && !$showMatrix}>
 			<div class="section-container">
 				<News />
 			</div>
@@ -174,5 +184,50 @@
 	:global(.matrix-theme h2) {
 		color: var(--mx-accent) !important;
 		text-shadow: var(--mx-glow-md) !important;
+	}
+
+	/* ── Dark (warm charcoal) theme overrides ───────────────────────────────── */
+	:global(.dark-theme) {
+		/* Flip Skeleton surface tokens to dark slate scale */
+		--color-surface-50:  20 21 24;
+		--color-surface-100: 28 30 36;
+		--color-surface-200: 35 38 48;
+		--color-surface-300: 48 51 61;
+		--color-surface-400: 60 64 80;
+		--color-surface-500: 74 80 104;
+		--color-surface-600: 96 104 128;
+		--color-surface-700: 120 128 160;
+		--color-surface-800: 144 152 188;
+		--color-surface-900: 176 184 212;
+		color-scheme: dark;
+		color: var(--dk-text);
+	}
+
+	:global(.dark-theme .bg-surface-100-800-token) {
+		background-color: var(--dk-bg-hero) !important;
+	}
+
+	:global(.dark-theme .bg-surface-50-900-token) {
+		background-color: var(--dk-bg-content) !important;
+	}
+
+	:global(.dark-theme .sticky) {
+		background-color: var(--dk-overlay) !important;
+	}
+
+	:global(.dark-theme .card) {
+		background-color: var(--dk-card-bg) !important;
+		border: 1px solid var(--dk-divider);
+	}
+
+	:global(.dark-theme #mobile-menu) {
+		background-color: var(--dk-overlay) !important;
+	}
+
+	:global(.dark-theme .h2),
+	:global(.dark-theme h2),
+	:global(.dark-theme .section-title) {
+		color: rgb(var(--color-primary-400)) !important;
+		text-shadow: 0 0 18px rgba(232, 168, 0, 0.35), 0 0 6px rgba(232, 168, 0, 0.15) !important;
 	}
 </style>

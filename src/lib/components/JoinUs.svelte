@@ -1,12 +1,25 @@
 <script lang="ts">
     import Matrix from '$lib/components/Matrix.svelte';
-    import { showMatrix } from '$lib/stores/theme';
+    import { showMatrix, showDark } from '$lib/stores/theme';
     export let onClose: () => void;
+
+    // Hardcoded dark-mode values — the modal renders outside .dark-theme so
+    // CSS custom properties from that context are unavailable here.
+    const dk = {
+        bg:      '#1C1A16',
+        border:  '#3A3428',
+        text:    '#EDE5CC',
+        muted:   '#C0AE8E',
+        amber:   '#FBBF24',
+        amberDim:'#E8A800',
+        alertBg: 'rgba(232,168,0,0.08)',
+        overlay: 'rgba(0,0,0,0.65)',
+    };
 </script>
 
 <!-- Outer container with backdrop -->
 <div class="fixed inset-0 z-[100] backdrop-blur-sm flex items-center justify-center p-4"
-     style={$showMatrix ? 'background-color: rgba(0,0,0,0.8)' : 'background-color: rgba(0,0,0,0.5)'}
+     style="background-color: {$showMatrix ? 'rgba(0,0,0,0.8)' : $showDark ? dk.overlay : 'rgba(0,0,0,0.5)'};"
      on:click|self={onClose}
      role="dialog"
      aria-modal="true">
@@ -14,28 +27,35 @@
     <div class="relative w-full max-w-4xl rounded-lg shadow-xl overflow-hidden max-h-[90vh] mt-16 md:mt-0"
          style={$showMatrix
              ? 'background-color: #000; border: 1px solid #0F0; box-shadow: 0 0 20px rgba(0,255,0,0.3);'
-             : 'background-color: rgb(var(--color-surface-100)); border: 1px solid rgb(99 154 255 / 0.3); box-shadow: 0 0 20px rgb(99 154 255 / 0.1);'}>
+             : $showDark
+                 ? `background-color: ${dk.bg}; border: 1px solid ${dk.amber};`
+                 : 'background-color: rgb(var(--color-surface-100)); border: 1px solid rgb(99 154 255 / 0.3); box-shadow: 0 0 20px rgb(99 154 255 / 0.1);'}>
         {#if $showMatrix}
             <div class="absolute inset-0 opacity-20">
                 <Matrix />
             </div>
         {/if}
-        <section id="join" class="p-8 sm:p-10 relative z-20 overflow-y-auto max-h-[calc(90vh-4rem)]">
+        <section id="join" class="p-8 sm:p-10 relative z-20 overflow-y-auto max-h-[calc(90vh-4rem)]"
+                 style={$showDark && !$showMatrix ? `color: ${dk.text};` : ''}>
             <h2 class="h2 font-orbitron mb-8"
                 style={$showMatrix
                     ? 'color: #0F0; text-shadow: 0 0 10px #0F0, 0 0 20px #0F0;'
-                    : 'color: rgb(var(--color-primary-600)); text-shadow: 0 0 16px rgba(var(--color-primary-500),0.35), 0 0 32px rgba(var(--color-primary-500),0.18);'}>
+                    : $showDark
+                        ? `color: ${dk.amber}; text-shadow: 0 0 18px rgba(232,168,0,0.35), 0 0 6px rgba(232,168,0,0.15);`
+                        : 'color: rgb(var(--color-primary-600)); text-shadow: 0 0 16px rgba(var(--color-primary-500),0.35), 0 0 32px rgba(var(--color-primary-500),0.18);'}>
                 Join Us
             </h2>
 
-            <div class="prose prose-lg" class:matrix-prose={$showMatrix}>
+            <div class="prose prose-sm sm:prose-lg" class:matrix-prose={$showMatrix} class:dark-prose={$showDark && !$showMatrix}>
                 <p class="lead">
                     We are actively seeking collaborations with passionate, curious, and dedicated individuals
                     who are interested in robotics and human-robot interaction research.
                 </p>
 
                 <h3 class="h3 mt-8"
-                    style={$showMatrix ? 'color: #0F0; text-shadow: 0 0 10px rgba(0,255,0,0.3);' : ''}>
+                    style={$showMatrix
+                        ? 'color: #0F0; text-shadow: 0 0 10px rgba(0,255,0,0.3);'
+                        : $showDark ? `color: ${dk.amberDim};` : ''}>
                     PhD Positions
                 </h3>
                 <p>
@@ -45,7 +65,9 @@
                 </p>
 
                 <h3 class="h3 mt-6"
-                    style={$showMatrix ? 'color: #0F0; text-shadow: 0 0 10px rgba(0,255,0,0.3);' : ''}>
+                    style={$showMatrix
+                        ? 'color: #0F0; text-shadow: 0 0 10px rgba(0,255,0,0.3);'
+                        : $showDark ? `color: ${dk.amberDim};` : ''}>
                     Research Opportunities
                 </h3>
                 <p>
@@ -60,12 +82,14 @@
                 </ul>
 
                 <div class="alert mt-8"
-                     class:variant-soft-primary={!$showMatrix}
+                     class:variant-soft-primary={!$showMatrix && !$showDark}
                      style={$showMatrix
                          ? 'background-color: rgba(0,255,0,0.1); border: 1px solid #0F0; box-shadow: 0 0 10px rgba(0,255,0,0.3); color: #fff; border-radius: 0.5rem; padding: 1rem 1.25rem;'
-                         : ''}>
+                         : $showDark
+                             ? `background-color: ${dk.alertBg}; border: 1px solid ${dk.border}; border-radius: 0.5rem; padding: 1rem 1.25rem; color: ${dk.text};`
+                             : ''}>
                     <p style={$showMatrix ? 'color: #fff;' : ''}>
-                        <strong style={$showMatrix ? 'color: #fff;' : ''}>Getting Started:</strong> Interested students should reach out at least 4-6 weeks
+                        <strong style={$showMatrix ? 'color: #fff;' : $showDark ? `color: ${dk.amber};` : ''}>Getting Started:</strong> Interested students should reach out at least 4-6 weeks
                         before the semester begins to allow time for project planning and course registration.
                     </p>
                 </div>
@@ -108,5 +132,23 @@
     /* ── Light mode h3 ──────────────────────────────────────────────────── */
     :global(:not(.matrix-theme)) .prose :global(h3) {
         color: rgb(var(--color-primary-500));
+    }
+
+    /* ── Dark mode prose ─────────────────────────────────────────────────── */
+    .dark-prose {
+        color: #EDE5CC;
+    }
+
+    .dark-prose :global(p),
+    .dark-prose :global(li) {
+        color: #EDE5CC;
+    }
+
+    .dark-prose :global(strong) {
+        color: #FBBF24;
+    }
+
+    .dark-prose :global(a) {
+        color: #FBBF24;
     }
 </style>
