@@ -20,6 +20,15 @@
 # - featured:            OPTIONAL - Leave "true" if you want to highlight this project on the home page.
 
 project_list:
+  - title: "Older Adult Perspectives on Home Monitoring Robots"
+    project_description: "Older Adult Perspectives on Home Monitoring Robots: User Preferences and Performance of Robot Observation Strategies"
+    venue: ACM
+    year: 2026
+    pdf: 
+    image: /images/projects/nadira_hri26.png
+    team: [Nadira Mahamane, Sonia Chernova]
+    tags: [robo, hcai]
+    featured: true
 
   - title: "DISCOVER-ing Human Activities in Smart Homes"
     project_description: "DISCOVER: Identifying Patterns of Daily Living in Human Activities from Smart Home Data"
