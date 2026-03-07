@@ -51,7 +51,7 @@ students:
     status: current
     degree: phd
     degree_detail: Robo PhD
-    photo: /images/people/kartik.jpg
+    photo: /images/people/kartik.png
     year_joined: 2021
     website: https://kartikvrama.github.io
     github: https://github.com/kartikvrama

@@ -40,6 +40,15 @@ project_list:
     tags: [hcai, xai]
     featured: true
 
+  - title: "Learning Object Rearrangement Preferences from Observed Semantic Context"
+    project_description: "Personalized Robotic Object Rearrangement from Scene Context"
+    venue: RO-MAN
+    year: 2025
+    image: /images/projects/kartik_parsec.png
+    team: [Kartik Ramachandruni, Sonia Chernova]
+    tags: [hcai, robo]
+    featured: true
+
   - title: Actively Discovering and Adapting to Preferences for any Task
     project_description: "ADAPT: Actively Discovering and Adapting to Preferences for any Task"
     venue: COLM
@@ -114,7 +123,6 @@ project_list:
     project_description: "ConSOR: A Context-Aware Semantic Object Rearrangement Framework for Partially Arranged Scenes"
     venue: IROS
     year: 2023
-    video: https://youtube.com/watch?v=example
     image: /images/projects/kartik_consor.png
     team: [Kartik Ramachandruni, Max Zuo, Sonia Chernova]
     tags: [hcai, robo]
