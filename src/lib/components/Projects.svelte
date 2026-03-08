@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { onMount } from 'svelte';
     import { projects } from '$lib/utils/dataLoader';
     import { scrollable } from '$lib/utils/scroll';
     import { showMatrix } from '$lib/stores/theme';
@@ -14,13 +15,27 @@
         xai: 'Explainable AI'
     };
 
+    const INITIAL_SHOW_SM = 6;
+    const INITIAL_SHOW_LG = 9;
+    const SHOW_MORE_INCREMENT = 8;
+
+    let isLargeScreen = false;
+    $: initialShow = isLargeScreen ? INITIAL_SHOW_LG : INITIAL_SHOW_SM;
+
     let activeFilter = 'all';
     let prevFilter = 'all';
-    const INITIAL_SHOW = 9;
-    const SHOW_MORE_INCREMENT = 8;
-    let visibleCount = INITIAL_SHOW;
+    let visibleCount = INITIAL_SHOW_SM;
     // Incremented each time filter changes to force {#key} re-render
     let filterKey = 0;
+
+    onMount(() => {
+        const mq = window.matchMedia('(min-width: 1024px)');
+        isLargeScreen = mq.matches;
+        visibleCount = mq.matches ? INITIAL_SHOW_LG : INITIAL_SHOW_SM;
+        const handler = (e: MediaQueryListEvent) => { isLargeScreen = e.matches; };
+        mq.addEventListener('change', handler);
+        return () => mq.removeEventListener('change', handler);
+    });
 
     $: filteredProjects = [...(projects?.project_list || [])]
         .filter(project => project.featured)
@@ -37,7 +52,7 @@
         if (tag === activeFilter) return;
         prevFilter = activeFilter;
         activeFilter = tag;
-        visibleCount = INITIAL_SHOW;
+        visibleCount = initialShow;
         filterKey++;
         trackEvent('project_filter', { filter: tag });
     }
