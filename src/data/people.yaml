@@ -108,7 +108,7 @@ students:
     status: current
     degree: phd
     degree_detail: PhD
-    photo: /images/people/placeholder.jpg
+    photo: /images/people/shalini.jpg
     year_joined: 2026
 
 ################################################
@@ -155,6 +155,16 @@ students:
     website: https://hhsiao24.github.io/hannah-portfolio/
     github: https://github.com/hhsiao24
     linkedin: https://www.linkedin.com/in/hannah-hsiao-784845132/
+
+  - name: Aesha Shah
+    status: current
+    degree: bs
+    degree_detail: CS BS
+    photo: /images/people/aesha.jpg
+    year_joined: 2023
+    website: https://aeshashah726.github.io/
+    github: https://github.com/aeshashah726
+    linkedin: https://www.linkedin.com/in/aeshashah7/
 
 
 ############### PostDoc & PhD ALUMNI ###############
@@ -506,16 +516,6 @@ students:
     github: https://github.com/rrustagi20
     linkedin: https://www.linkedin.com/in/rahul-rustagi-34254321b/
     scholar: https://scholar.google.com/citations?user=5KYg7IgAAAAJ&hl=en
-
-  - name: Aesha Shah
-    status: alum
-    degree: bs
-    degree_detail: CS BS
-    photo: /images/people/aesha.jpg
-    year_joined: 2023
-    website: https://aeshashah726.github.io/
-    github: https://github.com/aeshashah726
-    linkedin: https://www.linkedin.com/in/aeshashah7/
 
   - name: Muskan Bawa
     status: alum
