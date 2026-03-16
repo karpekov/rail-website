@@ -24,7 +24,7 @@ project_list:
     project_description: "Older Adult Perspectives on Home Monitoring Robots: User Preferences and Performance of Robot Observation Strategies"
     venue: ACM
     year: 2026
-    pdf: 
+    pdf: https://dl.acm.org/doi/abs/10.1145/3757279.3785612
     image: /images/projects/nadira_hri26.png
     team: [Nadira Mahamane, Sonia Chernova]
     tags: [robo, hcai]
