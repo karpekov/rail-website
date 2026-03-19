@@ -52,7 +52,7 @@
 
 	<main class="pt-0">
 		<!-- Hero section with circuit/matrix background -->
-		<div class="bg-surface-100-800-token relative" class:bg-black={$showMatrix} class:bg-[#141518]={$showDark && !$showMatrix}>
+		<div class="bg-surface-100-800-token relative" class:bg-black={$showMatrix} class:bg-[#080D18]={$showDark && !$showMatrix}>
 			{#if $showMatrix}
 				<div class="absolute inset-0 z-10 opacity-[0.3]">
 					<Matrix />
@@ -72,7 +72,7 @@
 		</div>
 
 		<!-- Rest of the content -->
-		<div class="bg-surface-50-900-token" class:bg-[#111]={$showMatrix} class:bg-[#1C1E24]={$showDark && !$showMatrix}>
+		<div class="bg-surface-50-900-token" class:bg-[#111]={$showMatrix} class:bg-[#0D1525]={$showDark && !$showMatrix}>
 			<div class="section-container">
 				<News />
 			</div>
@@ -186,19 +186,19 @@
 		text-shadow: var(--mx-glow-md) !important;
 	}
 
-	/* ── Dark (warm charcoal) theme overrides ───────────────────────────────── */
+	/* ── Dark (deep navy) theme overrides ───────────────────────────────────── */
 	:global(.dark-theme) {
-		/* Flip Skeleton surface tokens to dark slate scale */
-		--color-surface-50:  20 21 24;
-		--color-surface-100: 28 30 36;
-		--color-surface-200: 35 38 48;
-		--color-surface-300: 48 51 61;
-		--color-surface-400: 60 64 80;
-		--color-surface-500: 74 80 104;
-		--color-surface-600: 96 104 128;
-		--color-surface-700: 120 128 160;
-		--color-surface-800: 144 152 188;
-		--color-surface-900: 176 184 212;
+		/* Flip Skeleton surface tokens to deep dark blue/navy scale */
+		--color-surface-50:   8 13 24;
+		--color-surface-100: 13 21 37;
+		--color-surface-200: 17 30 51;
+		--color-surface-300: 26 45 74;
+		--color-surface-400: 38 62 102;
+		--color-surface-500: 54 84 136;
+		--color-surface-600: 74 112 168;
+		--color-surface-700: 100 142 198;
+		--color-surface-800: 130 168 220;
+		--color-surface-900: 165 198 235;
 		color-scheme: dark;
 		color: var(--dk-text);
 	}

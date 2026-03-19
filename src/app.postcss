@@ -66,10 +66,10 @@ body {
 /* ─── Root-level theme classes (applied to <html>) ──────────────────────────
    Sets html + body background so overscroll / rubber-band areas in
    Chrome/Safari match the page header and footer exactly.
-   ─────────────────────────────────────────────────────────────────────────── */
+   ────────────────────────────────────────────────────────────────────────── */
 html.theme-dark,
 html.theme-dark body {
-	background-color: #1C1A16 !important;
+	background-color: #080D18 !important;
 }
 
 html.theme-matrix,
@@ -77,25 +77,25 @@ html.theme-matrix body {
 	background-color: #000 !important;
 }
 
-/* ─── Dark (warm charcoal) theme tokens ─────────────────────────────────────
-   Option A: same amber-gold accent, surfaces flipped to dark warm charcoal.
+/* ─── Dark (deep navy) theme tokens ─────────────────────────────────────────
+   Same amber-gold accent, surfaces flipped to deep dark blue/navy.
    --dk-* variables mirror the --mx-* naming convention so components can
    add :global(.dark-theme …) overrides in exactly the same pattern.
    ─────────────────────────────────────────────────────────────────────────── */
 .dark-theme {
 	/* Background layers */
-	--dk-bg-hero:    #141518;
-	--dk-bg-content: #1C1E24;
-	--dk-card-bg:    #232630;
-	--dk-divider:    #30333D;
-	--dk-overlay:    rgba(20, 21, 24, 0.97);
+	--dk-bg-hero:    #080D18;
+	--dk-bg-content: #0D1525;
+	--dk-card-bg:    #111E33;
+	--dk-divider:    #1A2D4A;
+	--dk-overlay:    rgba(8, 13, 24, 0.97);
 
 	/* Text */
-	--dk-text:       #E8E4D8;
-	--dk-text-muted: #9098BC;
+	--dk-text:       #E2E8F4;
+	--dk-text-muted: #7A9CC4;
 
 	/* Cover Skeleton's preset body background-image gradient */
-	background-color: #141518;
+	background-color: #080D18;
 }
 
 /* ─── Matrix theme tokens ────────────────────────────────────────────────────

@@ -6,10 +6,10 @@
     // Hardcoded dark-mode values — the modal renders outside .dark-theme so
     // CSS custom properties from that context are unavailable here.
     const dk = {
-        bg:      '#1C1A16',
-        border:  '#3A3428',
-        text:    '#EDE5CC',
-        muted:   '#C0AE8E',
+        bg:      '#080D18',
+        border:  '#1A2D4A',
+        text:    '#E2E8F4',
+        muted:   '#7A9CC4',
         amber:   '#FBBF24',
         amberDim:'#E8A800',
         alertBg: 'rgba(232,168,0,0.08)',
@@ -136,12 +136,12 @@
 
     /* ── Dark mode prose ─────────────────────────────────────────────────── */
     .dark-prose {
-        color: #EDE5CC;
+        color: #E2E8F4;
     }
 
     .dark-prose :global(p),
     .dark-prose :global(li) {
-        color: #EDE5CC;
+        color: #E2E8F4;
     }
 
     .dark-prose :global(strong) {

@@ -79,14 +79,14 @@
     }
 
     .pill-wrap.dark .pill {
-        background: #232630;
-        border-color: #606880;
-        box-shadow: inset 0 0 12px rgba(144, 152, 188, 0.08);
+        background: #111E33;
+        border-color: #3A6090;
+        box-shadow: inset 0 0 12px rgba(122, 156, 196, 0.08);
     }
 
     .toggle-btn:not(:disabled):hover .pill-wrap:not(.dark) .pill {
-        background: #232630;
-        border-color: #606880;
+        background: #111E33;
+        border-color: #3A6090;
     }
 
     .toggle-btn:not(:disabled):hover .pill-wrap.dark .pill {
@@ -117,8 +117,8 @@
 
     .knob.at-end {
         left: calc(100% - 23px);
-        background: #30333D;
-        color: #C8D4F0;
+        background: #1A2D4A;
+        color: #A5C3E6;
         box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
     }
 
