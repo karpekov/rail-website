@@ -107,9 +107,14 @@ students:
   - name: Shalini Sushri
     status: current
     degree: phd
-    degree_detail: PhD
+    degree_detail: CS PhD
     photo: /images/people/shalini.jpg
-    year_joined: 2026
+    year_joined: 2023
+    website: https://ssushri3.github.io/
+    github: https://github.com/ssushri3
+    linkedin: https://www.linkedin.com/in/shalinisushri/
+    twitter: N/A
+    scholar: https://scholar.google.com/citations?hl=en&user=15RVtY8AAAAJ
 
 ################################################
 ##############         MS/BS         ###########
