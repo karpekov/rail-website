@@ -1,6 +1,5 @@
 <script>
     import { people } from '$lib/utils/dataLoader';
-    import { slide } from 'svelte/transition';
     import { scrollable } from '$lib/utils/scroll';
     import { showMatrix } from '$lib/stores/theme';
     import { trackEvent } from '$lib/utils/analytics';
@@ -11,8 +10,6 @@
         const linkType = anchor.title || 'link';
         trackEvent('member_card_click', { member_name: memberName, link_type: linkType, section: 'members' });
     }
-
-    let showCollaborators = false;
 
     // Combine faculty and students
     const allMembers = [...(people?.faculty || []), ...(people?.students || [])];
@@ -321,44 +318,6 @@
         </div>
     {/if}
 
-    <!-- Other Alumni -->
-    {#if alumni.filter(m => !['phd', 'postdoc'].includes(m.degree)).length > 0}
-        <div class="mt-12">
-            <button
-                class="w-full flex items-center gap-3 h3 mb-4 font-thin hover:opacity-80 transition-opacity"
-                on:click={() => showCollaborators = !showCollaborators}
-            >
-                <svg
-                    class="w-6 h-6 transform transition-transform duration-200 flex-none"
-                    class:rotate-90={showCollaborators}
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                >
-                    <path d="M9 5l7 7-7 7" />
-                </svg>
-                <span>Previous Collaborators</span>
-            </button>
-            {#if showCollaborators}
-            <div transition:slide={{duration: 300}}>
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 max-w-6xl mx-auto px-4">
-                    {#each alumni
-                        .filter(m => !['phd', 'postdoc'].includes(m.degree))
-                        .sort((a, b) => a.name.localeCompare(b.name)) as member}
-                        <div class="flex justify-between items-center py-1.5 px-3 rounded-lg bg-surface-100-800-token text-sm">
-                            <span class="font-medium">
-                                {member.name.split(' ').length > 2 ?
-                                    member.name :
-                                    member.name.split(' ').join('\n')}
-                            </span>
-                        </div>
-                    {/each}
-                </div>
-            </div>
-            {/if}
-        </div>
-    {/if}
 </section>
 
 <style>
@@ -427,8 +386,4 @@
         box-shadow: 0 0 0 2px var(--tw-ring-color);
     }
 
-    button {
-        cursor: pointer;
-        -webkit-tap-highlight-color: transparent;
-    }
 </style>

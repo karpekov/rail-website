@@ -162,7 +162,7 @@ students:
     linkedin: https://www.linkedin.com/in/hannah-hsiao-784845132/
 
   - name: Aesha Shah
-    status: current
+    status: alum
     degree: bs
     degree_detail: CS BS
     photo: /images/people/aesha.jpg
@@ -208,19 +208,6 @@ students:
     website: https://ddevleena.com/
     linkedin: https://www.linkedin.com/in/ddevleena/
     scholar: https://scholar.google.com/citations?user=xzt3VP0AAAAJ&hl=en
-
-  - name: Jack Kolb
-    status: alum
-    degree: phd
-    degree_detail: PhD
-    photo: /images/people/jack.jpg
-    year_joined: 2020
-    graduation: 2025
-    next_role: "Research Scientist @ Apple"
-    website: https://jackkolb.com/
-    linkedin: https://www.linkedin.com/in/jack-kolb-786134b8/
-    github: https://github.com/jackkolb
-    scholar: https://scholar.google.com/citations?user=kKoPyvIAAAAJ
 
   - name: Harish Ravichandar
     status: alum

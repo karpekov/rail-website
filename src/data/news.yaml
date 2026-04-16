@@ -1,16 +1,16 @@
 recent_news:
 
-  - date: January 2026
-    content: "[Shalini Sushri](https://linkedin.com/in/shalini-sushri) joined the lab as a Ph.D. student."
+  - date: March 2026
+    content: "Georgia Tech's College of Computing featured [Niharika Mathur](https://niharikamathur.com)'s research showing that [explainability is a must for older adults to trust AI](https://www.cc.gatech.edu/news/new-study-shows-explainability-must-older-adults-trust-ai). The work will be presented at [CHI 2026](https://chi2026.acm.org/) in Barcelona."
+
+  - date: March 2026
+    content: "Lab alumni [Weiyu Liu](http://weiyuliu.com/) and [Joanne Truong](https://www.joannetruong.com/) are part of [Rhoda AI](https://www.rhoda.ai/), a newly launched robotics startup that exited stealth with a [$450M Series A](https://www.reuters.com/technology/rhoda-ai-raises-450-million-17-billion-valuation-unveils-robot-intelligence-2026-03-10/)."
 
   - date: December 2025
-    content: "[Nadira Mahamane](https://nadira.me)'s paper Older Adult Perspectives on Home Monitoring Robots: User Preferences and Performance of Robot Observation Strategies has been accepted to HRI 2026!"
+    content: "[Nadira Mahamane](https://nadira.me)'s paper [Older Adult Perspectives on Home Monitoring Robots: User Preferences and Performance of Robot Observation Strategies](https://dl.acm.org/doi/abs/10.1145/3757279.3785612) has been accepted to HRI 2026."
 
-  - date: June 2025
-    content: "[Kartik Ramachandruni](https://kartikvrama.github.io) successfully passed his thesis proposal."
-
-  - date: June 2025
-    content: "[Maithili Patel](https://maithili.github.io) successfully passed her thesis proposal."
+  - date: October 2025
+    content: "[Alex Karpekov](https://www.alexkarpekov.com/) presented [VISAR: Visualization and Interpretation of Sensor-based Activity Recognition for Smart Homes](https://dl.acm.org/doi/10.1145/3714394.3756319) at UbiComp 2025."
 
   - date: February 2025
     content: "[Niharika Mathur](https://niharikamathur.com) chaired the CHI 2025 workshop [Technology Mediated Caregiving For Older Adults Aging in Place](https://dl.acm.org/doi/full/10.1145/3706599.3706721)."
@@ -23,6 +23,3 @@ recent_news:
 
   - date: September 2024
     content: "[Ethan Schneider](https://ethannschneider.com)'s paper [CE-MRS: Contrastive Explanations for Multi-Robot Systems](https://ieeexplore.ieee.org/abstract/document/10697262) has been accepted for publication in RA-L!"
-
-  - date: August 2024
-    content: "[Alex Karpekov](https://www.alexkarpekov.com/) joined the lab as a Ph.D. student."
