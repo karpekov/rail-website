@@ -253,6 +253,17 @@ students:
     linkedin: https://www.linkedin.com/in/angel-andres-daruna/
     github: https://github.com/adaruna3
 
+  - name: "Glen Neville"
+    photo: /images/people/glen.png
+    status: alum
+    degree: phd
+    degree_detail: "PhD"
+    year_joined: 2018
+    graduation: 2022
+    linkedin: https://www.linkedin.com/in/glenneville/
+    scholar: https://scholar.google.com/citations?user=BRnL4_gAAAAJ
+    next_role: "ML Engineer @ Zoox"
+
   - name: "Lakshmi Nair"
     photo: /images/people/lakshmi.jpg
     status: alum
