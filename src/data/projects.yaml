@@ -20,6 +20,16 @@
 # - featured:            OPTIONAL - Leave "true" if you want to highlight this project on the home page.
 
 project_list:
+  - title: "Many-to-Many Multi-Agent Pickup and Delivery"
+    project_description: "Many-to-Many Multi-Agent Pickup and Delivery"
+    venue: ICRA
+    year: 2026
+    pdf: https://arxiv.org/pdf/2605.07835
+    image: /images/projects/ethan_M2M.jpg
+    team: [Ethan Schneider, Jingkai Chen, Tianyi Gu, Kunlei Lian, Seth Hutchinson, Sonia Chernova ]
+    tags: [multi, robo]
+    featured: true
+
   - title: "Older Adult Perspectives on Home Monitoring Robots"
     project_description: "Older Adult Perspectives on Home Monitoring Robots: User Preferences and Performance of Robot Observation Strategies"
     venue: ACM

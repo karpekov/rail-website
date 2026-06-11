@@ -1,5 +1,8 @@
 recent_news:
 
+  - date: June 2026
+    content: "[Ethan Schneider](https://ethan-schneider.github.io/) presented [Many-to-Many Multi-Agent Pickup and Delivery](https://arxiv.org/pdf/2605.07835) at ICRA 2026 in Vienna, Austria."
+
   - date: March 2026
     content: "Georgia Tech's College of Computing featured [Niharika Mathur](https://niharikamathur.com)'s research showing that [explainability is a must for older adults to trust AI](https://www.cc.gatech.edu/news/new-study-shows-explainability-must-older-adults-trust-ai). The work will be presented at [CHI 2026](https://chi2026.acm.org/) in Barcelona."
 
