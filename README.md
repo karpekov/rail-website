@@ -67,11 +67,11 @@ We highly recommend testing your changes locally before pushing them to the main
 You need to have Node.js installed on your machine. If you don't have it, you can install it using nvm (Node Version Manager).
 
 0. If you don't have it, install nvm from: https://github.com/nvm-sh/nvm#installing-and-updating
-1. Install Node.js 20.x (LTS version):
+1. Install Node.js 24.x (LTS version):
    - Using nvm (recommended):
      ```bash
-     nvm install 20
-     nvm use 20
+     nvm install
+     nvm use
      ```
    - Or download directly from: https://nodejs.org/
 
@@ -112,6 +112,6 @@ You need to have Node.js installed on your machine. If you don't have it, you ca
 
 If you run into any issues:
 1. Check the error messages in your terminal
-2. Make sure your Node.js version is correct (`node -v` should show v20.x.x)
+2. Make sure your Node.js version is correct (`node -v` should show v24.x.x)
 3. Try deleting the `node_modules` folder and running `npm install` again
 4. Contact the website maintainers for help
