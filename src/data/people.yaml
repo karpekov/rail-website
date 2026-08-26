@@ -90,7 +90,7 @@ students:
     photo: /images/people/hannah.jpg
     year_joined: 2026
     github: https://github.com/hgspig
-    linkedin: www.linkedin.com/in/hannah-spigarelli
+    linkedin: https://www.linkedin.com/in/hannah-spigarelli
 
   - name: Yuchen (Felix) Zheng
     status: current
