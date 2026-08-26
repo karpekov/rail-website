@@ -36,28 +36,6 @@ faculty:
 
 students:
 
-  - name: Maithili Patel
-    status: current
-    degree: phd
-    degree_detail: Robo PhD
-    photo: /images/people/maithili.jpg
-    year_joined: 2021
-    website: https://maithili.github.io/
-    linkedin: https://www.linkedin.com/in/Maithili/
-    github: https://github.com/Maithili
-    scholar: https://scholar.google.com/citations?user=dvqkwFYAAAAJ&hl=en
-
-  - name: Kartik Ramachandruni
-    status: current
-    degree: phd
-    degree_detail: Robo PhD
-    photo: /images/people/kartik.png
-    year_joined: 2021
-    website: https://kartikvrama.github.io
-    github: https://github.com/kartikvrama
-    linkedin: https://www.linkedin.com/in/kartik-ramachandruni/
-    scholar: https://scholar.google.com/citations?user=c6OhZroAAAAJ&hl=en
-
   - name: Ethan Schneider
     status: current
     degree: phd
@@ -68,17 +46,6 @@ students:
     scholar: https://scholar.google.com/citations?user=0ubC95wAAAAJ&hl=en
     linkedin: https://www.linkedin.com/in/ethanschneiders/
     twitter: https://x.com/EthanSchneider_
-
-  - name: Niharika Mathur
-    status: current
-    degree: phd
-    degree_detail: HCC PhD
-    photo: /images/people/niharika.jpg
-    year_joined: 2021
-    website: https://www.niharikamathur.com/
-    scholar: https://scholar.google.com/citations?user=iP0Po4MAAAAJ&hl=en
-    linkedin: https://www.linkedin.com/in/niharika1011/
-    twitter: https://x.com/niharika1011
 
   - name: Nadira Mahamane
     status: current
@@ -104,42 +71,41 @@ students:
     twitter: https://x.com/alexkarpekov
     scholar: https://scholar.google.com/citations?user=r0RqCXQAAAAJ
 
-  - name: Shalini Sushri
+  - name: Harsh Muriki
     status: current
     degree: phd
     degree_detail: CS PhD
-    photo: /images/people/shalini.jpg
-    year_joined: 2023
-    website: https://ssushri3.github.io/
-    github: https://github.com/ssushri3
-    linkedin: https://www.linkedin.com/in/shalinisushri/
-    twitter: N/A
-    scholar: https://scholar.google.com/citations?hl=en&user=15RVtY8AAAAJ
-
-################################################
-##############         MS/BS         ###########
-
-  - name: Harsh Muriki
-    status: current
-    degree: masters
-    degree_detail: CS MS
     photo: /images/people/harsh.jpg
-    year_joined: 2024
+    year_joined: 2026
     website: https://www.harshmuriki.com/
     github: https://github.com/harshmuriki
     linkedin: https://www.linkedin.com/in/venkata-harsh-muriki/
     twitter: https://x.com/Harshmuriki24
     scholar: https://scholar.google.com/citations?user=Q9a5nPkAAAAJ&hl=en
 
-  - name: Nhi Nguyen Ngoc Yen
+  - name: Hannah Spigarelli
     status: current
-    degree: ms
-    degree_detail: Robo MS
-    photo: /images/people/leona.jpg
-    year_joined: 2024
-    github: https://github.com/NhiNguyencmt8
-    linkedin: https://www.linkedin.com/in/nhi-nguyen-b3042a1a8/
-    scholar: https://scholar.google.com/citations?user=YDhbRU4AAAAJ&hl=en
+    degree: phd
+    degree_detail: Robo PhD
+    photo: /images/people/hannah.jpg
+    year_joined: 2026
+    github: https://github.com/hgspig
+    linkedin: www.linkedin.com/in/hannah-spigarelli
+
+  - name: Yuchen (Felix) Zheng
+    status: current
+    degree: phd
+    degree_detail: Robo PhD
+    photo: /images/people/felix.jpg
+    year_joined: 2026
+    website: https://felixzheng02.github.io/
+    github: https://github.com/felixzheng02
+    linkedin: https://www.linkedin.com/in/yuchen-zheng-2824531b9/
+    twitter: https://x.com/felix_zheng_77
+    scholar: https://scholar.google.com/citations?user=rVv1_zcAAAAJ&hl=en&authuser=1
+
+################################################
+##############         MS/BS         ###########
 
   - name: Gayathri Aravindan
     status: current
@@ -151,28 +117,47 @@ students:
     linkedin: https://www.linkedin.com/in/gayathri-aravindan/
     twitter: https://x.com/gayathriara
 
-  - name: Hannah Hsiao
-    status: current
-    degree: bs
-    degree_detail: CS BS
-    photo: /images/people/hannah.jpg
-    year_joined: 2024
-    website: https://hhsiao24.github.io/hannah-portfolio/
-    github: https://github.com/hhsiao24
-    linkedin: https://www.linkedin.com/in/hannah-hsiao-784845132/
-
-  - name: Aesha Shah
-    status: alum
-    degree: bs
-    degree_detail: CS BS
-    photo: /images/people/aesha.jpg
-    year_joined: 2023
-    website: https://aeshashah726.github.io/
-    github: https://github.com/aeshashah726
-    linkedin: https://www.linkedin.com/in/aeshashah7/
-
 
 ############### PostDoc & PhD ALUMNI ###############
+
+  - name: Niharika Mathur
+    status: alum
+    degree: phd
+    degree_detail: HCC PhD
+    photo: /images/people/niharika.jpg
+    year_joined: 2021
+    graduation: 2026
+    next_role: "PostDoc @ Johns Hopkins"
+    website: https://www.niharikamathur.com/
+    scholar: https://scholar.google.com/citations?user=iP0Po4MAAAAJ&hl=en
+    linkedin: https://www.linkedin.com/in/niharika1011/
+    twitter: https://x.com/niharika1011
+
+  - name: Maithili Patel
+    status: alum
+    degree: phd
+    degree_detail: Robo PhD
+    photo: /images/people/maithili.jpg
+    year_joined: 2021
+    graduation: 2026
+    next_role: "Postdoc @ CMU"
+    website: https://maithili.github.io/
+    linkedin: https://www.linkedin.com/in/Maithili/
+    github: https://github.com/Maithili
+    scholar: https://scholar.google.com/citations?user=dvqkwFYAAAAJ&hl=en
+
+  - name: Kartik Ramachandruni
+    status: alum
+    degree: phd
+    degree_detail: Robo PhD
+    photo: /images/people/kartik.png
+    year_joined: 2021
+    graduation: 2026
+    next_role: "Research Scientist @ Samsung"
+    website: https://kartikvrama.github.io
+    github: https://github.com/kartikvrama
+    linkedin: https://www.linkedin.com/in/kartik-ramachandruni/
+    scholar: https://scholar.google.com/citations?user=c6OhZroAAAAJ&hl=en
 
   - name: Kantwon Rogers
     status: alum
@@ -371,6 +356,11 @@ students:
 
 ############### MS and BS ALUMNI ###############
 
+  - name: Nhi Nguyen Ngoc Yen
+    status: alum
+    degree: ms
+
+
   - name: Max Zuo
     status: alum
     degree: ms
@@ -527,3 +517,23 @@ students:
     photo: /images/people/muskan.jpg
     year_joined: 2024
     linkedin: https://www.linkedin.com/in/muskan-bawa/
+
+  - name: Hannah Hsiao
+    status: alum
+    degree: bs
+    degree_detail: CS BS
+    photo: /images/people/hannah.jpg
+    year_joined: 2024
+    website: https://hhsiao24.github.io/hannah-portfolio/
+    github: https://github.com/hhsiao24
+    linkedin: https://www.linkedin.com/in/hannah-hsiao-784845132/
+
+  - name: Aesha Shah
+    status: alum
+    degree: bs
+    degree_detail: CS BS
+    photo: /images/people/aesha.jpg
+    year_joined: 2023
+    website: https://aeshashah726.github.io/
+    github: https://github.com/aeshashah726
+    linkedin: https://www.linkedin.com/in/aeshashah7/

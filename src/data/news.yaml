@@ -1,4 +1,12 @@
 recent_news:
+  - date: July 2026
+    content: "🎓 Congratulations to [Dr. Kartik Ramachandruni](https://kartikvrama.github.io) who successfully defended his dissertation."
+
+  - date: June 2026
+    content: "🎓 Congratulations to [Dr. Maithili Patel](https://maithili.github.io/) who successfully defended her dissertation."
+
+  - date: June 2026
+    content: "🎓 Congratulations to [Dr. Niharika Mathur](https://www.niharikamathur.com/) who successfully defended her dissertation."
 
   - date: June 2026
     content: "[Ethan Schneider](https://ethan-schneider.github.io/) presented [Many-to-Many Multi-Agent Pickup and Delivery](https://arxiv.org/pdf/2605.07835) at ICRA 2026 in Vienna, Austria."
