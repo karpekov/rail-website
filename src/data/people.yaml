@@ -107,15 +107,34 @@ students:
 ################################################
 ##############         MS/BS         ###########
 
+  - name: Jigyasa Hasija
+    status: current
+    degree: ms
+    degree_detail: CS MS
+    photo: /images/people/jigyasa.jpg
+    year_joined: 2026
+    website: https://jigyasahasija.github.io/
+    linkedin: https://www.linkedin.com/in/jigyasa-hasija/
+
+  - name: Rena Nakashima
+    status: current
+    degree: MS
+    degree_detail: CS MS
+    photo: /images/people/rena.jpg
+    year_joined: 2026
+    website: https://renanakashima.github.io/
+    linkedin: https://www.linkedin.com/in/renanakashima/
+
   - name: Gayathri Aravindan
     status: current
     degree: bs
     degree_detail: CS BS
-    photo: /images/people/gayathri.jpg
-    year_joined: 2024
+    photo: /images/people/gayathri.png
+    year_joined: 2025
     github: https://github.com/gayathriaravindan
     linkedin: https://www.linkedin.com/in/gayathri-aravindan/
     twitter: https://x.com/gayathriara
+
 
 
 ############### PostDoc & PhD ALUMNI ###############
