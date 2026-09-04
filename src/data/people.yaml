@@ -125,6 +125,28 @@ students:
     website: https://renanakashima.github.io/
     linkedin: https://www.linkedin.com/in/renanakashima/
 
+  - name: Ankit Mehta
+    status: current
+    degree: MS
+    degree_detail: Robo MS
+    photo: /images/people/ankit.jpg
+    year_joined: 2026
+    website: https://amehta265.github.io
+    github: https://github.com/amehta265
+    linkedin: https://www.linkedin.com/in/ankit-h-mehta/
+    scholar: https://scholar.google.com/citations?user=VQWRzKwAAAAJ&hl=en
+
+  - name: Nima Jadali
+    status: current
+    degree: masters
+    degree_detail: CS MS
+    photo: /images/people/nima.jpg
+    year_joined: 2026
+    website: https://www.nimajadali.com/
+    github: https://github.com/NimaJadali
+    linkedin: https://www.linkedin.com/in/nima-jadali
+    scholar: https://scholar.google.com/citations?user=VNsruGoAAAAJ&hl=en
+
   - name: Gayathri Aravindan
     status: current
     degree: bs
@@ -159,7 +181,7 @@ students:
     photo: /images/people/maithili.jpg
     year_joined: 2021
     graduation: 2026
-    next_role: "Postdoc @ CMU"
+    next_role: "PostDoc @ CMU"
     website: https://maithili.github.io/
     linkedin: https://www.linkedin.com/in/Maithili/
     github: https://github.com/Maithili
