@@ -147,6 +147,16 @@ students:
     linkedin: https://www.linkedin.com/in/nima-jadali
     scholar: https://scholar.google.com/citations?user=VNsruGoAAAAJ&hl=en
 
+  - name: Sumukha Suresh Srivatsa
+    status: current
+    degree: MS
+    degree_detail: Robo MS
+    photo: /images/people/sumukha.jpg
+    year_joined: 2026
+    github: https://github.com/sumukhasrivatsa
+    linkedin: https://www.linkedin.com/in/sumukha-srivatsa/
+    instagram: https://www.instagram.com/sumukha3011/
+
   - name: Gayathri Aravindan
     status: current
     degree: bs
