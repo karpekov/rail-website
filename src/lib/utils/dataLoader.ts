@@ -3,8 +3,10 @@ import projectsYaml from '../../data/projects.yaml';
 import newsYaml from '../../data/news.yaml';
 import funYaml from '../../data/fun.yaml';
 import teachingData from '../../data/teaching.yaml';
+import labRobotsYaml from '../../data/lab_robots.yaml';
 
 export const people = peopleYaml;
+export const labRobots = labRobotsYaml.robots || [];
 export const projects = projectsYaml;
 export const news = newsYaml;
 export const fun = funYaml;

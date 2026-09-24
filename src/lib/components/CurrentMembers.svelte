@@ -1,6 +1,7 @@
 <script lang="ts">
-    import { onDestroy } from 'svelte';
-    import { people } from '$lib/utils/dataLoader';
+    import { onDestroy, onMount } from 'svelte';
+    import { people, labRobots } from '$lib/utils/dataLoader';
+    import RobotPortrait from '$lib/components/RobotPortrait.svelte';
     import { showMatrix, showDark } from '$lib/stores/theme';
     import { trackEvent } from '$lib/utils/analytics';
 
@@ -76,7 +77,37 @@
         flippedMembers = new Set();
     }
 
-    onDestroy(() => clearFlipTimeouts());
+    // Keep prof+PhDs, MS/BS, and robots on their own rows only when the first
+    // two groups each fit on a single line. Otherwise flow everyone together.
+    let flowEl: HTMLDivElement;
+    let flowTogether = false;
+    let resizeObserver: ResizeObserver;
+
+    function fitsOnOneRow(count: number) {
+        if (!flowEl || count <= 1) return true;
+        const card = flowEl.querySelector('.person-card') as HTMLElement | null;
+        if (!card) return true;
+        const gap = parseFloat(getComputedStyle(flowEl).columnGap) || 0;
+        const needed = count * card.offsetWidth + (count - 1) * gap;
+        return needed <= flowEl.clientWidth + 1;
+    }
+
+    function updateFlow() {
+        const seniorsSpill = !fitsOnOneRow(seniorMembers.length);
+        const juniorsSpill = juniorMembers.length > 1 && !fitsOnOneRow(juniorMembers.length);
+        flowTogether = seniorsSpill || juniorsSpill;
+    }
+
+    onMount(() => {
+        updateFlow();
+        resizeObserver = new ResizeObserver(() => updateFlow());
+        resizeObserver.observe(flowEl);
+    });
+
+    onDestroy(() => {
+        clearFlipTimeouts();
+        resizeObserver?.disconnect();
+    });
 </script>
 
 <section id="current-members">
@@ -95,9 +126,7 @@
             </a>
         </h2>
 
-        <!-- Senior Members Row -->
-        <div class="mb-4">
-            <div class="flex flex-wrap justify-center gap-1 sm:gap-6">
+        <div class="members-flow flex flex-wrap justify-center" bind:this={flowEl}>
                 {#each seniorMembers as member}
                     <div class="person-card">
                         {#if getProfileLink(member)}
@@ -158,16 +187,13 @@
                             <p class="font-semibold text-center text-[12px] sm:text-[14px] break-words leading-none">
                                 {member.name.split(' ').length > 2 ? member.name : member.name.split(' ').join('\n')}
                             </p>
-                            <p class="text-[11px] sm:text-xs text-center opacity-75 break-words -mt-1 sm:mt-0">{member.degree_detail}</p>
+                            <p class="text-[11px] sm:text-xs leading-tight text-center opacity-75 break-words -mt-1 sm:mt-0">{member.degree_detail}</p>
                         </div>
                     </div>
                 {/each}
-            </div>
-        </div>
 
-        <!-- Junior Members Row -->
         {#if juniorMembers.length > 0}
-            <div class="flex flex-wrap justify-center gap-1 sm:gap-6">
+            {#if !flowTogether}<div class="row-break" aria-hidden="true"></div>{/if}
                 {#each juniorMembers as member}
                     <div class="person-card">
                         {#if getProfileLink(member)}
@@ -228,16 +254,72 @@
                             <p class="font-semibold text-center text-[12px] sm:text-[14px] break-words leading-none">
                                 {member.name.split(' ').length > 2 ? member.name : member.name.split(' ').join('\n')}
                             </p>
-                            <p class="text-[11px] sm:text-xs text-center opacity-75 break-words -mt-1 sm:mt-0">{member.degree_detail}</p>
+                            <p class="text-[11px] sm:text-xs leading-tight text-center opacity-75 break-words -mt-1 sm:mt-0">{member.degree_detail}</p>
                         </div>
                     </div>
                 {/each}
-            </div>
         {/if}
+
+        {#if labRobots.length > 0}
+            {#if !flowTogether}<div class="row-break" aria-hidden="true"></div>{/if}
+                {#each labRobots as robot}
+                    <div class="person-card">
+                        {#if robot.video}
+                            <a href={robot.video} target="_blank" rel="noopener noreferrer" class="block"
+                                on:click={() => trackEvent('member_card_click', { member_name: robot.name, section: 'hero' })}>
+                                <div class="person-card-image">
+                                    <RobotPortrait
+                                        photo={robot.photo}
+                                        gif={robot.gif}
+                                        alt={robot.name}
+                                        width="112"
+                                        height="112"
+                                        loading="lazy"
+                                    />
+                                </div>
+                            </a>
+                        {:else}
+                            <div class="person-card-image">
+                                <RobotPortrait
+                                    photo={robot.photo}
+                                    gif={robot.gif}
+                                    alt={robot.name}
+                                    width="112"
+                                    height="112"
+                                    loading="lazy"
+                                />
+                            </div>
+                        {/if}
+                        <div class="text-center space-y-0 sm:space-y-0.5 w-full">
+                            <p class="font-semibold text-center text-[12px] sm:text-[14px] break-words leading-none">{robot.name}</p>
+                            <p class="text-[11px] sm:text-xs leading-tight text-center opacity-75 break-words -mt-1 sm:mt-0">{robot.company_name}</p>
+                        </div>
+                    </div>
+                {/each}
+        {/if}
+        </div>
     </div>
 </section>
 
 <style>
+    .members-flow {
+        --flow-gap: 0.25rem;
+        column-gap: var(--flow-gap);
+        row-gap: var(--flow-gap);
+    }
+
+    @media (min-width: 640px) {
+        .members-flow {
+            --flow-gap: 1.5rem;
+        }
+    }
+
+    .row-break {
+        flex-basis: 100%;
+        height: 0;
+        margin-top: calc(var(--flow-gap) * -1);
+    }
+
     .person-card {
         transition: all 0.3s ease-in-out;
         @apply flex flex-col items-center space-y-2 w-20 sm:w-28;
