@@ -43,8 +43,8 @@
 </script>
 
 <section id="about">
-    <div class="container mx-auto max-w-6xl px-4 sm:px-6 md:px-8 pt-8 pb-2">
-        <div bind:this={logoElement} class="flex flex-col lg:flex-row lg:items-center lg:gap-8 mb-6 min-h-[12rem]">
+    <div class="container mx-auto max-w-6xl px-4 sm:px-6 md:px-8 pt-4 pb-0">
+        <div bind:this={logoElement} class="flex flex-col lg:flex-row lg:items-center lg:gap-8 mb-3 min-h-[12rem]">
             <RAILLogo />
 
             <!--
@@ -53,7 +53,7 @@
                 Ghost h1 is invisible but in-flow → its height = final text height.
                 Typing h1 is absolutely positioned on top of the ghost.
             -->
-            <div class="typing-wrapper mt-4 lg:mt-0">
+            <div class="typing-wrapper mt-2 lg:mt-0">
                 <!-- Ghost: in-flow, invisible, reserves the final text height -->
                 <h1
                     class="h1 font-orbitron text-center lg:text-left ghost-title"
@@ -72,10 +72,10 @@
             </div>
         </div>
 
-        <p class="text-2xl font-bold pt-1 font-orbitron text-center" class:matrix-text={$showMatrix}>
+        <p class="text-2xl font-bold font-orbitron text-center" class:matrix-text={$showMatrix}>
             Advancing AI and Robotics for a Human-Centered World.
         </p>
-        <p class="text-md lg:text-xl pt-2 font-opensans">
+        <p class="text-md lg:text-xl pt-1 font-opensans">
 
             RAIL Lab at <a href="https://www.gatech.edu/" target="_blank">Georgia Tech</a>
             advances human-centered robotics by developing AI systems that learn,

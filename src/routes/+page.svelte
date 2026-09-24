@@ -62,7 +62,7 @@
 				<HexBackground />
 			</div>
 		{/if}
-			<div class="relative z-20 space-y-4 sm:space-y-6 md:space-y-8 py-6 sm:py-8 md:py-10">
+			<div class="relative z-20 space-y-2 sm:space-y-3 md:space-y-4 py-4 sm:py-5 md:py-6">
 				<About onLogoIntersect={handleLogoIntersection} />
 				{#if showJoinUs}
 					<JoinUs onClose={closeJoinUs} />

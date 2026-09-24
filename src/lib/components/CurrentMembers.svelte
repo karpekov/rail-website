@@ -112,7 +112,7 @@
 
 <section id="current-members">
     <div class="container mx-auto max-w-6xl px-4 sm:px-6 md:px-8">
-        <h2 class="text-center mb-4 sm:mb-6 md:mb-8 flex flex-col sm:flex-row justify-center items-center gap-1">
+        <h2 class="text-center mb-2 sm:mb-3 md:mb-4 flex flex-col sm:flex-row justify-center items-center gap-1">
             Current RAIL Lab Members.
             <a
                 href="#members"
@@ -303,21 +303,24 @@
 
 <style>
     .members-flow {
-        --flow-gap: 0.25rem;
-        column-gap: var(--flow-gap);
-        row-gap: var(--flow-gap);
+        --col-gap: 0.25rem;
+        --row-gap: 0.25rem;
+        column-gap: var(--col-gap);
+        row-gap: var(--row-gap);
+        align-content: flex-start;
     }
 
     @media (min-width: 640px) {
         .members-flow {
-            --flow-gap: 1.5rem;
+            --col-gap: 1.5rem;
+            --row-gap: 0.5rem;
         }
     }
 
     .row-break {
         flex-basis: 100%;
         height: 0;
-        margin-top: calc(var(--flow-gap) * -1);
+        margin-top: calc(var(--row-gap) * -1);
     }
 
     .person-card {
