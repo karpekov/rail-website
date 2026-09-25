@@ -1,5 +1,6 @@
 <script>
-    import { people } from '$lib/utils/dataLoader';
+    import { people, labRobots } from '$lib/utils/dataLoader';
+    import RobotPortrait from '$lib/components/RobotPortrait.svelte';
     import { scrollable } from '$lib/utils/scroll';
     import { showMatrix } from '$lib/stores/theme';
     import { trackEvent } from '$lib/utils/analytics';
@@ -53,12 +54,12 @@
     <!-- Current Members -->
     <div class="mb-8">
         <h3 class="h3 mb-4 font-thin">Current Members</h3>
-        <div class="flex flex-wrap justify-evenly sm:justify-start gap-2 sm:gap-4 max-w-6xl mx-auto px-4 pt-2">
+        <div class="member-grid max-w-6xl mx-auto pt-2">
             {#each currentMembers as member}
-                <div class="flex-none w-[140px] sm:w-[160px] flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card"
+                <div class="w-full min-w-0 flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card"
                     on:click={(e) => handleMemberLinkClick(e, member.name)}>
                     <div
-                        class="w-24 h-24 sm:w-36 sm:h-36 rounded-full bg-surface-300-600-token overflow-hidden ring-2"
+                        class="member-avatar rounded-full bg-surface-300-600-token overflow-hidden ring-2"
                             class:ring-amber={!$showMatrix}
                             class:ring-black={$showMatrix}
                         >
@@ -122,14 +123,14 @@
 
             <!-- Postdoc Alumni -->
             {#if alumni.filter(m => m.degree === 'postdoc').length > 0}
-                <div class="flex flex-wrap justify-evenly sm:justify-start gap-2 sm:gap-4 max-w-6xl mx-auto px-4 pt-2 mb-8">
+                <div class="member-grid max-w-6xl mx-auto pt-2 mb-8">
                     {#each alumni
                         .filter(m => m.degree === 'postdoc')
                         .sort((a, b) => b.graduation - a.graduation) as member}
-                    <div class="flex-none w-[140px] sm:w-[160px] flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card"
+                    <div class="w-full min-w-0 flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card"
                         on:click={(e) => handleMemberLinkClick(e, member.name)}>
                         <div
-                            class="w-24 h-24 sm:w-36 sm:h-36 rounded-full bg-surface-300-600-token overflow-hidden ring-2"
+                            class="member-avatar rounded-full bg-surface-300-600-token overflow-hidden ring-2"
                             class:ring-amber={!$showMatrix}
                             class:ring-black={$showMatrix}
                         >
@@ -220,14 +221,14 @@
 
             <!-- PhD Alumni -->
             {#if alumni.filter(m => m.degree === 'phd').length > 0}
-                <div class="flex flex-wrap justify-evenly sm:justify-start gap-2 sm:gap-4 max-w-6xl mx-auto px-4 pt-2">
+                <div class="member-grid max-w-6xl mx-auto pt-2">
                     {#each alumni
                         .filter(m => m.degree === 'phd')
                         .sort((a, b) => b.graduation - a.graduation) as member}
-                    <div class="flex-none w-[140px] sm:w-[160px] flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card"
+                    <div class="w-full min-w-0 flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card"
                         on:click={(e) => handleMemberLinkClick(e, member.name)}>
                         <div
-                            class="w-24 h-24 sm:w-36 sm:h-36 rounded-full bg-surface-300-600-token overflow-hidden ring-2"
+                            class="member-avatar rounded-full bg-surface-300-600-token overflow-hidden ring-2"
                             class:ring-amber={!$showMatrix}
                             class:ring-black={$showMatrix}
                         >
@@ -318,6 +319,56 @@
         </div>
     {/if}
 
+    <!-- Robots -->
+    {#if labRobots.length > 0}
+        <div class="mt-12">
+            <h3 class="h3 mb-4 font-thin">Robots</h3>
+            <div class="member-grid max-w-6xl mx-auto pt-2">
+                {#each labRobots as robot}
+                    <div class="w-full min-w-0 flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card"
+                        on:click={(e) => handleMemberLinkClick(e, robot.name)}>
+                        <div
+                            class="member-avatar rounded-full bg-surface-300-600-token overflow-hidden ring-2"
+                            class:ring-amber={!$showMatrix}
+                            class:ring-black={$showMatrix}
+                        >
+                            <RobotPortrait
+                                photo={robot.photo}
+                                gif={robot.gif}
+                                alt={robot.name}
+                                width="144"
+                                height="144"
+                                loading="lazy"
+                            />
+                        </div>
+
+                        <div class="flex gap-1.5 sm:gap-2 mt-2">
+                            {#if robot.website}
+                                <a href={robot.website} target="_blank" rel="noopener noreferrer" class="text-sm social-icon" title="Website">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                                    </svg>
+                                </a>
+                            {/if}
+                            {#if robot.video}
+                                <a href={robot.video} target="_blank" rel="noopener noreferrer" class="text-sm social-icon" title="Watch Video">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                                    </svg>
+                                </a>
+                            {/if}
+                        </div>
+
+                        <div class="text-center space-y-1 w-full">
+                            <h4 class="font-medium text-sm sm:text-base member-name">{robot.name}</h4>
+                            <p class="font-thin text-xs sm:text-sm break-words">{robot.company_name}</p>
+                        </div>
+                    </div>
+                {/each}
+            </div>
+        </div>
+    {/if}
+
 </section>
 
 <style>
@@ -341,6 +392,33 @@
     :global(.matrix-theme) .social-icon:hover {
         color: var(--mx-accent);
         text-shadow: 0 0 10px var(--mx-accent-half);
+    }
+
+    /* Two columns only on very small screens. Typical phones get three. */
+    .member-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.5rem;
+    }
+
+    @media (min-width: 340px) {
+        .member-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+    }
+
+    @media (min-width: 640px) {
+        .member-grid {
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fill, 160px);
+            justify-content: start;
+        }
+    }
+
+    .member-avatar {
+        width: 100%;
+        aspect-ratio: 1;
+        max-width: 9rem;
     }
 
     .member-card {

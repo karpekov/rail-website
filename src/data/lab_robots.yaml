@@ -14,13 +14,27 @@ robots:
     gif: /images/robots/sprout_profile.gif
     website: https://faunarobotics.com/
     video: https://www.youtube.com/watch?v=pO9MEqs7H2s
+
   - name: Stretch 4
     company_name: Hello Robot
     photo: /images/robots/stretch4_profile.png
     website: https://hello-robot.com/stretch-4/
     video: https://www.youtube.com/watch?v=uyHa-Gk4THw
+
   - name: Stretch 3
     company_name: Hello Robot
     photo: /images/robots/stretch3_profile.png
     website: https://hello-stretch3.com/
     video: https://www.youtube.com/watch?v=haauI2x2U1E
+
+  - name: Fetch
+    company_name: Fetch Robotics
+    photo: /images/robots/fetch_profile.png
+    video: https://www.youtube.com/watch?v=Eyibv4yAngA
+    website: https://www.skild.ai/
+
+  - name: Jaco
+    company_name: Kinova Robotics
+    photo: /images/robots/jaco_profile.png
+    video: https://www.youtube.com/watch?v=NWDw4mHNAv0
+    website: https://www.kinovarobotics.com/
