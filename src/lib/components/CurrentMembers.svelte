@@ -162,8 +162,8 @@
                     </div>
                 {/each}
 
-        {#if labRobots.length > 0}
-                {#each labRobots as robot}
+        {#if labRobots.some(robot => robot.status !== 'alum')}
+                {#each labRobots.filter(robot => robot.status !== 'alum') as robot}
                     {@const robotLines = nameLines(robot.name)}
                     <div class="person-card">
                         {#if robot.video}
@@ -221,62 +221,97 @@
         width: 100%;
     }
 
-    /* 5 across on phones (4 rows), 6 on medium (3 rows), 9 on wide (2 rows). */
+    /* 5 across on phones, 6 on medium, 9 on wide.
+       A short last row is centered. A last row of 3 or fewer stays on the left. */
     .members-flow {
-        display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         column-gap: 0.65rem;
         row-gap: 0.5rem;
-        justify-items: center;
         width: 100%;
         margin-inline: auto;
-    }
-
-    @container (min-width: 540px) {
-        .members-flow {
-            grid-template-columns: repeat(6, minmax(0, 1fr));
-            column-gap: 0.7rem;
-            row-gap: 0.65rem;
-        }
-    }
-
-    @container (min-width: 980px) {
-        .members-flow {
-            grid-template-columns: repeat(9, minmax(0, 1fr));
-            column-gap: 0.65rem;
-            row-gap: 0.7rem;
-            max-width: 66rem;
-        }
     }
 
     .person-card {
         container-type: inline-size;
         transition: transform 0.3s ease-in-out;
-        width: 100%;
-        max-width: 6.75rem;
+        flex: 0 0 calc((100% - 4 * 0.65rem) / 5);
+        width: calc((100% - 4 * 0.65rem) / 5);
+        max-width: none;
         @apply flex flex-col items-center gap-1;
+    }
+
+    @container (max-width: 539px) {
+        .members-flow:has(> :nth-child(5n + 1):last-child),
+        .members-flow:has(> :nth-child(5n + 2):last-child),
+        .members-flow:has(> :nth-child(5n + 3):last-child) {
+            justify-content: flex-start;
+        }
+    }
+
+    @container (min-width: 540px) and (max-width: 979px) {
+        .members-flow {
+            column-gap: 0.7rem;
+            row-gap: 0.65rem;
+        }
+
+        .person-card {
+            flex-basis: calc((100% - 5 * 0.7rem) / 6);
+            width: calc((100% - 5 * 0.7rem) / 6);
+        }
+
+        .members-flow:has(> :nth-child(6n + 1):last-child),
+        .members-flow:has(> :nth-child(6n + 2):last-child),
+        .members-flow:has(> :nth-child(6n + 3):last-child) {
+            justify-content: flex-start;
+        }
+    }
+
+    @container (min-width: 980px) {
+        .members-flow {
+            column-gap: 0.65rem;
+            row-gap: 0.7rem;
+            max-width: 66rem;
+        }
+
+        .person-card {
+            flex-basis: calc((100% - 8 * 0.65rem) / 9);
+            width: calc((100% - 8 * 0.65rem) / 9);
+        }
+
+        .members-flow:has(> :nth-child(9n + 1):last-child),
+        .members-flow:has(> :nth-child(9n + 2):last-child),
+        .members-flow:has(> :nth-child(9n + 3):last-child) {
+            justify-content: flex-start;
+        }
     }
 
     .person-card > a {
         display: block;
-        width: 100%;
+        width: min(100%, 6.75rem);
+        margin-inline: auto;
     }
 
     .person-card-image {
-        width: 100%;
+        width: min(100%, 6.75rem);
+        margin-inline: auto;
         aspect-ratio: 1;
         @apply rounded-full overflow-hidden transition-all;
     }
 
     @container members (min-width: 980px) {
-        .person-card-image {
+        .person-card > a .person-card-image,
+        .person-card > .person-card-image {
             width: 90%;
+            max-width: 6.75rem;
             margin-inline: auto;
         }
     }
 
     .member-caption {
         width: 100%;
+        max-width: 6.75rem;
         text-align: center;
     }
 

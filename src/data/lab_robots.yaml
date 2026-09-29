@@ -1,6 +1,8 @@
-# Lab robots, listed after human members.
+# Lab robots.
+# Current robots appear in the hero. The Robots section lists current ones first, then alum.
 #
 # - name:          required
+# - status:        required, one of: [current, alum]
 # - company_name:  required, shown under the robot name
 # - photo:         required, still image shown until the page has loaded
 # - gif:           optional, loops in place of the photo after the page has loaded
@@ -9,6 +11,7 @@
 
 robots:
   - name: Sprout
+    status: current
     company_name: Fauna Robotics
     photo: /images/robots/sprout_profile.png
     gif: /images/robots/sprout_profile.gif
@@ -16,25 +19,93 @@ robots:
     video: https://www.youtube.com/watch?v=pO9MEqs7H2s
 
   - name: Stretch 4
+    status: current
     company_name: Hello Robot
     photo: /images/robots/stretch4_profile.png
     website: https://hello-robot.com/stretch-4/
     video: https://www.youtube.com/watch?v=uyHa-Gk4THw
 
   - name: Stretch 3
+    status: current
     company_name: Hello Robot
     photo: /images/robots/stretch3_profile.png
     website: https://hello-stretch3.com/
     video: https://www.youtube.com/watch?v=haauI2x2U1E
 
   - name: Fetch
+    status: current
     company_name: Fetch Robotics
     photo: /images/robots/fetch_profile.png
     video: https://www.youtube.com/watch?v=Eyibv4yAngA
     website: https://www.skild.ai/
 
+  - name: Curi
+    status: alum
+    company_name: Carla Diana
+    photo: /images/robots/curi.jpg
+    video: https://www.youtube.com/watch?v=OthjhGv6iIM
+    website: https://www.carladiana.com/curi
+
+  - name: PR2
+    status: alum
+    company_name: Willow Garage
+    photo: /images/robots/pr2.jpg
+    video: https://www.youtube.com/watch?v=zhnXO5wnAKs
+    website: https://en.wikipedia.org/wiki/Willow_Garage
+
+  - name: Pepper
+    status: alum
+    company_name: Soft Bank Robotics
+    photo: /images/robots/pepper.jpg
+    video: https://www.youtube.com/watch?v=kr05reBxVRs
+    website: https://us.softbankrobotics.com/pepper
+
+  - name: Kuri
+    status: alum
+    company_name: Mayfield Robotics
+    photo: /images/robots/kuri.jpg
+    video: https://www.youtube.com/watch?v=d-XlYmbs0ho
+    website: https://www.bosch-business-innovations.com/media/downloads/mayfield_robotics_exit_story_2mb_update.pdf
+
+  - name: Jibo
+    status: alum
+    company_name: Jibo Inc.
+    photo: /images/robots/jibo.jpg
+    video: https://www.youtube.com/watch?v=XS0Alc7cZ2Q
+    website: https://www.jibo.net/
+
+  - name: A1
+    status: alum
+    company_name: Unitree
+    photo: /images/robots/a1.jpg
+    video: https://www.youtube.com/watch?v=6zPvT0ig1VM
+    website: https://www.unitree.com/a1
+
   - name: Jaco
+    status: alum
     company_name: Kinova Robotics
     photo: /images/robots/jaco_profile.png
     video: https://www.youtube.com/watch?v=NWDw4mHNAv0
     website: https://www.kinovarobotics.com/
+
+  - name: Sawyer
+    status: alum
+    company_name: Rethink Robotics
+    photo: /images/robots/sawyer.jpg
+    video: https://www.youtube.com/watch?v=S4mULTknb2I
+    website: https://en.wikipedia.org/wiki/Rethink_Robotics
+
+  - name: Franka Emika
+    status: alum
+    company_name: Franka Robotics
+    photo: /images/robots/franka.jpg
+    video: https://www.youtube.com/watch?v=bXo68UFNyhk
+    website: https://franka.de/
+
+  - name: Cozmo
+    status: alum
+    company_name: Anki
+    photo: /images/robots/cozmo.jpg
+    video: https://www.youtube.com/watch?v=DHY5kpGTsDE
+    website: https://anki.bot/pages/meet-cozmo
+

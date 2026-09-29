@@ -324,7 +324,7 @@
         <div class="mt-12">
             <h3 class="h3 mb-4 font-thin">Robots</h3>
             <div class="member-grid max-w-6xl mx-auto pt-2">
-                {#each labRobots as robot}
+                {#each [...labRobots].sort((a, b) => (a.status === 'alum') - (b.status === 'alum')) as robot}
                     <div class="w-full min-w-0 flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card"
                         on:click={(e) => handleMemberLinkClick(e, robot.name)}>
                         <div
