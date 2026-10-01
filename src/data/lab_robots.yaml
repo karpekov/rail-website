@@ -39,12 +39,12 @@ robots:
     video: https://www.youtube.com/watch?v=Eyibv4yAngA
     website: https://www.skild.ai/
 
-  - name: Curi
-    status: alum
-    company_name: Carla Diana
-    photo: /images/robots/curi.jpg
-    video: https://www.youtube.com/watch?v=OthjhGv6iIM
-    website: https://www.carladiana.com/curi
+  # - name: Curi
+  #   status: alum
+  #   company_name: Carla Diana
+  #   photo: /images/robots/curi.jpg
+  #   video: https://www.youtube.com/watch?v=OthjhGv6iIM
+  #   website: https://www.carladiana.com/curi
 
   - name: PR2
     status: alum
@@ -53,12 +53,12 @@ robots:
     video: https://www.youtube.com/watch?v=zhnXO5wnAKs
     website: https://en.wikipedia.org/wiki/Willow_Garage
 
-  - name: Pepper
-    status: alum
-    company_name: Soft Bank Robotics
-    photo: /images/robots/pepper.jpg
-    video: https://www.youtube.com/watch?v=kr05reBxVRs
-    website: https://us.softbankrobotics.com/pepper
+  # - name: Pepper
+  #   status: alum
+  #   company_name: Soft Bank Robotics
+  #   photo: /images/robots/pepper.jpg
+  #   video: https://www.youtube.com/watch?v=kr05reBxVRs
+  #   website: https://us.softbankrobotics.com/pepper
 
   - name: Kuri
     status: alum
@@ -95,12 +95,12 @@ robots:
     video: https://www.youtube.com/watch?v=S4mULTknb2I
     website: https://en.wikipedia.org/wiki/Rethink_Robotics
 
-  - name: Franka Emika
-    status: alum
-    company_name: Franka Robotics
-    photo: /images/robots/franka.jpg
-    video: https://www.youtube.com/watch?v=bXo68UFNyhk
-    website: https://franka.de/
+  # - name: Franka Emika
+  #   status: alum
+  #   company_name: Franka Robotics
+  #   photo: /images/robots/franka.jpg
+  #   video: https://www.youtube.com/watch?v=bXo68UFNyhk
+  #   website: https://franka.de/
 
   - name: Cozmo
     status: alum
@@ -109,10 +109,10 @@ robots:
     video: https://www.youtube.com/watch?v=DHY5kpGTsDE
     website: https://anki.bot/pages/meet-cozmo
 
-  - name: AIBO
-    status: alum
-    company_name: Sony
-    photo: /images/robots/aibo.jpg
-    video: https://www.youtube.com/watch?v=J9-udJ6Gf18
-    website: https://en.wikipedia.org/wiki/AIBO
+  # - name: AIBO
+  #   status: alum
+  #   company_name: Sony
+  #   photo: /images/robots/aibo.jpg
+  #   video: https://www.youtube.com/watch?v=J9-udJ6Gf18
+  #   website: https://en.wikipedia.org/wiki/AIBO
 
