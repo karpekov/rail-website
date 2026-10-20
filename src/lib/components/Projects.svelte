@@ -102,9 +102,11 @@
                 <div class="p-3 space-y-2 flex-grow">
                     <div class="space-y-2">
                         <h4 class="font-medium text-base">{project.title}</h4>
-                        <div class="publication-chip">
-                            {project.venue} '{(project.year % 100).toString().padStart(2, '0')}
-                        </div>
+                        {#if project.venue}
+                            <div class="publication-chip">
+                                {project.venue} '{(project.year % 100).toString().padStart(2, '0')}
+                            </div>
+                        {/if}
                         {#if project.tags && project.tags.length > 0}
                             <div class="flex flex-wrap gap-1.5 mt-1 mb-2">
                                 {#each project.tags as tag}
@@ -126,6 +128,18 @@
                     </p>
 
                     <div class="flex flex-wrap gap-2 pt-2 items-center project-links">
+                        {#if project.blog}
+                            <a href={project.blog} target="_blank" rel="noopener noreferrer"
+                               on:click={() => trackEvent('project_blog_click', { project: project.title })}
+                               class="chip variant-soft-primary transition-all flex-none matrix-chip {!$showMatrix ? 'hover:variant-filled-primary' : ''}"
+                               title="Read the Blog Post">
+                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 20h9" />
+                                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+                                </svg>
+                                <span class="ml-1 text-sm">Blog</span>
+                            </a>
+                        {/if}
                         {#if project.website}
                             <a href={project.website} target="_blank" rel="noopener noreferrer"
                                class="chip variant-soft-primary transition-all flex-none matrix-chip {!$showMatrix ? 'hover:variant-filled-primary' : ''}"

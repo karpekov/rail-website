@@ -4,7 +4,8 @@
 # Fields:
 # - title:               REQUIRED - Title of your card; something short and catchy.
 # - project_description: REQUIRED - Full title of the paper or project.
-# - venue:               REQUIRED - Conference or Journal name (ideally, abbreviated) + year. E.g.: [RAS'23, CoRL'22, IJRR'22]
+# - venue:               REQUIRED for papers - Conference or Journal name (ideally, abbreviated) + year. E.g.: [RAS'23, CoRL'22, IJRR'22]
+#                        Omit for non-paper items (e.g., blog posts) to hide the venue chip.
 # - year:                REQUIRED - Year of publication (e.g., 2024)
 # - image:               REQUIRED - Figure 1, or any other catchy image of your project.
 # - team:                REQUIRED - Full author list, organized as a comma-separated list with first+last names.
@@ -17,9 +18,19 @@
 # - pdf:                 OPTIONAL - Link to the paper or project.
 # - github:              OPTIONAL - Link to the github repository.
 # - video:               OPTIONAL - Link to the video of the project.
+# - blog:                OPTIONAL - Link to a blog post about the project.
 # - featured:            OPTIONAL - Leave "true" if you want to highlight this project on the home page.
 
 project_list:
+  - title: "Astra Beyond Tabletop: Into the Home"
+    project_description: "Evaluating Astra as a Zero-Shot Robot Policy for Mobile Manipulation with Hello Robot Stretch 4"
+    year: 2026
+    blog: /blog/astra-beyond-tabletop/
+    image: /images/projects/astra_control_loop.svg
+    team: [Yuchen Zheng, Nima Jadali, Ankit Mehta, Rena Nakashima, Sumukha Suresh Srivatsa, Nadira Mahamane, Harsh Muriki, Hannah Spigarelli, Sonia Chernova]
+    tags: [robo]
+    featured: true
+
   - title: "Many-to-Many Multi-Agent Pickup and Delivery"
     project_description: "Many-to-Many Multi-Agent Pickup and Delivery"
     venue: ICRA
