@@ -1,3 +1,20 @@
 {
-  "framework": "sveltekit"
+  "framework": "sveltekit",
+  "redirects": [
+    {
+      "source": "/blog/astra-beyond-tabletop",
+      "destination": "/blog/astra-beyond-tabletop/",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/blog/astra-beyond-tabletop/",
+      "destination": "https://felixzheng02.github.io/astra-eval-blog-page/"
+    },
+    {
+      "source": "/blog/astra-beyond-tabletop/:path*",
+      "destination": "https://felixzheng02.github.io/astra-eval-blog-page/:path*"
+    }
+  ]
 }
