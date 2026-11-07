@@ -45,6 +45,17 @@
         );
     }
 
+    // Track clicks on links rendered inside news items (delegated, since the
+    // anchors are injected via {@html}).
+    function trackNewsLinkClick(event: MouseEvent) {
+        const link = (event.target as HTMLElement | null)?.closest('a.news-inline-link');
+        if (!link) return;
+        trackEvent('news_link_click', {
+            link_url: link.getAttribute('href') ?? '',
+            link_text: link.textContent?.trim() ?? ''
+        });
+    }
+
     $: visibleNews = allNews.slice(0, visibleCount);
     $: hasMore = visibleCount < allNews.length;
 </script>
@@ -71,7 +82,8 @@
                             <div class="tl-stem"></div>
                         </div>
                         <div class="tl-body">
-                            <p>{@html renderContent(item.content)}</p>
+                            <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
+                            <p on:click={trackNewsLinkClick}>{@html renderContent(item.content)}</p>
                         </div>
                     </div>
                 {/each}

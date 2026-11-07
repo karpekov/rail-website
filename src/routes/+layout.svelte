@@ -21,14 +21,19 @@
 	<meta property="og:url" content="https://rail.gatech.edu/">
 	<meta property="og:title" content="RAIL Lab @ Georgia Tech">
 	<meta property="og:description" content="Robot Autonomy and Interactive Learning Lab at Georgia Institute of Technology">
-	<meta property="og:image" content="https://rail.gatech.edu/assets/hero.jpg">
+	<meta property="og:image" content="https://rail.gatech.edu/assets/social-card.png">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta property="og:image:alt" content="RAIL — Robot Autonomy and Interactive Learning at Georgia Tech">
+	<meta property="og:site_name" content="RAIL Lab @ Georgia Tech">
 
 	<!-- Twitter -->
-	<meta property="twitter:card" content="summary_large_image">
-	<meta property="twitter:url" content="https://rail.gatech.edu/">
-	<meta property="twitter:title" content="RAIL Lab @ Georgia Tech">
-	<meta property="twitter:description" content="Robot Autonomy and Interactive Learning Lab at Georgia Institute of Technology">
-	<meta property="twitter:image" content="https://rail.gatech.edu/assets/hero.jpg">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:url" content="https://rail.gatech.edu/">
+	<meta name="twitter:title" content="RAIL Lab @ Georgia Tech">
+	<meta name="twitter:description" content="Robot Autonomy and Interactive Learning Lab at Georgia Institute of Technology">
+	<meta name="twitter:image" content="https://rail.gatech.edu/assets/social-card.png">
+	<meta name="twitter:image:alt" content="RAIL — Robot Autonomy and Interactive Learning at Georgia Tech">
 </svelte:head>
 
 <!-- Skeleton Modal -->
