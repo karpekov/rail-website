@@ -72,17 +72,14 @@
             </div>
         </div>
 
-        <p class="text-2xl font-bold font-orbitron text-center" class:matrix-text={$showMatrix}>
-            Advancing AI and Robotics for a Human-Centered World.
-        </p>
         <p class="text-md lg:text-xl pt-1 font-opensans">
 
-            RAIL Lab at <a href="https://www.gatech.edu/" target="_blank">Georgia Tech</a>
-            advances human-centered robotics by developing AI systems that learn,
-            reason, and interact naturally within complex, everyday environments.
-            Our research integrates interactive robot learning, semantic scene understanding,
-            and explainable AI to create assistive technologies
-            that seamlessly adapt to and transparently support human needs.
+            At RAIL Lab at <a href="https://www.gatech.edu/" target="_blank">Georgia Tech</a>,
+            we work on robot planning and learning, multi-robot coordination, and human-aware decision-making.
+            We study how robots can make sense of their surroundings, pick up on people's preferences,
+            and work alongside people and other robots.
+            Throughout, we care about building systems that can adapt to the people they work with
+            and explain their decisions.
 
         </p>
     </div>
@@ -110,10 +107,6 @@
 
     @keyframes cursor {
         50% { opacity: 0; }
-    }
-
-    .matrix-text {
-        color: var(--mx-accent) !important;
     }
 
     .matrix-title {

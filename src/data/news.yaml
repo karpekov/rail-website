@@ -48,10 +48,10 @@ recent_news:
     content: "[Maithili Patel](https://maithili.github.io) gave an invited talk at the [Environment Dynamics Matters](https://edmws.github.io/) workshop at IROS 2024, Abu Dhabi."
 
   - date: September 2024
-    content: "[Ethan Schneider](https://ethannschneider.com)'s paper [CE-MRS: Contrastive Explanations for Multi-Robot Systems](https://ieeexplore.ieee.org/abstract/document/10697262) was accepted for publication in RA-L!"
+    content: "[Ethan Schneider](https://ethan-schneider.github.io/)'s paper [CE-MRS: Contrastive Explanations for Multi-Robot Systems](https://ieeexplore.ieee.org/abstract/document/10697262) was accepted for publication in RA-L!"
 
   - date: August 2023
-    content: "[Kartik Ramachandruni](https://kartikvrama.github.io)'s paper [UHTP: A User-Aware Hierarchical Task Planning Framework for Communication-Free, Mutually-Adaptive Human-Robot Collaboration](https://dl.acm.org/doi/pdf/10.1145/3623387) was accepted to the Transactions on ACM Human-Robot Interaction (THRI)."
+    content: "[Kartik Ramachandruni](https://kartikvrama.github.io)'s paper [UHTP: A User-Aware Hierarchical Task Planning Framework for Communication-Free, Mutually-Adaptive Human-Robot Collaboration](https://dl.acm.org/doi/pdf/10.1145/3623387) was accepted to ACM Transactions on Human-Robot Interaction (THRI)."
 
   - date: June 2023
     content: "[Kartik Ramachandruni](https://kartikvrama.github.io)'s paper [ConSOR: A Context-Aware Semantic Object Rearrangement Framework for Partially Arranged Scenes](https://arxiv.org/abs/2310.00371) was accepted to the IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)."

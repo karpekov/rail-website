@@ -8,12 +8,12 @@
 
 activities:
   - title: Bridge Up
-    description: "Bridge Up, co-organized by Georgia Tech’s RAIL Lab, is an eight-week program empowering young women to explore coding, robotics, and machine learning. Participants are tutored and mentored by RAIL Lab students, with a focus on machine learning concepts and hands-on group projects in convolutional neural networks."
+    description: "Bridge Up is an eight-week program, co-organized by RAIL Lab, where young women learn coding, robotics, and machine learning. Our students tutor and mentor participants through hands-on group projects with convolutional neural networks."
     image: /images/fun/bridgeup.jpg
     frequency: Annual in Spring
 
   - title: Atlanta Science Festival
-    description: As a part of the Atlanta Science Festival, we introduce kids to robotics. We showcase our robots, organize interactive demos and talk about the cool research we do.
+    description: As a part of the Atlanta Science Festival, we introduce kids to robotics. We showcase our robots, organize interactive demos and talk about our research.
     image: /images/fun/atl-science-festival.jpg
     frequency: Annual in Spring
 
@@ -22,12 +22,7 @@ activities:
     image: /images/fun/robo-halloween.jpg
     frequency: Every October
 
-  - title: Climbing
-    description: Monthly rock climbing sessions where lab members bond over conquering walls and boulders. We discuss research ideas, solve problems, and build team spirit while getting some exercise. Sometimes we even bring our small robots to attempt some climbs!
-    image: /images/fun/robo-climbing.jpg
-    frequency: Weekly
-
   - title: Hiking
-    description: When the weather decides to get better, we find time for a hike. We take a break from normal lives and enjoy the beautiful outdoors around Atlanta.
+    description: When the weather is good, we go hiking around Atlanta.
     image: /images/fun/hiking.jpg
-    frequency: Every couple months, weather permitting
+    frequency: Every couple of months, weather permitting

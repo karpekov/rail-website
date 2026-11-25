@@ -118,7 +118,7 @@ students:
 
   - name: Rena Nakashima
     status: current
-    degree: MS
+    degree: ms
     degree_detail: CS MS
     photo: /images/people/rena.jpg
     year_joined: 2026
@@ -127,7 +127,7 @@ students:
 
   - name: Ankit Mehta
     status: current
-    degree: MS
+    degree: ms
     degree_detail: Robo MS
     photo: /images/people/ankit.jpg
     year_joined: 2026
@@ -138,7 +138,7 @@ students:
 
   - name: Nima Jadali
     status: current
-    degree: masters
+    degree: ms
     degree_detail: CS MS
     photo: /images/people/nima.jpg
     year_joined: 2026
@@ -149,7 +149,7 @@ students:
 
   - name: Sumukha Suresh Srivatsa
     status: current
-    degree: MS
+    degree: ms
     degree_detail: Robo MS
     photo: /images/people/sumukha.jpg
     year_joined: 2026

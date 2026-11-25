@@ -48,8 +48,7 @@
 
             <div class="prose prose-sm sm:prose-lg" class:matrix-prose={$showMatrix} class:dark-prose={$showDark && !$showMatrix}>
                 <p class="lead">
-                    We are actively seeking collaborations with passionate, curious, and dedicated individuals
-                    who are interested in robotics and human-robot interaction research.
+                    We're always happy to hear from people interested in robotics and human-robot interaction.
                 </p>
 
                 <h3 class="h3 mt-8"
@@ -59,9 +58,9 @@
                     PhD Positions
                 </h3>
                 <p>
-                    PhD admissions are handled through Georgia Tech's College of Computing. Prospective students
-                    should apply through the official admission process. We encourage interested candidates to
-                    highlight their relevant experience and research interests in their application materials.
+                    PhD admissions go through Georgia Tech's College of Computing. Please apply through the official
+                    process and mention RAIL Lab in your statement. Dr. Chernova looks forward to reviewing your
+                    application once it is submitted.
                 </p>
 
                 <h3 class="h3 mt-6"
@@ -71,13 +70,12 @@
                     Research Opportunities
                 </h3>
                 <p>
-                    The best way to get involved with our lab is through one of the courses we offer.
-                    These courses provide an excellent opportunity to work on research projects while earning
-                    course credit. Interested students should:
+                    The best way to get involved is to take one of our courses, where you can work on a research
+                    project for credit. If you're interested:
                 </p>
                 <ul>
                     <li>Review our current research projects and publications</li>
-                    <li>Prepare a brief proposal outlining their research interests</li>
+                    <li>Prepare a brief proposal outlining your research interests</li>
                     <li>Contact Dr. Chernova well before the semester starts to discuss potential projects</li>
                 </ul>
 
@@ -89,8 +87,9 @@
                              ? `background-color: ${dk.alertBg}; border: 1px solid ${dk.border}; border-radius: 0.5rem; padding: 1rem 1.25rem; color: ${dk.text};`
                              : ''}>
                     <p style={$showMatrix ? 'color: #fff;' : ''}>
-                        <strong style={$showMatrix ? 'color: #fff;' : $showDark ? `color: ${dk.amber};` : ''}>Getting Started:</strong> Interested students should reach out at least 4-6 weeks
-                        before the semester begins to allow time for project planning and course registration.
+                        <strong style={$showMatrix ? 'color: #fff;' : $showDark ? `color: ${dk.amber};` : ''}>Getting Started:</strong> Georgia Tech MS students interested in research
+                        and capstone projects should email Dr. Chernova at least 4-6 weeks before the semester starts
+                        for a list of open projects.
                     </p>
                 </div>
             </div>

@@ -28,10 +28,8 @@
     <h2 class="h2 font-orbitron section-title">Fun & Outreach</h2>
 
     <p class="text-sm sm:text-base mb-8 font-opensans">
-        Beyond cutting-edge research, RAIL Lab actively engages with our local community. From showcasing
-        candy-distributing robots during Halloween to teaching robotics to local students, we're passionate
-        about making technology accessible and exciting. Our lab members also enjoy regular social activities
-        like hiking and rock climbing. Check out some of our recent activities below!
+        Outside of research, we teach robotics to local students, show our robots at the Atlanta Science Festival,
+        and send them out on Halloween to hand out candy. We also go hiking together.
     </p>
 
     <!-- Scroll container with nav buttons -->

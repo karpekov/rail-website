@@ -3,7 +3,7 @@
 # Fields:
 # - name:         REQUIRED - Name of the course
 # - semester:     REQUIRED - Latest semester when the course was taught
-# - description:  REQUIRED - Brief 1-sentencee dscription of the course
+# - description:  REQUIRED - Brief 1-sentence description of the course
 # - status:       REQUIRED - one of: [current, upcoming, past]
 # - website:      OPTIONAL - Link to the course website, if available
 
@@ -16,13 +16,13 @@ courses:
 
   - name: "CS 7633: Human-Robot Interaction"
     semester: Fall 2026
-    description: "Graduate course covering human-robot interaction and social robot learning, focusing on physical embodiment, multi-modal interfaces, human-robot teamwork, social cognition, and ethical considerations, culminating in a final project."
+    description: "Graduate course covering human-robot interaction and social robot learning, focusing on physical embodiment, multi-modal interfaces, human-robot teamwork, social cognition, and ethical considerations, with a final project."
     status: current
     website: "https://faculty.cc.gatech.edu/~chernova/CS7633/index.html"
 
   - name: "CS 8803: Explainable AI"
     semester: Fall 2023
-    description: "Graduate course covering interpretability in AI, focusing on leading XAI research, user-centered design principles, real-world deployment challenges, and ethical considerations, culminating in a project on explainable machine learning."
+    description: "Graduate course covering interpretability in AI, focusing on leading XAI research, user-centered design principles, real-world deployment challenges, and ethical considerations, with a final project on explainable machine learning."
     status: past
 
   - name: "CS/ECE/ME/AE/BME 7785: Introduction to Robotics Research."
