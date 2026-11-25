@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import { browser } from '$app/environment';
+import { browser } from '$app/env';
 
 // ── Matrix mode ───────────────────────────────────────────────────────────────
 const storedMatrix = browser ? localStorage.getItem('matrixTheme') === 'true' : false;

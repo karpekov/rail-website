@@ -1,8 +1,8 @@
-<script>
-    import RAILLogo from '$lib/../../static/assets/RAIL.svg?raw';
-    import { showMatrix } from '$lib/stores/theme';
+<script lang="ts">
+    import RAILLogo from '../../../static/assets/RAIL.svg?raw';
+    import { showMatrix } from '#lib/stores/theme.ts';
 
-    function modifySvg(svgContent) {
+    function modifySvg(svgContent: string) {
         return svgContent
             .replace('<svg', '<svg class="animated-svg h-full w-full"')
             .replace(/stroke="[^"]*"/g, 'stroke="currentColor"');

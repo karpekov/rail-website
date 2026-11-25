@@ -1,16 +1,9 @@
 <script lang="ts">
-    import type { ModalComponent } from '@skeletonlabs/skeleton';
-
-    export let parent: ModalComponent;
     export let activity: any;
-
-    $: {
-        console.log('Activity in modal:', activity);
-    }
 </script>
 
 {#if activity}
-    <div class="card p-4 w-full max-w-lg mx-auto">
+    <div class="rail-card p-4 w-full max-w-lg mx-auto">
         <div class="w-full h-48 sm:h-40 rounded-lg overflow-hidden mb-4">
             <img
                 src={activity.image}
@@ -19,8 +12,8 @@
             />
         </div>
 
-        <div class="space-y-4">
-            <h3 class="h3">{activity.title}</h3>
+        <div class="stack-y-4">
+            <h3 class="rail-h3">{activity.title}</h3>
             <p class="text-sm">{activity.fullDescription}</p>
 
             <div class="flex flex-wrap gap-2 text-sm">

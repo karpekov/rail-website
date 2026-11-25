@@ -1,6 +1,6 @@
 <script lang="ts">
-    import { showMatrix } from '$lib/stores/theme';
-    import { trackEvent } from '$lib/utils/analytics';
+    import { showMatrix } from '#lib/stores/theme.ts';
+    import { trackEvent } from '#lib/utils/analytics.ts';
 
     export let inMenu = false;
 

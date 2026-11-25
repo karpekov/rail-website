@@ -1,7 +1,7 @@
 <script lang="ts">
     import RAILLogo from './RAILLogo.svelte';
     import { onMount } from 'svelte';
-    import { showMatrix } from '$lib/stores/theme';
+    import { showMatrix } from '#lib/stores/theme.ts';
 
     let displayText = "";
     let typingDone = false;
@@ -50,20 +50,20 @@
             <!--
                 Wrapper holds the space of the full text at all times so typing
                 never causes a layout shift when lines wrap.
-                Ghost h1 is invisible but in-flow → its height = final text height.
+                Ghost text is invisible but in-flow → its height = final text height.
                 Typing h1 is absolutely positioned on top of the ghost.
             -->
             <div class="typing-wrapper mt-2 lg:mt-0">
                 <!-- Ghost: in-flow, invisible, reserves the final text height -->
-                <h1
-                    class="h1 font-orbitron text-center lg:text-left ghost-title"
+                <div
+                    class="rail-h1 font-bold font-orbitron text-center lg:text-left ghost-title"
                     class:glow-text={$showMatrix}
                     aria-hidden="true"
-                >{fullText}</h1>
+                >{fullText}</div>
 
                 <!-- Visible typing h1 overlaid on top -->
                 <h1
-                    class="h1 font-orbitron text-primary-500 text-center lg:text-left typing-title"
+                    class="rail-h1 font-orbitron text-primary-500 text-center lg:text-left typing-title"
                     class:typing-cursor={!typingDone}
                     class:glow-text={$showMatrix}
                     class:matrix-title={$showMatrix}
@@ -95,8 +95,8 @@
     }
 
     .glow-text {
-        text-shadow: 0 0 10px rgb(var(--color-primary-500) / 0.5),
-                    0 0 20px rgb(var(--color-primary-500) / 0.3);
+        text-shadow: 0 0 10px color-mix(in srgb, var(--color-primary-500) 50%, transparent),
+                    0 0 20px color-mix(in srgb, var(--color-primary-500) 30%, transparent);
         letter-spacing: 0.05em;
     }
 
@@ -139,16 +139,16 @@
 
     /* Inline links in the about paragraph */
     p :global(a) {
-        color: rgb(var(--color-primary-600));
+        color: var(--color-primary-600);
         text-decoration: underline;
-        text-decoration-color: rgb(var(--color-primary-500) / 0.4);
+        text-decoration-color: color-mix(in srgb, var(--color-primary-500) 40%, transparent);
         text-underline-offset: 2px;
         transition: color 0.15s ease, text-decoration-color 0.15s ease;
     }
 
     p :global(a:hover) {
-        color: rgb(var(--color-primary-400));
-        text-decoration-color: rgb(var(--color-primary-400) / 0.8);
+        color: var(--color-primary-400);
+        text-decoration-color: color-mix(in srgb, var(--color-primary-400) 80%, transparent);
     }
 
     :global(.matrix-theme) p :global(a) {

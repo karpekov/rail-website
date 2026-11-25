@@ -1,8 +1,8 @@
 <script lang="ts">
-    import { news } from '$lib/utils/dataLoader';
-    import { showMatrix } from '$lib/stores/theme';
+    import { news } from '#lib/utils/dataLoader.ts';
+    import { showMatrix } from '#lib/stores/theme.ts';
     import { fly } from 'svelte/transition';
-    import { trackEvent } from '$lib/utils/analytics';
+    import { trackEvent, trackLinkClicks } from '#lib/utils/analytics.ts';
 
     const INITIAL_SHOW = 5;
     const SHOW_MORE = 10;
@@ -47,9 +47,7 @@
 
     // Track clicks on links rendered inside news items (delegated, since the
     // anchors are injected via {@html}).
-    function trackNewsLinkClick(event: MouseEvent) {
-        const link = (event.target as HTMLElement | null)?.closest('a.news-inline-link');
-        if (!link) return;
+    function trackNewsLink(link: HTMLAnchorElement) {
         trackEvent('news_link_click', {
             link_url: link.getAttribute('href') ?? '',
             link_text: link.textContent?.trim() ?? ''
@@ -61,10 +59,10 @@
 </script>
 
 <section id="news">
-    <h2 class="h2 font-orbitron section-title">News</h2>
+    <h2 class="rail-h2 font-orbitron section-title">News</h2>
 
     {#if allNews.length > 0}
-        <div class="news-card bg-surface-100-800-token" class:matrix-card={$showMatrix}>
+        <div class="news-card bg-surface-100" class:matrix-card={$showMatrix}>
             <div class="timeline" class:matrix-timeline={$showMatrix}>
                 {#each visibleNews as item, i (item)}
                     {@const d = parseDate(item.date)}
@@ -82,8 +80,7 @@
                             <div class="tl-stem"></div>
                         </div>
                         <div class="tl-body">
-                            <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
-                            <p on:click={trackNewsLinkClick}>{@html renderContent(item.content)}</p>
+                            <p use:trackLinkClicks={trackNewsLink}>{@html renderContent(item.content)}</p>
                         </div>
                     </div>
                 {/each}
@@ -150,12 +147,12 @@
         font-size: 0.8rem;
         font-weight: 700;
         letter-spacing: 0.03em;
-        color: rgb(var(--color-primary-600));
+        color: var(--color-primary-600);
     }
 
     .tl-month {
         font-size: 0.72rem;
-        color: rgb(var(--color-surface-600));
+        color: var(--color-surface-600);
         text-transform: uppercase;
         letter-spacing: 0.04em;
     }
@@ -173,7 +170,7 @@
         width: 9px;
         height: 9px;
         border-radius: 50%;
-        background: rgb(var(--color-primary-500));
+        background: var(--color-primary-500);
         margin-top: 0.38rem;
         flex-shrink: 0;
         position: relative;
@@ -183,7 +180,7 @@
     .tl-stem {
         flex: 1;
         width: 2px;
-        background: rgb(var(--color-primary-500) / 0.45);
+        background: color-mix(in srgb, var(--color-primary-500) 45%, transparent);
         margin-top: 3px;
         min-height: 0.5rem;
         border-radius: 1px;
@@ -239,7 +236,7 @@
         width: 4px;
         height: 4px;
         border-radius: 50%;
-        background: rgb(var(--color-primary-500) / 0.35);
+        background: color-mix(in srgb, var(--color-primary-500) 35%, transparent);
         transition: background 0.22s ease, transform 0.22s ease;
     }
 
@@ -247,7 +244,7 @@
         padding-left: 1.1rem;
         font-size: 0.78rem;
         letter-spacing: 0.04em;
-        color: rgb(var(--color-surface-600));
+        color: var(--color-surface-600);
         opacity: 0;
         transform: translateX(-6px);
         transition: opacity 0.22s ease, transform 0.22s ease;
@@ -255,7 +252,7 @@
     }
 
     .tl-more-row:hover .more-pip {
-        background: rgb(var(--color-primary-500) / 0.85);
+        background: color-mix(in srgb, var(--color-primary-500) 85%, transparent);
         transform: scale(1.3);
     }
 
@@ -285,16 +282,16 @@
 
     /* ── Inline links (injected via {@html}) ──────────────────────────── */
     :global(.news-inline-link) {
-        color: rgb(var(--color-primary-600));
+        color: var(--color-primary-600);
         text-decoration: underline;
-        text-decoration-color: rgb(var(--color-primary-500) / 0.35);
+        text-decoration-color: color-mix(in srgb, var(--color-primary-500) 35%, transparent);
         text-underline-offset: 2px;
         transition: color 0.15s ease, text-decoration-color 0.15s ease;
     }
 
     :global(.news-inline-link:hover) {
-        color: rgb(var(--color-primary-400));
-        text-decoration-color: rgb(var(--color-primary-400) / 0.75);
+        color: var(--color-primary-400);
+        text-decoration-color: color-mix(in srgb, var(--color-primary-400) 75%, transparent);
     }
 
     /* ── Matrix theme overrides ───────────────────────────────────────── */
@@ -325,7 +322,7 @@
 
     /* ── Section title ────────────────────────────────────────────────── */
     :global(:not(.matrix-theme)) .section-title {
-        color: rgb(var(--color-primary-600));
+        color: var(--color-primary-600);
     }
 
     /* ── Mobile overrides (must be last to win the cascade) ──────────── */

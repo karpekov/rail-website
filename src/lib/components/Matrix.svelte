@@ -99,8 +99,7 @@
 <canvas
     bind:this={canvas}
     class="w-full h-full"
-    style="background-color: {backgroundColor};"
-/>
+    style="background-color: {backgroundColor};"></canvas>
 
 <style>
     canvas {

@@ -1,5 +1,5 @@
 <script>
-    import { showMatrix } from '$lib/stores/theme';
+    import { showMatrix } from '#lib/stores/theme.ts';
 
     const currentYear = new Date().getFullYear();
     const socialLinks = [
@@ -27,26 +27,26 @@
     ];
 </script>
 
-<footer class="py-6 border-t border-surface-300-600-token" class:matrix-footer={$showMatrix}>
+<footer class="py-6 border-t border-surface-300" class:matrix-footer={$showMatrix}>
     <div class="container mx-auto max-w-6xl px-4 sm:px-6 md:px-8">
         <!-- Desktop Layout -->
         <div class="hidden lg:flex justify-between items-start">
             <div class="flex items-center gap-8">
-                <div class="text-sm text-surface-600-300-token" class:matrix-text={$showMatrix}>
+                <div class="text-sm text-surface-600" class:matrix-text={$showMatrix}>
                     © {currentYear} RAIL Lab.<br />All rights reserved.
                 </div>
-                <div class="h-8 w-px bg-surface-300-600-token" class:matrix-divider={$showMatrix}></div>
+                <div class="h-8 w-px bg-surface-300" class:matrix-divider={$showMatrix}></div>
                 <div class="flex gap-6" class:matrix-icons={$showMatrix}>
                     {#each socialLinks as link}
                         <a href={link.url} target="_blank" rel="noopener noreferrer"
-                           class="text-surface-600-300-token hover:text-primary-500 transition-colors cursor-pointer"
+                           class="text-surface-600 hover:text-primary-500 transition-colors cursor-pointer"
                            title={link.name}>
                             {@html link.icon}
                         </a>
                     {/each}
                 </div>
             </div>
-            <div class="text-right text-sm text-surface-600-300-token" class:matrix-text={$showMatrix}>
+            <div class="text-right text-sm text-surface-600" class:matrix-text={$showMatrix}>
                 <p class="mb-1">
                     Designed and built by
                     <a href="https://www.alexkarpekov.com/" target="_blank" rel="noopener noreferrer"
@@ -67,13 +67,13 @@
 
         <!-- Tablet Layout -->
         <div class="hidden sm:flex lg:hidden justify-between items-center">
-            <div class="text-sm text-surface-600-300-token" class:matrix-text={$showMatrix}>
+            <div class="text-sm text-surface-600" class:matrix-text={$showMatrix}>
                 © {currentYear} RAIL Lab.<br />All rights reserved.
             </div>
             <div class="flex gap-6" class:matrix-icons={$showMatrix}>
                 {#each socialLinks as link}
                     <a href={link.url} target="_blank" rel="noopener noreferrer"
-                       class="text-surface-600-300-token hover:text-primary-500 transition-colors cursor-pointer"
+                       class="text-surface-600 hover:text-primary-500 transition-colors cursor-pointer"
                        title={link.name}>
                         {@html link.icon}
                     </a>
@@ -86,13 +86,13 @@
             <div class="flex gap-6" class:matrix-icons={$showMatrix}>
                 {#each socialLinks as link}
                     <a href={link.url} target="_blank" rel="noopener noreferrer"
-                       class="text-surface-600-300-token hover:text-primary-500 transition-colors cursor-pointer"
+                       class="text-surface-600 hover:text-primary-500 transition-colors cursor-pointer"
                        title={link.name}>
                         {@html link.icon}
                     </a>
                 {/each}
             </div>
-            <div class="text-sm text-center text-surface-600-300-token" class:matrix-text={$showMatrix}>
+            <div class="text-sm text-center text-surface-600" class:matrix-text={$showMatrix}>
                 © {currentYear} RAIL Lab. All rights reserved.
             </div>
         </div>
@@ -100,7 +100,7 @@
 </footer>
 
 <style>
-    .matrix-footer {
+    :global(.matrix-theme) .matrix-footer {
         background-color: var(--mx-bg-hero) !important;
         border-color: var(--mx-divider) !important;
     }

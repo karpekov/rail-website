@@ -1,65 +1,38 @@
-<script>
-    import { people, labRobots } from '$lib/utils/dataLoader';
-    import RobotPortrait from '$lib/components/RobotPortrait.svelte';
-    import { scrollable } from '$lib/utils/scroll';
-    import { showMatrix } from '$lib/stores/theme';
-    import { trackEvent } from '$lib/utils/analytics';
+<script lang="ts">
+    import { people, labRobots, byDegree } from '#lib/utils/dataLoader.ts';
+    import RobotPortrait from '#lib/components/RobotPortrait.svelte';
+    import { showMatrix } from '#lib/stores/theme.ts';
+    import { trackEvent, trackLinkClicks } from '#lib/utils/analytics.ts';
 
-    function handleMemberLinkClick(event, memberName) {
-        const anchor = event.target.closest('a');
-        if (!anchor) return;
-        const linkType = anchor.title || 'link';
-        trackEvent('member_card_click', { member_name: memberName, link_type: linkType, section: 'members' });
+    function trackMemberLink(memberName: string) {
+        return (link: HTMLAnchorElement) =>
+            trackEvent('member_card_click', { member_name: memberName, link_type: link.title || 'link', section: 'members' });
     }
 
     // Combine faculty and students
     const allMembers = [...(people?.faculty || []), ...(people?.students || [])];
 
-    // Define degree priority
-    const degreePriority = {
-        'professor': 0,
-        'postdoc': 1,
-        'phd': 2,
-        'ms': 3,
-        'bs': 4
-    };
-
-    // Split and sort current members by degree and year_joined
-    const currentMembers = allMembers
-        .filter(member => member.status === 'current')
-        .sort((a, b) => {
-            // First compare by degree priority
-            const degreeDiff = degreePriority[a.degree] - degreePriority[b.degree];
-            if (degreeDiff !== 0) return degreeDiff;
-
-            // If same degree, sort by year_joined (ascending - earlier years first)
-            const yearA = a.year_joined || 9999;
-            const yearB = b.year_joined || 9999;
-            return yearA - yearB;
-        });
+    // Current members by degree, then by year joined
+    const currentMembers = allMembers.filter(member => member.status === 'current').sort(byDegree);
 
     // Sort alumni by graduation year descending
     const alumni = allMembers
         .filter(member => member.status === 'alum')
-        .sort((a, b) => b.graduation - a.graduation);
-
-    function getProfileLink(member) {
-        return member.website || member.linkedin || null;
-    }
+        .sort((a, b) => (b.graduation || 0) - (a.graduation || 0));
 </script>
 
 <section id="members">
-    <h2 class="h2 font-orbitron section-title">Lab Members</h2>
+    <h2 class="rail-h2 font-orbitron section-title">Lab Members</h2>
 
     <!-- Current Members -->
     <div class="mb-8">
-        <h3 class="h3 mb-4 font-thin">Current Members</h3>
+        <h3 class="rail-h3 mb-4 font-thin">Current Members</h3>
         <div class="member-grid max-w-6xl mx-auto pt-2">
             {#each currentMembers as member}
-                <div class="w-full min-w-0 flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card"
-                    on:click={(e) => handleMemberLinkClick(e, member.name)}>
+                <div class="w-full min-w-0 flex flex-col items-center stack-y-2 p-2 rounded-lg bg-surface-100 member-card"
+                    use:trackLinkClicks={trackMemberLink(member.name)}>
                     <div
-                        class="member-avatar rounded-full bg-surface-300-600-token overflow-hidden ring-2"
+                        class="member-avatar rounded-full bg-surface-300 overflow-hidden ring-2"
                             class:ring-amber={!$showMatrix}
                             class:ring-black={$showMatrix}
                         >
@@ -105,7 +78,7 @@
                             {/if}
                         </div>
 
-                        <div class="text-center space-y-1 w-full">
+                        <div class="text-center stack-y-1 w-full">
                             <h4 class="font-medium text-sm sm:text-base whitespace-pre-line member-name">
                                 {member.name.split(' ').length > 2 ? member.name : member.name.split(' ').join('\n')}
                             </h4>
@@ -119,18 +92,18 @@
     <!-- Lab Alumni -->
     {#if alumni.length > 0}
         <div class="mt-12">
-            <h3 class="h3 mb-4 font-thin">Lab Alumni</h3>
+            <h3 class="rail-h3 mb-4 font-thin">Lab Alumni</h3>
 
             <!-- Postdoc Alumni -->
             {#if alumni.filter(m => m.degree === 'postdoc').length > 0}
                 <div class="member-grid max-w-6xl mx-auto pt-2 mb-8">
                     {#each alumni
                         .filter(m => m.degree === 'postdoc')
-                        .sort((a, b) => b.graduation - a.graduation) as member}
-                    <div class="w-full min-w-0 flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card"
-                        on:click={(e) => handleMemberLinkClick(e, member.name)}>
+                        .sort((a, b) => (b.graduation || 0) - (a.graduation || 0)) as member}
+                    <div class="w-full min-w-0 flex flex-col items-center stack-y-2 p-2 rounded-lg bg-surface-100 member-card"
+                        use:trackLinkClicks={trackMemberLink(member.name)}>
                         <div
-                            class="member-avatar rounded-full bg-surface-300-600-token overflow-hidden ring-2"
+                            class="member-avatar rounded-full bg-surface-300 overflow-hidden ring-2"
                             class:ring-amber={!$showMatrix}
                             class:ring-black={$showMatrix}
                         >
@@ -201,7 +174,7 @@
                             {/if}
                         </div>
 
-                        <div class="text-center space-y-1 w-full">
+                        <div class="text-center stack-y-1 w-full">
                             <h4 class="font-normal text-xs sm:text-base whitespace-pre-line member-name">
                                 {member.name.split(' ').length > 2 ?
                                     member.name :
@@ -224,11 +197,11 @@
                 <div class="member-grid max-w-6xl mx-auto pt-2">
                     {#each alumni
                         .filter(m => m.degree === 'phd')
-                        .sort((a, b) => b.graduation - a.graduation) as member}
-                    <div class="w-full min-w-0 flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card"
-                        on:click={(e) => handleMemberLinkClick(e, member.name)}>
+                        .sort((a, b) => (b.graduation || 0) - (a.graduation || 0)) as member}
+                    <div class="w-full min-w-0 flex flex-col items-center stack-y-2 p-2 rounded-lg bg-surface-100 member-card"
+                        use:trackLinkClicks={trackMemberLink(member.name)}>
                         <div
-                            class="member-avatar rounded-full bg-surface-300-600-token overflow-hidden ring-2"
+                            class="member-avatar rounded-full bg-surface-300 overflow-hidden ring-2"
                             class:ring-amber={!$showMatrix}
                             class:ring-black={$showMatrix}
                         >
@@ -299,7 +272,7 @@
                             {/if}
                         </div>
 
-                        <div class="text-center space-y-1 w-full">
+                        <div class="text-center stack-y-1 w-full">
                             <h4 class="font-normal text-xs sm:text-base whitespace-pre-line member-name">
                                 {member.name.split(' ').length > 2 ?
                                     member.name :
@@ -322,13 +295,13 @@
     <!-- Robots -->
     {#if labRobots.length > 0}
         <div class="mt-12">
-            <h3 class="h3 mb-4 font-thin">Robots: Past and Present</h3>
+            <h3 class="rail-h3 mb-4 font-thin">Robots: Past and Present</h3>
             <div class="member-grid max-w-6xl mx-auto pt-2">
-                {#each [...labRobots].sort((a, b) => (a.status === 'alum') - (b.status === 'alum')) as robot}
-                    <div class="w-full min-w-0 flex flex-col items-center space-y-2 p-2 rounded-lg bg-surface-100-800-token member-card"
-                        on:click={(e) => handleMemberLinkClick(e, robot.name)}>
+                {#each [...labRobots].sort((a, b) => Number(a.status === 'alum') - Number(b.status === 'alum')) as robot}
+                    <div class="w-full min-w-0 flex flex-col items-center stack-y-2 p-2 rounded-lg bg-surface-100 member-card"
+                        use:trackLinkClicks={trackMemberLink(robot.name)}>
                         <div
-                            class="member-avatar rounded-full bg-surface-300-600-token overflow-hidden ring-2"
+                            class="member-avatar rounded-full bg-surface-300 overflow-hidden ring-2"
                             class:ring-amber={!$showMatrix}
                             class:ring-black={$showMatrix}
                         >
@@ -336,8 +309,8 @@
                                 photo={robot.photo}
                                 gif={robot.gif}
                                 alt={robot.name}
-                                width="144"
-                                height="144"
+                                width={144}
+                                height={144}
                                 loading="lazy"
                             />
                         </div>
@@ -359,7 +332,7 @@
                             {/if}
                         </div>
 
-                        <div class="text-center space-y-1 w-full">
+                        <div class="text-center stack-y-1 w-full">
                             <h4 class="font-medium text-sm sm:text-base member-name">{robot.name}</h4>
                             <p class="font-thin text-xs sm:text-sm break-words">{robot.company_name}</p>
                         </div>
@@ -372,21 +345,23 @@
 </section>
 
 <style>
-    :global(.matrix-theme) .bg-surface-100-800-token {
+    :global(.matrix-theme) .bg-surface-100 {
         box-shadow: 0 0 10px var(--mx-accent-half);
         transition: all 0.3s ease;
     }
 
-    :global(.matrix-theme) .bg-surface-100-800-token:hover {
+    :global(.matrix-theme) .bg-surface-100:hover {
         box-shadow: 0 0 20px var(--mx-accent-half);
     }
 
     .social-icon {
-        @apply transition-colors duration-200;
+        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 200ms;
     }
 
     :global(:not(.matrix-theme)) .social-icon:hover {
-        @apply text-primary-500;
+        color: var(--color-primary-500);
     }
 
     :global(.matrix-theme) .social-icon:hover {
@@ -445,7 +420,9 @@
     }
 
     .member-name {
-        @apply transition-colors duration-200;
+        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 200ms;
     }
 
     :global(.matrix-theme) .member-name {
@@ -453,14 +430,14 @@
     }
 
     :global(:not(.matrix-theme)) .section-title {
-        color: rgb(var(--color-primary-600));
+        color: var(--color-primary-600);
         text-shadow: 0 0 16px rgba(var(--color-primary-500), 0.35),
                      0 0 32px rgba(var(--color-primary-500), 0.18);
     }
 
     /* Amber avatar ring for light theme */
     .ring-amber {
-        --tw-ring-color: rgb(var(--color-primary-400));
+        --tw-ring-color: var(--color-primary-400);
         box-shadow: 0 0 0 2px var(--tw-ring-color);
     }
 

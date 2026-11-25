@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { teaching } from '$lib/utils/dataLoader';
+    import { teaching } from '#lib/utils/dataLoader.ts';
     import { slide } from 'svelte/transition';
-    import { showMatrix } from '$lib/stores/theme';
+    import { showMatrix } from '#lib/stores/theme.ts';
 
     let showPastCourses = false;
 
@@ -15,20 +15,20 @@
 </script>
 
 <section id="teaching">
-    <h2 class="h2 mb-6 font-orbitron section-title">Teaching</h2>
+    <h2 class="rail-h2 mb-6 font-orbitron section-title">Teaching</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
         {#if currentCourses.length > 0}
             <div>
                 <h3 class="font-thin text-lg mb-4">Current Courses</h3>
-                <div class="space-y-4">
+                <div class="stack-y-4">
                     {#each currentCourses as course}
                         <svelte:element
                             this={course.website ? 'a' : 'div'}
                             href={course.website || undefined}
                             target={course.website ? '_blank' : undefined}
                             rel={course.website ? 'noopener noreferrer' : undefined}
-                            class="relative block p-4 rounded-lg bg-surface-100-800-token border-l-4 border-primary-500 course-card"
+                            class="relative block p-4 rounded-lg bg-surface-100 border-l-4 border-primary-500 course-card"
                             class:matrix-card={$showMatrix}
                             class:has-link={!!course.website}
                         >
@@ -53,14 +53,14 @@
         {#if upcomingCourses.length > 0}
             <div>
                 <h3 class="text-lg font-thin mb-4">Upcoming Courses</h3>
-                <div class="space-y-4">
+                <div class="stack-y-4">
                     {#each upcomingCourses as course}
                         <svelte:element
                             this={course.website ? 'a' : 'div'}
                             href={course.website || undefined}
                             target={course.website ? '_blank' : undefined}
                             rel={course.website ? 'noopener noreferrer' : undefined}
-                            class="relative block p-4 rounded-lg bg-surface-100-800-token border-l-4 border-primary-500 course-card"
+                            class="relative block p-4 rounded-lg bg-surface-100 border-l-4 border-primary-500 course-card"
                             class:matrix-card={$showMatrix}
                             class:has-link={!!course.website}
                         >
@@ -107,7 +107,7 @@
                             href={course.website || undefined}
                             target={course.website ? '_blank' : undefined}
                             rel={course.website ? 'noopener noreferrer' : undefined}
-                            class="relative block p-4 rounded-lg bg-surface-100-800-token border-l-4 border-primary-500 course-card"
+                            class="relative block p-4 rounded-lg bg-surface-100 border-l-4 border-primary-500 course-card"
                             class:matrix-card={$showMatrix}
                             class:has-link={!!course.website}
                         >
@@ -148,19 +148,19 @@
     /* Link icon: faint by default, amber + full opacity on hover */
     .course-link-icon {
         opacity: 0.2;
-        color: rgb(var(--color-surface-600));
+        color: var(--color-surface-600);
         transition: opacity 0.2s ease, color 0.2s ease;
     }
 
     :global(:not(.matrix-theme)) .course-card.has-link:hover {
-        background-color: rgb(var(--color-surface-200));
+        background-color: var(--color-surface-200);
         box-shadow: 0 4px 18px rgba(var(--color-primary-500), 0.15);
         transform: translateX(4px);
     }
 
     :global(:not(.matrix-theme)) .course-card.has-link:hover .course-link-icon {
         opacity: 1;
-        color: rgb(var(--color-primary-500));
+        color: var(--color-primary-500);
     }
 
     .matrix-card {
@@ -184,21 +184,13 @@
         color: var(--mx-accent) !important;
     }
 
-    :global(.matrix-theme) .course-link {
-        color: var(--mx-accent) !important;
-    }
-
-    :global(.matrix-theme) .course-link:hover {
-        color: var(--mx-accent) !important;
-        filter: drop-shadow(0 0 4px var(--mx-accent));
-    }
 
     :global(.matrix-theme) .past-toggle:hover {
         color: var(--mx-accent);
     }
 
     :global(:not(.matrix-theme)) .section-title {
-        color: rgb(var(--color-primary-600));
+        color: var(--color-primary-600);
         text-shadow: 0 0 16px rgba(var(--color-primary-500), 0.35),
                      0 0 32px rgba(var(--color-primary-500), 0.18);
     }

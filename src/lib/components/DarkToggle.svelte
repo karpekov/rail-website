@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { showDark, showMatrix, toggleDark } from '$lib/stores/theme';
+    import { showDark, showMatrix, toggleDark } from '#lib/stores/theme.ts';
 </script>
 
 <button

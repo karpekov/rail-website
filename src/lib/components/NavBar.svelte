@@ -1,11 +1,10 @@
 <script lang="ts">
-    import { getModalStore } from '@skeletonlabs/skeleton';
-    import JoinUs from '$lib/components/JoinUs.svelte';
-    import { showMatrix } from '$lib/stores/theme';
-    import DarkToggle from '$lib/components/DarkToggle.svelte';
-    import MatrixEasterEgg from '$lib/components/MatrixEasterEgg.svelte';
-    import RailSvgRaw from '$lib/../../static/assets/RAIL.svg?raw';
-    import { trackEvent } from '$lib/utils/analytics';
+    import JoinUs from '#lib/components/JoinUs.svelte';
+    import { showMatrix } from '#lib/stores/theme.ts';
+    import DarkToggle from '#lib/components/DarkToggle.svelte';
+    import MatrixEasterEgg from '#lib/components/MatrixEasterEgg.svelte';
+    import RailSvgRaw from '../../../static/assets/RAIL.svg?raw';
+    import { trackEvent } from '#lib/utils/analytics.ts';
 
     function inlineNavLogo(svg: string): string {
         return svg
@@ -15,19 +14,11 @@
 
     const navLogoHtml = inlineNavLogo(RailSvgRaw);
 
-    const modalStore = getModalStore();
+    let joinUsOpen = false;
 
     function openJoinUsModal(location: 'desktop' | 'mobile' = 'desktop') {
         trackEvent('join_us_click', { location });
-        modalStore.trigger({
-            type: 'component',
-            component: {
-                ref: JoinUs,
-                props: {
-                    onClose: () => modalStore.close()
-                }
-            }
-        });
+        joinUsOpen = true;
     }
 
     function scrollToSection(sectionId: string) {
@@ -54,7 +45,7 @@
 </script>
 
 <!-- Navigation Bar -->
-<div class="sticky top-0 z-50 bg-surface-100-800-token/98 backdrop-blur-lg w-full p-2 md:p-4 shadow-lg">
+<div class="sticky top-0 z-50  backdrop-blur-lg w-full p-2 md:p-4 shadow-lg">
     <nav class="container mx-auto max-w-6xl px-4 sm:px-6 md:px-8 flex justify-between items-center">
         <!-- Logo container with transition -->
         {#if showLogo}
@@ -74,15 +65,15 @@
         {/if}
 
         <!-- Desktop Navigation -->
-        <div class="hidden lg:flex items-center space-x-4">
-            <button class="btn btn-sm variant-ghost" on:click={() => scrollToSection('about')}>About</button>
-            <button class="btn btn-sm variant-ghost" on:click={() => scrollToSection('news')}>News</button>
-            <button class="btn btn-sm variant-ghost" on:click={() => scrollToSection('projects')}>Projects</button>
-            <button class="btn btn-sm variant-ghost" on:click={() => scrollToSection('members')}>Members</button>
-            <button class="btn btn-sm variant-ghost" on:click={() => scrollToSection('teaching')}>Teaching</button>
-            <button class="btn btn-sm variant-ghost" on:click={() => scrollToSection('fun')}>Fun</button>
+        <div class="hidden lg:flex items-center stack-x-4">
+            <button class="rail-btn rail-btn-sm rail-ghost" on:click={() => scrollToSection('about')}>About</button>
+            <button class="rail-btn rail-btn-sm rail-ghost" on:click={() => scrollToSection('news')}>News</button>
+            <button class="rail-btn rail-btn-sm rail-ghost" on:click={() => scrollToSection('projects')}>Projects</button>
+            <button class="rail-btn rail-btn-sm rail-ghost" on:click={() => scrollToSection('members')}>Members</button>
+            <button class="rail-btn rail-btn-sm rail-ghost" on:click={() => scrollToSection('teaching')}>Teaching</button>
+            <button class="rail-btn rail-btn-sm rail-ghost" on:click={() => scrollToSection('fun')}>Fun</button>
             <button
-                class="btn btn-sm variant-filled-primary join-us-btn"
+                class="rail-btn rail-btn-sm rail-filled-primary join-us-btn"
                 class:matrix-join-btn={$showMatrix}
                 on:click={() => openJoinUsModal('desktop')}
             >
@@ -95,10 +86,10 @@
         </div>
 
         <!-- Mobile Navigation -->
-        <div class="lg:hidden flex items-center space-x-2">
+        <div class="lg:hidden flex items-center stack-x-2">
             <MatrixEasterEgg />
             <DarkToggle />
-            <button class="btn btn-sm variant-ghost p-2" on:click={toggleMenu}>
+            <button class="rail-btn rail-btn-sm rail-ghost p-2" on:click={toggleMenu} aria-label="Menu" aria-expanded={menuOpen}>
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
@@ -109,15 +100,15 @@
     <!-- Mobile Menu -->
     {#if menuOpen}
         <div id="mobile-menu" class="lg:hidden container mx-auto max-w-6xl px-4 sm:px-6 md:px-8">
-            <div class="flex flex-col space-y-1 py-3">
-                <button class="btn btn-sm variant-ghost text-left px-4 py-2" on:click={() => scrollToSection('about')}>About</button>
-                <button class="btn btn-sm variant-ghost text-left px-4 py-2" on:click={() => scrollToSection('news')}>News</button>
-                <button class="btn btn-sm variant-ghost text-left px-4 py-2" on:click={() => scrollToSection('projects')}>Projects</button>
-                <button class="btn btn-sm variant-ghost text-left px-4 py-2" on:click={() => scrollToSection('members')}>Members</button>
-                <button class="btn btn-sm variant-ghost text-left px-4 py-2" on:click={() => scrollToSection('teaching')}>Teaching</button>
-                <button class="btn btn-sm variant-ghost text-left px-4 py-2" on:click={() => scrollToSection('fun')}>Fun</button>
+            <div class="flex flex-col stack-y-1 py-3">
+                <button class="rail-btn rail-btn-sm rail-ghost text-left px-4 py-2" on:click={() => scrollToSection('about')}>About</button>
+                <button class="rail-btn rail-btn-sm rail-ghost text-left px-4 py-2" on:click={() => scrollToSection('news')}>News</button>
+                <button class="rail-btn rail-btn-sm rail-ghost text-left px-4 py-2" on:click={() => scrollToSection('projects')}>Projects</button>
+                <button class="rail-btn rail-btn-sm rail-ghost text-left px-4 py-2" on:click={() => scrollToSection('members')}>Members</button>
+                <button class="rail-btn rail-btn-sm rail-ghost text-left px-4 py-2" on:click={() => scrollToSection('teaching')}>Teaching</button>
+                <button class="rail-btn rail-btn-sm rail-ghost text-left px-4 py-2" on:click={() => scrollToSection('fun')}>Fun</button>
                 <button
-                    class="btn w-full variant-filled-primary join-us-btn"
+                    class="rail-btn w-full rail-filled-primary join-us-btn"
                     class:matrix-join-btn={$showMatrix}
                     on:click={() => { closeMenu(); openJoinUsModal('mobile'); }}
                 >
@@ -140,28 +131,30 @@
     ></div>
 {/if}
 
+<JoinUs bind:open={joinUsOpen} />
+
 <style>
     /* Default theme button */
-    .btn.variant-ghost {
+    .rail-btn.rail-ghost {
         border: 1px solid transparent;
         transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
     }
 
-    :global(:not(.matrix-theme)) .btn.variant-ghost:hover {
+    :global(:not(.matrix-theme)) .rail-btn.rail-ghost:hover {
         background-color: rgba(var(--color-primary-500), 0.1);
-        color: rgb(var(--color-primary-500));
-        border-color: rgb(var(--color-primary-500));
+        color: var(--color-primary-500);
+        border-color: var(--color-primary-500);
     }
 
     /* Matrix theme nav buttons — fully global to beat scoped light-theme rules */
-    :global(.matrix-theme .btn.variant-ghost) {
+    :global(.matrix-theme .rail-btn.rail-ghost) {
         color: #fff !important;
         border: 1px solid var(--mx-accent-mid) !important;
         background-color: transparent !important;
     }
 
-    :global(.matrix-theme .btn.variant-ghost:hover),
-    :global(.matrix-theme #mobile-menu .btn.variant-ghost:hover) {
+    :global(.matrix-theme .rail-btn.rail-ghost:hover),
+    :global(.matrix-theme #mobile-menu .rail-btn.rail-ghost:hover) {
         background-color: var(--mx-accent-dim) !important;
         color: var(--mx-accent) !important;
         border-color: var(--mx-accent) !important;
@@ -184,7 +177,8 @@
     }
 
     .join-us-btn {
-        @apply font-semibold shadow-lg;
+        font-weight: 600;
+        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
         animation: subtle-pulse 2s infinite;
         transition: all 0.3s ease;
     }

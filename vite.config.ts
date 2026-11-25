@@ -1,10 +1,11 @@
-import { purgeCss } from 'vite-plugin-tailwind-purgecss';
+import adapter from '@sveltejs/adapter-vercel';
+import tailwindcss from '@tailwindcss/vite';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 import yaml from '@rollup/plugin-yaml';
 
 export default defineConfig({
-	plugins: [sveltekit(), yaml(), purgeCss()],
+	plugins: [tailwindcss(), sveltekit({ adapter: adapter() }), yaml()],
 	server: {
 		// Mirror the `rewrites` in vercel.json, which `vite dev` ignores.
 		proxy: {

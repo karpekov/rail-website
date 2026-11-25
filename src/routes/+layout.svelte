@@ -1,8 +1,5 @@
 <script lang="ts">
-	import '../app.postcss';
-	import { Modal, initializeStores } from '@skeletonlabs/skeleton';
-
-	initializeStores();
+	import '../app.css';
 </script>
 
 <svelte:head>
@@ -35,9 +32,6 @@
 	<meta name="twitter:image" content="https://www.gt-rail.com/assets/social-card.png">
 	<meta name="twitter:image:alt" content="RAIL — Robot Autonomy and Interactive Learning at Georgia Tech">
 </svelte:head>
-
-<!-- Skeleton Modal -->
-<Modal />
 
 <div class="app min-h-screen">
 	<slot />

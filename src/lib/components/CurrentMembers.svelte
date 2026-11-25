@@ -1,9 +1,9 @@
 <script lang="ts">
     import { onDestroy } from 'svelte';
-    import { people, labRobots } from '$lib/utils/dataLoader';
-    import RobotPortrait from '$lib/components/RobotPortrait.svelte';
-    import { showMatrix, showDark } from '$lib/stores/theme';
-    import { trackEvent } from '$lib/utils/analytics';
+    import { people, labRobots, byDegree, type Member } from '#lib/utils/dataLoader.ts';
+    import RobotPortrait from '#lib/components/RobotPortrait.svelte';
+    import { showMatrix, showDark } from '#lib/stores/theme.ts';
+    import { trackEvent } from '#lib/utils/analytics.ts';
 
     function scrollToMembers() {
         const section = document.getElementById('members');
@@ -24,14 +24,9 @@
     const currentMembers = [...(people?.faculty || []), ...(people?.students || [])]
         .filter(member => member.status === 'current');
 
-    const degreePriority = { professor: 0, postdoc: 1, phd: 2, ms: 3, bs: 4 };
+    const allOrderedMembers = currentMembers.slice().sort(byDegree);
 
-    const allOrderedMembers = currentMembers.slice().sort((a, b) => {
-        const diff = degreePriority[a.degree] - degreePriority[b.degree];
-        return diff !== 0 ? diff : (a.year_joined || 9999) - (b.year_joined || 9999);
-    });
-
-    function getProfileLink(member) {
+    function getProfileLink(member: Member) {
         return member.website || member.linkedin || null;
     }
 
@@ -174,8 +169,8 @@
                                         photo={robot.photo}
                                         gif={robot.gif}
                                         alt={robot.name}
-                                        width="112"
-                                        height="112"
+                                        width={112}
+                                        height={112}
                                         loading="lazy"
                                     />
                                 </div>
@@ -186,8 +181,8 @@
                                     photo={robot.photo}
                                     gif={robot.gif}
                                     alt={robot.name}
-                                    width="112"
-                                    height="112"
+                                    width={112}
+                                    height={112}
                                     loading="lazy"
                                 />
                             </div>
@@ -239,7 +234,10 @@
         flex: 0 0 calc((100% - 4 * 0.65rem) / 5);
         width: calc((100% - 4 * 0.65rem) / 5);
         max-width: none;
-        @apply flex flex-col items-center gap-1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
     }
 
     @container (max-width: 539px) {
@@ -297,7 +295,9 @@
         width: min(100%, 6.75rem);
         margin-inline: auto;
         aspect-ratio: 1;
-        @apply rounded-full overflow-hidden transition-all;
+        border-radius: 9999px;
+        overflow: hidden;
+        transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     @container members (min-width: 980px) {
@@ -334,14 +334,14 @@
     :global(:not(.matrix-theme)) .person-card-image {
         /* outline renders in its own layer — not clipped by overflow:hidden
            or scaled away by transform — stays visible at all times */
-        outline: 3px solid rgb(var(--color-primary-400));
+        outline: 3px solid var(--color-primary-400);
         outline-offset: 0px;
         transition: outline-color 0.25s ease, outline-width 0.25s ease,
                     box-shadow 0.25s ease, transform 0.25s ease;
     }
 
     :global(:not(.matrix-theme)) .person-card-image:hover {
-        outline: 3px solid rgb(var(--color-primary-400));
+        outline: 3px solid var(--color-primary-400);
         outline-offset: 0px;
         box-shadow: 0 0 14px rgba(var(--color-primary-500), 0.35);
         transform: scale(1.07);
@@ -361,12 +361,15 @@
     }
 
     .flip-container {
-        @apply w-full h-full;
+        width: 100%;
+        height: 100%;
         perspective: 1000px;
     }
 
     .flipper {
-        @apply relative w-full h-full;
+        position: relative;
+        width: 100%;
+        height: 100%;
         transform-style: preserve-3d;
         transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
     }
@@ -381,7 +384,11 @@
     }
 
     .front, .back {
-        @apply absolute w-full h-full rounded-full overflow-hidden;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 9999px;
+        overflow: hidden;
         backface-visibility: hidden;
     }
 
@@ -446,11 +453,11 @@
     }
 
     .hero-members-link {
-        color: rgb(var(--color-primary-500));
+        color: var(--color-primary-500);
     }
 
     .hero-members-link:hover {
-        color: rgb(var(--color-primary-600));
+        color: var(--color-primary-600);
     }
 
     /* Dark theme headings are bright yellow. This line should read like light
@@ -467,7 +474,7 @@
     }
 
     :global(.dark-theme) .hero-members-link:hover {
-        color: rgb(var(--color-primary-400)) !important;
+        color: var(--color-primary-400) !important;
     }
 
     :global(.matrix-theme) .hero-members-link {

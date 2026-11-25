@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { showMatrix } from '$lib/stores/theme';
+    import { showMatrix } from '#lib/stores/theme.ts';
     import { onMount } from 'svelte';
-    import { trackEvent } from '$lib/utils/analytics';
+    import { trackEvent } from '#lib/utils/analytics.ts';
 
     function toggle() {
         const next = !$showMatrix;

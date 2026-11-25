@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import { onMount } from 'svelte';
 
     let mounted = false;
@@ -11,7 +11,7 @@
         window.addEventListener('resize', updateViewportSize);
 
         setTimeout(() => {
-            const lines = document.querySelectorAll('.circuit-line');
+            const lines = document.querySelectorAll<SVGPathElement>('.circuit-line');
             lines.forEach(line => {
                 const animate = () => {
                     line.style.transition = 'none';
@@ -107,6 +107,6 @@
 
     :global(.dark) .circuit-pattern,
     :global(.light) .circuit-pattern {
-        color: theme('colors.primary.500');
+        color: var(--color-primary-500);
     }
 </style>

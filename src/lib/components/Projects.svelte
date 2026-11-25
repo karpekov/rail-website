@@ -1,13 +1,12 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-    import { projects } from '$lib/utils/dataLoader';
-    import { scrollable } from '$lib/utils/scroll';
-    import { showMatrix } from '$lib/stores/theme';
+    import { projects } from '#lib/utils/dataLoader.ts';
+    import { showMatrix } from '#lib/stores/theme.ts';
     import { fly, fade } from 'svelte/transition';
     import { cubicOut } from 'svelte/easing';
-    import { trackEvent } from '$lib/utils/analytics';
+    import { trackEvent } from '#lib/utils/analytics.ts';
 
-    const tagLabels = {
+    const tagLabels: Record<string, string> = {
         all: 'All Projects',
         hcai: 'Human-Centered AI',
         robo: 'Robotics',
@@ -59,7 +58,7 @@
 </script>
 
 <section id="projects">
-    <h2 class="h2 font-orbitron section-title">Featured Projects</h2>
+    <h2 class="rail-h2 font-orbitron section-title">Featured Projects</h2>
 
     <!-- Filter Chips — styled entirely via CSS, no inline styles -->
     <div class="flex flex-wrap gap-2 mt-4 mb-6">
@@ -85,11 +84,11 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8" out:fade={{ duration: 120 }}>
         {#each filteredProjects.slice(0, visibleCount) as project, i}
             <div
-                class="flex flex-col h-full bg-surface-100-800-token rounded-lg overflow-hidden project-card max-w-sm mx-auto w-full relative group"
+                class="flex flex-col h-full bg-surface-100 rounded-lg overflow-hidden project-card max-w-sm mx-auto w-full relative group"
                 in:fly={{ y: 28, duration: 320, delay: i * 45, easing: cubicOut }}
             >
                 <div class="p-3 pb-0">
-                    <div class="rounded-lg overflow-hidden border border-surface-300-600-token">
+                    <div class="rounded-lg overflow-hidden border border-surface-300">
                         <img
                             src={project.image}
                             alt=""
@@ -99,8 +98,8 @@
                     </div>
                 </div>
 
-                <div class="p-3 space-y-2 flex-grow">
-                    <div class="space-y-2">
+                <div class="p-3 stack-y-2 grow">
+                    <div class="stack-y-2">
                         <h4 class="font-medium text-base">{project.title}</h4>
                         {#if project.venue}
                             <div class="publication-chip">
@@ -131,7 +130,7 @@
                         {#if project.blog}
                             <a href={project.blog} target="_blank" rel="noopener noreferrer"
                                on:click={() => trackEvent('project_blog_click', { project: project.title })}
-                               class="chip variant-soft-primary transition-all flex-none matrix-chip {!$showMatrix ? 'hover:variant-filled-primary' : ''}"
+                               class="rail-chip rail-soft-primary transition-all flex-none matrix-chip {!$showMatrix ? 'hover:rail-filled-primary' : ''}"
                                title="Read the Blog Post">
                                 <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M12 20h9" />
@@ -142,7 +141,7 @@
                         {/if}
                         {#if project.website}
                             <a href={project.website} target="_blank" rel="noopener noreferrer"
-                               class="chip variant-soft-primary transition-all flex-none matrix-chip {!$showMatrix ? 'hover:variant-filled-primary' : ''}"
+                               class="rail-chip rail-soft-primary transition-all flex-none matrix-chip {!$showMatrix ? 'hover:rail-filled-primary' : ''}"
                                title="Project Website">
                                 <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
@@ -152,7 +151,7 @@
                         {/if}
                         {#if project.pdf}
                             <a href={project.pdf} target="_blank" rel="noopener noreferrer"
-                               class="chip variant-soft-primary transition-all matrix-chip {!$showMatrix ? 'hover:variant-filled-primary' : ''}"
+                               class="rail-chip rail-soft-primary transition-all matrix-chip {!$showMatrix ? 'hover:rail-filled-primary' : ''}"
                                title="View Paper">
                                 <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -166,7 +165,7 @@
                         {/if}
                         {#if project.github}
                             <a href={project.github} target="_blank" rel="noopener noreferrer"
-                               class="chip variant-soft-primary transition-all matrix-chip {!$showMatrix ? 'hover:variant-filled-primary' : ''}"
+                               class="rail-chip rail-soft-primary transition-all matrix-chip {!$showMatrix ? 'hover:rail-filled-primary' : ''}"
                                title="View Code">
                                 <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
@@ -176,7 +175,7 @@
                         {/if}
                         {#if project.video}
                             <a href={project.video} target="_blank" rel="noopener noreferrer"
-                               class="chip variant-soft-primary transition-all matrix-chip {!$showMatrix ? 'hover:variant-filled-primary' : ''}"
+                               class="rail-chip rail-soft-primary transition-all matrix-chip {!$showMatrix ? 'hover:rail-filled-primary' : ''}"
                                title="Watch Demo">
                                 <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
@@ -193,7 +192,7 @@
 
     {#if hasMore}
         <div class="flex justify-center mt-8">
-            <button class="btn variant-ghost-primary matrix-button" on:click={showMore}>
+            <button class="rail-btn rail-ghost-primary matrix-button" on:click={showMore}>
                 Discover More Projects
             </button>
         </div>
@@ -261,23 +260,23 @@
 
     /* Filter chips */
     .filter-chip {
-        color: rgb(var(--color-surface-700));
-        border: 1px solid rgb(var(--color-surface-400));
+        color: var(--color-surface-700);
+        border: 1px solid var(--color-surface-400);
         background-color: transparent;
         transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .filter-chip.active {
-        background-color: rgb(var(--color-primary-400));
-        border-color: rgb(var(--color-primary-400));
+        background-color: var(--color-primary-400);
+        border-color: var(--color-primary-400);
         color: #1a1000;
-        box-shadow: 0 2px 8px rgb(var(--color-primary-300) / 0.5);
+        box-shadow: 0 2px 8px color-mix(in srgb, var(--color-primary-300) 50%, transparent);
     }
 
     :global(:not(.matrix-theme)) .filter-chip:not(.active):hover {
-        color: rgb(var(--color-primary-800));
-        border-color: rgb(var(--color-primary-300));
-        background-color: rgb(var(--color-primary-50));
+        color: var(--color-primary-800);
+        border-color: var(--color-primary-300);
+        background-color: var(--color-primary-50);
     }
 
     :global(.dark-theme) .filter-chip {
@@ -290,8 +289,8 @@
     }
 
     :global(.dark-theme) .filter-chip:not(.active):hover {
-        color: rgb(var(--color-primary-400)) !important;
-        border-color: rgb(var(--color-primary-400)) !important;
+        color: var(--color-primary-400) !important;
+        border-color: var(--color-primary-400) !important;
         background-color: transparent !important;
     }
 
@@ -316,15 +315,15 @@
 
     /* Tag chips */
     .tag-chip {
-        background-color: rgb(var(--color-primary-50));   /* #FFFBEB very faint yellow */
-        color: rgb(var(--color-primary-800));              /* #705000 dark amber */
-        border: 1.5px solid rgb(var(--color-primary-200)); /* #FDE68A soft yellow border */
+        background-color: var(--color-primary-50);   /* #FFFBEB very faint yellow */
+        color: var(--color-primary-800);              /* #705000 dark amber */
+        border: 1.5px solid var(--color-primary-200); /* #FDE68A soft yellow border */
         transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
     }
 
     .tag-chip.tag-active {
-        background-color: rgb(var(--color-primary-400));  /* #FBBF24 solid amber */
-        border-color: rgb(var(--color-primary-400));
+        background-color: var(--color-primary-400);  /* #FBBF24 solid amber */
+        border-color: var(--color-primary-400);
         color: #1a1000;
     }
 
@@ -342,11 +341,20 @@
     }
 
     .publication-chip {
-        @apply inline-flex px-2 py-0.5 text-xs rounded-full border transition-colors duration-200;
+        display: inline-flex;
+        padding: 0.125rem 0.5rem;
+        font-size: 0.75rem;
+        line-height: 1rem;
+        border-width: 1px;
+        border-radius: 9999px;
+        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 200ms;
     }
 
     :global(:not(.matrix-theme)) .publication-chip {
-        @apply text-primary-500 border-primary-500;
+        color: var(--color-primary-500);
+        border-color: var(--color-primary-500);
     }
 
     :global(.matrix-theme) .publication-chip {
@@ -355,11 +363,13 @@
     }
 
     .project-links a {
-        @apply transition-colors duration-200;
+        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 200ms;
     }
 
     :global(:not(.matrix-theme)) .project-links a:hover {
-        /* variant-filled-primary background = amber; force dark text so it stays readable */
+        /* rail-filled-primary background = amber; force dark text so it stays readable */
         color: rgb(30, 20, 0) !important;
     }
 
@@ -375,14 +385,14 @@
     /* Dark mode: outlined amber chips, filled on hover */
     :global(.dark-theme) .project-links a {
         background: transparent !important;
-        border: 1px solid rgb(var(--color-primary-400)) !important;
-        color: rgb(var(--color-primary-400)) !important;
+        border: 1px solid var(--color-primary-400) !important;
+        color: var(--color-primary-400) !important;
         box-shadow: none !important;
     }
 
     :global(.dark-theme) .project-links a:hover {
-        background: rgb(var(--color-primary-400)) !important;
-        border-color: rgb(var(--color-primary-400)) !important;
+        background: var(--color-primary-400) !important;
+        border-color: var(--color-primary-400) !important;
         color: rgb(30, 20, 0) !important;
     }
 
@@ -425,7 +435,7 @@
     }
 
     :global(:not(.matrix-theme)) .section-title {
-        color: rgb(var(--color-primary-600));
+        color: var(--color-primary-600);
         text-shadow: 0 0 16px rgba(var(--color-primary-500), 0.35),
                      0 0 32px rgba(var(--color-primary-500), 0.18);
     }

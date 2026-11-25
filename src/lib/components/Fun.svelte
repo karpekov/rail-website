@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { fun } from '$lib/utils/dataLoader';
+    import { fun } from '#lib/utils/dataLoader.ts';
     import { onMount } from 'svelte';
-    import { showMatrix } from '$lib/stores/theme';
+    import { showMatrix } from '#lib/stores/theme.ts';
 
     const activities = fun?.activities || [];
 
@@ -25,7 +25,7 @@
 </script>
 
 <section id="fun">
-    <h2 class="h2 font-orbitron section-title">Fun & Outreach</h2>
+    <h2 class="rail-h2 font-orbitron section-title">Fun & Outreach</h2>
 
     <p class="text-sm sm:text-base mb-8 font-opensans">
         Outside of research, we teach robotics to local students, show our robots at the Atlanta Science Festival,
@@ -54,10 +54,10 @@
             class="scroll-strip"
             on:scroll={updateScrollState}
         >
-            <div class="flex space-x-4 px-2">
+            <div class="flex stack-x-4 px-2">
                 {#each activities as activity}
                     <div class="flex-none w-72 pt-2">
-                        <div class="card p-4 h-full fun-card hover:bg-surface-200-700-token" class:matrix-card={$showMatrix}>
+                        <div class="rail-card p-4 h-full fun-card hover:bg-surface-200" class:matrix-card={$showMatrix}>
                             <div class="aspect-video mb-4 rounded-lg overflow-hidden">
                                 <img
                                     src={activity.image}
@@ -68,7 +68,7 @@
                                 />
                             </div>
                             <h3 class="text-base font-semibold mb-2">{activity.title}</h3>
-                            <p class="text-xs text-surface-600-300-token mb-3">{activity.frequency}</p>
+                            <p class="text-xs text-surface-600 mb-3">{activity.frequency}</p>
                             <p class="text-sm mb-4">{activity.description}</p>
                         </div>
                     </div>
@@ -119,9 +119,9 @@
         width: 2.25rem;
         height: 2.25rem;
         border-radius: 9999px;
-        border: 1.5px solid rgb(var(--color-primary-400));
-        background: rgb(var(--color-surface-50));
-        color: rgb(var(--color-primary-600));
+        border: 1.5px solid var(--color-primary-400);
+        background: var(--color-surface-50);
+        color: var(--color-primary-600);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -144,9 +144,9 @@
     }
 
     .scroll-btn:hover {
-        background: rgb(var(--color-primary-500));
+        background: var(--color-primary-500);
         color: #fff;
-        box-shadow: 0 0 12px rgb(var(--color-primary-500) / 0.45);
+        box-shadow: 0 0 12px color-mix(in srgb, var(--color-primary-500) 45%, transparent);
         transform: translateY(-50%) scale(1.1);
     }
 
@@ -191,7 +191,7 @@
 
     /* ── Section title ────────────────────────────────────────────────────── */
     :global(:not(.matrix-theme)) .section-title {
-        color: rgb(var(--color-primary-600));
+        color: var(--color-primary-600);
         text-shadow: 0 0 16px rgba(var(--color-primary-500), 0.35),
                      0 0 32px rgba(var(--color-primary-500), 0.18);
     }
